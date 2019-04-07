@@ -36,14 +36,18 @@
     <title>Pineoc&#39;s Blog</title>
     <!-- styles -->
     <link rel="stylesheet" href="/blog/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/blog/css/rtl.css">
+    
     <!-- rss -->
     
     
 </head>
 
-<body>
+<body class="max-width mx-auto px3 ltr">
     
-    <div class="content index width mx-auto px2 my4">
+    <div class="content index py4">
         
           <header id="header">
   <a href="/blog/">
@@ -59,16 +63,16 @@
   <div id="nav">
     <ul>
       <li class="icon">
-        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
+        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
       </li>
        
         <li><a href="/blog/">Home</a></li>
        
         <li><a href="/blog/about/">About</a></li>
        
-        <li><a href="/blog/posts/">Writing</a></li>
+        <li><a href="/blog/archives/">Writing</a></li>
        
-        <li><a href="https://github.com/pineoc">Projects</a></li>
+        <li><a href="/blog/projects_url">Projects</a></li>
       
     </ul>
   </div>
@@ -77,25 +81,61 @@
         
         <section id="about">
   
-  <p style="display: inline">
-    
+  
+    <p>
       Find me on
-      <ul id="socialinfo">
+      
+      
+      
         
-          <li><a class="icon" target="_blank" href="http://github.com/pineoc"><i class="fa fa-github"></i></a></li>
+          <a class="icon" target="_blank" href="http://github.com/pineoc">
+            <i class="fab fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    --->, 
         
-          <li><a class="icon" target="_blank" href="/blog/"><i class="fa fa-facebook"></i></a></li>
+      
         
-          <li><a class="icon" target="_blank" href="https://www.linkedin.com/in/pineoc"><i class="fa fa-linkedin"></i></a></li>
+          <a class="icon" target="_blank" href="/blog/">
+            <i class="fab fa-twitter"></i><!--
+      ---></a><!--
+    ---><!--
+    --->, 
         
-      </ul>.
-    
-  </p>
+      
+        
+          <a class="icon" target="_blank" href="/blog/">
+            <i class="fab fa-facebook"></i><!--
+      ---></a><!--
+    ---><!--
+    --->, 
+        
+      
+        
+          <a class="icon" target="_blank" href="/blog/">
+            <i class="fab fa-linkedin"></i><!--
+      ---></a><!--
+    ---><!--
+    ---> and 
+        
+      
+        
+          <a class="icon" target="_blank" href="mailto:kingsuk92@gmail.com">
+            <i class="fas fa-envelope"></i><!--
+      ---></a><!--
+      ---><!--
+    --->.
+        
+      
+    </p>
+  
 </section>
 
 <section id="writing">
-  <span class="h1"><a href="/blog/posts">Writing</a></span>
+  <span class="h1"><a href="/blog/archives">Writing</a></span>
+  
   <ul class="post-list">
+    
     
       
     
@@ -103,7 +143,11 @@
       <li class="post-item">
         
     <div class="meta">
-        <time datetime="2019-04-01T13:10:35.443Z" itemprop="datePublished">2019-04-01</time>
+      
+        
+          <time datetime="2019-04-01T13:10:35.443Z" itemprop="datePublished">2019-04-01</time>
+        
+      
     </div>
 
 
@@ -122,9 +166,8 @@
 
 
 
-    </div>
-    
-    <footer id="footer">
+        
+        <footer id="footer">
   <div class="footer-left">
     Copyright &copy; 2019 Pineoc
   </div>
@@ -136,37 +179,42 @@
          
           <li><a href="/blog/about/">About</a></li>
          
-          <li><a href="/blog/posts/">Writing</a></li>
+          <li><a href="/blog/archives/">Writing</a></li>
          
-          <li><a href="https://github.com/pineoc">Projects</a></li>
+          <li><a href="/blog/projects_url">Projects</a></li>
         
       </ul>
     </nav>
   </div>
 </footer>
 
-</body>
-</html>
-<!-- styles -->
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
-<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/blog/lib/justified-gallery/css/justifiedGallery.min.css">
 
-<!-- jquery -->
+    <!-- jquery -->
 <script src="/blog/lib/jquery/jquery.min.js"></script>
-<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
 <script src="/blog/js/main.js"></script>
+<!-- search -->
 
+<!-- Google Analytics -->
 
-    <!-- Google Analytics -->
+<!-- Baidu Analytics -->
+
     <script type="text/javascript">
-        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-45439235-4', 'auto');
-        ga('send', 'pageview');
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
     </script>
 
+<!-- Disqus Comments -->
 
 
+</body>
+</html>
