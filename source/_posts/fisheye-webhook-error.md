@@ -72,7 +72,7 @@ app.use(express.urlencoded({ extended: false }));
 // ...
 ```
 
-이렇게 설정하고 웹훅 데이터를 받아보았더니 해결되었습니다.
+이렇게 app.js 코드를 수정하고 웹훅 데이터를 받아보았더니 해결되었습니다.
 
 ## `Content-Encoding: UTF-8`?
 
