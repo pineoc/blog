@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang=ko>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Fisheye Webhook 에러 수정SVN, Git과 같은 버전관리 프로그램에 기록되는 커밋(리비전) 내역을 트래킹해주는Fisheye를 회사에서 사용 중에 Webhook 기능이 있어 사용하다 에러를 만나게 되어 해결 방법을 남겨봅니다.저는 Node.js + Express로 웹훅을 받아 처리할 때 문제가 있었습니다. Fisheye에 대한 자세한 내용은 추후">
+<meta name="keywords" content="Developer, PM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fisheye webhook error (with node.js)">
+<meta property="og:url" content="https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/index.html">
+<meta property="og:site_name" content="Pineoc&#39;s Blog">
+<meta property="og:description" content="Fisheye Webhook 에러 수정SVN, Git과 같은 버전관리 프로그램에 기록되는 커밋(리비전) 내역을 트래킹해주는Fisheye를 회사에서 사용 중에 Webhook 기능이 있어 사용하다 에러를 만나게 되어 해결 방법을 남겨봅니다.저는 Node.js + Express로 웹훅을 받아 처리할 때 문제가 있었습니다. Fisheye에 대한 자세한 내용은 추후">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-04-20T08:11:43.014Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fisheye webhook error (with node.js)">
+<meta name="twitter:description" content="Fisheye Webhook 에러 수정SVN, Git과 같은 버전관리 프로그램에 기록되는 커밋(리비전) 내역을 트래킹해주는Fisheye를 회사에서 사용 중에 Webhook 기능이 있어 사용하다 에러를 만나게 되어 해결 방법을 남겨봅니다.저는 Node.js + Express로 웹훅을 받아 처리할 때 문제가 있었습니다. Fisheye에 대한 자세한 내용은 추후">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>fisheye webhook error (with node.js)</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/blog/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a href="/blog/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/blog/2019/04/01/hello-hexo-blog/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&text=fisheye webhook error (with node.js)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&is_video=false&description=fisheye webhook error (with node.js)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=fisheye webhook error (with node.js)&body=Check out this article: https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&name=fisheye webhook error (with node.js)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fisheye-Webhook-에러-수정"><span class="toc-number">1.</span> <span class="toc-text">Fisheye Webhook 에러 수정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webhook-기본-설정"><span class="toc-number">2.</span> <span class="toc-text">Webhook 기본 설정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webhook을-받기-위한-Node-js-Express-서버-구성"><span class="toc-number">3.</span> <span class="toc-text">Webhook을 받기 위한 Node.js + Express 서버 구성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UnsupportedMediaTypeError-에러-확인-및-해결-시도"><span class="toc-number">4.</span> <span class="toc-text">UnsupportedMediaTypeError 에러 확인 및 해결 시도</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Content-Encoding-UTF-8"><span class="toc-number">5.</span> <span class="toc-text">Content-Encoding: UTF-8?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#문제-해결"><span class="toc-number">6.</span> <span class="toc-text">문제 해결</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        fisheye webhook error (with node.js)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Pineoc's Blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-04-20T08:09:42.000Z" itemprop="datePublished">2019-04-20</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/blog/categories/Tech/">Tech</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="Fisheye-Webhook-에러-수정"><a href="#Fisheye-Webhook-에러-수정" class="headerlink" title="Fisheye Webhook 에러 수정"></a>Fisheye Webhook 에러 수정</h2><p>SVN, Git과 같은 버전관리 프로그램에 기록되는 커밋(리비전) 내역을 트래킹해주는<br><code>Fisheye</code>를 회사에서 사용 중에 Webhook 기능이 있어 사용하다 에러를 만나게 되어 해결 방법을 남겨봅니다.<br>저는 Node.js + Express로 웹훅을 받아 처리할 때 문제가 있었습니다.</p>
+<p>Fisheye에 대한 자세한 내용은 추후 다른 포스트에서 남겨보겠습니다. :)</p>
+<h2 id="Webhook-기본-설정"><a href="#Webhook-기본-설정" class="headerlink" title="Webhook 기본 설정"></a>Webhook 기본 설정</h2><p>Fisheye에서 웹훅을 설정하는 방법은 간단합니다.<br>아래 링크를 참고하여 웹훅을 설정합니다.<br><a href="https://confluence.atlassian.com/fisheye/configuring-web-hooks-960155631.html" target="_blank" rel="noopener">https://confluence.atlassian.com/fisheye/configuring-web-hooks-960155631.html</a></p>
+<h2 id="Webhook을-받기-위한-Node-js-Express-서버-구성"><a href="#Webhook을-받기-위한-Node-js-Express-서버-구성" class="headerlink" title="Webhook을 받기 위한 Node.js + Express 서버 구성"></a>Webhook을 받기 위한 Node.js + Express 서버 구성</h2><p>간단한 서버 어플리케이션을 만들어서 웹훅을 받아봅니다.<br>POST 요청을 받을 수 있도록 만들고 Test 기능으로 웹훅을 보내 보았습니다.</p>
+<p>그랬더니 아래와 같은 에러가 생겼습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /test/webhook 415 4.796 ms - 1426</span><br><span class="line">UnsupportedMediaTypeError: unsupported content encoding &quot;utf-8&quot;</span><br><span class="line">    at contentstream (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\read.js:174:13)</span><br><span class="line">    at read (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\read.js:54:14)</span><br><span class="line">    at jsonParser (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\types\json.js:134:5)</span><br><span class="line">    at Layer.handle [as handle_request] (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\layer.js:95:5)</span><br><span class="line">    at trim_prefix (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:317:13)</span><br><span class="line">    at C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:284:7</span><br><span class="line">    at Function.process_params (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:335:12)</span><br><span class="line">    at next (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:275:10)</span><br><span class="line">    at logger (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\morgan\index.js:144:5)</span><br><span class="line">    at Layer.handle [as handle_request] (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\layer.js:95:5)</span><br></pre></td></tr></table></figure>
+<p>이런 에러는 또 처음이라 좀 더 확인해보았습니다.<br>(제 코드 상에 문제라기 보다 웹훅에서 보내주는 데이터 쪽과 맞춰야하는 문제로 보였기 때문입니다.)</p>
+<h2 id="UnsupportedMediaTypeError-에러-확인-및-해결-시도"><a href="#UnsupportedMediaTypeError-에러-확인-및-해결-시도" class="headerlink" title="UnsupportedMediaTypeError 에러 확인 및 해결 시도"></a><code>UnsupportedMediaTypeError</code> 에러 확인 및 해결 시도</h2><p>에러 내용은 저에게는 생소해서 구글에서 관련 에러를 검색해보았습니다.<br><code>UnsupportedMediaTypeError: unsupported content encoding &quot;utf-8&quot;</code>를 검색해보니<br>아래와 같은 글들이 나왔습니다.</p>
+<ul>
+<li>Content-Encoding issue: <a href="https://github.com/expressjs/body-parser/issues/100" target="_blank" rel="noopener">https://github.com/expressjs/body-parser/issues/100</a></li>
+<li>unsupported content encoding “utf-8”: <a href="https://github.com/Strider-CD/strider/issues/1021" target="_blank" rel="noopener">https://github.com/Strider-CD/strider/issues/1021</a></li>
+</ul>
+<p>몇 가지 글을 보았을 때는 Body-parser 쪽에 문제가 있어서 안되는 것으로 예상하여 아래와 같이 해결해보려 했습니다만,<br>첫 번째 글을 보면 <code>Request Header 값 중 &quot;Content-Encoding: UTF-8&quot;를 빼면 해결되지 않을까?</code> 하는 질문이 있습니다.</p>
+<p>바로 아래에는 헤더 값을 제거하는 코드가 답변으로 달렸죠.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//...</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// remove invalid header</span></span><br><span class="line">  <span class="keyword">delete</span> req.headers[<span class="string">'content-encoding'</span>];</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line">app.use(express.json());</span><br><span class="line">app.use(express.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<p>이렇게 설정하고 웹훅 데이터를 받아보았더니 해결되었습니다.</p>
+<h2 id="Content-Encoding-UTF-8"><a href="#Content-Encoding-UTF-8" class="headerlink" title="Content-Encoding: UTF-8?"></a><code>Content-Encoding: UTF-8</code>?</h2><p><code>Content-Encoding: UTF-8</code> 는 뭐길래 에러가 났을까 확인해보았습니다.<br>우선 <code>Content-Encoding</code>이라는 헤더는 <code>미디어 타입을 압축</code>하기 위해 사용되는 값입니다.<br>참고: <a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding</a></p>
+<p>Content-Encoding은 주로 아래와 같이 사용되죠.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Encoding: compress</span><br><span class="line">Content-Encoding: deflate</span><br><span class="line">Content-Encoding: identity</span><br><span class="line">Content-Encoding: br</span><br></pre></td></tr></table></figure></p>
+<p>위 사용 방법에 따르면 <code>UTF-8</code> 값은 유효하지 않은 값입니다. (Invalid)<br>UTF-8 인코딩 혹은 문자 인코딩을 요청에 표현하고 싶다면 아래와 같이 표현해야합니다.<br>참고: <a href="https://www.w3.org/International/questions/qa-headers-charset.ko" target="_blank" rel="noopener">https://www.w3.org/International/questions/qa-headers-charset.ko</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/html; charset=utf-8</span><br></pre></td></tr></table></figure></p>
+<h2 id="문제-해결"><a href="#문제-해결" class="headerlink" title="문제 해결"></a>문제 해결</h2><p>해결 방법은 그렇게 어렵지 않았지만 해결하면서 다양한 내용을 알게되어서 좋았습니다.<br>+문제 없이 웹훅도 사용할 수 있게되어서 더 좋았죠. :)</p>
+<ul>
+<li><code>Request Header</code> 유효성 문제</li>
+<li><code>Content-Encoding</code> 헤더 값 사용 방법</li>
+<li><code>Content-Type</code> 헤더 값 사용 방법</li>
+</ul>
+<p>다른 웹훅을 등록하거나, 웹훅 시스템을 만들 때 고려해야하는 내용이었습니다.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a href="/blog/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fisheye-Webhook-에러-수정"><span class="toc-number">1.</span> <span class="toc-text">Fisheye Webhook 에러 수정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webhook-기본-설정"><span class="toc-number">2.</span> <span class="toc-text">Webhook 기본 설정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webhook을-받기-위한-Node-js-Express-서버-구성"><span class="toc-number">3.</span> <span class="toc-text">Webhook을 받기 위한 Node.js + Express 서버 구성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UnsupportedMediaTypeError-에러-확인-및-해결-시도"><span class="toc-number">4.</span> <span class="toc-text">UnsupportedMediaTypeError 에러 확인 및 해결 시도</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Content-Encoding-UTF-8"><span class="toc-number">5.</span> <span class="toc-text">Content-Encoding: UTF-8?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#문제-해결"><span class="toc-number">6.</span> <span class="toc-text">문제 해결</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&text=fisheye webhook error (with node.js)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&is_video=false&description=fisheye webhook error (with node.js)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=fisheye webhook error (with node.js)&body=Check out this article: https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&title=fisheye webhook error (with node.js)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/&name=fisheye webhook error (with node.js)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Pineoc
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/about/">About</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+         
+          <li><a href="/blog/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+<script src="/blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
