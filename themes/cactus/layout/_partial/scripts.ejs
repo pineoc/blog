@@ -1,6 +1,7 @@
 <!-- jquery -->
 <%- js('lib/jquery/jquery.min') %>
 <%- js('lib/justified-gallery/js/jquery.justifiedGallery.min.js') %>
+<!-- <%- js('js/jquery.fancybox.min.js')%> -->
 <%- js('js/main') %>
 <!-- search -->
 <% if (config.search && (page.search || page.type === "search")){ %>
@@ -48,18 +49,6 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
         ga('create', '<%= theme.google_analytics.id %>', 'auto');
         ga('send', 'pageview');
-    </script>
-<% } %>
-<!-- Baidu Analytics -->
-<% if (theme.baidu_analytics.enabled && theme.baidu_analytics.id){ %>
-    <script type="text/javascript">
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?<%= theme.baidu_analytics.id %>";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
     </script>
 <% } %>
 <!-- Disqus Comments -->
