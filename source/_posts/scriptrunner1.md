@@ -1,10 +1,12 @@
 ---
 title: ScriptRunner 소개 1
-date: 2019-04-21 15:45:00
 categories:
-- [JIRA, PM]
+  - - JIRA
+    - PM
+date: 2019-04-21 15:45:00
 tags:
 ---
+
 
 업무에서 요즘 많이 사용하는 'ScriptRunner' 라는 플러그인을 소개하려 합니다.
 이 포스트에서 다루는 내용은 JIRA 환경을 기준으로 작성되었습니다.
@@ -81,7 +83,6 @@ behaviours 기능을 통해 관리자는 하나 이상의 behaviours를 만들 �
 - 다른 이슈 화면(스크린) 데이터에 따라 필드 값 설정
 
 <https://scriptrunner.adaptavist.com/5.5.0/jira/behaviours-overview.html#_examples>
-
 링크에서는 예시로 좋은 설명이 1, 2 항목에 있습니다.
 
 1. 이슈 생성 시 기본 Description(설명) 포맷 값 설정
