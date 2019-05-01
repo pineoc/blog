@@ -136,11 +136,11 @@ disqus:
 
 # Fill in your Google Analytics tracking ID to enable Google Analytics.
 google_analytics:
-  enabled: false
+  enabled: true
   id: UA-45439235-4
 
 baidu_analytics:
-  enabled: true
+  enabled: false
   id: 2e6da3c375c8a87f5b664cea6d4cb29c
 
 # Fill in you Gravatar user id / email if you want to use your gravatar as the
