@@ -40,11 +40,11 @@ ScriptRunner 공식 문서를 보면 아래와 같은 용도로 사용할 수 �
 - allow all your XHRs to proxy through to other systems
   - 모든 XHR이 다른 시스템으로 프록시되도록 허용
 
-![](/images/s3-1.png)
+![](https://user-images.githubusercontent.com/5077086/57128456-711e1c00-6dce-11e9-9253-b7ad64ec8d89.png)
 <center>Create Rest Endpoint 버튼을 통해 만들 수 있습니다.</center>
 
-![](/images/s3-2.png)
-![](/images/s3-3.png)
+![](https://user-images.githubusercontent.com/5077086/57128457-711e1c00-6dce-11e9-85d0-b33fa603de18.png)
+![](https://user-images.githubusercontent.com/5077086/57128458-711e1c00-6dce-11e9-8848-e45d9198624b.png)
 
 위 화면처럼 inline script 입력 창에 코드를 입력하여 REST API를 구현합니다.
 공식 문서와 Show examples에서는 `Simple 'get'` 코드를 보여줍니다.
