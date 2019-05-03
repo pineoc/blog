@@ -155,6 +155,7 @@ JVM_REQUIRED_ARGS='-Dplugin.resource.directories=/app/home/scripts -Dother.prope
 
 커스텀한 리소스를 사용할 수 있다는 점에서는 좋은 것 같지만
 잘못하면 많이 망가질 수 있다는 생각이 들긴하는 기능입니다.
+
 ### Create a custom web section
 
 [Web Section Docs](https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebSection.html)
@@ -169,16 +170,123 @@ web-section 만들 때 사용했던 `key` 값을 사용해야합니다.
 문서 설명 그대로 가져오자면, `Create Constrained Issue` -> 제한된 문제 만들기!
 제한된 설정 안에서 이슈를 만들 수 있도록 설정할 수 있습니다.
 
+문서에 나온 설명에 따르면,
+
+> This can be useful to workflow designers. Imagine a workflow where at one transition the user is required to create a new linked issue. Typically this is done by having a self or any to any transition which will created the linked issue with a post-function. Then the user is required to edit the linked issue further.
+
+Workflow를 디자인, 만들때 유용한 기능입니다.
+예를 들면 특정 트랜지션에서 이슈를 링크해야한다던지, 특정 값을 입력해야하는 옵션을 추가할 수 있습니다.
+
 문서에서는 `Behaviours`와 함께 사용해서 구성한 메뉴를 눌렀을 경우,
-특정 필드를 읽기전용으로 바꾸고 값도 설정할 수 있는 것을 보여줍니다.
+새로운 이슈를 만들때 특정 필드를 읽기전용으로 설정하고 필드 값도 미리 설정할 수 있는 것을 보여줍니다.
+
+#### TODO
+
+이 기능은 설정할 내용이 좀 있어서 나중에 포스트로 깊게 다루는게 좋을 것 같습니다.
 
 ### Custom web item
 
 [Web Item](https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebItem.html)
+A web-item is a button or link that will appear at your chosen location.
+웹 아이템은 버튼 또는 링크로 설정한 위치에서 메뉴로 사용할 수 있습니다.
+
+간단한 예시로 JIRA 상단에 네비게이션 바에 `Search the Web` 링크를 만들어봅니다.
+
+![](https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/link-to-google.png)
+
+issue에서 `More Actions` 메뉴에도 링크를 만들어봅니다.
+![](https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/page-link.png)
+
+결과화면은 아래와 같이 나옵니다.
+![](https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/tools-menu-link.png)
+
+Condition 조건에 따라 웹 아이템이 나오기에 Condition 설정도 필요합니다.
+프로젝트로 한정하거나 이슈의 특정 값인지 조건을 사용할 수 있습니다.
+
+차근차근 테스트 삼아 저도 웹 아이템 하나 만들어보겠습니다.
+
+#### 1. web-item을 하나 만들어봅니다.
+
+![](https://user-images.githubusercontent.com/5077086/57125596-fac8ec00-6dc4-11e9-8434-39e1e4ba3f3e.png)
+
+- Menu text는 버튼에 들어갈 텍스트니 적당히 적어줍니다.
+- Weight 값은 숫자가 작을수록 우선순위가 높습니다.
+- Condition 값은 어떤 조건에 버튼이 나올지 설정할 수 있습니다.
+- Do what에는 저는 dialog를 띄우는 테스트를 할 것이라 `Run code and display dialog`를 선택했습니다.
+- Link는 REST Endpoint 기능에서 만든 URL을 입력해줍니다. 다음 과정에서 만드는 방법을 보겠습니다.
+
+#### 2. REST Endpoint 추가
+
+![](https://user-images.githubusercontent.com/5077086/57126172-f7cefb00-6dc6-11e9-9938-43a043b98243.png)
+
+```groovy
+import com.onresolve.scriptrunner.runner.rest.common.CustomEndpointDelegate
+import groovy.transform.BaseScript
+
+import javax.ws.rs.core.MediaType
+import javax.ws.rs.core.MultivaluedMap
+import javax.ws.rs.core.Response
+
+@BaseScript CustomEndpointDelegate delegate
+
+showDialog { MultivaluedMap queryParams ->
+    def dialog =
+        """<section role="dialog" id="sr-dialog" class="aui-layer aui-dialog2 aui-dialog2-medium" aria-hidden="true" data-aui-remove-on-hide="true">
+            <header class="aui-dialog2-header">
+                <h2 class="aui-dialog2-header-main">Some dialog</h2>
+                <a class="aui-dialog2-header-close">
+                    <span class="aui-icon aui-icon-small aui-iconfont-close-dialog">Close</span>
+                </a>
+            </header>
+            <div class="aui-dialog2-content">
+                <p>This is a dialog...</p>
+            </div>
+            <footer class="aui-dialog2-footer">
+                <div class="aui-dialog2-footer-actions">
+                    <button id="dialog-close-button" class="aui-button aui-button-link">Close</button>
+                </div>
+                <div class="aui-dialog2-footer-hint">Some hint here if you like</div>
+            </footer>
+        </section>
+        """
+
+    Response.ok().type(MediaType.TEXT_HTML).entity(dialog.toString()).build()
+}
+```
+
+- 위 코드를 `inline script` 항목에 넣어줍니다.
+  - 함수 이름으로 REST endpoint가 만들어질 것인데 `showDialog`로 만들어질 예정입니다.
+- 생성!
+- 다시 Web-item 만든 곳으로 돌아가서 아래 주소를 입력해줍니다.
+  - /rest/scriptrunner/latest/custom/showDialog
+  - 1번 단계에서 이미 이미지를 보고 입력하셨다면 함수 이름에 맞게 입력했는지 확인하면 끝!
+
+#### 3. 결과
+
+![](https://user-images.githubusercontent.com/5077086/57126503-226d8380-6dc8-11e9-9fb0-3c9d09247f40.png)
+![](https://user-images.githubusercontent.com/5077086/57126534-3a450780-6dc8-11e9-9dd8-568748f4903b.png)
+
+- Web 버튼을 누르면 2번째 이미지 처럼 다이얼로그가 나옵니다!
+- 다이얼로그에 필요한 정보는 차차 넣을 수 있도록하면 되겠습니다.
+- 문서에서는 `web resource` 까지 가서 close 버튼에 뭔가 더 해보라고 하지만 여기까지 하겠습니다. :)
 
 ### Custom web item provider
 
 [Web Item Provider Built-In Script](https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebItemProvider.html)
+문서 상에 예로 사용할 수 있는 것으로 설명을 시작하는게 좋을 것 같습니다.
+Examples of a web item provider might be:
+- 현재 사용자가 가지고 있는 이슈 중, 액티브 스프린트에 있는 상위 5개의 이슈를 보여줍니다.
+  - Show the top 5 issues for the current user in active sprints in the Issues top-level menu
+- 현재 이슈의 서브태스크 각각에 대한 web item을 More Actions 메뉴에서 보여줍니다.
+  - Show a web item in the More Actions menu for each of the current issue’s subtasks
+
+#### 예시: My Top Issues
+
+<https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebItemProvider.html#_example_my_top_issues>
+
+JIRA 상단의 네비게이션 바 메뉴에서 issues를 눌렀을 때,
+MY TOP ISSUES 섹션에 스프린트에 있는 자신에게 할당된 이슈 상위 5개가 보입니다.
+예시 링크에 있는대로 진행하시면 원하는 결과를 보실 수 있을 겁니다. (스프린트를 사용한다는 가정하에 말이죠)
 
 ### Show a web panel
 
@@ -274,3 +382,8 @@ issues.size() == 1
 link로 데이터를 보내서 추가 동작을 설정하거나, 수정, 할당 등을 할 수 있습니다.
 
 ![](https://user-images.githubusercontent.com/5077086/57022026-da841a80-6c68-11e9-8ba6-00015ca85e01.png)
+
+## 마무리
+
+REST Endpoints, Script Fragment 내용이 많다보니 또 포스트 내용이 넘쳤네요.
+다음 #4 소개 포스트에서 남은 `Escalation Services`, `Script JQL Functions` 에 대해 소개해보겠습니다.
