@@ -1,9 +1,9 @@
 ---
 title: ScriptRunner 소개 3
-date: 2019-04-27 18:55:29
 categories:
   - JIRA
   - PM
+date: 2019-04-27 18:55:29
 tags:
 ---
 
