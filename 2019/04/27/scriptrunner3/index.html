@@ -14,9 +14,9 @@
 <meta property="og:site_name" content="Pineoc&#39;s Blog">
 <meta property="og:description" content="ScriptRunner 소개 #3 소개 #1: https://pineoc.github.io/blog/2019/04/21/scriptrunner1/ 소개 #2: https://pineoc.github.io/blog/2019/04/21/scriptrunner2/  지난 #2 소개 글에서는 Script Fields 기능까지 보았고그 다음에 있는 아래 리스트의 기">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="https://pineoc.github.io/images/s3-1.png">
-<meta property="og:image" content="https://pineoc.github.io/images/s3-2.png">
-<meta property="og:image" content="https://pineoc.github.io/images/s3-3.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/5077086/57128456-711e1c00-6dce-11e9-9253-b7ad64ec8d89.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/5077086/57128457-711e1c00-6dce-11e9-85d0-b33fa603de18.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/5077086/57128458-711e1c00-6dce-11e9-8848-e45d9198624b.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/5077086/56850463-12742080-693e-11e9-84f0-296f0a1b0b78.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/5077086/56850466-19029800-693e-11e9-91f5-6e4fadccdf66.png">
 <meta property="og:image" content="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/common/fragments/image/xml.png">
@@ -32,11 +32,11 @@
 <meta property="og:image" content="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/web-panel-banner.png">
 <meta property="og:image" content="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/context-menu-items.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/5077086/57022026-da841a80-6c68-11e9-8ba6-00015ca85e01.png">
-<meta property="og:updated_time" content="2019-05-03T09:04:47.331Z">
+<meta property="og:updated_time" content="2019-05-03T09:09:32.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ScriptRunner 소개 3">
 <meta name="twitter:description" content="ScriptRunner 소개 #3 소개 #1: https://pineoc.github.io/blog/2019/04/21/scriptrunner1/ 소개 #2: https://pineoc.github.io/blog/2019/04/21/scriptrunner2/  지난 #2 소개 글에서는 Script Fields 기능까지 보았고그 다음에 있는 아래 리스트의 기">
-<meta name="twitter:image" content="https://pineoc.github.io/images/s3-1.png">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/5077086/57128456-711e1c00-6dce-11e9-9253-b7ad64ec8d89.png">
     
     
         
@@ -200,10 +200,10 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/s3-1.png" alt></p>
+<p><img src="https://user-images.githubusercontent.com/5077086/57128456-711e1c00-6dce-11e9-9253-b7ad64ec8d89.png" alt></p>
 <center>Create Rest Endpoint 버튼을 통해 만들 수 있습니다.</center>
 
-<p><img src="/images/s3-2.png" alt><br><img src="/images/s3-3.png" alt></p>
+<p><img src="https://user-images.githubusercontent.com/5077086/57128457-711e1c00-6dce-11e9-85d0-b33fa603de18.png" alt><br><img src="https://user-images.githubusercontent.com/5077086/57128458-711e1c00-6dce-11e9-8848-e45d9198624b.png" alt></p>
 <p>위 화면처럼 inline script 입력 창에 코드를 입력하여 REST API를 구현합니다.<br>공식 문서와 Show examples에서는 <code>Simple &#39;get&#39;</code> 코드를 보여줍니다.</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.onresolve.scriptrunner.runner.rest.common.CustomEndpointDelegate</span><br><span class="line"><span class="keyword">import</span> groovy.json.JsonBuilder</span><br><span class="line"><span class="keyword">import</span> groovy.transform.BaseScript</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.ws.rs.core.MultivaluedMap</span><br><span class="line"><span class="keyword">import</span> javax.ws.rs.core.Response</span><br><span class="line"></span><br><span class="line"><span class="meta">@BaseScript</span> CustomEndpointDelegate delegate <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">doSomething( <span class="comment">// 2</span></span><br><span class="line"><span class="symbol">  httpMethod:</span> <span class="string">"GET"</span>, <span class="string">groups:</span> [<span class="string">"jira-administrators"</span>]) &#123; <span class="comment">// 3</span></span><br><span class="line">    MultivaluedMap queryParams, String body -&gt; <span class="comment">// 4</span></span><br><span class="line">    <span class="keyword">return</span> Response.ok(<span class="keyword">new</span> JsonBuilder([<span class="string">abc:</span> <span class="number">42</span>]).toString()).build(); <span class="comment">// 5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>코드의 설명 내용은 <a href="https://scriptrunner.adaptavist.com/5.5.3/jira/rest-endpoints.html#_adding_a_rest_endpoint" target="_blank" rel="noopener">공식 문서</a>에 나와있으나 짧게 설명해보겠습니다. (영어로 되어있어 한국어로 설명할 겸..!)</p>
