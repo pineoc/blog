@@ -12,6 +12,7 @@
         google_plus:    theme.open_graph.google_plus,
     }) %>
     <%- meta(page) %>
+    <%- autoCanonical(config, page) %>
     <% if (theme.favicon) { %>
         <% if (theme.favicon.desktop) { %>
           <% if (theme.gravatar.email && theme.favicon.desktop.gravatar) { %>
