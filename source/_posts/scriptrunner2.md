@@ -7,12 +7,12 @@ date: 2019-04-21 16:00:00
 tags:
 ---
 
-
-## 관련 글
-
-- 소개 #1: <https://pineoc.github.io/blog/2019/04/21/scriptrunner1/>
-
 ## ScriptRunner 소개 #2
+
+- {% post_link scriptrunner1 %}
+- **{% post_link scriptrunner2 %}**
+- {% post_link scriptrunner3 %}
+- {% post_link scriptrunner4 %}
 
 지난 글에서는 Behaviours를 보았고 다음 내용인 콘솔, 리스너 등을 보겠습니다.
 

@@ -9,8 +9,10 @@ tags:
 
 ## ScriptRunner 소개 #3
 
-- 소개 #1: <https://pineoc.github.io/blog/2019/04/21/scriptrunner1/>
-- 소개 #2: <https://pineoc.github.io/blog/2019/04/21/scriptrunner2/>
+- {% post_link scriptrunner1 %}
+- {% post_link scriptrunner2 %}
+- **{% post_link scriptrunner3 %}**
+- {% post_link scriptrunner4 %}
 
 지난 #2 소개 글에서는 Script Fields 기능까지 보았고
 그 다음에 있는 아래 리스트의 기능들을 보겠습니다.

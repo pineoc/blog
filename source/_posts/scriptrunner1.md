@@ -7,6 +7,12 @@ date: 2019-04-21 15:45:00
 tags:
 ---
 
+## ScriptRunner 소개 #1
+
+- **{% post_link scriptrunner1 %}**
+- {% post_link scriptrunner2 %}
+- {% post_link scriptrunner3 %}
+- {% post_link scriptrunner4 %}
 
 업무에서 요즘 많이 사용하는 'ScriptRunner' 라는 플러그인을 소개하려 합니다.
 이 포스트에서 다루는 내용은 JIRA 환경을 기준으로 작성되었습니다.
