@@ -8,16 +8,8 @@
     </url>
 
     <url>
-        <loc>https://pineoc.github.io/blog/2019/04/27/scriptrunner3/</loc>
-        <lastmod>2019-05-03T09:09:32.818Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://pineoc.github.io/blog/2019/04/21/scriptrunner2/</loc>
-        <lastmod>2019-04-27T09:38:23.777Z</lastmod>
+        <loc>https://pineoc.github.io/blog/2019/05/11/scriptrunner4/</loc>
+        <lastmod>2019-05-11T03:48:35.144Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +17,23 @@
 
     <url>
         <loc>https://pineoc.github.io/blog/2019/04/21/scriptrunner1/</loc>
-        <lastmod>2019-04-27T09:38:16.344Z</lastmod>
+        <lastmod>2019-05-11T03:41:33.863Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://pineoc.github.io/blog/2019/04/21/scriptrunner2/</loc>
+        <lastmod>2019-05-11T03:40:53.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://pineoc.github.io/blog/2019/04/27/scriptrunner3/</loc>
+        <lastmod>2019-05-11T03:40:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
