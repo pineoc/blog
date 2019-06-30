@@ -2,7 +2,7 @@
 title: OpenGL ES 버전 2.0과 3.0 차이
 date: 2019-06-30 15:22:35
 categories:
-  - tech
+  - Tech
 tags:
 ---
 

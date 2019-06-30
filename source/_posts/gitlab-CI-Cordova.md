@@ -2,7 +2,7 @@
 title: GitLab CI 해보기 - Cordova
 date: 2019-06-30 10:06:28
 categories:
-  - tech
+  - Tech
 tags:
 ---
 
