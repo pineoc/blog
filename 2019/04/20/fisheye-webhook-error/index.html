@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang=ko>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
         
       </ul>
     </span>
-    <br>
+    <br/>
     <span id="actions">
       <ul>
         
@@ -88,7 +88,7 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br>
+    <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://pineoc.github.io/blog/2019/04/20/fisheye-webhook-error/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
@@ -155,6 +155,7 @@
 <h2 id="Webhook을-받기-위한-Node-js-Express-서버-구성"><a href="#Webhook을-받기-위한-Node-js-Express-서버-구성" class="headerlink" title="Webhook을 받기 위한 Node.js + Express 서버 구성"></a>Webhook을 받기 위한 Node.js + Express 서버 구성</h2><p>간단한 서버 어플리케이션을 만들어서 웹훅을 받아봅니다.<br>POST 요청을 받을 수 있도록 만들고 Test 기능으로 웹훅을 보내 보았습니다.</p>
 <p>그랬더니 아래와 같은 에러가 생겼습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /test/webhook 415 4.796 ms - 1426</span><br><span class="line">UnsupportedMediaTypeError: unsupported content encoding &quot;utf-8&quot;</span><br><span class="line">    at contentstream (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\read.js:174:13)</span><br><span class="line">    at read (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\read.js:54:14)</span><br><span class="line">    at jsonParser (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\types\json.js:134:5)</span><br><span class="line">    at Layer.handle [as handle_request] (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\layer.js:95:5)</span><br><span class="line">    at trim_prefix (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:317:13)</span><br><span class="line">    at C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:284:7</span><br><span class="line">    at Function.process_params (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:335:12)</span><br><span class="line">    at next (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:275:10)</span><br><span class="line">    at logger (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\morgan\index.js:144:5)</span><br><span class="line">    at Layer.handle [as handle_request] (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\layer.js:95:5)</span><br></pre></td></tr></table></figure>
+
 <p>이런 에러는 또 처음이라 좀 더 확인해보았습니다.<br>(제 코드 상에 문제라기 보다 웹훅에서 보내주는 데이터 쪽과 맞춰야하는 문제로 보였기 때문입니다.)</p>
 <h2 id="UnsupportedMediaTypeError-에러-확인-및-해결-시도"><a href="#UnsupportedMediaTypeError-에러-확인-및-해결-시도" class="headerlink" title="UnsupportedMediaTypeError 에러 확인 및 해결 시도"></a><code>UnsupportedMediaTypeError</code> 에러 확인 및 해결 시도</h2><p>에러 내용은 저에게는 생소해서 구글에서 관련 에러를 검색해보았습니다.<br><code>UnsupportedMediaTypeError: unsupported content encoding &quot;utf-8&quot;</code>를 검색해보니<br>아래와 같은 글들이 나왔습니다.</p>
 <ul>
@@ -164,10 +165,15 @@
 <p>몇 가지 글을 보았을 때는 Body-parser 쪽에 문제가 있어서 안되는 것으로 예상하여 아래와 같이 해결해보려 했습니다만,<br>첫 번째 글을 보면 <code>Request Header 값 중 &quot;Content-Encoding: UTF-8&quot;를 빼면 해결되지 않을까?</code> 하는 질문이 있습니다.</p>
 <p>바로 아래에는 헤더 값을 제거하는 코드가 답변으로 달렸죠.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//...</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// remove invalid header</span></span><br><span class="line">  <span class="keyword">delete</span> req.headers[<span class="string">'content-encoding'</span>];</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line">app.use(express.json());</span><br><span class="line">app.use(express.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
 <p>이렇게 app.js 코드를 수정하고 웹훅 데이터를 받아보았더니 해결되었습니다.</p>
 <h2 id="Content-Encoding-UTF-8"><a href="#Content-Encoding-UTF-8" class="headerlink" title="Content-Encoding: UTF-8?"></a><code>Content-Encoding: UTF-8</code>?</h2><p><code>Content-Encoding: UTF-8</code> 는 뭐길래 에러가 났을까 확인해보았습니다.<br>우선 <code>Content-Encoding</code>이라는 헤더는 <code>미디어 타입을 압축</code>하기 위해 사용되는 값입니다.<br>참고: <a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding</a></p>
-<p>Content-Encoding은 주로 아래와 같이 사용되죠.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Encoding: compress</span><br><span class="line">Content-Encoding: deflate</span><br><span class="line">Content-Encoding: identity</span><br><span class="line">Content-Encoding: br</span><br></pre></td></tr></table></figure></p>
-<p>위 사용 방법에 따르면 <code>UTF-8</code> 값은 유효하지 않은 값입니다. (Invalid)<br>UTF-8 인코딩 혹은 문자 인코딩을 요청에 표현하고 싶다면 아래와 같이 표현해야합니다.<br>참고: <a href="https://www.w3.org/International/questions/qa-headers-charset.ko" target="_blank" rel="noopener">https://www.w3.org/International/questions/qa-headers-charset.ko</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/html; charset=utf-8</span><br></pre></td></tr></table></figure></p>
+<p>Content-Encoding은 주로 아래와 같이 사용되죠.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Encoding: compress</span><br><span class="line">Content-Encoding: deflate</span><br><span class="line">Content-Encoding: identity</span><br><span class="line">Content-Encoding: br</span><br></pre></td></tr></table></figure>
+
+<p>위 사용 방법에 따르면 <code>UTF-8</code> 값은 유효하지 않은 값입니다. (Invalid)<br>UTF-8 인코딩 혹은 문자 인코딩을 요청에 표현하고 싶다면 아래와 같이 표현해야합니다.<br>참고: <a href="https://www.w3.org/International/questions/qa-headers-charset.ko" target="_blank" rel="noopener">https://www.w3.org/International/questions/qa-headers-charset.ko</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/html; charset=utf-8</span><br></pre></td></tr></table></figure>
+
 <h2 id="문제-해결"><a href="#문제-해결" class="headerlink" title="문제 해결"></a>문제 해결</h2><p>해결 방법은 그렇게 어렵지 않았지만 해결하면서 다양한 내용을 알게되어서 좋았습니다.<br>+문제 없이 웹훅도 사용할 수 있게되어서 더 좋았죠. :)</p>
 <ul>
 <li><code>Request Header</code> 유효성 문제</li>
