@@ -8,8 +8,8 @@
     </url>
 
     <url>
-        <loc>https://pineoc.github.io/blog/categories/tech/</loc>
-        <lastmod>2019-06-30T07:47:22.891Z</lastmod>
+        <loc>https://pineoc.github.io/blog/categories/Tech/</loc>
+        <lastmod>2019-06-30T07:50:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -24,13 +24,6 @@
     <url>
         <loc>https://pineoc.github.io/blog/categories/JIRA/</loc>
         <lastmod>2019-06-24T15:25:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://pineoc.github.io/blog/categories/Tech/</loc>
-        <lastmod>2019-04-20T08:30:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
