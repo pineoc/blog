@@ -2,9 +2,12 @@
 title: Jira 8.0 & ScriptRunner로 JQL issue 가져오기
 date: 2019-06-24 23:01:44
 categories:
-  - JIRA
   - PM
 tags:
+  - Jira
+  - ScriptRunner
+toc: true
+thumbnail: https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png
 ---
 
 ## Jira 8.0 & ScriptRunner로 JQL issue 가져오기

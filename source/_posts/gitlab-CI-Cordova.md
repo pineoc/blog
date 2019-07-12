@@ -4,6 +4,9 @@ date: 2019-06-30 10:06:28
 categories:
   - Tech
 tags:
+  - GitLab
+  - CI
+thumbnail: https://about.gitlab.com/images/ci/gitlab-ci-cd-logo_2x.png
 ---
 
 > 이 글은 2018년 1월 기준으로 작성된 글입니다. 현재 Gitlab 설정, Cordova 환경과는 다를 수 있습니다.

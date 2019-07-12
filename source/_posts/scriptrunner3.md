@@ -1,10 +1,13 @@
 ---
 title: ScriptRunner 소개 3
 categories:
-  - JIRA
   - PM
 date: 2019-04-27 18:55:29
 tags:
+  - Jira
+  - ScriptRunner
+toc: true
+thumbnail: https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png
 ---
 
 ## ScriptRunner 소개 #3
