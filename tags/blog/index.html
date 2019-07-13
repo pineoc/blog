@@ -2,7 +2,7 @@
 <html lang="ko">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>태그: CI - Pineoc&#39;s Blog</title>
+<title>태그: blog - Pineoc&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="Developer, PM">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pineoc&#39;s Blog">
-<meta property="og:url" content="https://pineoc.github.io/blog/tags/CI/index.html">
+<meta property="og:url" content="https://pineoc.github.io/blog/tags/blog/index.html">
 <meta property="og:site_name" content="Pineoc&#39;s Blog">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://pineoc.github.io/blog/images/og_image.png">
@@ -149,7 +149,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/blog/tags">태그</a></li>
-            <li class="is-active"><a href="#" aria-current="page">CI</a></li>
+            <li class="is-active"><a href="#" aria-current="page">blog</a></li>
         </ul>
         </nav>
     </div>
@@ -157,27 +157,21 @@
 
     <div class="card">
     
-    <div class="card-image">
-        <a href="/blog/2019/06/30/gitlab-CI-Cordova/" class="image is-7by1">
-            <img class="thumbnail" src="https://about.gitlab.com/images/ci/gitlab-ci-cd-logo_2x.png" alt="GitLab CI 해보기 - Cordova">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-30T01:06:28.000Z">2019-06-30</time>
+                <time class="level-item has-text-grey" datetime="2019-04-01T13:10:35.443Z">2019-04-01</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
+                <a class="has-link-grey -link" href="/blog/categories/Blog/">Blog</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    6분 읽기 (나에 대하여 866 단어)
+                    3분 읽기 (나에 대하여 515 단어)
                 </span>
                 
                 
@@ -186,46 +180,28 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blog/2019/06/30/gitlab-CI-Cordova/">GitLab CI 해보기 - Cordova</a>
+                <a class="has-link-black-ter" href="/blog/2019/04/01/hello-hexo-blog/">Hello Hexo Blog</a>
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>이 글은 2018년 1월 기준으로 작성된 글입니다. 현재 Gitlab 설정, Cordova 환경과는 다를 수 있습니다.</p>
-</blockquote>
-<h2 id="GitLab-CI"><a href="#GitLab-CI" class="headerlink" title="GitLab CI"></a>GitLab CI</h2><p>소개: <a href="https://about.gitlab.com/product/continuous-integration/" target="_blank" rel="noopener">https://about.gitlab.com/product/continuous-integration/</a><br>GitLab에서 CI를 지원한다는 것을 듣고 당시 진행하던 프로젝트를 설정해보고자 했습니다.<br>CI는 Continuous Integration의 약자로 지속적인 통합으로 부릅니다.</p>
-<p>CI는 “지속적으로 퀄리티 컨트롤을 적용하는 프로세스를 실행하는 것이다. (<a href="https://ko.wikipedia.org/wiki/%EC%A7%80%EC%86%8D%EC%A0%81_%ED%86%B5%ED%95%A9" target="_blank" rel="noopener">Wiki</a>)으로 설명할 수 있고 이 글에서는 CI에서 자세히 다룰 예정은 아니기에 다른 좋은 문서를 참고해주세요. :)</p>
-<p>GitLab 소개문서에는 CD(Continuous Delivery OR Continuous Deployment-지속적인 배포)도<br>다루고 있으니 참고하시면 좋을 것 같습니다.</p>
-<p>저는 CI까지만 설정해보겠습니다. (나중에 CD까지 해볼 수 있겠죠.)</p>
-<h2 id="CI-설정-시나리오"><a href="#CI-설정-시나리오" class="headerlink" title="CI 설정 시나리오"></a>CI 설정 시나리오</h2><ol>
-<li>빌드 환경 설정</li>
-<li>.gitlab-ci.yml 설정</li>
-<li>GitLab Repo에 push!</li>
-<li>빌드!</li>
-</ol>
-<h3 id="빌드-환경-설정"><a href="#빌드-환경-설정" class="headerlink" title="빌드 환경 설정"></a>빌드 환경 설정</h3><p>여기서 어려울 것으로 예상한 것은 빌드 환경을 설정하는 것이라고 생각했습니다.<br><a href="https://medium.freecodecamp.org/how-to-setup-ci-on-gitlab-using-docker-66e1e04dcdc2" target="_blank" rel="noopener">freecodecamp 미디엄 글</a>에서는 도커 이미지를 사용하여 어렵지 않게 풀어낸 것 같습니다.</p>
-<p>빌드 환경 설정에 필요한 Cordova 환경설정이 무엇인지 살펴보았습니다.<br>Cordova 7.x 기준의 <code>안드로이드 빌드 환경</code>은 아래와 같습니다. (<a href="https://cordova.apache.org/docs/en/7.x/guide/platforms/android/index.html#installing-the-requirements" target="_blank" rel="noopener">참고</a>)</p>
+            <h2 id="Hexo-Blog"><a href="#Hexo-Blog" class="headerlink" title="Hexo Blog"></a>Hexo Blog</h2><p>기존에는 구글에 blogger를 사용했었는데 에디터 기능이 워낙 좋지 않아 다른 블로그를 고민하게 되었습니다.<br>기존 블로그 주소는 <a href="https://pineoc.blogspot.com/" target="_blank" rel="noopener">https://pineoc.blogspot.com/</a> 에 지금까지 약 260개 가량의 포스트를 작성했습니다.</p>
+<p>각종 서비스 소개, 기술 정보, 튜토리얼 등을 작성해왔고 요즘은 JIRA 관련한 포스트들을 작성해보고 있습니다.</p>
 <ul>
-<li>JDK 8 이상</li>
-<li>Android SDK, Android SDK Packages</li>
-<li>Node.js 8.9.4 (NPM)</li>
-<li>Cordova 7.x</li>
-<li>(옵션) 환경 변수 설정</li>
+<li><a href="https://pineoc.blogspot.com/2019/03/scriptrunner-1.html" target="_blank" rel="noopener">JIRA Plugin - ScriptRunner 소개 #1</a></li>
+<li><a href="https://pineoc.blogspot.com/2019/04/jira-plugin-scriptrunner-2.html" target="_blank" rel="noopener">JIRA Plugin - ScriptRunner 소개 #2</a></li>
 </ul>
-<p>iOS 빌드 환경은 macOS 이미지가 없어서 설정해보지 못했습니다. ;(<br>안드로이드 설정만 해봐야겠네요.</p>
-<p>앞서 freecodecamp 미디엄 글에서는 docker 이미지를 사용해서 CI를 설정을 했습니다.<br>Cordova 관련한 docker 이미지가 있는지 확인해보았고 적당한 것을 찾았습니다.<br><a href="https://hub.docker.com/r/beevelop/cordova/" target="_blank" rel="noopener">https://hub.docker.com/r/beevelop/cordova/</a></p>
-<p>이 이미지를 사용하여 만들어본 저장소는 아래와 같습니다. (저장소는 기본적인 프로젝트 생성한 상태입니다.)<br><a href="https://gitlab.com/pineoc/cordova-ci-demo" target="_blank" rel="noopener">https://gitlab.com/pineoc/cordova-ci-demo</a></p>
-<h3 id="gitlab-ci-yml-설정"><a href="#gitlab-ci-yml-설정" class="headerlink" title=".gitlab-ci.yml 설정"></a>.gitlab-ci.yml 설정</h3><figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">image:</span> <span class="hljs-string">beevelop/cordova:v7.1.0</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">before_script:</span></span><br><span class="line"><span class="hljs-bullet">  -</span> <span class="hljs-string">cordova</span> <span class="hljs-string">platform</span> <span class="hljs-string">add</span> <span class="hljs-string">android</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">stages:</span></span><br><span class="line"><span class="hljs-bullet">  -</span> <span class="hljs-string">build</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">build:</span></span><br><span class="line"><span class="hljs-attr">  stage:</span> <span class="hljs-string">build</span></span><br><span class="line"><span class="hljs-attr">  script:</span></span><br><span class="line"><span class="hljs-bullet">    -</span> <span class="hljs-string">cordova</span> <span class="hljs-string">build</span> <span class="hljs-string">android</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="GitLab-Repo에-Push"><a href="#GitLab-Repo에-Push" class="headerlink" title="GitLab Repo에 Push"></a>GitLab Repo에 Push</h3><p>위에서 설정한 <code>.gitlab-ci.yml</code> 파일을 프로젝트 최상단 경로에 두면 GitLab에서 파일을 인식하여<br>설정한 내용대로 빌드를 진행합니다. 진행된 내역은 아래 링크에서 확인할 수 있습니다.<br><a href="https://gitlab.com/pineoc/cordova-ci-demo/pipelines" target="_blank" rel="noopener">https://gitlab.com/pineoc/cordova-ci-demo/pipelines</a></p>
-<p>이제 커밋할 때마다 빌드가 돌아가고 빌드의 실패/성공을 확인할 수 있습니다.<br>커밋에 <code>[ci skip]</code> 이라고 명시하면 빌드는 스킵됩니다.<br><img src="https://user-images.githubusercontent.com/5077086/60391408-7e365d80-9b28-11e9-8ea0-d36389f6cef1.png" alt><br>(중간에 빌드 환경이 달라져서 실패한 내용이 생겼네요.)</p>
-<p>기본 프로젝트는 어렵지 않게 설정해보았지만<br>추가적인 플러그인 추가나 설정이 들어가면 어려워질 수 있을 것 같습니다.<br>iOS 빌드 시스템을 사용하려면 다른 것도 필요하겠구요.</p>
-<p>기본적인 설정이라도 도움이 되었으면 좋겠습니다. :)</p>
-<h2 id="참고-문서"><a href="#참고-문서" class="headerlink" title="참고 문서"></a>참고 문서</h2><ul>
-<li>Medium: <a href="https://medium.freecodecamp.org/how-to-setup-ci-on-gitlab-using-docker-66e1e04dcdc2" target="_blank" rel="noopener">https://medium.freecodecamp.org/how-to-setup-ci-on-gitlab-using-docker-66e1e04dcdc2</a></li>
-<li>GitLab CI quick start: <a href="https://gitlab.com/help/ci/quick_start/README" target="_blank" rel="noopener">https://gitlab.com/help/ci/quick_start/README</a></li>
-<li>GitLab CI Demo: <a href="https://gitlab.com/ykyuen/gitlab-ci-demo" target="_blank" rel="noopener">https://gitlab.com/ykyuen/gitlab-ci-demo</a></li>
+<h2 id="Hexo를-블로그-공간으로-사용하게된-이유"><a href="#Hexo를-블로그-공간으로-사용하게된-이유" class="headerlink" title="Hexo를 블로그 공간으로 사용하게된 이유"></a>Hexo를 블로그 공간으로 사용하게된 이유</h2><p>전에도 한번 시험삼아 Jekyll로 github 주소로 해보고 잘 안되서 Hexo도 시도해봤었습니다.<br>다만 진행하다가 설정도 잘 안되고 마음대로 테마 변경하는 것이 쉽지 않아 포기했었지요.<br>크게 사용하고자하는 니즈도 없었습니다. blogger 에디터로도 쓰기 힘든 글이 별로 없었어서요.</p>
+<p>최근 에디터에서 글쓰면서 텍스트를 붙여넣는데 HTML이 의도하지 않게 따라들어와서 <code>매우</code> 불편했습니다.<br>그래서, <code>아, 그냥 마크다운으로 글 쓰는게 제일 편하긴 한데.. 이번에 넘어가 볼까?</code> 하고 이렇게 글을 작성해보고 있습니다.</p>
+<p>Hexo도 글을 쓰는데 어려움이 또 있긴합니다만..</p>
+<ul>
+<li>텍스트 에디터를 사용할 경우 이미지는 어떻게 넣을지</li>
+<li>표를 넣거나 레이아웃을 고민할 때, 시각적인 피드백이 바로오기 힘든점<ul>
+<li>이 부분은 로컬에 서버를 돌리고 문서를 저장할때마다 리로드(Reload)하게끔 하면되긴합니다만</li>
 </ul>
+</li>
+<li>블로그를 좀 더 운영하기 쉽게하기위한 설정 등</li>
+</ul>
+<h2 id="새로운-블로그-시작"><a href="#새로운-블로그-시작" class="headerlink" title="새로운 블로그 시작!"></a>새로운 블로그 시작!</h2><p>어쨌든 새로운 공간에서 블로그를 시작하는데 이쁘게 잘 가꿔보겠습니다. :)</p>
 
         </div>
         

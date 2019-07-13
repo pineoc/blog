@@ -193,7 +193,7 @@
             <blockquote>
 <p>이 글은 2018년 1월 기준으로 작성된 글입니다. 현재 Gitlab 설정, Cordova 환경과는 다를 수 있습니다.</p>
 </blockquote>
-<h2 id="GitLab-CI"><a href="#GitLab-CI" class="headerlink" title="GitLab CI?"></a>GitLab CI?</h2><p>소개: <a href="https://about.gitlab.com/product/continuous-integration/" target="_blank" rel="noopener">https://about.gitlab.com/product/continuous-integration/</a><br>GitLab에서 CI를 지원한다는 것을 듣고 당시 진행하던 프로젝트를 설정해보고자 했습니다.<br>CI는 Continuous Integration의 약자로 지속적인 통합으로 부릅니다.</p>
+<h2 id="GitLab-CI"><a href="#GitLab-CI" class="headerlink" title="GitLab CI"></a>GitLab CI</h2><p>소개: <a href="https://about.gitlab.com/product/continuous-integration/" target="_blank" rel="noopener">https://about.gitlab.com/product/continuous-integration/</a><br>GitLab에서 CI를 지원한다는 것을 듣고 당시 진행하던 프로젝트를 설정해보고자 했습니다.<br>CI는 Continuous Integration의 약자로 지속적인 통합으로 부릅니다.</p>
 <p>CI는 “지속적으로 퀄리티 컨트롤을 적용하는 프로세스를 실행하는 것이다. (<a href="https://ko.wikipedia.org/wiki/%EC%A7%80%EC%86%8D%EC%A0%81_%ED%86%B5%ED%95%A9" target="_blank" rel="noopener">Wiki</a>)으로 설명할 수 있고 이 글에서는 CI에서 자세히 다룰 예정은 아니기에 다른 좋은 문서를 참고해주세요. :)</p>
 <p>GitLab 소개문서에는 CD(Continuous Delivery OR Continuous Deployment-지속적인 배포)도<br>다루고 있으니 참고하시면 좋을 것 같습니다.</p>
 <p>저는 CI까지만 설정해보겠습니다. (나중에 CD까지 해볼 수 있겠죠.)</p>
@@ -217,7 +217,7 @@
 <p>이 이미지를 사용하여 만들어본 저장소는 아래와 같습니다. (저장소는 기본적인 프로젝트 생성한 상태입니다.)<br><a href="https://gitlab.com/pineoc/cordova-ci-demo" target="_blank" rel="noopener">https://gitlab.com/pineoc/cordova-ci-demo</a></p>
 <h3 id="gitlab-ci-yml-설정"><a href="#gitlab-ci-yml-설정" class="headerlink" title=".gitlab-ci.yml 설정"></a>.gitlab-ci.yml 설정</h3><figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">image:</span> <span class="hljs-string">beevelop/cordova:v7.1.0</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">before_script:</span></span><br><span class="line"><span class="hljs-bullet">  -</span> <span class="hljs-string">cordova</span> <span class="hljs-string">platform</span> <span class="hljs-string">add</span> <span class="hljs-string">android</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">stages:</span></span><br><span class="line"><span class="hljs-bullet">  -</span> <span class="hljs-string">build</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">build:</span></span><br><span class="line"><span class="hljs-attr">  stage:</span> <span class="hljs-string">build</span></span><br><span class="line"><span class="hljs-attr">  script:</span></span><br><span class="line"><span class="hljs-bullet">    -</span> <span class="hljs-string">cordova</span> <span class="hljs-string">build</span> <span class="hljs-string">android</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="GitLab-Repo에-Push"><a href="#GitLab-Repo에-Push" class="headerlink" title="GitLab Repo에 Push!"></a>GitLab Repo에 Push!</h3><p>위에서 설정한 <code>.gitlab-ci.yml</code> 파일을 프로젝트 최상단 경로에 두면 GitLab에서 파일을 인식하여<br>설정한 내용대로 빌드를 진행합니다. 진행된 내역은 아래 링크에서 확인할 수 있습니다.<br><a href="https://gitlab.com/pineoc/cordova-ci-demo/pipelines" target="_blank" rel="noopener">https://gitlab.com/pineoc/cordova-ci-demo/pipelines</a></p>
+<h3 id="GitLab-Repo에-Push"><a href="#GitLab-Repo에-Push" class="headerlink" title="GitLab Repo에 Push"></a>GitLab Repo에 Push</h3><p>위에서 설정한 <code>.gitlab-ci.yml</code> 파일을 프로젝트 최상단 경로에 두면 GitLab에서 파일을 인식하여<br>설정한 내용대로 빌드를 진행합니다. 진행된 내역은 아래 링크에서 확인할 수 있습니다.<br><a href="https://gitlab.com/pineoc/cordova-ci-demo/pipelines" target="_blank" rel="noopener">https://gitlab.com/pineoc/cordova-ci-demo/pipelines</a></p>
 <p>이제 커밋할 때마다 빌드가 돌아가고 빌드의 실패/성공을 확인할 수 있습니다.<br>커밋에 <code>[ci skip]</code> 이라고 명시하면 빌드는 스킵됩니다.<br><img src="https://user-images.githubusercontent.com/5077086/60391408-7e365d80-9b28-11e9-8ea0-d36389f6cef1.png" alt><br>(중간에 빌드 환경이 달라져서 실패한 내용이 생겼네요.)</p>
 <p>기본 프로젝트는 어렵지 않게 설정해보았지만<br>추가적인 플러그인 추가나 설정이 들어가면 어려워질 수 있을 것 같습니다.<br>iOS 빌드 시스템을 사용하려면 다른 것도 필요하겠구요.</p>
 <p>기본적인 설정이라도 도움이 되었으면 좋겠습니다. :)</p>
@@ -286,7 +286,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        10
                     </p>
                 </div>
             </div>
@@ -296,7 +296,7 @@
                         카테고리
                     </p>
                     <p class="title has-text-weight-normal">
-                        3
+                        4
                     </p>
                 </div>
             </div>
@@ -306,7 +306,7 @@
                         태그
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
@@ -370,9 +370,17 @@
                 <span class="level-item">PM</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/blog/categories/PM/System/">
+            <span class="level-start">
+                <span class="level-item">System</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">5</span>
             </span>
-        </a></li><li>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/blog/categories/Tech/">
             <span class="level-start">
                 <span class="level-item">Tech</span>
@@ -392,7 +400,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/Fisheye/" style="font-size: 10px;">Fisheye</a> <a href="/blog/tags/GitLab/" style="font-size: 10px;">GitLab</a> <a href="/blog/tags/Jira/" style="font-size: 20px;">Jira</a> <a href="/blog/tags/OpenGL-ES/" style="font-size: 10px;">OpenGL-ES</a> <a href="/blog/tags/ScriptRunner/" style="font-size: 20px;">ScriptRunner</a>
+        <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/Fisheye/" style="font-size: 10px;">Fisheye</a> <a href="/blog/tags/GitLab/" style="font-size: 10px;">GitLab</a> <a href="/blog/tags/Jira/" style="font-size: 20px;">Jira</a> <a href="/blog/tags/OpenGL-ES/" style="font-size: 10px;">OpenGL-ES</a> <a href="/blog/tags/ScriptRunner/" style="font-size: 15px;">ScriptRunner</a> <a href="/blog/tags/blog/" style="font-size: 10px;">blog</a>
     </div>
 </div>
 
@@ -406,6 +414,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Jira 7.11 to 8.0 Upgrade">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-13T02:15:50.000Z">2019-07-13</time></div>
+                    <a href="/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/" class="has-link-black-ter is-size-6">Jira 7.11 to 8.0 Upgrade</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -477,26 +504,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T01:30:46.000Z">2019-05-11</time></div>
                     <a href="/blog/2019/05/11/scriptrunner4/" class="has-link-black-ter is-size-6">ScriptRunner 소개 4</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/blog/2019/04/27/scriptrunner3/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="ScriptRunner 소개 3">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-27T09:55:29.000Z">2019-04-27</time></div>
-                    <a href="/blog/2019/04/27/scriptrunner3/" class="has-link-black-ter is-size-6">ScriptRunner 소개 3</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
                     </p>
                 </div>
             </div>
@@ -513,6 +521,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/blog/archives/2019/06/">
@@ -584,7 +603,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -599,6 +618,13 @@
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
                         <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/blog/">
+                        <span class="tag">blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -627,6 +653,25 @@
         
         <article class="media">
             
+            <a href="/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Jira 7.11 to 8.0 Upgrade">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-13T02:15:50.000Z">2019-07-13</time></div>
+                    <a href="/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/" class="has-link-black-ter is-size-6">Jira 7.11 to 8.0 Upgrade</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2019/06/30/OpenGL-ES-ver-diff-2-0-3-0/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://3.bp.blogspot.com/-c_SkNvG1Vr8/WRhwNJUMi5I/AAAAAAAAH7E/IBNjjCt97uYbo9oewA7yQNQxG_NP4IaFgCK4B/s640/opengl.png" alt="OpenGL ES 버전 2.0과 3.0 차이">
@@ -695,26 +740,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-11T01:30:46.000Z">2019-05-11</time></div>
                     <a href="/blog/2019/05/11/scriptrunner4/" class="has-link-black-ter is-size-6">ScriptRunner 소개 4</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/blog/2019/04/27/scriptrunner3/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="ScriptRunner 소개 3">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-27T09:55:29.000Z">2019-04-27</time></div>
-                    <a href="/blog/2019/04/27/scriptrunner3/" class="has-link-black-ter is-size-6">ScriptRunner 소개 3</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
                     </p>
                 </div>
             </div>
@@ -731,6 +757,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/blog/archives/2019/06/">
@@ -802,7 +839,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -817,6 +854,13 @@
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
                         <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/blog/">
+                        <span class="tag">blog</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 

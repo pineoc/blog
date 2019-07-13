@@ -8,22 +8,29 @@
     </url>
 
     <url>
-        <loc>https://pineoc.github.io/blog/categories/Tech/</loc>
-        <lastmod>2019-07-12T14:58:41.499Z</lastmod>
+        <loc>https://pineoc.github.io/blog/categories/PM/System/</loc>
+        <lastmod>2019-07-13T03:38:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://pineoc.github.io/blog/categories/PM/</loc>
-        <lastmod>2019-07-12T14:54:55.828Z</lastmod>
+        <lastmod>2019-07-13T03:38:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://pineoc.github.io/blog/categories/Blog/</loc>
-        <lastmod>2019-04-07T08:54:35.366Z</lastmod>
+        <lastmod>2019-07-13T03:37:51.422Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://pineoc.github.io/blog/categories/Tech/</loc>
+        <lastmod>2019-07-13T03:36:31.380Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

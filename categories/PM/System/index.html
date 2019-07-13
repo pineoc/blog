@@ -2,7 +2,7 @@
 <html lang="ko">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>태그: ScriptRunner - Pineoc&#39;s Blog</title>
+<title>카테고리: System - Pineoc&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="Developer, PM">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pineoc&#39;s Blog">
-<meta property="og:url" content="https://pineoc.github.io/blog/tags/ScriptRunner/index.html">
+<meta property="og:url" content="https://pineoc.github.io/blog/categories/PM/System/index.html">
 <meta property="og:site_name" content="Pineoc&#39;s Blog">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://pineoc.github.io/blog/images/og_image.png">
@@ -148,8 +148,11 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/blog/tags">태그</a></li>
-            <li class="is-active"><a href="#" aria-current="page">ScriptRunner</a></li>
+            <li><a href="/blog/categories">카테고리</a></li>
+            
+            <li><a href="/blog/categories/PM/">PM</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">System</a></li>
         </ul>
         </nav>
     </div>
@@ -157,27 +160,21 @@
 
     <div class="card">
     
-    <div class="card-image">
-        <a href="/blog/2019/06/24/jira-8-0-scriptRunner/" class="image is-7by1">
-            <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="Jira 8.0 &amp; ScriptRunner로 JQL issue 가져오기">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-24T14:01:44.000Z">2019-06-24</time>
+                <time class="level-item has-text-grey" datetime="2019-07-13T02:15:50.000Z">2019-07-13</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    9분 읽기 (나에 대하여 1333 단어)
+                    11분 읽기 (나에 대하여 1636 단어)
                 </span>
                 
                 
@@ -186,63 +183,137 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blog/2019/06/24/jira-8-0-scriptRunner/">Jira 8.0 &amp; ScriptRunner로 JQL issue 가져오기</a>
+                <a class="has-link-black-ter" href="/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/">Jira 7.11 to 8.0 Upgrade</a>
             
         </h1>
         <div class="content">
-            <h2 id="Jira-8-0-amp-ScriptRunner로-JQL-issue-가져오기"><a href="#Jira-8-0-amp-ScriptRunner로-JQL-issue-가져오기" class="headerlink" title="Jira 8.0 &amp; ScriptRunner로 JQL issue 가져오기"></a>Jira 8.0 &amp; ScriptRunner로 JQL issue 가져오기</h2><p>최근에 <code>ScriptRunner로 JQL 결과 이슈 가져오기</code> 스크립트를 찾아보고 실행해보려 했는데 잘 안되서 포스트를 작성해보았습니다.<br>(다른분들도 같은 문제를 겪을 것 같아서..!)</p>
-<p>스크립트러너 문서에서의 코드는 링크에서 확인하시면 좋을 것 같습니다.<br><a href="https://scriptrunner.adaptavist.com/5.5.6/jira/recipes/misc/running-a-jql-query.html" target="_blank" rel="noopener">ScriptRunner Doc: running-a-jql-query</a></p>
-<p>위 링크에 있는 코드에서 몇몇 Deprecated 코드를 수정하면 다음과 같은 코드로 정리해볼 수 있습니다.</p>
-<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.search.SearchProvider;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.jql.parser.JqlQueryParser;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.web.bean.PagerFilter;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> jqlQueryParser = ComponentAccessor.getComponent(JqlQueryParser);</span><br><span class="line"><span class="hljs-keyword">def</span> searchProvider = ComponentAccessor.getComponent(SearchProvider);</span><br><span class="line"><span class="hljs-keyword">def</span> issueManager = ComponentAccessor.getIssueManager();</span><br><span class="line"><span class="hljs-keyword">def</span> user = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// edit this query to suit</span></span><br><span class="line"><span class="hljs-keyword">def</span> query = jqlQueryParser.parseQuery(<span class="hljs-string">"project = JRA and assignee = currentUser()"</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> results = searchProvider.search(query, user, PagerFilter.getUnlimitedFilter());</span><br><span class="line"></span><br><span class="line">log.debug(<span class="hljs-string">"Total issues: $&#123;results.total&#125;"</span>);</span><br><span class="line"></span><br><span class="line">results.getIssues().each &#123;documentIssue -&gt;</span><br><span class="line">  log.debug(documentIssue.key);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// if you need a mutable issue you can do:</span></span><br><span class="line">  <span class="hljs-keyword">def</span> issue = issueManager.getIssueObject(documentIssue.id);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// do something to the issue...</span></span><br><span class="line">  log.debug(issue.summary);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="문제의-시작"><a href="#문제의-시작" class="headerlink" title="문제의 시작"></a>문제의 시작</h2><p>그런데..<br>이 코드를 Script Console에서 실행해보면 아래와 같은 에러가 발생합니다.</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groovy.lang.MissingMethodException: No signature of method: com.atlassian.jira.issue.search.providers.LuceneSearchProvider.search() is applicable for argument types: (com.atlassian.query.QueryImpl, com.atlassian.jira.user.DelegatingApplicationUser, com.atlassian.jira.web.bean.PagerFilter) values: [&#123;project = &quot;JRA&quot;&#125; AND &#123;assignee = currentUser()&#125;, pineoc(pineoc), ...]</span><br><span class="line">Possible solutions: search(com.atlassian.jira.issue.search.SearchQuery, com.atlassian.jira.web.bean.PagerFilter), search(com.atlassian.jira.issue.search.SearchQuery, com.atlassian.jira.web.bean.PagerFilter, java.util.Set), search(com.atlassian.jira.issue.search.SearchQuery, org.apache.lucene.search.Collector), each(groovy.lang.Closure)</span><br><span class="line">	at Script1071.run(Script1071.groovy:14)</span><br></pre></td></tr></table></figure>
-
-<h3 id="에러를-요약해보자면"><a href="#에러를-요약해보자면" class="headerlink" title="에러를 요약해보자면.."></a>에러를 요약해보자면..</h3><ul>
-<li>LuceneSearchProvider에 그런 메서드가 없다.</li>
-<li><code>search(.issue.search.SearchQuery, .web.bean.PagerFilter)</code> 요런 형식이어야하는데</li>
-<li><code>search(.query.QueryImpl, .user.DelegatingApplicationUser, .web.bean.PagerFilter)</code> 요렇게 부르고 있어서 안되는거다.</li>
-<li>파라미터 형식이 너무 길어서 생략하겠습니다. (com.atlassian.jira 등이 앞에 붙어있었습니다.)</li>
+            <h2 id="Jira-7-11-to-8-0-Upgrade-Specs"><a href="#Jira-7-11-to-8-0-Upgrade-Specs" class="headerlink" title="Jira 7.11 to 8.0 Upgrade Specs"></a>Jira 7.11 to 8.0 Upgrade Specs</h2><p>Jira Software(서버 설치버전)을 사용하면서 7.11에서 8.0으로 버전 업그레이드될 때<br>정리해보았던 내용을 포스트해봅니다.</p>
+<h2 id="사전-참고-링크"><a href="#사전-참고-링크" class="headerlink" title="사전 참고 링크"></a>사전 참고 링크</h2><ul>
+<li>Jira 릴리즈 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-release-notes-776821069.html" target="_blank" rel="noopener">Jira Software release notes</a><ul>
+<li>각 버전별 릴리즈 노트를 볼 수 있으며 버전별 업그레이드 문서도 함께 있습니다</li>
 </ul>
-<p>에러 내용만 봤을 때는 잘못된 파라미터로 인해 함수를 호출하지 못한다고 합니다.<br>공식 가이드 문서로 보고 진행했는데 에러가 나서 잠시 당황했지만 파라미터를 확인해보았습니다.</p>
-<h2 id="문제-파악"><a href="#문제-파악" class="headerlink" title="문제 파악"></a>문제 파악</h2><p><code>searchProvider</code>의 <code>search()</code> 함수에는 다음과 같은 파라미터가 들어가야한다고 합니다.<br><a href="https://docs.atlassian.com/software/jira/docs/api/8.0.2/com/atlassian/jira/issue/search/providers/LuceneSearchProvider.html" target="_blank" rel="noopener">JIRA API docs(8.0.2)-LuceneSearchProvider</a></p>
-<ul>
-<li>com.atlassian.jira.issue.search.SearchQuery</li>
-<li>com.atlassian.jira.web.bean.PagerFilter</li>
-</ul>
-<p>근데 가이드 문서에서 사용했던 함수에는 아래와 같은 파라미터를 사용했습니다.<br><a href="https://docs.atlassian.com/software/jira/docs/api/7.0.5/com/atlassian/jira/issue/search/providers/LuceneSearchProvider.html" target="_blank" rel="noopener">JIRA API docs(7.0.5)-LuceneSearchProvider</a></p>
-<ul>
-<li>Query query</li>
-<li>ApplicationUser searcher</li>
-<li>PagerFilter pager</li>
-</ul>
-<p>위 처럼 찾아보는 과정에서 LuceneSearch 쪽 업데이트가 있어 함수 변경이 있었습니다.<br>그 업데이트가 Jira 8.0 버전으로 올라가면서 반영된 것 같습니다.<br>ScriptRunner는 Jira 8.0을 지원한다고 했지만 문서는 아직 지원하지 않는 것 같네요. (…)</p>
-<h3 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h3><ul>
-<li><a href="https://confluence.atlassian.com/adminjira/lucene-upgrade-955171970.html" target="_blank" rel="noopener">https://confluence.atlassian.com/adminjira/lucene-upgrade-955171970.html</a></li>
-<li><a href="https://confluence.atlassian.com/adminjira/preparing-for-jira-8-0-955171967.html#PreparingforJira8.0-m06" target="_blank" rel="noopener">https://confluence.atlassian.com/adminjira/preparing-for-jira-8-0-955171967.html#PreparingforJira8.0-m06</a></li>
-</ul>
-<h2 id="문제-해결-시도"><a href="#문제-해결-시도" class="headerlink" title="문제 해결 시도"></a>문제 해결 시도</h2><p>그래도 결과를 찾아봐야하니까 문제를 해결해봅니다.</p>
-<p>아래와 같이 코드를 수정하여 스크립트 콘솔에 적용해보았습니다.<br>변경된 내용 및 이유도 함께 적어둡니다.<br>(바로 적용해볼 수 있는 코드는 아래에 있으니 바로 사용해보시면 될 것 같습니다.)</p>
-<ul>
-<li>searchProvider.search() 함수도 앞서 설명한 것 처럼 메서드를 확인하여 변경했다.</li>
-<li>results.getIssues() 함수는 Jira 8.0.x에 더 이상 존재하지 않았다.<ul>
-<li>SearchResults에 함수에는 getResults() 함수가 존재한다.</li>
-<li>getResults() 함수는 List를 반환하는데 DocumentWithId List를 반환한다. (<a href="https://docs.atlassian.com/software/jira/docs/api/8.0.2/com/atlassian/jira/issue/search/DocumentWithId.html" target="_blank" rel="noopener">참고 링크 - search 함수</a>)</li>
-<li>DocumentWithId 클래스에는 getDocument() 함수가 있는데 이 함수로 Document에 접근할 수 있다.</li>
-<li>Document 오브젝트는 org.apache.lucene.document.Document 메서드를 사용하여 데이터를 접근할 수 있다. (<a href="https://lucene.apache.org/core/7_2_0/core/org/apache/lucene/document/Document.html" target="_blank" rel="noopener">참고 링크 - Document 메서드</a>)</li>
-<li>Document.getField(“key”) 로 접근하여 이슈의 키를 얻을 수 있다. (ex: JRA-1)</li>
+</li>
+<li>Jira 버전별 업그레이드 매트릭스: <a href="https://confluence.atlassian.com/adminjiraserver/upgrade-matrix-966063322.html" target="_blank" rel="noopener">Upgrade matrix</a><ul>
+<li>각 업그레이드 버전 항목 별로 간단하게 내용이 정리되어있는 표가 있습니다</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.jql.parser.JqlQueryParser;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.search.SearchProvider;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.web.bean.PagerFilter;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.search.SearchQuery;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> findIssues(String jqlQuery) &#123;</span><br><span class="line">  <span class="hljs-keyword">def</span> issueManager = ComponentAccessor.issueManager;</span><br><span class="line">  <span class="hljs-keyword">def</span> user = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();</span><br><span class="line">  <span class="hljs-keyword">def</span> jqlQueryParser = ComponentAccessor.getComponent(JqlQueryParser);</span><br><span class="line">  <span class="hljs-keyword">def</span> searchProvider = ComponentAccessor.getComponent(SearchProvider);</span><br><span class="line">  <span class="hljs-keyword">def</span> query = jqlQueryParser.parseQuery(jqlQuery);</span><br><span class="line">  <span class="hljs-keyword">def</span> searchQuery = SearchQuery.create(query, user);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// search 함수를 type 에 맞게 수정해주었다.</span></span><br><span class="line">  <span class="hljs-keyword">def</span> results = searchProvider.search(searchQuery, PagerFilter.getUnlimitedFilter());</span><br><span class="line">  log.warn <span class="hljs-string">"issue cnt: $&#123;results.getTotal()&#125;"</span>; <span class="hljs-comment">// query로 얻은 이슈의 수를 확인한다.</span></span><br><span class="line">  results.getResults().collect &#123; res -&gt;</span><br><span class="line">    <span class="hljs-keyword">def</span> doc = res.getDocument();</span><br><span class="line">    <span class="hljs-keyword">def</span> key = doc.get(<span class="hljs-string">"key"</span>);</span><br><span class="line">    <span class="hljs-keyword">def</span> issue = ComponentAccessor.getIssueManager().getIssueObject(key);</span><br><span class="line">    <span class="hljs-keyword">return</span> issue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">def</span> jqlQuery = <span class="hljs-string">"project=JRA AND issuetype=Bug"</span>;</span><br><span class="line"><span class="hljs-keyword">def</span> issues = findIssues(jqlQuery);</span><br></pre></td></tr></table></figure>
-
-<h3 id="참고-1"><a href="#참고-1" class="headerlink" title="참고"></a>참고</h3><ul>
-<li>Document 클래스 설명 문서: <a href="https://lucene.apache.org/core/7_2_0/core/index.html?org/apache/lucene/document/Document.html" target="_blank" rel="noopener">https://lucene.apache.org/core/7_2_0/core/index.html?org/apache/lucene/document/Document.html</a></li>
-<li>Document.getFields() 참고: <a href="https://www.programcreek.com/java-api-examples/?class=org.apache.lucene.document.Document&amp;method=getFields" target="_blank" rel="noopener">https://www.programcreek.com/java-api-examples/?class=org.apache.lucene.document.Document&amp;method=getFields</a></li>
-<li>groovy Collection 다루기<a href="http://docs.groovy-lang.org/next/html/documentation/working-with-collections.html" target="_blank" rel="noopener">http://docs.groovy-lang.org/next/html/documentation/working-with-collections.html</a></li>
+<h1 id="각-버전-별-변경-사항"><a href="#각-버전-별-변경-사항" class="headerlink" title="각 버전 별 변경 사항"></a>각 버전 별 변경 사항</h1><p>사내에서 기존에 사용했던 Jira 버전은 7.11 버전이었는데 8.0으로 업그레이드했습니다<br>이 업그레이드에는 7.12, 7.13, 8.0 수정사항이 모두 반영되어서 변경 사항에 대해 정리해보았습니다<br>각 변경 내용은 릴리즈 노트에 기반하여 정리하였습니다</p>
+<h2 id="7-12-변경-내용"><a href="#7-12-변경-내용" class="headerlink" title="7.12 변경 내용"></a>7.12 변경 내용</h2><p><a href="https://confluence.atlassian.com/jirasoftware/jira-software-7-12-x-release-notes-953676636.html" target="_blank" rel="noopener">jira-software-7-12-x-release-notes</a></p>
+<h3 id="New-look-and-feel-of-the-Custom-fields-page"><a href="#New-look-and-feel-of-the-Custom-fields-page" class="headerlink" title="New look and feel of the Custom fields page"></a>New look and feel of the Custom fields page</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/953676636/955184240/3/1534154413740/custom.png" alt="custom field"></p>
+<ul>
+<li>어드민 기능 수정 내용으로 <code>설정 &gt; Fields &gt; Custom fields</code> 간략하게 볼 수 있는 내용</li>
+<li>커스텀 필드가 적용된 프로젝트, 스크린을 한가득 보던 화면을 최적화해서 어드민 QoL 기능</li>
 </ul>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>다소 문제 해결에 애를 먹기는 했지만 해결은 했습니다.<br>이 글을 쓰고나서 ScriptRunner 쪽에 문서 최신화좀 해달라고 요청해야겠네요.<br>문서 최신화가 어려운 것은 알지만 다들 삽질할 것 같은데 피드백 얼른 남겨야겠네요.</p>
-<p>종종 스크립트러너로 할 수 있는 기능들을 포스팅 해보겠습니다. :)</p>
+<h3 id="Share-edit-rights-for-filters-and-dashboards"><a href="#Share-edit-rights-for-filters-and-dashboards" class="headerlink" title="Share edit rights for filters and dashboards"></a>Share edit rights for filters and dashboards</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/953676636/955176570/3/1533817120715/filters_relnotes.png" alt="filter editors"></p>
+<ul>
+<li>필터 수정 권한을 추가로 설정할 수 있는 기능 추가</li>
+<li>필터를 다른 사람도 수정할 수 있게 된 것이 매우매우 좋다!</li>
+</ul>
+<h3 id="More-search-power"><a href="#More-search-power" class="headerlink" title="More search power"></a>More search power</h3><ul>
+<li>Development 관련 검색 기능 추가 (Open PR, Merged PR, Failling builds, Passed builds 등등)</li>
+<li>작업이 어떻게 진행되고 있는지 파악하기 좋을 것으로 보임</li>
+</ul>
+<h3 id="Boost-Jira-performance"><a href="#Boost-Jira-performance" class="headerlink" title="Boost Jira performance"></a>Boost Jira performance</h3><ul>
+<li>보드에 있는 이슈의 수를 보여주는 것이 느리게 만드는 데 그 숫자를 안보이게하면 빠르게 할 수 있음</li>
+<li>컬럼에서 얼마나 머물러 있었는지 볼 수 있는 내용도 끌 수 있는데 끄면 성능을 개선할 수 있음</li>
+<li>다만 이 기능을 사용할 경우 보드에서 이슈가 얼마나 있는지, 얼마나 그 상태에 머물러 있었는지 알 수 없어서 불편할 것으로 예상됨</li>
+</ul>
+<h3 id="그-외의-버그-수정-다수"><a href="#그-외의-버그-수정-다수" class="headerlink" title="그 외의 버그 수정 다수"></a>그 외의 버그 수정 다수</h3><h2 id="7-13-변경-내용"><a href="#7-13-변경-내용" class="headerlink" title="7.13 변경 내용"></a>7.13 변경 내용</h2><p><a href="https://confluence.atlassian.com/jirasoftware/jira-software-7-13-x-release-notes-957981568.html" target="_blank" rel="noopener">jira-software-7-13-x-release-notes</a></p>
+<ul>
+<li>AdoptOpenJDK 8 comes to Jira<ul>
+<li>내부 개발 플랫폼 내용이라 자세히 알 필요는 없음</li>
+</ul>
+</li>
+<li>End of year Enterprise release roundup<ul>
+<li>공식 릴리즈에 대한 이야기</li>
+</ul>
+</li>
+<li>Enterprise releases, performance-wise<ul>
+<li>성능 향상 - <a href="https://confluence.atlassian.com/adminjiraserver0713/performance-and-scale-testing-966063698.html" target="_blank" rel="noopener">performance-and-scale-testing-966063698.html</a></li>
+<li>7.12와 비교했을때 눈에 띄는 성능 향상은 아니지만 7.6 버전에 비하면 성능 향상이 이뤄졌음</li>
+<li>(하지만 기존에 사용하고 있던 버전도 낮은 버전은 아니어서 큰 성능 차이를 느끼지 못했습니다)</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-0-변경-내용"><a href="#8-0-변경-내용" class="headerlink" title="8.0 변경 내용"></a>8.0 변경 내용</h2><p><a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-0-x-release-notes-957981626.html" target="_blank" rel="noopener">jira-software-8-0-x-release-notes</a></p>
+<h3 id="Look-and-feel-Scrum-and-Kanban"><a href="#Look-and-feel-Scrum-and-Kanban" class="headerlink" title="Look and feel: Scrum and Kanban"></a>Look and feel: Scrum and Kanban</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/957981626/964981997/3/1550749827559/boards.png" alt="Look and feel: Scrum and Kanban"></p>
+<ul>
+<li>보드의 외형이 바뀌었음</li>
+<li>카드 정보를 어떻게 설정하여 보여줄 수 있을지 봐야할 것</li>
+</ul>
+<h3 id="Better-email-notifications"><a href="#Better-email-notifications" class="headerlink" title="Better email notifications"></a>Better email notifications</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/957981626/964981972/3/1550749827217/email.png" alt="Better email notifications"></p>
+<ul>
+<li>이메일이 너무 많이 와서 압도되는 것을 줄여보고자 했음</li>
+<li>예시로는 10분간의 알림 사항을 모아서 메일주는 것을 보여줌</li>
+<li>설정 &gt; System &gt; Batching email notifications 에서 설정 가능<ul>
+<li>상세 내용: <a href="https://confluence.atlassian.com/adminjiraserver/configuring-email-notifications-938847633.html" target="_blank" rel="noopener">configuring-email-notifications</a></li>
+</ul>
+</li>
+<li>댓글의 수정 내용이 계속 오는 것이 아닌 정리되서 와서 좋았던 기능</li>
+</ul>
+<h3 id="Significant-backlogs-load-faster"><a href="#Significant-backlogs-load-faster" class="headerlink" title="Significant backlogs load faster"></a>Significant backlogs load faster</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/957981626/960698183/3/1550749826625/Screen+Shot+2018-10-29+at+11.41.27.png" alt="Significant backlogs load faster"></p>
+<ul>
+<li>백로그 로딩 시간이 줄어들었음</li>
+<li>몇개를 샘플링해서 보여주고 추가적으로 로딩할 수 있도록 하여 로딩 속도 개선한 것으로 보임</li>
+</ul>
+<h3 id="Dropping-Linked-pages-count-to-boost-performance"><a href="#Dropping-Linked-pages-count-to-boost-performance" class="headerlink" title="Dropping Linked pages count to boost performance"></a>Dropping Linked pages count to boost performance</h3><ul>
+<li>이슈에 링크되어있는 페이지의 숫자를 보여주지 않는 것으로 성능 향상</li>
+</ul>
+<h3 id="New-priority-icons"><a href="#New-priority-icons" class="headerlink" title="New priority icons"></a>New priority icons</h3><ul>
+<li>새로운 priority 아이콘 추가 (리뉴얼 되었음)</li>
+</ul>
+<h3 id="New-options-in-advanced-search"><a href="#New-options-in-advanced-search" class="headerlink" title="New options in advanced search"></a>New options in advanced search</h3><ul>
+<li>Find authors (updatedBy)<ul>
+<li><a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-functions-reference-939938746.html#Advancedsearching-functionsreference-approverupdatedBy()" target="_blank" rel="noopener">UpdatedBy() guide</a></li>
+<li>어떤 사용자가 업데이트했는지 알 수 있음. 추가로 특정 시간부터 또는 특정 시간 동안 수정했는지 알 수 있음.</li>
+</ul>
+</li>
+<li>Find link types (issueLinkType)<ul>
+<li><a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-fields-reference-939938743.html#Advancedsearching-fieldsreference-issuelinktypeIssuelinktype" target="_blank" rel="noopener">issueLinkType guide</a></li>
+<li>링크된 타입에 따라 이슈를 검색해볼 수 있음</li>
+</ul>
+</li>
+</ul>
+<h3 id="Massive-performance-improvements"><a href="#Massive-performance-improvements" class="headerlink" title="Massive performance improvements"></a>Massive performance improvements</h3><ul>
+<li>보드, 백로그가 보이는데 걸리는 시간이 62%, 87%까지 빨라졌음</li>
+<li>JQL 프로세싱 과정은 33% 빨라졌음</li>
+<li>보드 브라우징은 16% 빨라졌음</li>
+</ul>
+<h3 id="Faster-indexing"><a href="#Faster-indexing" class="headerlink" title="Faster indexing"></a>Faster indexing</h3><ul>
+<li>리인덱싱 속도가 71% 빨라졌음</li>
+<li>인덱스의 크기가 줄어들어 인덱싱에 부담을 덜었음</li>
+<li>인덱싱 관련 최적화가 되었음</li>
+<li>(실제로도 각 프로젝트에서 인덱싱할 때에 다른 프로젝트에서 영향 받지 않고 빠르게 된 것을 확인했습니다)</li>
+</ul>
+<h3 id="REST-API-for-issue-type-schemes"><a href="#REST-API-for-issue-type-schemes" class="headerlink" title="REST API for issue type schemes"></a>REST API for issue type schemes</h3><ul>
+<li>이슈 타입 스킴(Scheme)을 REST API로 수정할 수 있게 되었습니다.</li>
+<li><a href="https://docs.atlassian.com/software/jira/docs/api/REST/8.1.0/#api/2/issuetypescheme" target="_blank" rel="noopener">jira/docs/api/REST/8.1.0/#api/2/issuetypescheme</a></li>
+</ul>
+<h3 id="Misc-Bonus-resources"><a href="#Misc-Bonus-resources" class="headerlink" title="Misc(Bonus resources)"></a>Misc(Bonus resources)</h3><ul>
+<li>Small improvements to make your day<ul>
+<li>4 Byte characters 지원</li>
+<li>add-ons → apps 이름 변경</li>
+<li>Using sprints when your backlog isn’t sorted by rank (백로그가 rank로 정렬되지 않아도 스프린트 사용 가능)</li>
+</ul>
+</li>
+<li>성능 및 스케일 테스트<ul>
+<li><a href="https://confluence.atlassian.com/adminjiraserver/performance-and-scaling-965568705.html" target="_blank" rel="noopener">performance-and-scaling</a></li>
+</ul>
+</li>
+<li>보안 관련 페이지</li>
+<li>JIRA Server mobile App 지원 (베타 앱으로 지원되고 있어서 베타로 깔아야 함)<ul>
+<li>Android: <a href="https://play.google.com/apps/testing/com.atlassian.jira.server" target="_blank" rel="noopener">https://play.google.com/apps/testing/com.atlassian.jira.server</a></li>
+<li>iOS: <a href="https://testflight.apple.com/join/6JbjYbSY" target="_blank" rel="noopener">https://testflight.apple.com/join/6JbjYbSY</a></li>
+<li>Pre-upgrade planning page 추가<ul>
+<li>설정 &gt; Applications &gt; Plan your upgrade 기능으로 볼 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>그 외의 버그 수정 다수</li>
+</ul>
+<h2 id="업그레이드-버전-별-정리-후기"><a href="#업그레이드-버전-별-정리-후기" class="headerlink" title="업그레이드 버전 별 정리 후기"></a>업그레이드 버전 별 정리 후기</h2><p>PM 업무를 하면서 Jira를 어떻게하면 더 잘 사용할 수 있을지, 개발 프로세스에 어떻게 잘 녹여낼지<br>고민하다보니 Jira 시스템도 많이 보게되어 정리하게 되었네요.<br>8.0 업그레이드를 했으니 곧 8.1, 8.2 업그레이드 릴리즈 노트도 정리해서 포스트 해보겠습니다.</p>
 
         </div>
         

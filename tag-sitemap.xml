@@ -3,36 +3,43 @@
 
 
     <url>
-        <loc>https://pineoc.github.io/blog/tags/Fisheye/</loc>
-        <lastmod>2019-07-12T14:58:41.499Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://pineoc.github.io/blog/tags/ScriptRunner/</loc>
-        <lastmod>2019-07-12T14:54:55.828Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://pineoc.github.io/blog/tags/Jira/</loc>
-        <lastmod>2019-07-12T14:54:55.828Z</lastmod>
+        <lastmod>2019-07-13T03:38:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://pineoc.github.io/blog/tags/blog/</loc>
+        <lastmod>2019-07-13T03:37:51.422Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://pineoc.github.io/blog/tags/CI/</loc>
-        <lastmod>2019-07-12T14:53:40.804Z</lastmod>
+        <lastmod>2019-07-13T03:36:31.380Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://pineoc.github.io/blog/tags/GitLab/</loc>
-        <lastmod>2019-07-12T14:53:40.804Z</lastmod>
+        <lastmod>2019-07-13T03:36:31.380Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://pineoc.github.io/blog/tags/Fisheye/</loc>
+        <lastmod>2019-07-13T03:33:40.626Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://pineoc.github.io/blog/tags/ScriptRunner/</loc>
+        <lastmod>2019-07-13T03:31:45.280Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
