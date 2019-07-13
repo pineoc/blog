@@ -9,7 +9,6 @@ toc: true
 thumbnail: https://wac-cdn.atlassian.com/dam/jcr:0785bca2-a166-47ef-aeec-c657e7627af0/Fisheye@2x-blue.png?cdnVersion=457
 ---
 
-
 ## Fisheye Webhook 에러 수정
 
 SVN, Git과 같은 버전관리 프로그램에 기록되는 커밋(리비전) 내역을 트래킹해주는

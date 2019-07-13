@@ -2,6 +2,7 @@
 title: ScriptRunner 소개 3
 categories:
   - PM
+  - System
 date: 2019-04-27 18:55:29
 tags:
   - Jira

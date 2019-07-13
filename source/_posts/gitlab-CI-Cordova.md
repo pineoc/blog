@@ -7,11 +7,12 @@ tags:
   - GitLab
   - CI
 thumbnail: https://about.gitlab.com/images/ci/gitlab-ci-cd-logo_2x.png
+toc: true
 ---
 
 > 이 글은 2018년 1월 기준으로 작성된 글입니다. 현재 Gitlab 설정, Cordova 환경과는 다를 수 있습니다.
 
-## GitLab CI?
+## GitLab CI
 
 소개: <https://about.gitlab.com/product/continuous-integration/>
 GitLab에서 CI를 지원한다는 것을 듣고 당시 진행하던 프로젝트를 설정해보고자 했습니다.
@@ -72,7 +73,7 @@ build:
     - cordova build android
 ```
 
-### GitLab Repo에 Push!
+### GitLab Repo에 Push
 
 위에서 설정한 `.gitlab-ci.yml` 파일을 프로젝트 최상단 경로에 두면 GitLab에서 파일을 인식하여
 설정한 내용대로 빌드를 진행합니다. 진행된 내역은 아래 링크에서 확인할 수 있습니다.
