@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://pineoc.github.io/blog/tags/PM/</loc>
+        <lastmod>2019-07-21T14:01:37.776Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://pineoc.github.io/blog/tags/Jira/</loc>
         <lastmod>2019-07-13T03:38:57.000Z</lastmod>
         <changefreq>weekly</changefreq>

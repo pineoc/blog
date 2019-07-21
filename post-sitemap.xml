@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://pineoc.github.io/blog/2019/07/20/What-is-Dev-PM/</loc>
+        <lastmod>2019-07-21T14:01:37.776Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://pineoc.github.io/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/</loc>
         <lastmod>2019-07-13T03:38:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
