@@ -3,8 +3,22 @@
 
 
     <url>
+        <loc>https://pineoc.github.io/blog/tags/IoT/</loc>
+        <lastmod>2019-07-27T12:38:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://pineoc.github.io/blog/tags/Javascript-weekly/</loc>
+        <lastmod>2019-07-27T09:40:40.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://pineoc.github.io/blog/tags/PM/</loc>
-        <lastmod>2019-07-21T14:01:37.776Z</lastmod>
+        <lastmod>2019-07-21T14:17:39.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
