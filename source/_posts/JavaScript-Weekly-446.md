@@ -24,7 +24,7 @@ JavaScript Weekly Issue 446: July 19, 2019
 
 ### [Osgood 소개:  HTTP 서버를 구축하기 위한 새로운 V8 기반의 플랫폼](https://javascriptweekly.com/link/67215/web)
 
-Rust와 V8 자바스크립트 엔진을 사용하여 구축된 Osgood는 안전한 HTTP 서비스 구축에 초점을 맞춘 새로운 플랫폼(a la Node)이다. 보안은 모든 것이 개방되기 보다는 I/O 정책을 지정하도록 요구함으로써 이루어진다. [GitHub repo.](https://javascriptweekly.com/link/67216/web)
+Rust와 V8 자바스크립트 엔진을 사용하여 구축된 Osgood는 안전한 HTTP 서비스 구축에 초점을 맞춘 새로운 플랫폼(Node의 스타일)이다. 보안은 모든 것이 개방되기 보다는 I/O 정책을 지정하도록 요구함으로써 이루어진다. [GitHub repo.](https://javascriptweekly.com/link/67216/web)
 `THOMAS HUNTER II`
 
 ![Circle CI](https://copm.s3.amazonaws.com/42783ef4.png)
