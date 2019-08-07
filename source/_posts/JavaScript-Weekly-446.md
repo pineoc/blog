@@ -6,7 +6,7 @@ categories:
 - Tech
 - Javascript
 tags:
-- Javascript weekly
+- Javascript Weekly
 thumbnail: https://user-images.githubusercontent.com/5077086/61992486-20028900-b09a-11e9-8e0b-3f4db9cac0ea.png
 ---
 
