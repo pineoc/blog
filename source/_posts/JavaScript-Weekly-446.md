@@ -72,7 +72,7 @@ Wix의 성능 기술 리더인 Dan Shappir가 출연한 한 시간 동안 진행
 
 `REAL TALK JAVASCRIPT`
 
-## 💻 Jobs
+## 💻 채용 공고
 
 [**Frontend Engineer at Goodreads (Amazon)**](https://javascriptweekly.com/link/67170/web)
 Goodreads에 참여하여 8천만 명 이상의 독자의 독서 활동을 지원하는 야심찬 제품의 앞날을 구축해보십시오.
@@ -154,7 +154,7 @@ Node.js 12는 ES6 모듈 지원, 애플리케이션 보안 향상 및 시작 시
 당신은 웹이 크롬(Chrome)이 지배하는 단일 문화가 되는 것을 막을 수 있는 힘을 가지고 있다고 Mike는 말한다.
 `MIKE PENNISI`
 
-## 🔧 Code and Tools
+## 🔧 코드와 도구들
 
 ![](https://res.cloudinary.com/cpress/image/upload/w_1280,e_sharpen:60/v1563552844/xpijri4uqku9jsgthnn7.png)
 
@@ -186,7 +186,7 @@ Airtable은 인기 있는 클라우드 기반 스프레드시트-meets-database 
 
 `SMOOTH CODE`
 
-## ⚡️ Quick Releases
+## ⚡️ 릴리스 요약
 
 전체 기록이 필요없는 최신 릴리즈가 있는 인기 라이브러리 및 도구:
 
@@ -199,4 +199,4 @@ Airtable은 인기 있는 클라우드 기반 스프레드시트-meets-database 
 - [**melonJS 7.1**](https://javascriptweekly.com/link/67181/web) — 가벼운 게임 엔진
 - [**autoComplete.js 6.1**](https://javascriptweekly.com/link/67182/web) — 단순한 vanilla JS 자동완성 라이브러리
 
-**추신**. 우리가 트위터에 있는 것 알고 있었습니까? [***@JavaScriptDaily***](https://javascriptweekly.com/link/67183/web) ***팔로우해주세요.***
+**추신**. 우리가 트위터에 있는 것 알고 있었습니까? [***@JavaScriptDaily***](https://javascriptweekly.com/link/67183/web) **팔로우해주세요.**
