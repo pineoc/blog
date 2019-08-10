@@ -98,6 +98,7 @@ Vettery는 기술 역할을 전문으로 하며 구직자들에게는 완전히 
 ### [`postMessage`는 느린가?](https://javascriptweekly.com/link/67214/web)
 
 `postMessage`와 관련한 성능 문제와 우려에 대한 환상적인 심층 분석, Web Worker에게 메시지를 보내는 데 사용되는 방법.
+(역자 주, 참고: <https://youtu.be/j1JEZ7snw48?t=305> 영상에서 한번 나온 이야기)
 `SURMA`
 
 ### [자바스크립트에서 Async Await 에러 처리하기](https://javascriptweekly.com/link/67190/web)
