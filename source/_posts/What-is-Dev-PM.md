@@ -144,4 +144,5 @@ PM으로 전환한다면 개발을 할 수 없는 것은 아니지만 개발자 
 최근 들은 개발 PM 이야기 중 가장 깔끔했던 발표 공유를 마지막으로 포스트 마무리하겠습니다
 
 이해봄님 2019 NDC 발표, `개발 PM-전지적 참견시점`
-<https://www.thisisgame.com/webzine/gameevent/nboard/227/?n=93530>
+- 자료: <http://ndcreplay.nexon.com/NDC2019/sessions/NDC2019_0055.html#c=NDC2019&t%5B%5D=%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98%26%EC%9A%B4%EC%98%81>
+- 기사: <https://www.thisisgame.com/webzine/gameevent/nboard/227/?n=93530>
