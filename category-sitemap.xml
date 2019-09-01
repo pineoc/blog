@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://pineoc.github.io/blog/categories/PM/System/</loc>
+        <lastmod>2019-09-01T15:07:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://pineoc.github.io/blog/categories/PM/</loc>
+        <lastmod>2019-09-01T15:07:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://pineoc.github.io/blog/categories/Tech/Javascript/</loc>
         <lastmod>2019-09-01T07:27:53.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -29,13 +43,6 @@
     </url>
 
     <url>
-        <loc>https://pineoc.github.io/blog/categories/PM/</loc>
-        <lastmod>2019-08-10T11:25:05.033Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://pineoc.github.io/blog/categories/Life/IoT/</loc>
         <lastmod>2019-07-27T12:38:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -45,13 +52,6 @@
     <url>
         <loc>https://pineoc.github.io/blog/categories/Life/</loc>
         <lastmod>2019-07-27T12:38:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://pineoc.github.io/blog/categories/PM/System/</loc>
-        <lastmod>2019-07-13T03:38:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
