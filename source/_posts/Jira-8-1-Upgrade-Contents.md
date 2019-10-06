@@ -1,5 +1,5 @@
 ---
-title: Jira 8.1 릴리스 노트
+title: Jira Software 8.1 릴리스 노트
 date: 2019-09-02 00:05:55
 categories:
 - PM
@@ -9,9 +9,9 @@ tags:
 toc: true
 ---
 
-## Jira 8.1 릴리스 노트
+## Jira Software 8.1 릴리스 노트
 
-Jira 8.1.x 릴리스 노트: <https://confluence.atlassian.com/jirasoftware/jira-software-8-1-x-release-notes-966669112.html>
+Jira Software 8.1.x 릴리스 노트: <https://confluence.atlassian.com/jirasoftware/jira-software-8-1-x-release-notes-966669112.html>
 
 지난 4월에 릴리스된 Jira Software 8.1 기능에 대해 살펴보는 포스트입니다.
 위 릴리스 노트에서 자세한 내용을 보실 수 있으며, 이 포스트는 주관적인 생각을 담고 있습니다.
