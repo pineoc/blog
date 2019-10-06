@@ -151,6 +151,79 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-06T09:15:03.000Z">2019-10-06</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4분 읽기 (나에 대하여 639 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2019/10/06/Jira-Software-8-3-release-notes/">Jira Software 8.3 릴리스 노트</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="Jira-Software-8-3-릴리스-노트"><a href="#Jira-Software-8-3-릴리스-노트" class="headerlink" title="Jira Software 8.3 릴리스 노트"></a>Jira Software 8.3 릴리스 노트</h2><p>Jira Software 8.3.x 릴리스 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-3-x-release-notes-972326971.html" target="_blank" rel="noopener">https://confluence.atlassian.com/jirasoftware/jira-software-8-3-x-release-notes-972326971.html</a></p>
+<p>2019년 7월에 릴리스된 Jira Software 8.3 기능에 대해 살펴보는 포스트입니다.<br>위 릴리스 노트에서 자세한 내용을 보실 수 있으며, 이 포스트는 주관적인 생각을 담고 있습니다.</p>
+<h3 id="하이라이트-Highlights"><a href="#하이라이트-Highlights" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
+<li><strong>Jira Server mobile app</strong></li>
+<li>Content Delivery Network (CDN) for Jira Data Center</li>
+<li>AdoptOpenJDK JRE bundled with JIRA</li>
+<li>List of custom changes after upgrade</li>
+<li><strong>New filters to search for custom fields</strong></li>
+<li>Browsing projects is faster now</li>
+<li><strong>Improvements to batching emails</strong></li>
+<li>Cluster lock mechanism improved in Data Center</li>
+<li><strong>Re-indexing made better</strong></li>
+</ul>
+<h3 id="Jira-Server-mobile-app"><a href="#Jira-Server-mobile-app" class="headerlink" title="Jira Server mobile app"></a>Jira Server mobile app</h3><p>8.0 버전에서 베타로 있었던 Jira 모바일 앱이 8.3 버전에서 부터 정식 버전으로 오픈되었습니다!<br>자세한 사항은 따로 페이지가 만들어져 있네요. (<a href="https://confluence.atlassian.com/jirasoftwareserver/jira-server-mobile-app-966063511.html" target="_blank" rel="noopener">링크</a>)</p>
+<ul>
+<li>Android: <a href="https://play.google.com/store/apps/details?id=com.atlassian.jira.server" target="_blank" rel="noopener">https://play.google.com/store/apps/details?id=com.atlassian.jira.server</a></li>
+<li>iOS: <a href="https://apps.apple.com/us/app/id1405353949" target="_blank" rel="noopener">https://apps.apple.com/us/app/id1405353949</a></li>
+</ul>
+<p>모바일 웹뷰보다는 잘 보이는 것들이 많습니다.<br>저는 모바일 폰 보다 패드에서는 시원하게 보이는 것들이 많아서 편하게 사용하고 있습니다.<br>실제로 컴퓨터로 보는게 더 편한 것들이 많은 것은 넘어가겠습니다. :)</p>
+<h3 id="New-filters-to-search-for-custom-fields"><a href="#New-filters-to-search-for-custom-fields" class="headerlink" title="New filters to search for custom fields"></a>New filters to search for custom fields</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/972326971/972352770/2/1567587244325/Screenshot+2019-06-04+at+10.26.15.png" alt></p>
+<p>시스템 설정 &gt; 이슈의 커스텀 필드를 검색하는데에 편의를 위해 필터가 생겼습니다.<br>이 기능으로 커스텀 필드를 골라서 보는 데에 조금 더 빠르고 편리하게 수정할 수 있게되었습니다.</p>
+<ul>
+<li>특정 프로젝트가 사용하는 커스텀 필드</li>
+<li>커스텀 필드 타입</li>
+<li>특정 스크린이 사용하는 커스텀 필드</li>
+</ul>
+<h3 id="Re-indexing-made-better"><a href="#Re-indexing-made-better" class="headerlink" title="Re-indexing made better"></a>Re-indexing made better</h3><p>커스텀 필드 추가나 이슈 필드 수정이 있으면 항상 따라오는 리인덱싱!<br>이 내용은 데이터 센터 버전에 해당하는 내용이라고 하네요.<br>리인덱싱을 진행할 때, 데이터 센터 노드 별로 진행하는 사항 등에 대한 경고로 실수를 막을 수 있도록 했다고 합니다.</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>이번 8.3 릴리스는 데이터 센터 업데이트 스펙이 많은 것 같습니다.<br>서버 버전 사용자 측면에서는 큰 변화는 없으나 시스템 관리자가 편해진 내용도 있었습니다.<br>큰 스펙으로는 서버 버전의 모바일 앱을 정식으로 지원하게 되었다는 것!</p>
+<p>다음 버전에는 어떤 기능들이 추가될지 기대하며 포스트 마치겠습니다.</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-10-06T05:54:49.000Z">2019-10-06</time>
                 
                 <div class="level-item">
@@ -1075,92 +1148,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/blog/2019/06/30/gitlab-CI-Cordova/" class="image is-7by1">
-            <img class="thumbnail" src="https://about.gitlab.com/images/ci/gitlab-ci-cd-logo_2x.png" alt="GitLab CI 해보기 - Cordova">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-30T01:06:28.000Z">2019-06-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6분 읽기 (나에 대하여 866 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/blog/2019/06/30/gitlab-CI-Cordova/">GitLab CI 해보기 - Cordova</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>이 글은 2018년 1월 기준으로 작성된 글입니다. 현재 Gitlab 설정, Cordova 환경과는 다를 수 있습니다.</p>
-</blockquote>
-<h2 id="GitLab-CI"><a href="#GitLab-CI" class="headerlink" title="GitLab CI"></a>GitLab CI</h2><p>소개: <a href="https://about.gitlab.com/product/continuous-integration/" target="_blank" rel="noopener">https://about.gitlab.com/product/continuous-integration/</a><br>GitLab에서 CI를 지원한다는 것을 듣고 당시 진행하던 프로젝트를 설정해보고자 했습니다.<br>CI는 Continuous Integration의 약자로 지속적인 통합으로 부릅니다.</p>
-<p>CI는 “지속적으로 퀄리티 컨트롤을 적용하는 프로세스를 실행하는 것이다. (<a href="https://ko.wikipedia.org/wiki/%EC%A7%80%EC%86%8D%EC%A0%81_%ED%86%B5%ED%95%A9" target="_blank" rel="noopener">Wiki</a>)으로 설명할 수 있고 이 글에서는 CI에서 자세히 다룰 예정은 아니기에 다른 좋은 문서를 참고해주세요. :)</p>
-<p>GitLab 소개문서에는 CD(Continuous Delivery OR Continuous Deployment-지속적인 배포)도<br>다루고 있으니 참고하시면 좋을 것 같습니다.</p>
-<p>저는 CI까지만 설정해보겠습니다. (나중에 CD까지 해볼 수 있겠죠.)</p>
-<h2 id="CI-설정-시나리오"><a href="#CI-설정-시나리오" class="headerlink" title="CI 설정 시나리오"></a>CI 설정 시나리오</h2><ol>
-<li>빌드 환경 설정</li>
-<li>.gitlab-ci.yml 설정</li>
-<li>GitLab Repo에 push!</li>
-<li>빌드!</li>
-</ol>
-<h3 id="빌드-환경-설정"><a href="#빌드-환경-설정" class="headerlink" title="빌드 환경 설정"></a>빌드 환경 설정</h3><p>여기서 어려울 것으로 예상한 것은 빌드 환경을 설정하는 것이라고 생각했습니다.<br><a href="https://medium.freecodecamp.org/how-to-setup-ci-on-gitlab-using-docker-66e1e04dcdc2" target="_blank" rel="noopener">freecodecamp 미디엄 글</a>에서는 도커 이미지를 사용하여 어렵지 않게 풀어낸 것 같습니다.</p>
-<p>빌드 환경 설정에 필요한 Cordova 환경설정이 무엇인지 살펴보았습니다.<br>Cordova 7.x 기준의 <code>안드로이드 빌드 환경</code>은 아래와 같습니다. (<a href="https://cordova.apache.org/docs/en/7.x/guide/platforms/android/index.html#installing-the-requirements" target="_blank" rel="noopener">참고</a>)</p>
-<ul>
-<li>JDK 8 이상</li>
-<li>Android SDK, Android SDK Packages</li>
-<li>Node.js 8.9.4 (NPM)</li>
-<li>Cordova 7.x</li>
-<li>(옵션) 환경 변수 설정</li>
-</ul>
-<p>iOS 빌드 환경은 macOS 이미지가 없어서 설정해보지 못했습니다. ;(<br>안드로이드 설정만 해봐야겠네요.</p>
-<p>앞서 freecodecamp 미디엄 글에서는 docker 이미지를 사용해서 CI를 설정을 했습니다.<br>Cordova 관련한 docker 이미지가 있는지 확인해보았고 적당한 것을 찾았습니다.<br><a href="https://hub.docker.com/r/beevelop/cordova/" target="_blank" rel="noopener">https://hub.docker.com/r/beevelop/cordova/</a></p>
-<p>이 이미지를 사용하여 만들어본 저장소는 아래와 같습니다. (저장소는 기본적인 프로젝트 생성한 상태입니다.)<br><a href="https://gitlab.com/pineoc/cordova-ci-demo" target="_blank" rel="noopener">https://gitlab.com/pineoc/cordova-ci-demo</a></p>
-<h3 id="gitlab-ci-yml-설정"><a href="#gitlab-ci-yml-설정" class="headerlink" title=".gitlab-ci.yml 설정"></a>.gitlab-ci.yml 설정</h3><figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">image:</span> <span class="hljs-string">beevelop/cordova:v7.1.0</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">before_script:</span></span><br><span class="line"><span class="hljs-bullet">  -</span> <span class="hljs-string">cordova</span> <span class="hljs-string">platform</span> <span class="hljs-string">add</span> <span class="hljs-string">android</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">stages:</span></span><br><span class="line"><span class="hljs-bullet">  -</span> <span class="hljs-string">build</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">build:</span></span><br><span class="line"><span class="hljs-attr">  stage:</span> <span class="hljs-string">build</span></span><br><span class="line"><span class="hljs-attr">  script:</span></span><br><span class="line"><span class="hljs-bullet">    -</span> <span class="hljs-string">cordova</span> <span class="hljs-string">build</span> <span class="hljs-string">android</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="GitLab-Repo에-Push"><a href="#GitLab-Repo에-Push" class="headerlink" title="GitLab Repo에 Push"></a>GitLab Repo에 Push</h3><p>위에서 설정한 <code>.gitlab-ci.yml</code> 파일을 프로젝트 최상단 경로에 두면 GitLab에서 파일을 인식하여<br>설정한 내용대로 빌드를 진행합니다. 진행된 내역은 아래 링크에서 확인할 수 있습니다.<br><a href="https://gitlab.com/pineoc/cordova-ci-demo/pipelines" target="_blank" rel="noopener">https://gitlab.com/pineoc/cordova-ci-demo/pipelines</a></p>
-<p>이제 커밋할 때마다 빌드가 돌아가고 빌드의 실패/성공을 확인할 수 있습니다.<br>커밋에 <code>[ci skip]</code> 이라고 명시하면 빌드는 스킵됩니다.<br><img src="https://user-images.githubusercontent.com/5077086/60391408-7e365d80-9b28-11e9-8ea0-d36389f6cef1.png" alt><br>(중간에 빌드 환경이 달라져서 실패한 내용이 생겼네요.)</p>
-<p>기본 프로젝트는 어렵지 않게 설정해보았지만<br>추가적인 플러그인 추가나 설정이 들어가면 어려워질 수 있을 것 같습니다.<br>iOS 빌드 시스템을 사용하려면 다른 것도 필요하겠구요.</p>
-<p>기본적인 설정이라도 도움이 되었으면 좋겠습니다. :)</p>
-<h2 id="참고-문서"><a href="#참고-문서" class="headerlink" title="참고 문서"></a>참고 문서</h2><ul>
-<li>Medium: <a href="https://medium.freecodecamp.org/how-to-setup-ci-on-gitlab-using-docker-66e1e04dcdc2" target="_blank" rel="noopener">https://medium.freecodecamp.org/how-to-setup-ci-on-gitlab-using-docker-66e1e04dcdc2</a></li>
-<li>GitLab CI quick start: <a href="https://gitlab.com/help/ci/quick_start/README" target="_blank" rel="noopener">https://gitlab.com/help/ci/quick_start/README</a></li>
-<li>GitLab CI Demo: <a href="https://gitlab.com/ykyuen/gitlab-ci-demo" target="_blank" rel="noopener">https://gitlab.com/ykyuen/gitlab-ci-demo</a></li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1225,7 +1212,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        17
+                        18
                     </p>
                 </div>
             </div>
@@ -1325,7 +1312,7 @@
                 <span class="level-item">PM</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">9</span>
+                <span class="level-item tag">10</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/blog/categories/PM/System/">
@@ -1333,7 +1320,7 @@
                 <span class="level-item">System</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">7</span>
+                <span class="level-item tag">8</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/blog/categories/PM/Work/">
@@ -1385,6 +1372,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2019/10/06/Jira-Software-8-3-release-notes/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Jira Software 8.3 릴리스 노트">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T09:15:03.000Z">2019-10-06</time></div>
+                    <a href="/blog/2019/10/06/Jira-Software-8-3-release-notes/" class="has-link-black-ter is-size-6">Jira Software 8.3 릴리스 노트</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1462,25 +1468,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/07/27/JavaScript-Weekly-446/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/61992486-20028900-b09a-11e9-8e0b-3f4db9cac0ea.png" alt="주간 자바스크립트 #446">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-26T17:10:46.000Z">2019-07-27</time></div>
-                    <a href="/blog/2019/07/27/JavaScript-Weekly-446/" class="has-link-black-ter is-size-6">주간 자바스크립트 #446</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/blog/categories/Tech/Javascript/">Javascript</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1499,7 +1486,7 @@
                     <span class="level-item">10월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1621,7 +1608,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1678,6 +1665,25 @@
         
         <article class="media">
             
+            <a href="/blog/2019/10/06/Jira-Software-8-3-release-notes/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Jira Software 8.3 릴리스 노트">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T09:15:03.000Z">2019-10-06</time></div>
+                    <a href="/blog/2019/10/06/Jira-Software-8-3-release-notes/" class="has-link-black-ter is-size-6">Jira Software 8.3 릴리스 노트</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2019/10/06/Jira-Software-8-2-release-notes/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Jira Software 8.2 릴리스 노트">
@@ -1752,25 +1758,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/07/27/JavaScript-Weekly-446/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/61992486-20028900-b09a-11e9-8e0b-3f4db9cac0ea.png" alt="주간 자바스크립트 #446">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-26T17:10:46.000Z">2019-07-27</time></div>
-                    <a href="/blog/2019/07/27/JavaScript-Weekly-446/" class="has-link-black-ter is-size-6">주간 자바스크립트 #446</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/blog/categories/Tech/Javascript/">Javascript</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1789,7 +1776,7 @@
                     <span class="level-item">10월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1911,7 +1898,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
