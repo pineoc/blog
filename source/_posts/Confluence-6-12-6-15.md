@@ -1,5 +1,5 @@
 ---
-title: Confluence 6.12-6.15
+title: Confluence 6.12-6.15 Release notes
 toc: true
 date: 2019-10-15 00:12:38
 categories:
