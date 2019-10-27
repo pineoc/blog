@@ -2,21 +2,25 @@
 <html lang="ko">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>아카이브: 2019/7 - Pineoc&#39;s Blog</title>
+<title>ScriptRunner-Label - Pineoc&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="keywords" content="Developer, PM">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pineoc&#39;s Blog">
-<meta property="og:url" content="https://pineoc.github.io/blog/archives/2019/07/index.html">
+    <meta name="description" content="스크립트러너에서 Jira 이슈의 Label 값을 수정하는 경우가 종종 있는데 어떻게 추가/수정하는지이번 포스트에서 다뤄보겠습니다. 이번에도 Script Console에서 코드를 실행시켜보고 저는 어떤 케이스에서 사용하는지 설명드리겠습니다. 시스템 테스트 환경스크립트러너는 Jira 버전에 영향을 좀 받아서 환경도 미리 알고 계셔야합니다.(버전에 따라 내부 함">
+<meta name="keywords" content="Jira,ScriptRunner">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ScriptRunner-Label">
+<meta property="og:url" content="https://pineoc.github.io/blog/2019/10/27/ScriptRunner-Label/index.html">
 <meta property="og:site_name" content="Pineoc&#39;s Blog">
+<meta property="og:description" content="스크립트러너에서 Jira 이슈의 Label 값을 수정하는 경우가 종종 있는데 어떻게 추가/수정하는지이번 포스트에서 다뤄보겠습니다. 이번에도 Script Console에서 코드를 실행시켜보고 저는 어떤 케이스에서 사용하는지 설명드리겠습니다. 시스템 테스트 환경스크립트러너는 Jira 버전에 영향을 좀 받아서 환경도 미리 알고 계셔야합니다.(버전에 따라 내부 함">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="https://pineoc.github.io/blog/images/og_image.png">
+<meta property="og:image" content="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png">
+<meta property="og:updated_time" content="2019-10-27T07:06:41.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pineoc&#39;s Blog">
-<meta name="twitter:image" content="https://pineoc.github.io/blog/images/og_image.png">
+<meta name="twitter:title" content="ScriptRunner-Label">
+<meta name="twitter:description" content="스크립트러너에서 Jira 이슈의 Label 값을 수정하는 경우가 종종 있는데 어떻게 추가/수정하는지이번 포스트에서 다뤄보겠습니다. 이번에도 Script Console에서 코드를 실행시켜보고 저는 어떤 케이스에서 사용하는지 설명드리겠습니다. 시스템 테스트 환경스크립트러너는 Jira 버전에 영향을 좀 받아서 환경도 미리 알고 계셔야합니다.(버전에 따라 내부 함">
+<meta name="twitter:image" content="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png">
 
 
 
@@ -99,7 +103,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/blog/">
             
-                <img src="/blog/images/logo.svg" alt="Pineoc&#39;s Blog" height="28">
+                <img src="/blog/images/logo.svg" alt="ScriptRunner-Label" height="28">
             
             </a>
         </div>
@@ -131,6 +135,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -144,98 +152,112 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        7월 2019
-        </h3>
-        <div class="timeline">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="ScriptRunner-Label">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-27T06:21:10.000Z">2019-10-27</time>
                 
-                <a href="/blog/2019/07/27/JavaScript-Weekly-446/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/61992486-20028900-b09a-11e9-8e0b-3f4db9cac0ea.png" alt="주간 자바스크립트 #446">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-26T17:10:46.000Z">2019-07-27</time>
-                        <a href="/blog/2019/07/27/JavaScript-Weekly-446/" class="has-link-black-ter is-size-6">주간 자바스크립트 #446</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a> / <a class="has-link-grey -link" href="/blog/categories/Tech/Javascript/">Javascript</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
                 </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-21T14:19:16.000Z">2019-07-21</time>
-                        <a href="/blog/2019/07/21/Qingmi-smart-powerstrip-timeout/" class="has-link-black-ter is-size-6">Qingmi Smart Powerstrip timeout 문제 해결</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/Life/">Life</a> / <a class="has-link-grey -link" href="/blog/categories/Life/IoT/">IoT</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-20T10:17:57.000Z">2019-07-20</time>
-                        <a href="/blog/2019/07/20/What-is-Dev-PM/" class="has-link-black-ter is-size-6">What is Dev PM</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/Work/">Work</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8분 읽기 (나에 대하여 1160 단어)
+                </span>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-13T02:15:50.000Z">2019-07-13</time>
-                        <a href="/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/" class="has-link-black-ter is-size-6">Jira 7.11 to 8.0 Upgrade</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+                
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                ScriptRunner-Label
+            
+        </h1>
+        <div class="content">
+            <p>스크립트러너에서 Jira 이슈의 Label 값을 수정하는 경우가 종종 있는데 어떻게 추가/수정하는지<br>이번 포스트에서 다뤄보겠습니다.</p>
+<p>이번에도 Script Console에서 코드를 실행시켜보고 저는 어떤 케이스에서 사용하는지 설명드리겠습니다.</p>
+<h2 id="시스템-테스트-환경"><a href="#시스템-테스트-환경" class="headerlink" title="시스템 테스트 환경"></a>시스템 테스트 환경</h2><p>스크립트러너는 Jira 버전에 영향을 좀 받아서 환경도 미리 알고 계셔야합니다.<br>(버전에 따라 내부 함수들이 변경됨에 따라 실제 코드도 조금씩 변경됩니다)</p>
+<ul>
+<li>Jira: Jira Software 8.3.2</li>
+<li>ScriptRunner: 5.6.1.1-jira8</li>
+</ul>
+<h2 id="Label-값-가져오기"><a href="#Label-값-가져오기" class="headerlink" title="Label 값 가져오기"></a>Label 값 가져오기</h2><p>Label 값을 가져오는 것은 쉽습니다.<br>이슈에서 기본적으로 사용하는 필드라서 다루기 쉬운 것이 장점입니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.label.LabelManager;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line"></span><br><span class="line">LabelManager labelManager = ComponentAccessor.getComponent(LabelManager);</span><br><span class="line"><span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="hljs-string">"PUBGTEST-169"</span>);</span><br><span class="line"></span><br><span class="line">labelManager.getLabels(issue.getId());</span><br></pre></td></tr></table></figure>
+
+<h3 id="getLabels-Long-issueId"><a href="#getLabels-Long-issueId" class="headerlink" title="getLabels(Long issueId)"></a>getLabels(Long issueId)</h3><p>getLabels() 함수는 issueId 값을 받아 이슈의 label 값을 가져옵니다.<br>함수의 리턴 값은 label들을 포함한 배열로 리턴합니다.<br>(아래 결과 값은 이슈에 테스트로 Label 값을 입력한 것을 기반으로 스크립트 결과가 나온 것입니다.)</p>
+<p><strong>Result</strong></p>
+<blockquote>
+<p>[Promotion, art]</p>
+</blockquote>
+<h2 id="Label-값-추가하기"><a href="#Label-값-추가하기" class="headerlink" title="Label 값 추가하기"></a>Label 값 추가하기</h2><p>Label 값을 가져오는 것보다는 한가지 더 고려가 필요한 <code>추가</code> 입니다.<br>Label 값을 추가할 때에는 어떤 사용자가 값을 추가할 것인지 결정이 필요합니다.<br>먼저 코드를 보면서 설명을 드리겠습니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.label.LabelManager;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line">  </span><br><span class="line"><span class="hljs-keyword">def</span> user = ComponentAccessor.getUserManager().getUserByKey(<span class="hljs-string">"pubg-helper"</span>);</span><br><span class="line">LabelManager labelManager = ComponentAccessor.getComponent(LabelManager);</span><br><span class="line"><span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="hljs-string">"PUBGTEST-169"</span>);</span><br><span class="line"></span><br><span class="line">labelManager.addLabel(user, issue.getId(), <span class="hljs-string">'test'</span>, <span class="hljs-literal">false</span>);</span><br><span class="line">labelManager.getLabels(issue.getId());</span><br></pre></td></tr></table></figure>
+
+<h3 id="코드-설명"><a href="#코드-설명" class="headerlink" title="코드 설명"></a>코드 설명</h3><p>앞서 Label 값을 가져오는 것과 비교해서 달라진 것은 아래 코드와 <code>addLabel()</code> 함수 입니다.<br><code>def user = ComponentAccessor.getUserManager().getUserByKey(&quot;pubg-helper&quot;);</code><br>위 코드는 Label을 추가할 사용자를 결정하기 위해 사용자 객체를 아이디로 가져온 것입니다.</p>
+<p>ScriptRunner의 Listener 기능에서 Label 수정/추가 기능을 사용할 때,<br>위 코드를 통해 업데이트하는 사용자를 동적으로 변경할 수 있습니다.</p>
+<p>addLabel(User remoteUser, Long issueId, String label, boolean sendNotification) 함수는 이슈에 Label을 하나 추가할 수 있는 함수입니다.<br>함수 레퍼런스: <a href="https://docs.atlassian.com/DAC/javadoc/jira/reference/com/atlassian/jira/issue/label/LabelManager.html#addLabel(com.atlassian.crowd.embedded.api.User,%20java.lang.Long,%20java.lang.String,%20boolean)" target="_blank" rel="noopener">docs.atlassian.com/…/LabelManager/addLabel</a></p>
+<p><strong>Result</strong></p>
+<blockquote>
+<p>[Promotion, art, test]</p>
+</blockquote>
+<h2 id="Label-값-변경"><a href="#Label-값-변경" class="headerlink" title="Label 값 변경"></a>Label 값 변경</h2><p>앞서 Label 추가의 경우 하나씩 추가했던 것에 비해 Label 값을 변경하는 것은 LabelManager의 setLabels() 함수를 사용합니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.label.LabelManager;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line">  </span><br><span class="line"><span class="hljs-keyword">def</span> user = ComponentAccessor.getUserManager().getUserByKey(<span class="hljs-string">"pubg-helper"</span>);</span><br><span class="line">LabelManager labelManager = ComponentAccessor.getComponent(LabelManager);</span><br><span class="line"><span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="hljs-string">"PUBGTEST-169"</span>);</span><br><span class="line"></span><br><span class="line">labelManager.setLabels(user, issue.getId(), [<span class="hljs-string">'test'</span>] <span class="hljs-keyword">as</span> Set, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>);</span><br><span class="line">labelManager.getLabels(issue.getId());</span><br></pre></td></tr></table></figure>
+
+<h3 id="labelManager-setLabels"><a href="#labelManager-setLabels" class="headerlink" title="labelManager.setLabels()"></a>labelManager.setLabels()</h3><p>labelManager.setLabels() 함수는 Label 값을 추가, 삭제한다기보다는<br>새로운 값으로 <code>재설정</code>한다는 것으로 이해하시면 될 것 같습니다.</p>
+<p><code>public Set&lt;Label&gt; setLabels (User remoteUser, Long issueId, Set&lt;String&gt; labels, boolean sendNotification, boolean causeChangeNotification)</code></p>
+<p>여기서 중간에 labels 값에 Set으로 되어있는데 그냥 [] 배열로 넣을 경우 List 객체로 인식하는 문제가 생깁니다.<br>그래서 <code>as Set</code>으로 변경해준 것으로 이해해주시면 됩니다. (혹은 변수를 따로 Set으로 두고 입력하면 됩니다)</p>
+<p>labelManager.setLabels() 함수 레퍼런스: <a href="https://docs.atlassian.com/DAC/javadoc/jira/reference/com/atlassian/jira/issue/label/LabelManager.html#setLabels(com.atlassian.crowd.embedded.api.User,%20java.lang.Long,%20java.util.Set%3Cjava.lang.String%3E,%20boolean,%20boolean)" target="_blank" rel="noopener">docs.atlassian.com/…/LabelManager/setLabels</a></p>
+<p><strong>Result</strong></p>
+<blockquote>
+<p>[test]</p>
+</blockquote>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>Label 값을 가져오고 추가/설정하는 것은 어렵지 않은 것 같습니다. (커스텀 필드 수정에 비해서요)<br>다만 골라서 삭제하는 기능은 없어 setLabels와 기존에 있는 값을 비교해서 삭제하는 것으로 삭제할 수는 있어 보이네요. (그렇게 어려워 보이지는 않을 것 같긴 하네요.)</p>
+<p>저는 특정 이벤트가 발생할 경우 Label을 추가하는 정도로만 Listener에 Custom Listener를 추가하여 사용하고 있습니다. 이 Label을 사용하여 보드를 만들어 사용하시는 분이 있는데 잘 사용하고 있다고 하네요. :)</p>
+<p>다음에 다른 기능을 소개하는 포스트로 찾아뵙겠습니다.<br>감사합니다!</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/blog/tags/Jira/">Jira</a>, <a class="has-link-grey -link" href="/blog/tags/ScriptRunner/">ScriptRunner</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blog/2019/10/15/Confluence-6-12-6-15/">
+                <span class="level-item">Confluence 6.12-6.15 Release notes</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
     </div>
 </div>
 
@@ -342,6 +364,49 @@
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카탈로그
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#시스템-테스트-환경">
+        <span class="has-mr-6">1</span>
+        <span>시스템 테스트 환경</span>
+        </a></li><li>
+        <a class="is-flex" href="#Label-값-가져오기">
+        <span class="has-mr-6">2</span>
+        <span>Label 값 가져오기</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#getLabels-Long-issueId">
+        <span class="has-mr-6">2.1</span>
+        <span>getLabels(Long issueId)</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Label-값-추가하기">
+        <span class="has-mr-6">3</span>
+        <span>Label 값 추가하기</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#코드-설명">
+        <span class="has-mr-6">3.1</span>
+        <span>코드 설명</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Label-값-변경">
+        <span class="has-mr-6">4</span>
+        <span>Label 값 변경</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#labelManager-setLabels">
+        <span class="has-mr-6">4.1</span>
+        <span>labelManager.setLabels()</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#마무리">
+        <span class="has-mr-6">5</span>
+        <span>마무리</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -1034,7 +1099,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/blog/">
                 
-                    <img src="/blog/images/logo.svg" alt="Pineoc&#39;s Blog" height="28">
+                    <img src="/blog/images/logo.svg" alt="ScriptRunner-Label" height="28">
                 
                 </a>
                 <p class="is-size-7">

@@ -160,6 +160,95 @@
 
     <div class="card">
     
+    <div class="card-image">
+        <a href="/blog/2019/10/27/ScriptRunner-Label/" class="image is-7by1">
+            <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="ScriptRunner-Label">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-27T06:21:10.000Z">2019-10-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8분 읽기 (나에 대하여 1160 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2019/10/27/ScriptRunner-Label/">ScriptRunner-Label</a>
+            
+        </h1>
+        <div class="content">
+            <p>스크립트러너에서 Jira 이슈의 Label 값을 수정하는 경우가 종종 있는데 어떻게 추가/수정하는지<br>이번 포스트에서 다뤄보겠습니다.</p>
+<p>이번에도 Script Console에서 코드를 실행시켜보고 저는 어떤 케이스에서 사용하는지 설명드리겠습니다.</p>
+<h2 id="시스템-테스트-환경"><a href="#시스템-테스트-환경" class="headerlink" title="시스템 테스트 환경"></a>시스템 테스트 환경</h2><p>스크립트러너는 Jira 버전에 영향을 좀 받아서 환경도 미리 알고 계셔야합니다.<br>(버전에 따라 내부 함수들이 변경됨에 따라 실제 코드도 조금씩 변경됩니다)</p>
+<ul>
+<li>Jira: Jira Software 8.3.2</li>
+<li>ScriptRunner: 5.6.1.1-jira8</li>
+</ul>
+<h2 id="Label-값-가져오기"><a href="#Label-값-가져오기" class="headerlink" title="Label 값 가져오기"></a>Label 값 가져오기</h2><p>Label 값을 가져오는 것은 쉽습니다.<br>이슈에서 기본적으로 사용하는 필드라서 다루기 쉬운 것이 장점입니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.label.LabelManager;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line"></span><br><span class="line">LabelManager labelManager = ComponentAccessor.getComponent(LabelManager);</span><br><span class="line"><span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="hljs-string">"PUBGTEST-169"</span>);</span><br><span class="line"></span><br><span class="line">labelManager.getLabels(issue.getId());</span><br></pre></td></tr></table></figure>
+
+<h3 id="getLabels-Long-issueId"><a href="#getLabels-Long-issueId" class="headerlink" title="getLabels(Long issueId)"></a>getLabels(Long issueId)</h3><p>getLabels() 함수는 issueId 값을 받아 이슈의 label 값을 가져옵니다.<br>함수의 리턴 값은 label들을 포함한 배열로 리턴합니다.<br>(아래 결과 값은 이슈에 테스트로 Label 값을 입력한 것을 기반으로 스크립트 결과가 나온 것입니다.)</p>
+<p><strong>Result</strong></p>
+<blockquote>
+<p>[Promotion, art]</p>
+</blockquote>
+<h2 id="Label-값-추가하기"><a href="#Label-값-추가하기" class="headerlink" title="Label 값 추가하기"></a>Label 값 추가하기</h2><p>Label 값을 가져오는 것보다는 한가지 더 고려가 필요한 <code>추가</code> 입니다.<br>Label 값을 추가할 때에는 어떤 사용자가 값을 추가할 것인지 결정이 필요합니다.<br>먼저 코드를 보면서 설명을 드리겠습니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.label.LabelManager;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line">  </span><br><span class="line"><span class="hljs-keyword">def</span> user = ComponentAccessor.getUserManager().getUserByKey(<span class="hljs-string">"pubg-helper"</span>);</span><br><span class="line">LabelManager labelManager = ComponentAccessor.getComponent(LabelManager);</span><br><span class="line"><span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="hljs-string">"PUBGTEST-169"</span>);</span><br><span class="line"></span><br><span class="line">labelManager.addLabel(user, issue.getId(), <span class="hljs-string">'test'</span>, <span class="hljs-literal">false</span>);</span><br><span class="line">labelManager.getLabels(issue.getId());</span><br></pre></td></tr></table></figure>
+
+<h3 id="코드-설명"><a href="#코드-설명" class="headerlink" title="코드 설명"></a>코드 설명</h3><p>앞서 Label 값을 가져오는 것과 비교해서 달라진 것은 아래 코드와 <code>addLabel()</code> 함수 입니다.<br><code>def user = ComponentAccessor.getUserManager().getUserByKey(&quot;pubg-helper&quot;);</code><br>위 코드는 Label을 추가할 사용자를 결정하기 위해 사용자 객체를 아이디로 가져온 것입니다.</p>
+<p>ScriptRunner의 Listener 기능에서 Label 수정/추가 기능을 사용할 때,<br>위 코드를 통해 업데이트하는 사용자를 동적으로 변경할 수 있습니다.</p>
+<p>addLabel(User remoteUser, Long issueId, String label, boolean sendNotification) 함수는 이슈에 Label을 하나 추가할 수 있는 함수입니다.<br>함수 레퍼런스: <a href="https://docs.atlassian.com/DAC/javadoc/jira/reference/com/atlassian/jira/issue/label/LabelManager.html#addLabel(com.atlassian.crowd.embedded.api.User,%20java.lang.Long,%20java.lang.String,%20boolean)" target="_blank" rel="noopener">docs.atlassian.com/…/LabelManager/addLabel</a></p>
+<p><strong>Result</strong></p>
+<blockquote>
+<p>[Promotion, art, test]</p>
+</blockquote>
+<h2 id="Label-값-변경"><a href="#Label-값-변경" class="headerlink" title="Label 값 변경"></a>Label 값 변경</h2><p>앞서 Label 추가의 경우 하나씩 추가했던 것에 비해 Label 값을 변경하는 것은 LabelManager의 setLabels() 함수를 사용합니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.label.LabelManager;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line">  </span><br><span class="line"><span class="hljs-keyword">def</span> user = ComponentAccessor.getUserManager().getUserByKey(<span class="hljs-string">"pubg-helper"</span>);</span><br><span class="line">LabelManager labelManager = ComponentAccessor.getComponent(LabelManager);</span><br><span class="line"><span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="hljs-string">"PUBGTEST-169"</span>);</span><br><span class="line"></span><br><span class="line">labelManager.setLabels(user, issue.getId(), [<span class="hljs-string">'test'</span>] <span class="hljs-keyword">as</span> Set, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>);</span><br><span class="line">labelManager.getLabels(issue.getId());</span><br></pre></td></tr></table></figure>
+
+<h3 id="labelManager-setLabels"><a href="#labelManager-setLabels" class="headerlink" title="labelManager.setLabels()"></a>labelManager.setLabels()</h3><p>labelManager.setLabels() 함수는 Label 값을 추가, 삭제한다기보다는<br>새로운 값으로 <code>재설정</code>한다는 것으로 이해하시면 될 것 같습니다.</p>
+<p><code>public Set&lt;Label&gt; setLabels (User remoteUser, Long issueId, Set&lt;String&gt; labels, boolean sendNotification, boolean causeChangeNotification)</code></p>
+<p>여기서 중간에 labels 값에 Set으로 되어있는데 그냥 [] 배열로 넣을 경우 List 객체로 인식하는 문제가 생깁니다.<br>그래서 <code>as Set</code>으로 변경해준 것으로 이해해주시면 됩니다. (혹은 변수를 따로 Set으로 두고 입력하면 됩니다)</p>
+<p>labelManager.setLabels() 함수 레퍼런스: <a href="https://docs.atlassian.com/DAC/javadoc/jira/reference/com/atlassian/jira/issue/label/LabelManager.html#setLabels(com.atlassian.crowd.embedded.api.User,%20java.lang.Long,%20java.util.Set%3Cjava.lang.String%3E,%20boolean,%20boolean)" target="_blank" rel="noopener">docs.atlassian.com/…/LabelManager/setLabels</a></p>
+<p><strong>Result</strong></p>
+<blockquote>
+<p>[test]</p>
+</blockquote>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>Label 값을 가져오고 추가/설정하는 것은 어렵지 않은 것 같습니다. (커스텀 필드 수정에 비해서요)<br>다만 골라서 삭제하는 기능은 없어 setLabels와 기존에 있는 값을 비교해서 삭제하는 것으로 삭제할 수는 있어 보이네요. (그렇게 어려워 보이지는 않을 것 같긴 하네요.)</p>
+<p>저는 특정 이벤트가 발생할 경우 Label을 추가하는 정도로만 Listener에 Custom Listener를 추가하여 사용하고 있습니다. 이 Label을 사용하여 보드를 만들어 사용하시는 분이 있는데 잘 사용하고 있다고 하네요. :)</p>
+<p>다음에 다른 기능을 소개하는 포스트로 찾아뵙겠습니다.<br>감사합니다!</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -183,7 +272,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blog/2019/10/15/Confluence-6-12-6-15/">Confluence 6.12-6.15</a>
+                <a class="has-link-black-ter" href="/blog/2019/10/15/Confluence-6-12-6-15/">Confluence 6.12-6.15 Release notes</a>
             
         </h1>
         <div class="content">
@@ -1153,182 +1242,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/blog/2019/04/21/scriptrunner2/" class="image is-7by1">
-            <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="ScriptRunner 소개 2">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-21T07:00:00.000Z">2019-04-21</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    16분 읽기 (나에 대하여 2387 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/blog/2019/04/21/scriptrunner2/">ScriptRunner 소개 2</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="ScriptRunner-소개-2"><a href="#ScriptRunner-소개-2" class="headerlink" title="ScriptRunner 소개 #2"></a>ScriptRunner 소개 #2</h2><ul>
-<li><a href="/blog/2019/04/21/scriptrunner1/" title="ScriptRunner 소개 1">ScriptRunner 소개 1</a></li>
-<li><strong><a href="/blog/2019/04/21/scriptrunner2/" title="ScriptRunner 소개 2">ScriptRunner 소개 2</a></strong></li>
-<li><a href="/blog/2019/04/27/scriptrunner3/" title="ScriptRunner 소개 3">ScriptRunner 소개 3</a></li>
-<li><a href="/blog/2019/05/11/scriptrunner4/" title="ScriptRunner 소개 4">ScriptRunner 소개 4</a>
-
-</li>
-</ul>
-<p>지난 글에서는 Behaviours를 보았고 다음 내용인 콘솔, 리스너 등을 보겠습니다.</p>
-<ul>
-<li>Administration &gt; Add-ons &gt; ScriptRunner<ul>
-<li>Script Console</li>
-<li>Built-in Scripts</li>
-<li>Script Listeners</li>
-<li>Script Fields</li>
-<li>REST Endpoints</li>
-<li>Script Fragments</li>
-<li>Escalation Services</li>
-<li>Script JQL Functions</li>
-</ul>
-</li>
-</ul>
-<h3 id="Script-Console"><a href="#Script-Console" class="headerlink" title="Script Console"></a>Script Console</h3><p>Script Console은 실시간으로 스크립트를 작성하고 결과를 볼 수 있는 곳 입니다.</p>
-<p><a href="https://1.bp.blogspot.com/-jyVHGTsCUlE/XJ49sjj9HTI/AAAAAAAANXc/JZdZTXyJBC8EioVsiQtxFcKt1KBjO2QFgCLcBGAs/s1600/script%2Bconsole.png" target="_blank" rel="noopener"><img src="https://1.bp.blogspot.com/-jyVHGTsCUlE/XJ49sjj9HTI/AAAAAAAANXc/JZdZTXyJBC8EioVsiQtxFcKt1KBjO2QFgCLcBGAs/s640/script%2Bconsole.png" alt="img"></a></p>
-<p>실제로 스크립트를 작성해보고 실행해본 모습입니다.</p>
-<p><a href="https://4.bp.blogspot.com/-vNFrVfpMtjA/XJ5AFdvHzpI/AAAAAAAANXo/sVegoMWUoAYSbSNmYgKENI2QvEmKNDV8QCLcBGAs/s1600/script%2Bconsole2.png" target="_blank" rel="noopener"><img src="https://4.bp.blogspot.com/-vNFrVfpMtjA/XJ5AFdvHzpI/AAAAAAAANXo/sVegoMWUoAYSbSNmYgKENI2QvEmKNDV8QCLcBGAs/s640/script%2Bconsole2.png" alt="img"></a></p>
-<ol>
-<li>스크립트를 작성하는 곳 입니다.<ul>
-<li>자동 완성 기능은 없지만 없는 변수나 없는 함수 등은 오류를 보여줍니다.</li>
-</ul>
-</li>
-<li>스크립트를 작성한 뒤에 Run 버튼으로 실행할 수 있습니다.</li>
-<li>Result / Logs / Timing 값을 각각 볼 수 있습니다.<ul>
-<li>Result: 스크립트에서 나온 결과물을 볼 수 있습니다.</li>
-<li>Logs: 스크립트에서 출력한 log들을 볼 수 있습니다.</li>
-<li>Timing: Elapsed: 208 ms / CPU time: 78 ms 와 같은 내용을 볼 수 있습니다.</li>
-</ul>
-</li>
-</ol>
-<p>아래는 의도적으로 함수명을 다르게 입력하면 볼 수 있는 에러 화면 입니다.</p>
-<p><a href="https://3.bp.blogspot.com/-Q4CFbQXQTNE/XJ5BqfC_YMI/AAAAAAAANX0/zjIHJ0pQjCE28iro5VPIxaHBEQs6Mq44QCLcBGAs/s1600/console3.png" target="_blank" rel="noopener"><img src="https://3.bp.blogspot.com/-Q4CFbQXQTNE/XJ5BqfC_YMI/AAAAAAAANX0/zjIHJ0pQjCE28iro5VPIxaHBEQs6Mq44QCLcBGAs/s640/console3.png" alt="img"></a></p>
-<p>정적 타입 체크 밖에 해주지 못하지만 최소한의 체크는 할 수 있기에<br>스크립트 작성은 할 수 있습니다.</p>
-<h3 id="Built-in-Scripts"><a href="#Built-in-Scripts" class="headerlink" title="Built-in Scripts"></a>Built-in Scripts</h3><p>ScriptRunner 에 이미 설정(구현)되어 있는 스크립트들을 사용할 수 있는 메뉴입니다.<br>아래 참고 문서에서 사용할 수 있는 스크립트 리스트를 볼 수 있습니다.<br>참고 문서: <a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html</a></p>
-<p><a href="https://4.bp.blogspot.com/-EMtlwxDO6XE/XKBtiYrzz3I/AAAAAAAANYM/sQU3nhhre3M_4CVfim_aaxiiowo9pF5cwCLcBGAs/s1600/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%2B2019-03-31%2B%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2B4.26.35.png" target="_blank" rel="noopener"><img src="https://4.bp.blogspot.com/-EMtlwxDO6XE/XKBtiYrzz3I/AAAAAAAANYM/sQU3nhhre3M_4CVfim_aaxiiowo9pF5cwCLcBGAs/s640/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%2B2019-03-31%2B%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%2B4.26.35.png" alt="img"></a></p>
-<center><아래에 더 많은 스크립트가 있습니다></아래에></center>
-
-<p>위 화면의 스크립트 중 <strong>“Bulk Fix Resolutions”</strong> 스크립트를 확인해보겠습니다.<br>이 스크립트는 Filter에 있는 티켓들의 Resolution을 변경할 수 있습니다.<br>참고 링크: <a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_bulk_fix_resolutions" target="_blank" rel="noopener">Bulk Fix Resolutions</a></p>
-<p><a href="https://2.bp.blogspot.com/-yX8IA8-n0Ok/XKBwoHW0l8I/AAAAAAAANYY/bO32KMbtTVULbmsygDrQpGy884sVWV-JgCLcBGAs/s1600/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%2B2019-03-31%2B%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2B4.28.31.png" target="_blank" rel="noopener"><img src="https://2.bp.blogspot.com/-yX8IA8-n0Ok/XKBwoHW0l8I/AAAAAAAANYY/bO32KMbtTVULbmsygDrQpGy884sVWV-JgCLcBGAs/s640/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%2B2019-03-31%2B%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%2B4.28.31.png" alt="img"></a></p>
-<p>JQL을 바로 작성하는 것은 아니며 기존에 만들어둔 Filter를 사용하여 동작하는 스크립트 입니다.<br>그 외에 다른 스크립트의 목록은 아래와 같습니다.</p>
-<ul>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_escalation_service" target="_blank" rel="noopener">Escalation Service</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html_switch_user" target="_blank" rel="noopener">Switch User</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_change_dashboard_or_filter_ownership" target="_blank" rel="noopener">Change dashboard or filter ownership</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_copy_project" target="_blank" rel="noopener">Copy Project</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_copy_custom_field_values" target="_blank" rel="noopener">Copy Custom Field Values</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_bulk_import_custom_field_values" target="_blank" rel="noopener">Bulk Import Custom Field Values</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_split_custom_field_context" target="_blank" rel="noopener">Split Custom Field Context</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_script_registry" target="_blank" rel="noopener">Script Registry</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_condition_tester" target="_blank" rel="noopener">Condition Tester</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_clear_jira_or_groovy_caches" target="_blank" rel="noopener">Clear JIRA or Groovy Caches</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_bulk_copy_slas" target="_blank" rel="noopener">Bulk Copy SLAs</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_list_scheduled_jobs" target="_blank" rel="noopener">List scheduled jobs</a></li>
-<li><a href="https://scriptrunner.adaptavist.com/latest/jira/builtin-scripts.html#_view_server_log_files" target="_blank" rel="noopener">View server log files</a></li>
-</ul>
-<h3 id="Listeners"><a href="#Listeners" class="headerlink" title="Listeners"></a>Listeners</h3><p>Listeners는 JIRA에서 일어나는 이벤트에 따라 스크립트를 동작하게 합니다.<br>프로젝트, 특정 이슈, 특정 이벤트에 따라 동작할 수 있도록 설정할 수 있습니다.<br>참고 문서: <a href="https://scriptrunner.adaptavist.com/latest/jira/listeners.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/jira/listeners.html</a></p>
-<p><a href="https://2.bp.blogspot.com/-6iNvRNsQRj0/XKB0ggjPDgI/AAAAAAAANYk/qdiOnIs2CjMvSl0HXcs9MrX1MHaDV1xmwCLcBGAs/s1600/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%2B2019-03-31%2B%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2B5.02.39.png" target="_blank" rel="noopener"><img src="https://2.bp.blogspot.com/-6iNvRNsQRj0/XKB0ggjPDgI/AAAAAAAANYk/qdiOnIs2CjMvSl0HXcs9MrX1MHaDV1xmwCLcBGAs/s640/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%2B2019-03-31%2B%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%2B5.02.39.png" alt="img"></a></p>
-<center><여러가지 리스너를 추가할 수 있습니다></여러가지></center>
-
-<p>이미 있는 리스너 타입을 사용해도 되고<br>아예 이벤트를 받는 처음부터 스크립트 마무리까지 관리하는 Custom listener를 사용할 수도 있습니다.</p>
-<p>이미 있는 리스너 타입 하나를 한번 보겠습니다.<br><a href="https://scriptrunner.adaptavist.com/5.4.39/jira/builtin-scripts.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/5.4.39/jira/builtin-scripts.html</a><br><code>Create a sub-task: Create a sub-task, Will Optionally reopen a matching sub-task</code></p>
-<p><a href="https://4.bp.blogspot.com/-WixKlg4utC0/XKB25DQ5OdI/AAAAAAAANYw/oKiVUh9f3qMkRVnkyvolL1S5a-v_WEcbQCLcBGAs/s1600/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%2B2019-03-31%2B%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2B5.14.14.png" target="_blank" rel="noopener"><img src="https://4.bp.blogspot.com/-WixKlg4utC0/XKB25DQ5OdI/AAAAAAAANYw/oKiVUh9f3qMkRVnkyvolL1S5a-v_WEcbQCLcBGAs/s640/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%2B2019-03-31%2B%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%2B5.14.14.png" alt="img"></a></p>
-<center><특정 이벤트에서 sub-task를 만들 수 있는 리스너 입니다></특정></center>
-
-<p> Create a sub-task Listener를 등록하는 화면의 각각 입력 필드에 대해 알아보겠습니다.</p>
-<ul>
-<li><strong>Note</strong>: Listener 등록시 해당 설명으로 Listener 리스트에서 설명을 볼 수 있습니다.</li>
-<li><strong>Project(s)</strong>: 해당 이벤트가 발생하는 프로젝트를 설정합니다.<ul>
-<li>프로젝트는 자동 완성되어 입력할 수 있습니다.</li>
-</ul>
-</li>
-<li><strong>Events</strong>: 어떤 이벤트를 받아서 처리할 것인지 이벤트를 설정합니다.<ul>
-<li>All Issue Events, Issue Created, Issue Updated 등의 이벤트를 추가할 수 있습니다.</li>
-</ul>
-</li>
-<li><strong>Condition</strong>: 해당 이벤트가 발생했을 경우, True / False를 판단할 스크립트를 설정합니다.<ul>
-<li><code>Show examples</code>를 누르면 예시 코드를 볼 수 있습니다.</li>
-<li><code>Priority changed to Major (Listeners only)</code> - Listeners 에서만 동작하는 코드로 <strong>priority가 Major로 변경되었을 경우 True를 반환</strong>하는 스크립트 입니다.</li>
-<li>그 외에 많은 예제 스크립트가 있으니 참고하여 작성하면 됩니다.</li>
-</ul>
-</li>
-<li><strong>Target Issue Type</strong>: Sub-task 카테고리의 이슈 타입을 설정합니다.</li>
-<li><strong>Subtask Summary</strong>: 생성할 Sub-task 제목(Summary)를 설정합니다.</li>
-<li><strong>Fields to copy</strong>: All / None / Custom 으로 상위 태스크의 필드 값을 복사할 것인지 설정합니다.</li>
-<li><strong>As User</strong>: 어떤 유저로 티켓 생성을 할 것인지 설정합니다.<ul>
-<li>값이 없을 경우 현재 유저로 설정합니다.</li>
-</ul>
-</li>
-<li><strong>Additional issue action</strong>: Sub-task 생성 이후 타겟 이슈(부모 이슈)에 대해 추가적인 작업을 하도록 설정합니다.<ul>
-<li>Condition과는 달리 추가적인 작업을 할 수 있도록 하는 스크립트 입력 필드입니다.</li>
-<li>제목을 바꾸거나 팝업 메세지를 따로 띄우거나 할 수 있습니다.</li>
-<li><code>Show examples</code>를 누르면 예시 코드를 볼 수 있습니다.</li>
-</ul>
-</li>
-<li><strong>Subtask Action</strong>: 이미 생성된 Subtask가 있을 경우 transition을 진행할 것인지 설정합니다.<ul>
-<li>주의할 점은 적용하고자하는 프로젝트의 서브 태스크가 어떤 워크플로우를 쓰는가를 확인하여 적용해야 합니다.</li>
-</ul>
-</li>
-</ul>
-<p>Create a sub-task 외에 다른 listener 타입이 있으며 아예 커스텀한 listener도 만들 수 있습니다.<br>Custom listener의 경우 다음과 같이 만들 수 있습니다.</p>
-<p><a href="https://4.bp.blogspot.com/-dAM7Fai7N3g/XKCwT0APuhI/AAAAAAAANZA/fGBS_fDR9XgwXx60hy4TiPeeYq-uUfj1wCLcBGAs/s1600/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%2B2019-03-31%2B%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2B9.18.54.png" target="_blank" rel="noopener"><img src="https://4.bp.blogspot.com/-dAM7Fai7N3g/XKCwT0APuhI/AAAAAAAANZA/fGBS_fDR9XgwXx60hy4TiPeeYq-uUfj1wCLcBGAs/s640/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%2B2019-03-31%2B%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%2B9.18.54.png" alt="img"></a></p>
-<p>이 listener는 앞서 설명드린 create a sub-task 와 프로젝트, 이벤트 필드 설정하는 것은 같지만<br>이벤트를 받고 처리하는 방식이 다릅니다.</p>
-<p>발생한 이벤트에서 각종 데이터를 받아 처리해야하는 listener 타입 입니다.<br>listener에 필요한 listener 타입이 없다면 커스텀하게 만들어서 사용하면 됩니다.</p>
-<p>// Listener 중 Remote Custom listener는 JIRA에 등록되어있는 application에도 scriptRunner를 설치해야 사용할 수 있습니다.</p>
-<h3 id="Script-Fields"><a href="#Script-Fields" class="headerlink" title="Script Fields"></a>Script Fields</h3><p>Script fields는 아래와 같이 설명이 나와있습니다.</p>
-<blockquote>
-<p>A script field is a custom field that allows you to automatically display a value according to the results of a ScriptRunner script.</p>
-</blockquote>
-<p>요약하자면, “<strong>스크립트러너의 스크립트 결과를 보여주는</strong> <strong>Custom field</strong>“ 입니다.<br>참고 문서: <a href="https://scriptrunner.adaptavist.com/latest/jira/scripted-fields.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/jira/scripted-fields.html</a></p>
-<p>  <a href="https://1.bp.blogspot.com/-_Qd-7-EplLA/XKC2n-cYvLI/AAAAAAAANZM/-XGMfWnQO3wReeQcTW4tCRk0jGAYNB2IQCLcBGAs/s1600/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%2B2019-03-31%2B%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2B9.45.39.png" target="_blank" rel="noopener"><img src="https://1.bp.blogspot.com/-_Qd-7-EplLA/XKC2n-cYvLI/AAAAAAAANZM/-XGMfWnQO3wReeQcTW4tCRk0jGAYNB2IQCLcBGAs/s640/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA%2B2019-03-31%2B%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE%2B9.45.39.png" alt="img"></a></p>
-<p>다음 글에서는 남은 기능을 소개해보겠습니다.</p>
-<ul>
-<li>REST Endpoints</li>
-<li>Script Fragments</li>
-<li>Escalation Services</li>
-<li>Script JQL Functions</li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1393,7 +1306,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        21
+                        22
                     </p>
                 </div>
             </div>
@@ -1493,7 +1406,7 @@
                 <span class="level-item">PM</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">13</span>
+                <span class="level-item tag">14</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/blog/categories/PM/System/">
@@ -1501,7 +1414,7 @@
                 <span class="level-item">System</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">11</span>
+                <span class="level-item tag">12</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/blog/categories/PM/Work/">
@@ -1556,16 +1469,35 @@
         
         <article class="media">
             
+            <a href="/blog/2019/10/27/ScriptRunner-Label/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="ScriptRunner-Label">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-27T06:21:10.000Z">2019-10-27</time></div>
+                    <a href="/blog/2019/10/27/ScriptRunner-Label/" class="has-link-black-ter is-size-6">ScriptRunner-Label</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Confluence 6.12-6.15">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Confluence 6.12-6.15 Release notes">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-14T15:12:38.000Z">2019-10-15</time></div>
-                    <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="has-link-black-ter is-size-6">Confluence 6.12-6.15</a>
+                    <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="has-link-black-ter is-size-6">Confluence 6.12-6.15 Release notes</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
                     </p>
@@ -1630,25 +1562,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/10/06/Jira-Software-8-2-release-notes/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Jira Software 8.2 릴리스 노트">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T05:54:49.000Z">2019-10-06</time></div>
-                    <a href="/blog/2019/10/06/Jira-Software-8-2-release-notes/" class="has-link-black-ter is-size-6">Jira Software 8.2 릴리스 노트</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1667,7 +1580,7 @@
                     <span class="level-item">10월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1796,7 +1709,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
@@ -1817,7 +1730,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
@@ -1853,16 +1766,35 @@
         
         <article class="media">
             
+            <a href="/blog/2019/10/27/ScriptRunner-Label/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="ScriptRunner-Label">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-27T06:21:10.000Z">2019-10-27</time></div>
+                    <a href="/blog/2019/10/27/ScriptRunner-Label/" class="has-link-black-ter is-size-6">ScriptRunner-Label</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Confluence 6.12-6.15">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Confluence 6.12-6.15 Release notes">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-14T15:12:38.000Z">2019-10-15</time></div>
-                    <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="has-link-black-ter is-size-6">Confluence 6.12-6.15</a>
+                    <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="has-link-black-ter is-size-6">Confluence 6.12-6.15 Release notes</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
                     </p>
@@ -1927,25 +1859,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/10/06/Jira-Software-8-2-release-notes/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Jira Software 8.2 릴리스 노트">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-06T05:54:49.000Z">2019-10-06</time></div>
-                    <a href="/blog/2019/10/06/Jira-Software-8-2-release-notes/" class="has-link-black-ter is-size-6">Jira Software 8.2 릴리스 노트</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1964,7 +1877,7 @@
                     <span class="level-item">10월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -2093,7 +2006,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
@@ -2114,7 +2027,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
