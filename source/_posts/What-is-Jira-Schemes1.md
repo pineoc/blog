@@ -10,6 +10,11 @@ tags:
 thumbnail: https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696
 ---
 
+## Jira Scheme 시리즈
+
+- **{% post_link What-is-Jira-Schemes1 %}**
+- {% post_link What-is-Jira-Schemes2 %}
+
 Jira에서 프로젝트를 생성한 뒤에 이슈, 워크플로우, 권한 등을 설정하는데
 많이 들어보셨으리라 예상하는 스킴(Scheme)에 대해 이야기해보자 합니다.
 
