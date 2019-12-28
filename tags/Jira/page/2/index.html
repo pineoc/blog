@@ -158,6 +158,183 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/" class="image is-7by1">
+            <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira 7.11 to 8.0 Upgrade">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-13T02:15:50.000Z">2019-07-13</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11분 읽기 (나에 대하여 1636 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/">Jira 7.11 to 8.0 Upgrade</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="Jira-7-11-to-8-0-Upgrade-Specs"><a href="#Jira-7-11-to-8-0-Upgrade-Specs" class="headerlink" title="Jira 7.11 to 8.0 Upgrade Specs"></a>Jira 7.11 to 8.0 Upgrade Specs</h2><p>Jira Software(서버 설치버전)을 사용하면서 7.11에서 8.0으로 버전 업그레이드될 때<br>정리해보았던 내용을 포스트해봅니다.</p>
+<h2 id="사전-참고-링크"><a href="#사전-참고-링크" class="headerlink" title="사전 참고 링크"></a>사전 참고 링크</h2><ul>
+<li>Jira 릴리즈 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-release-notes-776821069.html" target="_blank" rel="noopener">Jira Software release notes</a><ul>
+<li>각 버전별 릴리즈 노트를 볼 수 있으며 버전별 업그레이드 문서도 함께 있습니다</li>
+</ul>
+</li>
+<li>Jira 버전별 업그레이드 매트릭스: <a href="https://confluence.atlassian.com/adminjiraserver/upgrade-matrix-966063322.html" target="_blank" rel="noopener">Upgrade matrix</a><ul>
+<li>각 업그레이드 버전 항목 별로 간단하게 내용이 정리되어있는 표가 있습니다</li>
+</ul>
+</li>
+</ul>
+<h1 id="각-버전-별-변경-사항"><a href="#각-버전-별-변경-사항" class="headerlink" title="각 버전 별 변경 사항"></a>각 버전 별 변경 사항</h1><p>사내에서 기존에 사용했던 Jira 버전은 7.11 버전이었는데 8.0으로 업그레이드했습니다<br>이 업그레이드에는 7.12, 7.13, 8.0 수정사항이 모두 반영되어서 변경 사항에 대해 정리해보았습니다<br>각 변경 내용은 릴리즈 노트에 기반하여 정리하였습니다</p>
+<h2 id="7-12-변경-내용"><a href="#7-12-변경-내용" class="headerlink" title="7.12 변경 내용"></a>7.12 변경 내용</h2><p><a href="https://confluence.atlassian.com/jirasoftware/jira-software-7-12-x-release-notes-953676636.html" target="_blank" rel="noopener">jira-software-7-12-x-release-notes</a></p>
+<h3 id="New-look-and-feel-of-the-Custom-fields-page"><a href="#New-look-and-feel-of-the-Custom-fields-page" class="headerlink" title="New look and feel of the Custom fields page"></a>New look and feel of the Custom fields page</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/953676636/955184240/3/1534154413740/custom.png" alt="custom field"></p>
+<ul>
+<li>어드민 기능 수정 내용으로 <code>설정 &gt; Fields &gt; Custom fields</code> 간략하게 볼 수 있는 내용</li>
+<li>커스텀 필드가 적용된 프로젝트, 스크린을 한가득 보던 화면을 최적화해서 어드민 QoL 기능</li>
+</ul>
+<h3 id="Share-edit-rights-for-filters-and-dashboards"><a href="#Share-edit-rights-for-filters-and-dashboards" class="headerlink" title="Share edit rights for filters and dashboards"></a>Share edit rights for filters and dashboards</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/953676636/955176570/3/1533817120715/filters_relnotes.png" alt="filter editors"></p>
+<ul>
+<li>필터 수정 권한을 추가로 설정할 수 있는 기능 추가</li>
+<li>필터를 다른 사람도 수정할 수 있게 된 것이 매우매우 좋다!</li>
+</ul>
+<h3 id="More-search-power"><a href="#More-search-power" class="headerlink" title="More search power"></a>More search power</h3><ul>
+<li>Development 관련 검색 기능 추가 (Open PR, Merged PR, Failling builds, Passed builds 등등)</li>
+<li>작업이 어떻게 진행되고 있는지 파악하기 좋을 것으로 보임</li>
+</ul>
+<h3 id="Boost-Jira-performance"><a href="#Boost-Jira-performance" class="headerlink" title="Boost Jira performance"></a>Boost Jira performance</h3><ul>
+<li>보드에 있는 이슈의 수를 보여주는 것이 느리게 만드는 데 그 숫자를 안보이게하면 빠르게 할 수 있음</li>
+<li>컬럼에서 얼마나 머물러 있었는지 볼 수 있는 내용도 끌 수 있는데 끄면 성능을 개선할 수 있음</li>
+<li>다만 이 기능을 사용할 경우 보드에서 이슈가 얼마나 있는지, 얼마나 그 상태에 머물러 있었는지 알 수 없어서 불편할 것으로 예상됨</li>
+</ul>
+<h3 id="그-외의-버그-수정-다수"><a href="#그-외의-버그-수정-다수" class="headerlink" title="그 외의 버그 수정 다수"></a>그 외의 버그 수정 다수</h3><h2 id="7-13-변경-내용"><a href="#7-13-변경-내용" class="headerlink" title="7.13 변경 내용"></a>7.13 변경 내용</h2><p><a href="https://confluence.atlassian.com/jirasoftware/jira-software-7-13-x-release-notes-957981568.html" target="_blank" rel="noopener">jira-software-7-13-x-release-notes</a></p>
+<ul>
+<li>AdoptOpenJDK 8 comes to Jira<ul>
+<li>내부 개발 플랫폼 내용이라 자세히 알 필요는 없음</li>
+</ul>
+</li>
+<li>End of year Enterprise release roundup<ul>
+<li>공식 릴리즈에 대한 이야기</li>
+</ul>
+</li>
+<li>Enterprise releases, performance-wise<ul>
+<li>성능 향상 - <a href="https://confluence.atlassian.com/adminjiraserver0713/performance-and-scale-testing-966063698.html" target="_blank" rel="noopener">performance-and-scale-testing-966063698.html</a></li>
+<li>7.12와 비교했을때 눈에 띄는 성능 향상은 아니지만 7.6 버전에 비하면 성능 향상이 이뤄졌음</li>
+<li>(하지만 기존에 사용하고 있던 버전도 낮은 버전은 아니어서 큰 성능 차이를 느끼지 못했습니다)</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-0-변경-내용"><a href="#8-0-변경-내용" class="headerlink" title="8.0 변경 내용"></a>8.0 변경 내용</h2><p><a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-0-x-release-notes-957981626.html" target="_blank" rel="noopener">jira-software-8-0-x-release-notes</a></p>
+<h3 id="Look-and-feel-Scrum-and-Kanban"><a href="#Look-and-feel-Scrum-and-Kanban" class="headerlink" title="Look and feel: Scrum and Kanban"></a>Look and feel: Scrum and Kanban</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/957981626/964981997/3/1550749827559/boards.png" alt="Look and feel: Scrum and Kanban"></p>
+<ul>
+<li>보드의 외형이 바뀌었음</li>
+<li>카드 정보를 어떻게 설정하여 보여줄 수 있을지 봐야할 것</li>
+</ul>
+<h3 id="Better-email-notifications"><a href="#Better-email-notifications" class="headerlink" title="Better email notifications"></a>Better email notifications</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/957981626/964981972/3/1550749827217/email.png" alt="Better email notifications"></p>
+<ul>
+<li>이메일이 너무 많이 와서 압도되는 것을 줄여보고자 했음</li>
+<li>예시로는 10분간의 알림 사항을 모아서 메일주는 것을 보여줌</li>
+<li>설정 &gt; System &gt; Batching email notifications 에서 설정 가능<ul>
+<li>상세 내용: <a href="https://confluence.atlassian.com/adminjiraserver/configuring-email-notifications-938847633.html" target="_blank" rel="noopener">configuring-email-notifications</a></li>
+</ul>
+</li>
+<li>댓글의 수정 내용이 계속 오는 것이 아닌 정리되서 와서 좋았던 기능</li>
+</ul>
+<h3 id="Significant-backlogs-load-faster"><a href="#Significant-backlogs-load-faster" class="headerlink" title="Significant backlogs load faster"></a>Significant backlogs load faster</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/957981626/960698183/3/1550749826625/Screen+Shot+2018-10-29+at+11.41.27.png" alt="Significant backlogs load faster"></p>
+<ul>
+<li>백로그 로딩 시간이 줄어들었음</li>
+<li>몇개를 샘플링해서 보여주고 추가적으로 로딩할 수 있도록 하여 로딩 속도 개선한 것으로 보임</li>
+</ul>
+<h3 id="Dropping-Linked-pages-count-to-boost-performance"><a href="#Dropping-Linked-pages-count-to-boost-performance" class="headerlink" title="Dropping Linked pages count to boost performance"></a>Dropping Linked pages count to boost performance</h3><ul>
+<li>이슈에 링크되어있는 페이지의 숫자를 보여주지 않는 것으로 성능 향상</li>
+</ul>
+<h3 id="New-priority-icons"><a href="#New-priority-icons" class="headerlink" title="New priority icons"></a>New priority icons</h3><ul>
+<li>새로운 priority 아이콘 추가 (리뉴얼 되었음)</li>
+</ul>
+<h3 id="New-options-in-advanced-search"><a href="#New-options-in-advanced-search" class="headerlink" title="New options in advanced search"></a>New options in advanced search</h3><ul>
+<li>Find authors (updatedBy)<ul>
+<li><a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-functions-reference-939938746.html#Advancedsearching-functionsreference-approverupdatedBy()" target="_blank" rel="noopener">UpdatedBy() guide</a></li>
+<li>어떤 사용자가 업데이트했는지 알 수 있음. 추가로 특정 시간부터 또는 특정 시간 동안 수정했는지 알 수 있음.</li>
+</ul>
+</li>
+<li>Find link types (issueLinkType)<ul>
+<li><a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-fields-reference-939938743.html#Advancedsearching-fieldsreference-issuelinktypeIssuelinktype" target="_blank" rel="noopener">issueLinkType guide</a></li>
+<li>링크된 타입에 따라 이슈를 검색해볼 수 있음</li>
+</ul>
+</li>
+</ul>
+<h3 id="Massive-performance-improvements"><a href="#Massive-performance-improvements" class="headerlink" title="Massive performance improvements"></a>Massive performance improvements</h3><ul>
+<li>보드, 백로그가 보이는데 걸리는 시간이 62%, 87%까지 빨라졌음</li>
+<li>JQL 프로세싱 과정은 33% 빨라졌음</li>
+<li>보드 브라우징은 16% 빨라졌음</li>
+</ul>
+<h3 id="Faster-indexing"><a href="#Faster-indexing" class="headerlink" title="Faster indexing"></a>Faster indexing</h3><ul>
+<li>리인덱싱 속도가 71% 빨라졌음</li>
+<li>인덱스의 크기가 줄어들어 인덱싱에 부담을 덜었음</li>
+<li>인덱싱 관련 최적화가 되었음</li>
+<li>(실제로도 각 프로젝트에서 인덱싱할 때에 다른 프로젝트에서 영향 받지 않고 빠르게 된 것을 확인했습니다)</li>
+</ul>
+<h3 id="REST-API-for-issue-type-schemes"><a href="#REST-API-for-issue-type-schemes" class="headerlink" title="REST API for issue type schemes"></a>REST API for issue type schemes</h3><ul>
+<li>이슈 타입 스킴(Scheme)을 REST API로 수정할 수 있게 되었습니다.</li>
+<li><a href="https://docs.atlassian.com/software/jira/docs/api/REST/8.1.0/#api/2/issuetypescheme" target="_blank" rel="noopener">jira/docs/api/REST/8.1.0/#api/2/issuetypescheme</a></li>
+</ul>
+<h3 id="Misc-Bonus-resources"><a href="#Misc-Bonus-resources" class="headerlink" title="Misc(Bonus resources)"></a>Misc(Bonus resources)</h3><ul>
+<li>Small improvements to make your day<ul>
+<li>4 Byte characters 지원</li>
+<li>add-ons → apps 이름 변경</li>
+<li>Using sprints when your backlog isn’t sorted by rank (백로그가 rank로 정렬되지 않아도 스프린트 사용 가능)</li>
+</ul>
+</li>
+<li>성능 및 스케일 테스트<ul>
+<li><a href="https://confluence.atlassian.com/adminjiraserver/performance-and-scaling-965568705.html" target="_blank" rel="noopener">performance-and-scaling</a></li>
+</ul>
+</li>
+<li>보안 관련 페이지</li>
+<li>JIRA Server mobile App 지원 (베타 앱으로 지원되고 있어서 베타로 깔아야 함)<ul>
+<li>Android: <a href="https://play.google.com/apps/testing/com.atlassian.jira.server" target="_blank" rel="noopener">https://play.google.com/apps/testing/com.atlassian.jira.server</a></li>
+<li>iOS: <a href="https://testflight.apple.com/join/6JbjYbSY" target="_blank" rel="noopener">https://testflight.apple.com/join/6JbjYbSY</a></li>
+<li>Pre-upgrade planning page 추가<ul>
+<li>설정 &gt; Applications &gt; Plan your upgrade 기능으로 볼 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>그 외의 버그 수정 다수</li>
+</ul>
+<h2 id="업그레이드-버전-별-정리-후기"><a href="#업그레이드-버전-별-정리-후기" class="headerlink" title="업그레이드 버전 별 정리 후기"></a>업그레이드 버전 별 정리 후기</h2><p>PM 업무를 하면서 Jira를 어떻게하면 더 잘 사용할 수 있을지, 개발 프로세스에 어떻게 잘 녹여낼지<br>고민하다보니 Jira 시스템도 많이 보게되어 정리하게 되었네요.<br>8.0 업그레이드를 했으니 곧 8.1, 8.2 업그레이드 릴리즈 노트도 정리해서 포스트 해보겠습니다.</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/blog/2019/06/24/jira-8-0-scriptRunner/" class="image is-7by1">
             <img class="thumbnail" src="https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png" alt="Jira 8.0 &amp; ScriptRunner로 JQL issue 가져오기">
         </a>
@@ -970,7 +1147,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        26
                     </p>
                 </div>
             </div>
@@ -1070,7 +1247,7 @@
                 <span class="level-item">PM</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">17</span>
+                <span class="level-item tag">18</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/blog/categories/PM/System/">
@@ -1078,7 +1255,7 @@
                 <span class="level-item">System</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">15</span>
+                <span class="level-item tag">16</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/blog/categories/PM/Work/">
@@ -1130,6 +1307,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2019/12/28/What-is-Jira-Field-Screen/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Field &amp; Screen 살펴보기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T08:35:13.000Z">2019-12-28</time></div>
+                    <a href="/blog/2019/12/28/What-is-Jira-Field-Screen/" class="has-link-black-ter is-size-6">Jira Field &amp; Screen 살펴보기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1207,25 +1403,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:f0fe60cd-469f-4e78-9779-ea4cacfa07e6/Confluence-icon-blue.svg?cdnVersion=696" alt="Confluence 6.12-6.15 Release notes">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-14T15:12:38.000Z">2019-10-15</time></div>
-                    <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="has-link-black-ter is-size-6">Confluence 6.12-6.15 Release notes</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1244,7 +1421,7 @@
                     <span class="level-item">12월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1384,7 +1561,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">15</span>
+                        <span class="tag is-grey">16</span>
                     </a>
                 </div>
                 
@@ -1441,6 +1618,25 @@
         
         <article class="media">
             
+            <a href="/blog/2019/12/28/What-is-Jira-Field-Screen/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Field &amp; Screen 살펴보기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T08:35:13.000Z">2019-12-28</time></div>
+                    <a href="/blog/2019/12/28/What-is-Jira-Field-Screen/" class="has-link-black-ter is-size-6">Jira Field &amp; Screen 살펴보기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Schemes은 무엇일까? (2)">
@@ -1515,25 +1711,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:f0fe60cd-469f-4e78-9779-ea4cacfa07e6/Confluence-icon-blue.svg?cdnVersion=696" alt="Confluence 6.12-6.15 Release notes">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-14T15:12:38.000Z">2019-10-15</time></div>
-                    <a href="/blog/2019/10/15/Confluence-6-12-6-15/" class="has-link-black-ter is-size-6">Confluence 6.12-6.15 Release notes</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1552,7 +1729,7 @@
                     <span class="level-item">12월 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1692,7 +1869,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">15</span>
+                        <span class="tag is-grey">16</span>
                     </a>
                 </div>
                 
