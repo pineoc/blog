@@ -8,7 +8,7 @@ categories:
 tags:
   - Jira
   - ScriptRunner
-thumbnail: https://marketplace-cdn.atlassian.com/files/images/396d3521-7734-4137-9a47-d7afedf1ea18.png
+thumbnail: https://user-images.githubusercontent.com/5077086/72972150-3fdaf580-3e0e-11ea-998a-108879c7874c.png
 ---
 
 스크립트러너에서 Jira 이슈의 커스텀 필드를 다루는 경우가 많습니다.

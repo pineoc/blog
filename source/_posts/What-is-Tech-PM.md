@@ -7,6 +7,7 @@ categories:
 - Work
 tags:
 - PM
+thumbnail: https://user-images.githubusercontent.com/5077086/72973553-d14b6700-3e10-11ea-88c1-7e6baec5267b.png
 ---
 
 ## Tech PM(Project Manager)이란 무엇일까?
