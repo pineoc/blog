@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://pineoc.github.io/blog/2019/12/01/ScriptRunner-Label-autowatch/</loc>
+        <lastmod>2020-01-23T09:30:06.550Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://pineoc.github.io/blog/2020/01/12/What-is-Tech-PM/</loc>
         <lastmod>2020-01-12T08:37:00.776Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -34,14 +42,6 @@
     <url>
         <loc>https://pineoc.github.io/blog/2019/12/15/What-is-Jira-Schemes1/</loc>
         <lastmod>2019-12-17T15:16:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://pineoc.github.io/blog/2019/12/01/ScriptRunner-Label-autowatch/</loc>
-        <lastmod>2019-12-01T16:16:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
