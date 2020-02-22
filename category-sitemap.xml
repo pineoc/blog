@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://pineoc.github.io/blog/categories/PM/</loc>
+        <lastmod>2020-02-22T17:28:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://pineoc.github.io/blog/categories/Tech/</loc>
         <lastmod>2020-01-26T09:45:53.982Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -16,13 +23,6 @@
 
     <url>
         <loc>https://pineoc.github.io/blog/categories/PM/System/</loc>
-        <lastmod>2020-01-23T09:49:03.517Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://pineoc.github.io/blog/categories/PM/</loc>
         <lastmod>2020-01-23T09:49:03.517Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
