@@ -149,6 +149,101 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="image is-7by1">
+            <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Bulk remove issue links (by link type)">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-28T10:37:15.000Z">2020-02-28</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11분 읽기 (나에 대하여 1588 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/">Jira Bulk remove issue links (by link type)</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="Jira-이슈-링크-issue-link-삭제하기"><a href="#Jira-이슈-링크-issue-link-삭제하기" class="headerlink" title="Jira 이슈 링크(issue link) 삭제하기"></a>Jira 이슈 링크(issue link) 삭제하기</h1><p>관련 포스트: <a href="/blog/2020/02/23/Bulk-remove-change-Jira-issue-links/" title="Bulk remove change Jira issue links">Bulk remove change Jira issue links</a><br>위 포스트에서는 이슈에 걸려있는 모든 링크를 삭제하는 것을 공유드렸었습니다.<br>이번 포스트에서는 이슈에 걸려있는 링크 중에 특정 타입의 링크를 삭제하는 방법을 공유해보겠습니다.</p>
+<h2 id="이슈-이슈-링크"><a href="#이슈-이슈-링크" class="headerlink" title="이슈 - 이슈 링크"></a>이슈 - 이슈 링크</h2><p>Jira에서 이슈와 이슈를 연결해주는 이슈 링크,<br>전의 포스트에서는 링크를 그냥 다 삭제하는 포스트였기에 자세히 다루지는 않았지만 이번 포스트에서는 링크 타입에 대해 알아야 정확하게 삭제할 수 있기에 조금 더 자세히 설명해보고자 합니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/75603626-8ad5e000-5b13-11ea-8e18-3dde7627b794.png" alt="Administration &gt; issues &gt; Issue linking 설정 화면"></p>
+<p>위와 같이 이슈 링크 속성에는 <code>Name</code>, <code>Outward Description</code>, <code>Inward Description</code> 항목이 있습니다.</p>
+<blockquote>
+<p>한국어 버전으로는 이슈 링크 속성 이름이 명확한지 모르겠지만 다음과 같네요. <code>이름(Name)</code>, <code>가르키는 입장 설명(Outward Desc)</code>, <code>받는 입장 설명(Inward Desc)</code></p>
+</blockquote>
+<p>Jira 시스템에 기본적으로 있는 이슈 링크 타입은 4개로 <code>Blocks</code>, <code>Cloners</code>, <code>Duplicate</code>, <code>Relates</code> 이렇게 구성되어 있습니다.<br>각각 링크 타입 항목들을 보면 이슈와 이슈를 연결했을 때 각 이슈에 보이는 링크의 이름이 다르게 보일 수 있도록 설정할 수 있습니다.</p>
+<p>이슈 링크를 설정하고 어떻게 보이는지 아래의 문서 링크를 참고하시면 좋을 것 같습니다.<br><a href="https://confluence.atlassian.com/jiracoreserver/linking-issues-939937913.html" target="_blank" rel="noopener">(EN) Jira Docs: linking issues</a></p>
+<p>“이슈 - 이슈 링크”의 관계를 정리해보자면, 아래와 같이 볼 수 있겠습니다.</p>
+<ul>
+<li>이슈는 <strong>목적지</strong></li>
+<li>이슈 링크는 <strong>출발지와 도착지 정보를 가지고 있는 화살표</strong></li>
+</ul>
+<h2 id="이슈-링크-타입-확인해보자"><a href="#이슈-링크-타입-확인해보자" class="headerlink" title="이슈 링크 타입 확인해보자"></a>이슈 링크 타입 확인해보자</h2><p>개념적인 설명은 이만 마치고 스크립트를 통해 이슈에 있는 이슈 링크들을 한번 확인해보겠습니다.<br>우선 테스트를 위해 이슈에 설정한 이슈 링크들은 아래와 같습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/75604076-5fa1bf80-5b18-11ea-8a20-41cda7e01a67.png" alt="PUB-16 issue link 설정"></p>
+<p>링크된 항목들을 정리해보면 다음과 같습니다. 괄호 내용은 이슈 링크 이름입니다.</p>
+<ul>
+<li>PUB-16 (blocks) PUB-1</li>
+<li>PUB-16 (blocks) PUB-2</li>
+<li>PUB-16 (blocks) PUB-3</li>
+<li>PUB-16 (clones) PUB-5570</li>
+<li>PUB-16 (duplicates) PUB-17</li>
+<li>PUB-16 (is blocked by) PUB-4</li>
+</ul>
+<p>PUB-16 이슈에 연결된 이슈 링크들을 확인하기 위한 스크립트 입니다.<br>스크립트를 ScriptRunner에 Script console에서 실행된 내용을 볼 수 있습니다.</p>
+<h3 id="스크립트-코드"><a href="#스크립트-코드" class="headerlink" title="스크립트 코드"></a>스크립트 코드</h3><figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.IssueManager</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.jql.parser.JqlQueryParser</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.bc.issue.search.SearchService</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.web.bean.PagerFilter</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.query.Query</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> searchService = ComponentAccessor.getComponent(SearchService)</span><br><span class="line"><span class="hljs-keyword">def</span> jqlQueryParser = ComponentAccessor.getComponent(JqlQueryParser)</span><br><span class="line"><span class="hljs-keyword">def</span> user = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser()</span><br><span class="line"><span class="hljs-keyword">def</span> results = searchService.search(user, jqlQueryParser.parseQuery(<span class="hljs-string">"key=PUB-16"</span>), PagerFilter.getUnlimitedFilter())</span><br><span class="line"><span class="hljs-keyword">def</span> issueManager = ComponentAccessor.getIssueManager()</span><br><span class="line"><span class="hljs-keyword">def</span> issueLinkManager = ComponentAccessor.getIssueLinkManager()</span><br><span class="line"></span><br><span class="line">results.getResults().each</span><br><span class="line">&#123;</span><br><span class="line">  <span class="hljs-keyword">def</span> issue = issueManager.getIssueObject(it.id)</span><br><span class="line">  log.warn(<span class="hljs-string">"Get InwardLinks"</span>)</span><br><span class="line">  <span class="hljs-keyword">def</span> linkInwardList = issueLinkManager.getInwardLinks(issue.getId())</span><br><span class="line">  linkInwardList.each &#123;</span><br><span class="line">    log.warn(<span class="hljs-string">"$&#123;it.getIssueLinkType().getName()&#125;, $&#123;it.getSourceObject().getKey()&#125;"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  log.warn(<span class="hljs-string">"Get OutwardLinks"</span>)</span><br><span class="line">  <span class="hljs-keyword">def</span> linkOutwardList = issueLinkManager.getOutwardLinks(issue.getId())</span><br><span class="line">  linkOutwardList.each &#123;</span><br><span class="line">    log.warn(<span class="hljs-string">"$&#123;it.getIssueLinkType().getName()&#125;, $&#123;it.getDestinationObject().getKey()&#125;"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="스크립트-실행-결과"><a href="#스크립트-실행-결과" class="headerlink" title="스크립트 실행 결과"></a>스크립트 실행 결과</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...: Get InwardLinks</span><br><span class="line">...: Blocks, PUB-4</span><br><span class="line">...: Duplicate, PUB-17</span><br><span class="line">...: Get OutwardLinks</span><br><span class="line">...: Blocks, PUB-1</span><br><span class="line">...: Blocks, PUB-2</span><br><span class="line">...: Blocks, PUB-3</span><br><span class="line">...: Clones, PUB-5570</span><br></pre></td></tr></table></figure>
+
+<h2 id="이슈-링크-타입에-따라-이슈-링크를-삭제해보자"><a href="#이슈-링크-타입에-따라-이슈-링크를-삭제해보자" class="headerlink" title="이슈 링크 타입에 따라 이슈 링크를 삭제해보자"></a>이슈 링크 타입에 따라 이슈 링크를 삭제해보자</h2><p>이슈 링크 타입을 확인했으니 이슈 링크 타입에 따라 삭제할 수 있게 되었습니다.<br>사실 위 링크 확인 스크립트 코드에서 <strong>타입</strong>과 <strong>inward/outward</strong> 만 확인해서 이슈 링크 삭제 함수만 사용하면 우리가 원하는 링크 삭제가 가능합니다.</p>
+<h3 id="이슈-링크-타입-확인-amp-삭제"><a href="#이슈-링크-타입-확인-amp-삭제" class="headerlink" title="이슈 링크 타입 확인 &amp; 삭제"></a>이슈 링크 타입 확인 &amp; 삭제</h3><p>이슈 링크 타입을 확인하는 것 자체는 어렵지 않습니다.<br><code>issueLinkObj.getIssueLinkType().getName()</code>로 이름을 확인하면 되니까요.<br>다만 Inward, Outward 링크 타입을 확인해야하는데, 삭제할 때에 아래 옵션을 선택할 수 있도록 함수를 만들어야겠네요.</p>
+<ul>
+<li>Inward 링크만</li>
+<li>Outward 링크만</li>
+<li>모든 링크</li>
+</ul>
+<p>삭제 함수도 간단합니다. 참고: <a href="https://docs.atlassian.com/software/jira/docs/api/8.5.1/com/atlassian/jira/issue/link/IssueLinkManager.html#removeIssueLink-com.atlassian.jira.issue.link.IssueLink-com.atlassian.jira.user.ApplicationUser-" target="_blank" rel="noopener">Jira API Docs: IssueLinkManager.removeIssueLink()</a><br>아래 함수를 위에서 확인한 이슈 링크를 파라미터로 호출하면 링크 삭제가 가능합니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// issueLink - the issue link to remove</span></span><br><span class="line"><span class="hljs-comment">// remoteUser - needed for creation of change items</span></span><br><span class="line"><span class="hljs-keyword">void</span> removeIssueLink(IssueLink issueLink, ApplicationUser remoteUser)</span><br></pre></td></tr></table></figure>
+
+<h3 id="스크립트-코드-1"><a href="#스크립트-코드-1" class="headerlink" title="스크립트 코드"></a>스크립트 코드</h3><figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.IssueManager</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.jql.parser.JqlQueryParser</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.bc.issue.search.SearchService</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.web.bean.PagerFilter</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.query.Query</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> searchService = ComponentAccessor.getComponent(SearchService)</span><br><span class="line"><span class="hljs-keyword">def</span> jqlQueryParser = ComponentAccessor.getComponent(JqlQueryParser)</span><br><span class="line"><span class="hljs-keyword">def</span> issueManager = ComponentAccessor.getIssueManager()</span><br><span class="line"><span class="hljs-keyword">def</span> issueLinkManager = ComponentAccessor.getIssueLinkManager()</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> user = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser()</span><br><span class="line"><span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> jql options</span></span><br><span class="line"><span class="hljs-keyword">def</span> results = searchService.search(user, jqlQueryParser.parseQuery(<span class="hljs-string">"key=PUBGTEST-3"</span>), PagerFilter.getUnlimitedFilter())</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> remove link options</span></span><br><span class="line"><span class="hljs-keyword">def</span> removeLinkType = <span class="hljs-string">"Blocks"</span></span><br><span class="line"><span class="hljs-keyword">def</span> removeLinkIO = <span class="hljs-string">"all"</span> <span class="hljs-comment">// all, inward, outward</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> removeInwardLinks = &#123;MutableIssue issue -&gt;</span><br><span class="line">  <span class="hljs-keyword">def</span> linkInwardList = issueLinkManager.getInwardLinks(issue.getId())</span><br><span class="line">  linkInwardList.each &#123;</span><br><span class="line">    <span class="hljs-keyword">def</span> link = it</span><br><span class="line">    <span class="hljs-keyword">if</span> (link.getIssueLinkType().getName() == removeLinkType) &#123;</span><br><span class="line">      log.warn(<span class="hljs-string">"removed links: $&#123;link.getIssueLinkType().getName()&#125;, $&#123;link.getSourceObject().getKey()&#125;"</span>)</span><br><span class="line">      issueLinkManager.removeIssueLink(link, user)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">def</span> removeOutwardLinks = &#123;MutableIssue issue -&gt;</span><br><span class="line">  <span class="hljs-keyword">def</span> linkInwardList = issueLinkManager.getOutwardLinks(issue.getId())</span><br><span class="line">  linkInwardList.each &#123;</span><br><span class="line">    <span class="hljs-keyword">def</span> link = it</span><br><span class="line">    <span class="hljs-keyword">if</span> (link.getIssueLinkType().getName() == removeLinkType) &#123;</span><br><span class="line">      log.warn(<span class="hljs-string">"removed links: $&#123;it.getIssueLinkType().getName()&#125;, $&#123;it.getDestinationObject().getKey()&#125;"</span>)</span><br><span class="line">      issueLinkManager.removeIssueLink(link, user)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">results.getResults().each &#123;</span><br><span class="line">  <span class="hljs-keyword">def</span> issue = issueManager.getIssueObject(it.id)</span><br><span class="line">  <span class="hljs-keyword">if</span> (removeLinkIO == <span class="hljs-string">"all"</span> || removeLinkIO == <span class="hljs-string">"inward"</span>) &#123;</span><br><span class="line">    log.warn(<span class="hljs-string">"Get &amp; Remove InwardLinks"</span>)</span><br><span class="line">    removeInwardLinks(issue)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">if</span> (removeLinkIO == <span class="hljs-string">"all"</span> || removeLinkIO == <span class="hljs-string">"outward"</span>) &#123;</span><br><span class="line">    log.warn(<span class="hljs-string">"Get &amp; Remove OutwardLinks"</span>)</span><br><span class="line">    removeOutwardLinks(issue)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="스크립트-결과"><a href="#스크립트-결과" class="headerlink" title="스크립트 결과"></a>스크립트 결과</h3><p>현재 스크립트 상으로는 <strong>all(inward, outward)</strong>, <strong>blocks</strong> 타입의 링크만 삭제하도록 구성되어 있어 실행시 blocks 타입의 링크가 모두 삭제됩니다.</p>
+<h2 id="활용"><a href="#활용" class="headerlink" title="활용"></a>활용</h2><p>위 스크립트를 활용시에는 <strong>NOTE:</strong> 라고 표시된 내용에 링크 삭제가 필요한 이슈, 링크 타입을 알맞게 변경을 한 뒤에 사용하시면 됩니다.<br>이슈 링크 삭제 시에 주의해서 사용해주세요!</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>이번 내용은 약간 길어졌는데요. 포스트를 작성하면서 이슈와 이슈 링크의 관계, 이슈 링크의 속성 등에 대해서 공부할 수 있어서 좋았고 이 글을 보시는 다른분들도 스크립트를 이용하여 원하는 이슈 링크를 삭제할 수 있었으면 좋겠습니다.<br>감사합니다. 😀</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/blog/2020/02/23/Bulk-remove-change-Jira-issue-links/" class="image is-7by1">
             <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Bulk remove change Jira issue links">
         </a>
@@ -1166,116 +1261,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/blog/2019/10/12/ScriptRunner-Custom-Field/" class="image is-7by1">
-            <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72972150-3fdaf580-3e0e-11ea-998a-108879c7874c.png" alt="ScriptRunner: Custom Field 다루기">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-10-12T07:08:45.000Z">2019-10-12</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    9분 읽기 (나에 대하여 1287 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/blog/2019/10/12/ScriptRunner-Custom-Field/">ScriptRunner: Custom Field 다루기</a>
-            
-        </h1>
-        <div class="content">
-            <p>스크립트러너에서 Jira 이슈의 커스텀 필드를 다루는 경우가 많습니다.<br>저는 어떻게 스크립트러너에서 커스텀 필드의 값을 가져오고, 수정하고 있는지 다뤄보겠습니다.</p>
-<h2 id="ScriptRunner란-복습"><a href="#ScriptRunner란-복습" class="headerlink" title="ScriptRunner란? (복습)"></a>ScriptRunner란? (복습)</h2><p>기존에 있는 포스트를 보시면 좋을 것 같습니다.<br>그중에 2번째 포스트에서 설명했던 <code>Script Console</code>에서 실습해보겠습니다.</p>
-<ul>
-<li><a href="/blog/2019/04/21/scriptrunner1/" title="ScriptRunner 소개 1">ScriptRunner 소개 1</a></li>
-<li><strong><a href="/blog/2019/04/21/scriptrunner2/" title="ScriptRunner 소개 2">ScriptRunner 소개 2</a></strong></li>
-<li><a href="/blog/2019/04/27/scriptrunner3/" title="ScriptRunner 소개 3">ScriptRunner 소개 3</a></li>
-<li><a href="/blog/2019/05/11/scriptrunner4/" title="ScriptRunner 소개 4">ScriptRunner 소개 4</a>
-
-</li>
-</ul>
-<h2 id="시스템-테스트-환경"><a href="#시스템-테스트-환경" class="headerlink" title="시스템 테스트 환경"></a>시스템 테스트 환경</h2><p>스크립트러너는 jira 버전에 영향을 좀 받아서 환경도 미리 알고 계셔야합니다.<br>(버전에 따라 내부 함수들이 변경됨에 따라 실제 코드도 조금씩 변경됩니다)</p>
-<ul>
-<li>Jira: Jira Software 8.3.2</li>
-<li>ScriptRunner: 5.6.1.1-jira8</li>
-</ul>
-<h2 id="커스텀-필드-Custom-Field-값-가져오기"><a href="#커스텀-필드-Custom-Field-값-가져오기" class="headerlink" title="커스텀 필드(Custom Field) 값 가져오기"></a>커스텀 필드(Custom Field) 값 가져오기</h2><p>간단하게 <code>커스텀 필드</code> 값을 가져오는 코드를 보면서 설명하겠습니다.<br>코드는 groovy로 작성하며 Script Console에서 테스트해보았습니다.</p>
-<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// import</span></span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// functions</span></span><br><span class="line">String getCustomFieldValue(MutableIssue issue, String cfName) &#123;</span><br><span class="line">  <span class="hljs-keyword">def</span> customFieldManager = ComponentAccessor.getCustomFieldManager();</span><br><span class="line">  <span class="hljs-keyword">def</span> cfObj = customFieldManager.getCustomFieldObjectsByName(cfName)[<span class="hljs-number">0</span>];</span><br><span class="line">  String cfValue = issue.getCustomFieldValue(cfObj);</span><br><span class="line">  <span class="hljs-keyword">return</span> cfValue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="hljs-string">"PUBGTEST-169"</span>);</span><br><span class="line">getCustomFieldValue(issue, <span class="hljs-string">"Translation"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>복사 &amp; 붙여넣기 하시고 <code>이슈 키</code>, <code>커스텀 필드 이름</code>만 바꿔서 입력해주시면<br>해당 이슈의 커스텀 필드 값을 가져올 수 있는 코드입니다.<br>코드에서 중요한 부분만 간단하게 보고 커스텀 필드 값 수정으로 넘어가겠습니다.</p>
-<h3 id="getCustomFieldValue-issue-cfName-함수"><a href="#getCustomFieldValue-issue-cfName-함수" class="headerlink" title="getCustomFieldValue(issue, cfName) 함수"></a>getCustomFieldValue(issue, cfName) 함수</h3><p><code>이슈 오브젝트</code>와 <code>커스텀 필드 이름</code>을 받아 커스텀 필드 값을 반환하는 함수입니다.</p>
-<ol>
-<li>CustomFieldManager를 사용하여 커스텀 필드 오브젝트를 가져옵니다.<ul>
-<li>배열로 가져오는 함수(<code>getCustomFieldObjectsByName()</code>)를 사용하였습니다.</li>
-<li><code>getCustomFieldObjectByName()</code>도 있지만 배열로 가져오는 함수를 권장하고 있습니다.</li>
-<li>같은 이름의 커스텀 필드가 있을 수 있기에 배열로 가져오는 함수를 권장하는 것 같네요.</li>
-</ul>
-</li>
-<li>issue에 있는 함수 <code>getCustomFieldValue()</code>로 커스텀 필드 오브젝트를 이용해 커스텀 필드 값을 가져옵니다.</li>
-<li>커스텀 필드 값을 리턴합니다.</li>
-</ol>
-<h3 id="코드-실행-결과"><a href="#코드-실행-결과" class="headerlink" title="코드 실행 결과"></a>코드 실행 결과</h3><p>Script Console 실행 결과도 보여드리겠습니다.</p>
-<p><img src="https://user-images.githubusercontent.com/5077086/66697493-18559680-ed11-11e9-944b-86f4686b1e63.png" alt></p>
-<p>콘솔에서는 코드 실행 후 마지막에 있는 오브젝트의 값을 보여줍니다.<br>log에서 출력한 내용은 logs 탭에서 볼 수 있습니다.</p>
-<h2 id="커스텀-필드-Custom-Field-값-수정하기"><a href="#커스텀-필드-Custom-Field-값-수정하기" class="headerlink" title="커스텀 필드(Custom Field) 값 수정하기"></a>커스텀 필드(Custom Field) 값 수정하기</h2><p>커스텀 필드의 값을 확인했으니 수정도 해볼 수 있어야겠죠?!<br>값을 가져오는 것보다 코드가 조금 더 추가됩니다.</p>
-<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// import</span></span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.event.type.EventDispatchOption</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="hljs-keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// functions</span></span><br><span class="line">String getCustomFieldValue(MutableIssue issue, String cfName) &#123;</span><br><span class="line">  <span class="hljs-keyword">def</span> customFieldManager = ComponentAccessor.getCustomFieldManager();</span><br><span class="line">  <span class="hljs-keyword">def</span> cfObj = customFieldManager.getCustomFieldObjectsByName(cfName)[<span class="hljs-number">0</span>];</span><br><span class="line">  String cfValue = issue.getCustomFieldValue(cfObj);</span><br><span class="line">  <span class="hljs-keyword">return</span> cfValue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">def</span> setCustomFieldValue(MutableIssue issue, String cfName, String str) &#123;</span><br><span class="line">  <span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">  <span class="hljs-keyword">def</span> customFieldManager = ComponentAccessor.getCustomFieldManager();</span><br><span class="line">  <span class="hljs-keyword">def</span> user = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();</span><br><span class="line">  <span class="hljs-keyword">def</span> cfObj = customFieldManager.getCustomFieldObjectsByName(cfName)[<span class="hljs-number">0</span>];</span><br><span class="line">  issue.setCustomFieldValue(cfObj, str);</span><br><span class="line">  issueMgr.updateIssue(user, issue, EventDispatchOption.DO_NOT_DISPATCH, <span class="hljs-literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="hljs-string">"PUBGTEST-169"</span>);</span><br><span class="line">setCustomFieldValue(issue, <span class="hljs-string">"Translation"</span>, <span class="hljs-string">"TEST"</span>);</span><br><span class="line">getCustomFieldValue(issue, <span class="hljs-string">"Translation"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>앞서 값을 가져오는 코드와 마찬가지로 “TEST”에 있는 값을 바꾸면 적용해보실 수 있습니다.<br>다만 주의하실 점은 커스텀 필드의 타입이 텍스트 타입이어야합니다.<br>Label, Checkbox 등 다른 타입일 경우에는 <strong>동작하지 않는</strong> 코드입니다.</p>
-<h3 id="setCustomFieldValue-issue-cfName-str"><a href="#setCustomFieldValue-issue-cfName-str" class="headerlink" title="setCustomFieldValue(issue, cfName, str)"></a>setCustomFieldValue(issue, cfName, str)</h3><p>값을 가져오는 코드와 다른 부분만 설명드리겠습니다.</p>
-<ul>
-<li>issueMgr: 이슈 매니저로 이슈 업데이트를 위해 함수 내에 선언합니다.</li>
-<li>usr: 이슈 업데이트를 하려면 업데이트하는 사용자 오브젝트가 필요하여 선언합니다.</li>
-<li>issue.setCustomFieldValue(cfObj, str);<ul>
-<li>이 함수를 통해 커스텀 필드 값이 변경됩니다.</li>
-<li>이 코드만 실행할 경우, 실제 반영은 되지 않습니다. (함수 동작시에만 변경됨)</li>
-</ul>
-</li>
-<li>issueMgr.updateIssue()<ul>
-<li>이 함수를 통해 앞에서 setCustomFieldValue()에서 변경된 내용이 반영됩니다.</li>
-</ul>
-</li>
-</ul>
-<p>커스텀 필드 수정과 관련한 질문은 Google에 검색만 하더라도 많이 나옵니다.<br>(첫번째 글을 보시는 것을 추천합니다.)</p>
-<ul>
-<li><a href="https://community.atlassian.com/t5/Jira-questions/Set-custom-field-value-Script-Runner/qaq-p/1042485" target="_blank" rel="noopener">community.atlassian.com/Set-custom-field-value-Script-Runner</a></li>
-<li><a href="https://community.atlassian.com/t5/Marketplace-Apps-Integrations/Basic-method-to-update-a-custom-field-with-Scriptrunner/qaq-p/362875" target="_blank" rel="noopener">community.atlassian.com/Basic-method-to-update-a-custom-field-with-Scriptrunner</a></li>
-</ul>
-<h3 id="코드-실행-결과-1"><a href="#코드-실행-결과-1" class="headerlink" title="코드 실행 결과"></a>코드 실행 결과</h3><p><img src="https://user-images.githubusercontent.com/5077086/66698085-edba0c80-ed15-11e9-9199-5ea5e16afde5.png" alt></p>
-<p>실제로 TEST로 변경된 것을 볼 수 있습니다.</p>
-<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>이렇게 스크립트러너로 Jira 이슈의 커스텀 필드를 다뤄보았습니다.<br>처음에는 어려울 수 있지만 조금씩 다뤄보면 그렇게 어렵지 않습니다.<br>쉽게 따라하고 적용해보실 수 있는 내용으로 추가 포스트해보겠습니다.</p>
-<p>감사합니다. :)</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1342,7 +1327,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -1442,7 +1427,7 @@
                 <span class="level-item">PM</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">20</span>
+                <span class="level-item tag">21</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/blog/categories/PM/System/">
@@ -1505,6 +1490,25 @@
         
         <article class="media">
             
+            <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Bulk remove issue links (by link type)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-28T10:37:15.000Z">2020-02-28</time></div>
+                    <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="has-link-black-ter is-size-6">Jira Bulk remove issue links (by link type)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2020/02/23/Bulk-remove-change-Jira-issue-links/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Bulk remove change Jira issue links">
@@ -1579,25 +1583,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Schemes은 무엇일까? (2)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T05:15:08.000Z">2019-12-28</time></div>
-                    <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="has-link-black-ter is-size-6">Jira Schemes은 무엇일까? (2)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1616,7 +1601,7 @@
                     <span class="level-item">2월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1778,7 +1763,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">17</span>
+                        <span class="tag is-grey">18</span>
                     </a>
                 </div>
                 
@@ -1806,7 +1791,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">10</span>
                     </a>
                 </div>
                 
@@ -1842,6 +1827,25 @@
         
         <article class="media">
             
+            <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Bulk remove issue links (by link type)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-28T10:37:15.000Z">2020-02-28</time></div>
+                    <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="has-link-black-ter is-size-6">Jira Bulk remove issue links (by link type)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2020/02/23/Bulk-remove-change-Jira-issue-links/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Bulk remove change Jira issue links">
@@ -1916,25 +1920,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Schemes은 무엇일까? (2)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T05:15:08.000Z">2019-12-28</time></div>
-                    <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="has-link-black-ter is-size-6">Jira Schemes은 무엇일까? (2)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1953,7 +1938,7 @@
                     <span class="level-item">2월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -2115,7 +2100,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">17</span>
+                        <span class="tag is-grey">18</span>
                     </a>
                 </div>
                 
@@ -2143,7 +2128,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">10</span>
                     </a>
                 </div>
                 

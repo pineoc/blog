@@ -160,6 +160,91 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/blog/2019/10/09/Jira-Software-8-4-release-notes/" class="image is-7by1">
+            <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.4 릴리스 노트">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-09T07:10:20.000Z">2019-10-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6분 읽기 (나에 대하여 840 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2019/10/09/Jira-Software-8-4-release-notes/">Jira Software 8.4 릴리스 노트</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="Jira-Software-8-4-릴리스-노트"><a href="#Jira-Software-8-4-릴리스-노트" class="headerlink" title="Jira Software 8.4 릴리스 노트"></a>Jira Software 8.4 릴리스 노트</h2><p>Jira Software 8.4.x 릴리스 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-4-x-release-notes-975017507.html" target="_blank" rel="noopener">https://confluence.atlassian.com/jirasoftware/jira-software-8-4-x-release-notes-975017507.html</a></p>
+<p>2019년 9월에 릴리스된 Jira Software 8.4 기능에 대해 살펴보는 포스트입니다.<br>위 릴리스 노트에서 자세한 내용을 보실 수 있으며, 이 포스트는 주관적인 생각을 담고 있습니다.</p>
+<h3 id="하이라이트-Highlights"><a href="#하이라이트-Highlights" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
+<li>Archived issues taken to the next level (Data Center)</li>
+<li><strong>Better email notifications, right from the start</strong></li>
+<li><strong>Filters in Multi User picker Custom field</strong></li>
+<li><strong>External links open in a new tab</strong></li>
+<li>Jira becomes more accessible</li>
+<li>A large number of versions is OK for boards</li>
+<li><strong>Time tracking in bulk edit</strong></li>
+<li>Open links in your mobile app</li>
+<li><strong>Jira Docker</strong></li>
+<li>New supported databases</li>
+</ul>
+<p>이번 8.4 릴리스는 하이라이트 리스트만 봐도 내용이 많긴하네요.<br>몇가지는 시스템 설정 관련 내용이긴 하지만 한번 보겠습니다.</p>
+<h3 id="Better-email-notifications-right-from-the-start"><a href="#Better-email-notifications-right-from-the-start" class="headerlink" title="Better email notifications, right from the start"></a>Better email notifications, right from the start</h3><p>8.0 버전에 들어갔던 Batch 이메일 알림에 대한 추가 개선 내용했고, 이 내용이 기본 설정으로 변경되었습니다.<br>기본 템플릿이 있지만 추가적으로 커스텀하게 알림 받고 싶은 것에 대해 설정할 수 있게되었기도 합니다.</p>
+<ul>
+<li><a href="https://confluence.atlassian.com/adminjiraserver/customizing-email-content-batched-notifications-976770772.html" target="_blank" rel="noopener">customizing-email-content-batched-notifications</a></li>
+<li><a href="https://confluence.atlassian.com/adminjiraserver/adding-custom-fields-to-emails-batched-notifications-968669988.html" target="_blank" rel="noopener">adding-custom-fields-to-emails-batched-notifications</a></li>
+</ul>
+<p>다만 시스템 설정 상에서 쉽게 변경할 수는 없고 Velocity template이라는 것을 수정해야한다고 합니다.<br>나중에 관련해서 세팅하는 방법을 따로 포스트해봐야겠습니다.<br>(저도 아직 사용해보지 않아서 얼마나 힘들지 모르겠네요.)</p>
+<h3 id="Filters-in-Multi-User-picker-Custom-field"><a href="#Filters-in-Multi-User-picker-Custom-field" class="headerlink" title="Filters in Multi User picker Custom field"></a>Filters in Multi User picker Custom field</h3><p>릴리스 노트에 있는 내용 그대로 들고와보았습니다. 유저 요청에 따라 추가된 기능이라고 하네요.</p>
+<blockquote>
+<p>In response to user requests, we’ve made it possible to limit the multi user picker custom field to hold only specific set of users.<br>This is to prevent sending notifications to random users as a result of mistyping user names.<br>This adds to the overall security of issues.</p>
+</blockquote>
+<p><img src="https://confluence.atlassian.com/jirasoftware/files/975017507/975017552/1/1563959636990/Screen+Shot+2019-07-24+at+11.04.16.png" alt></p>
+<p>추가된 기능은 필터에 멀티 유저 피커 커스텀 필드 내용을 추가하여 사용할 수 있는 기능입니다.<br>필터에 다른 유저를 잘못 입력하는 것을 방지할 수 있는 기능 같네요.</p>
+<h3 id="External-links-open-in-a-new-tab"><a href="#External-links-open-in-a-new-tab" class="headerlink" title="External links open in a new tab"></a>External links open in a new tab</h3><p>YourUserProfile &gt; Profile &gt; Preferences &gt; External links 메뉴에서<br>외부 링크를 항상 새로운 탭에서 볼 수 있는 옵션을 제공합니다.</p>
+<h3 id="Time-tracking-in-bulk-edit"><a href="#Time-tracking-in-bulk-edit" class="headerlink" title="Time tracking in bulk edit"></a>Time tracking in bulk edit</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/975017507/976163716/1/1566286925646/image__6___1_.png" alt><br>Time tracking 필드의 벌크(bulk) 수정이 가능한 기능이 추가되었습니다.<br>일괄적으로 추정 시간, 남은 시간을 변경하는 데에 좋을 것 같습니다.</p>
+<h3 id="Jira-Docker"><a href="#Jira-Docker" class="headerlink" title="Jira Docker"></a>Jira Docker</h3><p>Jira 서버 버전 및 데이터 센터 버전을 Docker 컨테이너로 사용할 수 있도록 공식 지원한다고 합니다.<br>자세한 내용은 링크에서 보실 수 있습니다. <a href="https://hub.docker.com/u/atlassian" target="_blank" rel="noopener">https://hub.docker.com/u/atlassian</a><br>Jira 외에 컨플루언스, 파이프라인 등 다른 이미지들도 있어서 시스템 구성시 사용해볼 수 있을 것 같습니다.</p>
+<ul>
+<li>Jira Software: <a href="https://hub.docker.com/r/atlassian/jira-software" target="_blank" rel="noopener">https://hub.docker.com/r/atlassian/jira-software</a></li>
+<li>Jira Core: <a href="https://hub.docker.com/r/atlassian/jira-core" target="_blank" rel="noopener">https://hub.docker.com/r/atlassian/jira-core</a></li>
+</ul>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>8.4 릴리스는 8.5 릴리스 전에 많이 개선된 느낌이 있네요.<br>Docker 이미지가 추가된 것도 좋은 업데이트 사항이었고 향후 있을 8.5 릴리스 내용도 기대가됩니다.</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/blog/2019/10/06/Jira-Software-8-3-release-notes/" class="image is-7by1">
             <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.3 릴리스 노트">
         </a>
@@ -1314,138 +1399,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/blog/2019/04/21/scriptrunner1/" class="image is-7by1">
-            <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72972150-3fdaf580-3e0e-11ea-998a-108879c7874c.png" alt="ScriptRunner 소개 1">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-21T06:45:00.000Z">2019-04-21</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6분 읽기 (나에 대하여 879 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/blog/2019/04/21/scriptrunner1/">ScriptRunner 소개 1</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="ScriptRunner-소개-1"><a href="#ScriptRunner-소개-1" class="headerlink" title="ScriptRunner 소개 #1"></a>ScriptRunner 소개 #1</h2><ul>
-<li><strong><a href="/blog/2019/04/21/scriptrunner1/" title="ScriptRunner 소개 1">ScriptRunner 소개 1</a></strong></li>
-<li><a href="/blog/2019/04/21/scriptrunner2/" title="ScriptRunner 소개 2">ScriptRunner 소개 2</a></li>
-<li><a href="/blog/2019/04/27/scriptrunner3/" title="ScriptRunner 소개 3">ScriptRunner 소개 3</a></li>
-<li><a href="/blog/2019/05/11/scriptrunner4/" title="ScriptRunner 소개 4">ScriptRunner 소개 4</a>
-
-</li>
-</ul>
-<p>업무에서 요즘 많이 사용하는 ‘ScriptRunner’ 라는 플러그인을 소개하려 합니다.<br>이 포스트에서 다루는 내용은 JIRA 환경을 기준으로 작성되었습니다.<br>(한국 문서로는 많이 볼 수 없어서 공부 및 소개 겸 포스트 작성합니다.)</p>
-<h2 id="ScriptRunner란"><a href="#ScriptRunner란" class="headerlink" title="ScriptRunner란"></a>ScriptRunner란</h2><p><img src="https://scriptrunner.adaptavist.com/latest/images/SR-web-logo.png" alt="Adaptavist ScriptRunner"></p>
-<ul>
-<li>메인 페이지: <a href="https://scriptrunner.adaptavist.com/latest/index.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/index.html</a></li>
-<li>Adaptavist 라는 회사에서 만든 스크립트 플러그인<ul>
-<li>Adaptavist inc: <a href="https://www.adaptavist.com/" target="_blank" rel="noopener">https://www.adaptavist.com/</a></li>
-<li>ScriptRunner, Test Management, SmartDraw 등 Atlassian 소프트웨어 플러그인 개발사</li>
-</ul>
-</li>
-<li>JIRA, Confluence, Bitbucket에서 커스텀 스크립트를 사용할 수 있는 플러그인</li>
-<li>플러그인 설치 시 기본적으로 스크립트 함수, 필드 지원</li>
-<li>스크립트 언어는 Groovy를 사용</li>
-</ul>
-<h2 id="ScriptRunner-가이드"><a href="#ScriptRunner-가이드" class="headerlink" title="ScriptRunner 가이드"></a>ScriptRunner 가이드</h2><p>가이드 문서는 모두 영어로 되어있으며, JIRA Server, JIRA Cloud로 나눠져있습니다.<br>Server 설치 버전과 Cloud 버전이 달라 기능도 약간씩 다르니 그 부분은 참고하여 사용해야합니다.</p>
-<ul>
-<li>메인 페이지: <a href="https://scriptrunner.adaptavist.com/latest/index.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/index.html</a></li>
-<li>Server 버전: <a href="https://scriptrunner.adaptavist.com/latest/jira/quickstart.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/jira/quickstart.html</a></li>
-<li>Cloud 버전: <a href="http://scriptrunner-docs.connect.adaptavist.com/jiracloud/quickstart.html" target="_blank" rel="noopener">http://scriptrunner-docs.connect.adaptavist.com/jiracloud/quickstart.html</a></li>
-</ul>
-<p>ScriptRunner 플러그인을 처음 시작한다면 다음 자료들을 보면 좋습니다.</p>
-<ul>
-<li>기본 컨셉: <a href="https://scriptrunner.adaptavist.com/latest/jira/" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/jira/</a></li>
-<li>tutorialspoint/Groovy: <a href="https://www.tutorialspoint.com/groovy/index.htm" target="_blank" rel="noopener">https://www.tutorialspoint.com/groovy/index.htm</a></li>
-<li>webinar: <a href="https://www.youtube.com/watch?v=ufNACtDxyD8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ufNACtDxyD8</a></li>
-<li>ScriptRunner 소개 영상: <a href="https://www.youtube.com/watch?v=sJa_bFmPoLU" target="_blank" rel="noopener">https://www.youtube.com/watch?v=sJa_bFmPoLU</a></li>
-</ul>
-<p>Adaptavist에서는 따로 교육과정도 있으니 참고하세요.</p>
-<ul>
-<li><a href="https://learn.adaptavist.com/course-library/getting-started-with-sr4js" target="_blank" rel="noopener">https://learn.adaptavist.com/course-library/getting-started-with-sr4js</a><ul>
-<li>4시간짜리 강좌로 JQL, Built-in Script, Behaviours 등을 배울 수 있습니다.</li>
-<li>ScriptRunner 강좌는 이 강좌 밖에 없습니다.</li>
-</ul>
-</li>
-<li>전체 강좌: <a href="https://learn.adaptavist.com/course-library" target="_blank" rel="noopener">https://learn.adaptavist.com/course-library</a></li>
-<li>가격은 개인 결제시 350$ 이며 러닝 사이트 내에 있는 모든 강좌를 들을 수 있습니다.<ul>
-<li>결제를 위해 카드 정보까지 다 입력시 계정이 생성되는 것으로 보입니다.<br>(포스팅 시 결제까지 진행하지 않아 모르겠습니다.)</li>
-</ul>
-</li>
-</ul>
-<h2 id="ScriptRunner-스크립트-작성"><a href="#ScriptRunner-스크립트-작성" class="headerlink" title="ScriptRunner 스크립트 작성"></a>ScriptRunner 스크립트 작성</h2><p>ScriptRunner 플러그인으로 스크립트를 작성할 수 있는 곳은 JIRA 기준으로 다음과 같습니다.</p>
-<ul>
-<li>Administration &gt; Add-ons &gt; Behaviours</li>
-<li>Administration &gt; Add-ons &gt; ScriptRunner<ul>
-<li>Script Console</li>
-<li>Built-in Scripts</li>
-<li>Script Listeners</li>
-<li>Script Fields</li>
-<li>REST Endpoints</li>
-<li>Script Fragments</li>
-<li>Escalation Services</li>
-<li>Script JQL Functions</li>
-</ul>
-</li>
-</ul>
-<p>각 메뉴에서 할 수 있는 일을 정리해보겠습니다.</p>
-<h3 id="Behaviours"><a href="#Behaviours" class="headerlink" title="Behaviours"></a>Behaviours</h3><ul>
-<li><a href="https://scriptrunner.adaptavist.com/5.5.0/jira/behaviours-overview.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/5.5.0/jira/behaviours-overview.html</a></li>
-<li>위의 링크를 참고하면 예제를 따라하면서 어떻게 사용해야할지 알 수 있습니다.</li>
-<li>설명은 다음과 같이 나와있습니다.</li>
-</ul>
-<p>behaviours 기능을 통해 관리자는 하나 이상의 behaviours를 만들 수 있습니다. <strong>behaviours</strong>는 주어진 프로젝트 또는 이슈에서 <strong>이슈에 대한 필드가 동작하는 방식</strong>을 정의합니다. 아래는 예시입니다.</p>
-<h4 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h4><ul>
-<li>이슈 화면에 입력된 다른 데이터(즉, 이슈 생성 또는 이슈 전환 중)에 따라 필드를 필수 항목으로 지정.</li>
-<li>사용자 역할 또는 그룹에 따라 필드를 읽기 전용으로 설정</li>
-<li>이슈 화면(스크린)이 제출되기 전에 필드 데이터를 서버 측이 검증 수행</li>
-<li>다른 이슈 화면(스크린) 데이터에 따라 필드 값 설정</li>
-</ul>
-<p><a href="https://scriptrunner.adaptavist.com/5.5.0/jira/behaviours-overview.html#_examples" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/5.5.0/jira/behaviours-overview.html#_examples</a><br>링크에서는 예시로 좋은 설명이 1, 2 항목에 있습니다.</p>
-<ol>
-<li>이슈 생성 시 기본 Description(설명) 포맷 값 설정</li>
-<li>Resolved 처리 시 Resolution이 Fixed 일 경우, Fix Version 입력을 꼭 할 수 있도록 스크린 설정</li>
-<li>Live Editing (실시간 코드 작성)</li>
-</ol>
-<p>작성하다보니 내용이 많아졌네요.<br>ScriptRunner 소개 #2 포스트에서 다음 내용들을 다루겠습니다.</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1453,7 +1406,7 @@
         <div class="pagination-previous">
             <a class="is-flex-grow has-text-black-ter" href="/blog/categories/PM/">이전</a>
         </div>
-        <div class="pagination-next is-invisible is-hidden-mobile">
+        <div class="pagination-next">
             <a class="is-flex-grow has-text-black-ter" href="/blog/categories/PM/page/3/">다음</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
@@ -1461,6 +1414,8 @@
             <li><a class="pagination-link has-text-black-ter" href="/blog/categories/PM/">1</a></li>
             
             <li><a class="pagination-link is-current" href="/blog/categories/PM/page/2/">2</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/blog/categories/PM/page/3/">3</a></li>
             
         </ul>
     </nav>
@@ -1510,7 +1465,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -1610,7 +1565,7 @@
                 <span class="level-item">PM</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">20</span>
+                <span class="level-item tag">21</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/blog/categories/PM/System/">
@@ -1673,6 +1628,25 @@
         
         <article class="media">
             
+            <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Bulk remove issue links (by link type)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-28T10:37:15.000Z">2020-02-28</time></div>
+                    <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="has-link-black-ter is-size-6">Jira Bulk remove issue links (by link type)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2020/02/23/Bulk-remove-change-Jira-issue-links/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Bulk remove change Jira issue links">
@@ -1747,25 +1721,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Schemes은 무엇일까? (2)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T05:15:08.000Z">2019-12-28</time></div>
-                    <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="has-link-black-ter is-size-6">Jira Schemes은 무엇일까? (2)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1784,7 +1739,7 @@
                     <span class="level-item">2월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1946,7 +1901,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">17</span>
+                        <span class="tag is-grey">18</span>
                     </a>
                 </div>
                 
@@ -1974,7 +1929,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">10</span>
                     </a>
                 </div>
                 
@@ -2010,6 +1965,25 @@
         
         <article class="media">
             
+            <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Bulk remove issue links (by link type)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-28T10:37:15.000Z">2020-02-28</time></div>
+                    <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="has-link-black-ter is-size-6">Jira Bulk remove issue links (by link type)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2020/02/23/Bulk-remove-change-Jira-issue-links/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Bulk remove change Jira issue links">
@@ -2084,25 +2058,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Schemes은 무엇일까? (2)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T05:15:08.000Z">2019-12-28</time></div>
-                    <a href="/blog/2019/12/28/What-is-Jira-Schemes2/" class="has-link-black-ter is-size-6">Jira Schemes은 무엇일까? (2)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -2121,7 +2076,7 @@
                     <span class="level-item">2월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -2283,7 +2238,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">17</span>
+                        <span class="tag is-grey">18</span>
                     </a>
                 </div>
                 
@@ -2311,7 +2266,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">10</span>
                     </a>
                 </div>
                 
