@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://pineoc.github.io/blog/tags/Tool/</loc>
+        <lastmod>2020-03-20T18:39:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://pineoc.github.io/blog/tags/ScriptRunner/</loc>
         <lastmod>2020-02-29T13:24:17.000Z</lastmod>
         <changefreq>weekly</changefreq>

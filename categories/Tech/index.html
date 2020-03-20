@@ -159,6 +159,91 @@
 
     <div class="card">
     
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-20T18:14:21.000Z">2020-03-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5분 읽기 (나에 대하여 784 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2020/03/21/What-is-Clumsy/">What is Clumsy</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="Clumsy-소개"><a href="#Clumsy-소개" class="headerlink" title="Clumsy 소개"></a>Clumsy 소개</h1><p><a href="https://jagt.github.io/clumsy/index.html" target="_blank" rel="noopener">https://jagt.github.io/clumsy/index.html</a></p>
+<p>네트워크 환경, 상태를 컨트롤할 수 있는 툴 입니다.<br>Windows 환경에서만 동작하는 툴이어서 멕, 리눅스에서는 사용할 수 없는 툴입니다.<br>(Windows의 <code>WinDivert</code>라는 네트워크 관련 패키지를 사용해서 컨트롤하는 프로그램이기 때문입니다.)</p>
+<p><img src="https://jagt.github.io/clumsy/clumsy-demo.gif" alt="clumsy demo"></p>
+<h2 id="다운로드"><a href="#다운로드" class="headerlink" title="다운로드"></a>다운로드</h2><ul>
+<li><a href="https://jagt.github.io/clumsy/download.html" target="_blank" rel="noopener">https://jagt.github.io/clumsy/download.html</a></li>
+</ul>
+<h1 id="사용-방법"><a href="#사용-방법" class="headerlink" title="사용 방법"></a>사용 방법</h1><p><a href="https://jagt.github.io/clumsy/manual.html" target="_blank" rel="noopener">https://jagt.github.io/clumsy/manual.html</a></p>
+<h2 id="General"><a href="#General" class="headerlink" title="General"></a>General</h2><p><img src="https://jagt.github.io/clumsy/screen.png" alt="Clumsy Screen"></p>
+<ol>
+<li>Filtering: 패킷은 이 필터를 조건으로 캡처됩니다. 필터링에 있는 내용을 조건으로 패킷을 잡아 아래 함수들이 동작합니다.</li>
+<li>Presets 메뉴: 선택할 수 있는 내장 프리셋 목록이 있습니다. 어떤 필터들이 있는지 드롭다운을 눌러서 볼 수 있습니다.<ul>
+<li>config.txt 에 실행파일과 함께 번들로 필터를 추가할 수도 있습니다.</li>
+</ul>
+</li>
+<li>Start 버튼: 패킷 캡쳐를 시작합니다. 필터의 구문이 맞지 않거나, 다른 이슈로 인해 시작이 안될수도 있습니다.<ul>
+<li>캡쳐가 시작되면 버튼은 “Stop”으로 변경되고, 버튼 왼쪽 작은 아이콘에 녹색으로 표시됩니다.</li>
+<li>캡쳐에 실패하면 아이콘은 적색으로 표시됩니다.</li>
+</ul>
+</li>
+<li>Function control: 캡쳐된 패킷에 대해 원하는 기능을 사용할 수 있습니다.<ul>
+<li>Lag - 패킷 전송을 지연시킵니다. Lag time 만큼 지연시킵니다.</li>
+<li>Drop - 패킷을 전송하지 않고 떨어뜨립니다.(드롭합니다) Chance 값에 따라 떨어뜨립니다.</li>
+<li>Throttle - 특정 시간 동안 트래픽을 차단하고 나중에 일괄적으로 보냅니다.</li>
+<li>Out of order - 순서를 뒤섞습니다.</li>
+<li>Duplicate - 패킷을 중복으로 보냅니다.</li>
+<li>Tamper - 패킷 내용을 변경(변조)합니다.</li>
+</ul>
+</li>
+<li>Parameters control<ul>
+<li>Inbound - 밖에서 안으로 들어오는 패킷에 대해 적용합니다.</li>
+<li>Outbound - 안에서 밖으로 나가는 패킷에 대해 적용합니다.</li>
+<li>Lag time / Chance - 적용하고자하는 확률, 지연 값을 설정할 수 있습니다.</li>
+</ul>
+</li>
+<li>Status: 현재 상태에 대한 메세지를 보여줍니다.</li>
+</ol>
+<h2 id="Client-Packet-Loss-Test"><a href="#Client-Packet-Loss-Test" class="headerlink" title="Client Packet Loss Test"></a>Client Packet Loss Test</h2><p><img src="https://user-images.githubusercontent.com/5077086/77194242-ef88c700-6b22-11ea-9b55-78cf442c60bb.png" alt="10% packet loss test"></p>
+<ul>
+<li>모든 패킷에 대해서 10% 확률로 패킷을 드롭시키는 설정입니다.</li>
+</ul>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>이 틀을 네트워크 테스트를 하다가 알게되었는데 가이드 문서가 없어서 블로그에 한번 정리해보았습니다.<br>툴 자체는 간단하고 네트워크 지식(UDP, TCP, 인바운드, 아웃바운드 정도) 알면 사용하는데에는 무리가 없어보이는 툴입니다.<br>네트워크 상태 테스트에서 일반적으로 발생하는 문제 케이스에 대한 테스트 케이스도 한번 정리해두면 좋을 것 같습니다.</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
     <div class="card-image">
         <a href="/blog/2020/01/23/Perforce-basics/" class="image is-7by1">
             <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72974765-f17c2580-3e12-11ea-8812-98dfb5840866.png" alt="Perforce Client(P4V) basics">
@@ -962,7 +1047,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        31
                     </p>
                 </div>
             </div>
@@ -982,7 +1067,7 @@
                         태그
                     </p>
                     <p class="title has-text-weight-normal">
-                        12
+                        13
                     </p>
                 </div>
             </div>
@@ -1086,7 +1171,7 @@
                 <span class="level-item">Tech</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">7</span>
+                <span class="level-item tag">8</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/blog/categories/Tech/Javascript/">
@@ -1108,7 +1193,7 @@
         <h3 class="menu-label">
             태그 클라우드
         </h3>
-        <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/Confluence/" style="font-size: 10px;">Confluence</a> <a href="/blog/tags/Fisheye/" style="font-size: 10px;">Fisheye</a> <a href="/blog/tags/GitLab/" style="font-size: 10px;">GitLab</a> <a href="/blog/tags/IoT/" style="font-size: 10px;">IoT</a> <a href="/blog/tags/Javascript-Weekly/" style="font-size: 15px;">Javascript Weekly</a> <a href="/blog/tags/Jira/" style="font-size: 20px;">Jira</a> <a href="/blog/tags/OpenGL-ES/" style="font-size: 10px;">OpenGL-ES</a> <a href="/blog/tags/PM/" style="font-size: 12.5px;">PM</a> <a href="/blog/tags/Perforce/" style="font-size: 10px;">Perforce</a> <a href="/blog/tags/ScriptRunner/" style="font-size: 17.5px;">ScriptRunner</a> <a href="/blog/tags/blog/" style="font-size: 10px;">blog</a>
+        <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/Confluence/" style="font-size: 10px;">Confluence</a> <a href="/blog/tags/Fisheye/" style="font-size: 10px;">Fisheye</a> <a href="/blog/tags/GitLab/" style="font-size: 10px;">GitLab</a> <a href="/blog/tags/IoT/" style="font-size: 10px;">IoT</a> <a href="/blog/tags/Javascript-Weekly/" style="font-size: 15px;">Javascript Weekly</a> <a href="/blog/tags/Jira/" style="font-size: 20px;">Jira</a> <a href="/blog/tags/OpenGL-ES/" style="font-size: 10px;">OpenGL-ES</a> <a href="/blog/tags/PM/" style="font-size: 12.5px;">PM</a> <a href="/blog/tags/Perforce/" style="font-size: 10px;">Perforce</a> <a href="/blog/tags/ScriptRunner/" style="font-size: 17.5px;">ScriptRunner</a> <a href="/blog/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/blog/tags/blog/" style="font-size: 10px;">blog</a>
     </div>
 </div>
 
@@ -1122,6 +1207,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/03/21/What-is-Clumsy/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="What is Clumsy">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-20T18:14:21.000Z">2020-03-21</time></div>
+                    <a href="/blog/2020/03/21/What-is-Clumsy/" class="has-link-black-ter is-size-6">What is Clumsy</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1199,25 +1303,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/12/28/What-is-Jira-Field-Screen/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Field &amp; Screen 살펴보기">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T08:35:13.000Z">2019-12-28</time></div>
-                    <a href="/blog/2019/12/28/What-is-Jira-Field-Screen/" class="has-link-black-ter is-size-6">Jira Field &amp; Screen 살펴보기</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1229,6 +1314,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">3월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/blog/archives/2020/02/">
@@ -1427,6 +1523,13 @@
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
                         <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Tool/">
+                        <span class="tag">Tool</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1462,6 +1565,25 @@
         
         <article class="media">
             
+            <a href="/blog/2020/03/21/What-is-Clumsy/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="What is Clumsy">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-20T18:14:21.000Z">2020-03-21</time></div>
+                    <a href="/blog/2020/03/21/What-is-Clumsy/" class="has-link-black-ter is-size-6">What is Clumsy</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2020/02/28/Jira-Bulk-remove-issue-links-by-link-type/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Bulk remove issue links (by link type)">
@@ -1536,25 +1658,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2019/12/28/What-is-Jira-Field-Screen/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Field &amp; Screen 살펴보기">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-28T08:35:13.000Z">2019-12-28</time></div>
-                    <a href="/blog/2019/12/28/What-is-Jira-Field-Screen/" class="has-link-black-ter is-size-6">Jira Field &amp; Screen 살펴보기</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1566,6 +1669,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">3월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/blog/archives/2020/02/">
@@ -1764,6 +1878,13 @@
                     <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
                         <span class="tag">ScriptRunner</span>
                         <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Tool/">
+                        <span class="tag">Tool</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 

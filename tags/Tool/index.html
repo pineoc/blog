@@ -2,7 +2,7 @@
 <html lang="ko">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>태그: Fisheye - Pineoc&#39;s Blog</title>
+<title>태그: Tool - Pineoc&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="naver-site-verification" content="bc8e81d5bc72c158cd5f836d23b3f7b4bf24308d">
 
@@ -11,7 +11,7 @@
     <meta name="keywords" content="Developer, PM">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pineoc&#39;s Blog">
-<meta property="og:url" content="https://pineoc.github.io/blog/tags/Fisheye/index.html">
+<meta property="og:url" content="https://pineoc.github.io/blog/tags/Tool/index.html">
 <meta property="og:site_name" content="Pineoc&#39;s Blog">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://pineoc.github.io/blog/images/og_image.png">
@@ -150,7 +150,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/blog/tags">태그</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Fisheye</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Tool</a></li>
         </ul>
         </nav>
     </div>
@@ -158,17 +158,11 @@
 
     <div class="card">
     
-    <div class="card-image">
-        <a href="/blog/2019/04/20/fisheye-webhook-error/" class="image is-7by1">
-            <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:0785bca2-a166-47ef-aeec-c657e7627af0/Fisheye@2x-blue.png?cdnVersion=457" alt="fisheye webhook error (with node.js)">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-20T08:09:42.000Z">2019-04-20</time>
+                <time class="level-item has-text-grey" datetime="2020-03-20T18:14:21.000Z">2020-03-21</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
@@ -178,7 +172,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7분 읽기 (나에 대하여 982 단어)
+                    5분 읽기 (나에 대하여 784 단어)
                 </span>
                 
                 
@@ -187,42 +181,51 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blog/2019/04/20/fisheye-webhook-error/">fisheye webhook error (with node.js)</a>
+                <a class="has-link-black-ter" href="/blog/2020/03/21/What-is-Clumsy/">What is Clumsy</a>
             
         </h1>
         <div class="content">
-            <h2 id="Fisheye-Webhook-에러-수정"><a href="#Fisheye-Webhook-에러-수정" class="headerlink" title="Fisheye Webhook 에러 수정"></a>Fisheye Webhook 에러 수정</h2><p>SVN, Git과 같은 버전관리 프로그램에 기록되는 커밋(리비전) 내역을 트래킹해주는<br><code>Fisheye</code>를 회사에서 사용 중에 Webhook 기능이 있어 사용하다 에러를 만나게 되어 해결 방법을 남겨봅니다.<br>저는 Node.js + Express로 웹훅을 받아 처리할 때 문제가 있었습니다.</p>
-<p>Fisheye에 대한 자세한 내용은 추후 다른 포스트에서 남겨보겠습니다. :)</p>
-<h2 id="Webhook-기본-설정"><a href="#Webhook-기본-설정" class="headerlink" title="Webhook 기본 설정"></a>Webhook 기본 설정</h2><p>Fisheye에서 웹훅을 설정하는 방법은 간단합니다.<br>아래 링크를 참고하여 웹훅을 설정합니다.<br><a href="https://confluence.atlassian.com/fisheye/configuring-web-hooks-960155631.html" target="_blank" rel="noopener">https://confluence.atlassian.com/fisheye/configuring-web-hooks-960155631.html</a></p>
-<h2 id="Webhook을-받기-위한-Node-js-Express-서버-구성"><a href="#Webhook을-받기-위한-Node-js-Express-서버-구성" class="headerlink" title="Webhook을 받기 위한 Node.js + Express 서버 구성"></a>Webhook을 받기 위한 Node.js + Express 서버 구성</h2><p>간단한 서버 어플리케이션을 만들어서 웹훅을 받아봅니다.<br>POST 요청을 받을 수 있도록 만들고 Test 기능으로 웹훅을 보내 보았습니다.</p>
-<p>그랬더니 아래와 같은 에러가 생겼습니다.</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /test/webhook 415 4.796 ms - 1426</span><br><span class="line">UnsupportedMediaTypeError: unsupported content encoding &quot;utf-8&quot;</span><br><span class="line">    at contentstream (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\read.js:174:13)</span><br><span class="line">    at read (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\read.js:54:14)</span><br><span class="line">    at jsonParser (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\body-parser\lib\types\json.js:134:5)</span><br><span class="line">    at Layer.handle [as handle_request] (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\layer.js:95:5)</span><br><span class="line">    at trim_prefix (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:317:13)</span><br><span class="line">    at C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:284:7</span><br><span class="line">    at Function.process_params (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:335:12)</span><br><span class="line">    at next (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\index.js:275:10)</span><br><span class="line">    at logger (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\morgan\index.js:144:5)</span><br><span class="line">    at Layer.handle [as handle_request] (C:\Users\pineoc\Desktop\private\pino-bot\node_modules\express\lib\router\layer.js:95:5)</span><br></pre></td></tr></table></figure>
-
-<p>이런 에러는 또 처음이라 좀 더 확인해보았습니다.<br>(제 코드 상에 문제라기 보다 웹훅에서 보내주는 데이터 쪽과 맞춰야하는 문제로 보였기 때문입니다.)</p>
-<h2 id="UnsupportedMediaTypeError-에러-확인-및-해결-시도"><a href="#UnsupportedMediaTypeError-에러-확인-및-해결-시도" class="headerlink" title="UnsupportedMediaTypeError 에러 확인 및 해결 시도"></a><code>UnsupportedMediaTypeError</code> 에러 확인 및 해결 시도</h2><p>에러 내용은 저에게는 생소해서 구글에서 관련 에러를 검색해보았습니다.<br><code>UnsupportedMediaTypeError: unsupported content encoding &quot;utf-8&quot;</code>를 검색해보니<br>아래와 같은 글들이 나왔습니다.</p>
-<ul>
-<li>Content-Encoding issue: <a href="https://github.com/expressjs/body-parser/issues/100" target="_blank" rel="noopener">https://github.com/expressjs/body-parser/issues/100</a></li>
-<li>unsupported content encoding “utf-8”: <a href="https://github.com/Strider-CD/strider/issues/1021" target="_blank" rel="noopener">https://github.com/Strider-CD/strider/issues/1021</a></li>
+            <h1 id="Clumsy-소개"><a href="#Clumsy-소개" class="headerlink" title="Clumsy 소개"></a>Clumsy 소개</h1><p><a href="https://jagt.github.io/clumsy/index.html" target="_blank" rel="noopener">https://jagt.github.io/clumsy/index.html</a></p>
+<p>네트워크 환경, 상태를 컨트롤할 수 있는 툴 입니다.<br>Windows 환경에서만 동작하는 툴이어서 멕, 리눅스에서는 사용할 수 없는 툴입니다.<br>(Windows의 <code>WinDivert</code>라는 네트워크 관련 패키지를 사용해서 컨트롤하는 프로그램이기 때문입니다.)</p>
+<p><img src="https://jagt.github.io/clumsy/clumsy-demo.gif" alt="clumsy demo"></p>
+<h2 id="다운로드"><a href="#다운로드" class="headerlink" title="다운로드"></a>다운로드</h2><ul>
+<li><a href="https://jagt.github.io/clumsy/download.html" target="_blank" rel="noopener">https://jagt.github.io/clumsy/download.html</a></li>
 </ul>
-<p>몇 가지 글을 보았을 때는 Body-parser 쪽에 문제가 있어서 안되는 것으로 예상하여 아래와 같이 해결해보려 했습니다만,<br>첫 번째 글을 보면 <code>Request Header 값 중 &quot;Content-Encoding: UTF-8&quot;를 빼면 해결되지 않을까?</code> 하는 질문이 있습니다.</p>
-<p>바로 아래에는 헤더 값을 제거하는 코드가 답변으로 달렸죠.</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//...</span></span><br><span class="line">app.use(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// remove invalid header</span></span><br><span class="line">  <span class="hljs-keyword">delete</span> req.headers[<span class="hljs-string">'content-encoding'</span>];</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line">app.use(express.json());</span><br><span class="line">app.use(express.urlencoded(&#123; <span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span> &#125;));</span><br><span class="line"><span class="hljs-comment">// ...</span></span><br></pre></td></tr></table></figure>
-
-<p>이렇게 app.js 코드를 수정하고 웹훅 데이터를 받아보았더니 해결되었습니다.</p>
-<h2 id="Content-Encoding-UTF-8"><a href="#Content-Encoding-UTF-8" class="headerlink" title="Content-Encoding: UTF-8?"></a><code>Content-Encoding: UTF-8</code>?</h2><p><code>Content-Encoding: UTF-8</code> 는 뭐길래 에러가 났을까 확인해보았습니다.<br>우선 <code>Content-Encoding</code>이라는 헤더는 <code>미디어 타입을 압축</code>하기 위해 사용되는 값입니다.<br>참고: <a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding</a></p>
-<p>Content-Encoding은 주로 아래와 같이 사용되죠.</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Encoding: compress</span><br><span class="line">Content-Encoding: deflate</span><br><span class="line">Content-Encoding: identity</span><br><span class="line">Content-Encoding: br</span><br></pre></td></tr></table></figure>
-
-<p>위 사용 방법에 따르면 <code>UTF-8</code> 값은 유효하지 않은 값입니다. (Invalid)<br>UTF-8 인코딩 혹은 문자 인코딩을 요청에 표현하고 싶다면 아래와 같이 표현해야합니다.<br>참고: <a href="https://www.w3.org/International/questions/qa-headers-charset.ko" target="_blank" rel="noopener">https://www.w3.org/International/questions/qa-headers-charset.ko</a></p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: text/html; charset=utf-8</span><br></pre></td></tr></table></figure>
-
-<h2 id="문제-해결"><a href="#문제-해결" class="headerlink" title="문제 해결"></a>문제 해결</h2><p>해결 방법은 그렇게 어렵지 않았지만 해결하면서 다양한 내용을 알게되어서 좋았습니다.<br>+문제 없이 웹훅도 사용할 수 있게되어서 더 좋았죠. :)</p>
-<ul>
-<li><code>Request Header</code> 유효성 문제</li>
-<li><code>Content-Encoding</code> 헤더 값 사용 방법</li>
-<li><code>Content-Type</code> 헤더 값 사용 방법</li>
+<h1 id="사용-방법"><a href="#사용-방법" class="headerlink" title="사용 방법"></a>사용 방법</h1><p><a href="https://jagt.github.io/clumsy/manual.html" target="_blank" rel="noopener">https://jagt.github.io/clumsy/manual.html</a></p>
+<h2 id="General"><a href="#General" class="headerlink" title="General"></a>General</h2><p><img src="https://jagt.github.io/clumsy/screen.png" alt="Clumsy Screen"></p>
+<ol>
+<li>Filtering: 패킷은 이 필터를 조건으로 캡처됩니다. 필터링에 있는 내용을 조건으로 패킷을 잡아 아래 함수들이 동작합니다.</li>
+<li>Presets 메뉴: 선택할 수 있는 내장 프리셋 목록이 있습니다. 어떤 필터들이 있는지 드롭다운을 눌러서 볼 수 있습니다.<ul>
+<li>config.txt 에 실행파일과 함께 번들로 필터를 추가할 수도 있습니다.</li>
 </ul>
-<p>다른 웹훅을 등록하거나, 웹훅 시스템을 만들 때 고려해야하는 내용이었습니다.</p>
+</li>
+<li>Start 버튼: 패킷 캡쳐를 시작합니다. 필터의 구문이 맞지 않거나, 다른 이슈로 인해 시작이 안될수도 있습니다.<ul>
+<li>캡쳐가 시작되면 버튼은 “Stop”으로 변경되고, 버튼 왼쪽 작은 아이콘에 녹색으로 표시됩니다.</li>
+<li>캡쳐에 실패하면 아이콘은 적색으로 표시됩니다.</li>
+</ul>
+</li>
+<li>Function control: 캡쳐된 패킷에 대해 원하는 기능을 사용할 수 있습니다.<ul>
+<li>Lag - 패킷 전송을 지연시킵니다. Lag time 만큼 지연시킵니다.</li>
+<li>Drop - 패킷을 전송하지 않고 떨어뜨립니다.(드롭합니다) Chance 값에 따라 떨어뜨립니다.</li>
+<li>Throttle - 특정 시간 동안 트래픽을 차단하고 나중에 일괄적으로 보냅니다.</li>
+<li>Out of order - 순서를 뒤섞습니다.</li>
+<li>Duplicate - 패킷을 중복으로 보냅니다.</li>
+<li>Tamper - 패킷 내용을 변경(변조)합니다.</li>
+</ul>
+</li>
+<li>Parameters control<ul>
+<li>Inbound - 밖에서 안으로 들어오는 패킷에 대해 적용합니다.</li>
+<li>Outbound - 안에서 밖으로 나가는 패킷에 대해 적용합니다.</li>
+<li>Lag time / Chance - 적용하고자하는 확률, 지연 값을 설정할 수 있습니다.</li>
+</ul>
+</li>
+<li>Status: 현재 상태에 대한 메세지를 보여줍니다.</li>
+</ol>
+<h2 id="Client-Packet-Loss-Test"><a href="#Client-Packet-Loss-Test" class="headerlink" title="Client Packet Loss Test"></a>Client Packet Loss Test</h2><p><img src="https://user-images.githubusercontent.com/5077086/77194242-ef88c700-6b22-11ea-9b55-78cf442c60bb.png" alt="10% packet loss test"></p>
+<ul>
+<li>모든 패킷에 대해서 10% 확률로 패킷을 드롭시키는 설정입니다.</li>
+</ul>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>이 틀을 네트워크 테스트를 하다가 알게되었는데 가이드 문서가 없어서 블로그에 한번 정리해보았습니다.<br>툴 자체는 간단하고 네트워크 지식(UDP, TCP, 인바운드, 아웃바운드 정도) 알면 사용하는데에는 무리가 없어보이는 툴입니다.<br>네트워크 상태 테스트에서 일반적으로 발생하는 문제 케이스에 대한 테스트 케이스도 한번 정리해두면 좋을 것 같습니다.</p>
 
         </div>
         
