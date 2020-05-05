@@ -162,6 +162,254 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/blog/2019/04/27/scriptrunner3/" class="image is-7by1">
+            <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72972150-3fdaf580-3e0e-11ea-998a-108879c7874c.png" alt="ScriptRunner 소개 3">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-27T09:55:29.000Z">2019-04-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    26분 읽기 (나에 대하여 3844 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2019/04/27/scriptrunner3/">ScriptRunner 소개 3</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="ScriptRunner-소개-3"><a href="#ScriptRunner-소개-3" class="headerlink" title="ScriptRunner 소개 #3"></a>ScriptRunner 소개 #3</h2><ul>
+<li><a href="/blog/2019/04/21/scriptrunner1/" title="ScriptRunner 소개 1">ScriptRunner 소개 1</a></li>
+<li><a href="/blog/2019/04/21/scriptrunner2/" title="ScriptRunner 소개 2">ScriptRunner 소개 2</a></li>
+<li><strong><a href="/blog/2019/04/27/scriptrunner3/" title="ScriptRunner 소개 3">ScriptRunner 소개 3</a></strong></li>
+<li><a href="/blog/2019/05/11/scriptrunner4/" title="ScriptRunner 소개 4">ScriptRunner 소개 4</a>
+
+</li>
+</ul>
+<p>지난 #2 소개 글에서는 Script Fields 기능까지 보았고<br>그 다음에 있는 아래 리스트의 기능들을 보겠습니다.</p>
+<ul>
+<li>REST Endpoints</li>
+<li>Script Fragments</li>
+<li>Escalation Services</li>
+<li>Script JQL Functions</li>
+</ul>
+<p>소개 글을 쓰는 도중에 JIRA 시스템 버전이 7에서 8로 올라가는 과정에서 UI, 기능이 약간 변경되었습니다.<br>버전 변경에 따라 큰 차이는 없겠지만 참고해주세요. :)</p>
+<ul>
+<li>JIRA version: 7.13 -&gt; 8.0</li>
+<li>ScriptRunner: 5.5.2 -&gt; 5.5.3</li>
+</ul>
+<h2 id="REST-Endpoints"><a href="#REST-Endpoints" class="headerlink" title="REST Endpoints"></a>REST Endpoints</h2><p><a href="https://scriptrunner.adaptavist.com/latest/jira/rest-endpoints.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/jira/rest-endpoints.html</a><br>ScriptRunner 공식 문서를 보면 아래와 같은 용도로 사용할 수 있다고 합니다.</p>
+<ul>
+<li>use in dashboard gadgets<ul>
+<li>대시보드 가젯으로 사용</li>
+</ul>
+</li>
+<li>receive notifications from external systems<ul>
+<li>외부 시스템으로부터 알림 받기</li>
+</ul>
+</li>
+<li>plug gaps in the official REST API<ul>
+<li>공식 REST API 갭을 보완(매꾸기)</li>
+</ul>
+</li>
+<li>allow all your XHRs to proxy through to other systems<ul>
+<li>모든 XHR이 다른 시스템으로 프록시되도록 허용</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/5077086/57128456-711e1c00-6dce-11e9-9253-b7ad64ec8d89.png" alt></p>
+<center>Create Rest Endpoint 버튼을 통해 만들 수 있습니다.</center>
+
+<p><img src="https://user-images.githubusercontent.com/5077086/57128457-711e1c00-6dce-11e9-85d0-b33fa603de18.png" alt><br><img src="https://user-images.githubusercontent.com/5077086/57128458-711e1c00-6dce-11e9-8848-e45d9198624b.png" alt></p>
+<p>위 화면처럼 inline script 입력 창에 코드를 입력하여 REST API를 구현합니다.<br>공식 문서와 Show examples에서는 <code>Simple &#39;get&#39;</code> 코드를 보여줍니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.onresolve.scriptrunner.runner.rest.common.CustomEndpointDelegate</span><br><span class="line"><span class="hljs-keyword">import</span> groovy.json.JsonBuilder</span><br><span class="line"><span class="hljs-keyword">import</span> groovy.transform.BaseScript</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> javax.ws.rs.core.MultivaluedMap</span><br><span class="line"><span class="hljs-keyword">import</span> javax.ws.rs.core.Response</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@BaseScript</span> CustomEndpointDelegate delegate <span class="hljs-comment">// 1</span></span><br><span class="line"></span><br><span class="line">doSomething( <span class="hljs-comment">// 2</span></span><br><span class="line"><span class="hljs-symbol">  httpMethod:</span> <span class="hljs-string">"GET"</span>, <span class="hljs-string">groups:</span> [<span class="hljs-string">"jira-administrators"</span>]) &#123; <span class="hljs-comment">// 3</span></span><br><span class="line">    MultivaluedMap queryParams, String body -&gt; <span class="hljs-comment">// 4</span></span><br><span class="line">    <span class="hljs-keyword">return</span> Response.ok(<span class="hljs-keyword">new</span> JsonBuilder([<span class="hljs-string">abc:</span> <span class="hljs-number">42</span>]).toString()).build(); <span class="hljs-comment">// 5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>코드의 설명 내용은 <a href="https://scriptrunner.adaptavist.com/5.5.3/jira/rest-endpoints.html#_adding_a_rest_endpoint" target="_blank" rel="noopener">공식 문서</a>에 나와있으나 짧게 설명해보겠습니다. (영어로 되어있어 한국어로 설명할 겸..!)</p>
+<ol>
+<li>이 줄이 코드는 스크립트가 엔드포인트로 사용할 수 있도록 하는 코드입니다. 엔드포인트를 사용하고자 한다면 꼭 필요한 코드입니다.</li>
+<li>REST 엔드포인트의 이름입니다. URL에서 사용할 이름으로 이 코드에서는 <code>doSomething</code>으로 사용될 것입니다.</li>
+<li>엔드포인트의 설정으로 <code>HTTP GET</code>, 권한 그룹은 <code>jira-administrators</code> 그룹이 사용할 수 있는 엔드포인트가 됩니다.</li>
+<li>메서드 바디에 제공될 파라미터 입니다.</li>
+<li>작성된 값은 메서드 바디에 포함되어 <code>javax.ws.rs.core.Response</code> 객체를 반환할 것 입니다.</li>
+</ol>
+<p>이렇게 추가하게되면 아래의 링크에 접근하여 데이터를 받을 수 있습니다.<br><code>&lt;jira_base_url&gt;/rest/scriptrunner/latest/custom/doSomething</code><br>curl로 테스트해보면 아래와 같이 결과 값이 나올 수 있겠습니다.<br>(<code>admin:admin</code>는 username:password 값을 입력하면 됩니다.)</p>
+<figure class="highlight sh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; curl -u admin:admin http://localhost:8080/jira/rest/scriptrunner/latest/custom/doSomething</span><br><span class="line">&gt; &#123;<span class="hljs-string">"abc"</span>:42&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><p>예시: <a href="https://scriptrunner.adaptavist.com/5.5.3/jira/rest-endpoints.html#_examples" target="_blank" rel="noopener">ScriptRunner REST Endpoints Examples</a></p>
+<ul>
+<li>Create Priority Object</li>
+<li>Get the user making the request</li>
+</ul>
+<p>문서에 코드도 같이 포함되어 있으니 링크 참고하셔서 설정하면 되겠습니다.<br>특정 URL로 요청해서 시스템 설정을 하거나 데이터를 가져오거나 할 수 있는 기능으로<br>REST Endpoints 소래를 마무리할 수 있겠습니다.</p>
+<h2 id="Script-Fragments"><a href="#Script-Fragments" class="headerlink" title="Script Fragments"></a>Script Fragments</h2><p><a href="https://scriptrunner.adaptavist.com/latest/jira/CustomisingUI.html" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/latest/jira/CustomisingUI.html</a><br>설정화면에 있는 설명을 그대로 가져와보겠습니다.</p>
+<blockquote>
+<p>Use script fragments to customise the user interface and add new functionality to a Jira instance. Use customisable built-in script fragments to display web items, web panels and web sections or to include JavaScript and CSS resources using web resources. All script fragments can be customised, or use the raw XML module to create a fully custom web fragment.</p>
+</blockquote>
+<p>간단히 설명하자면 필요한 Web items, panels, section을 만들 수 있다는 것입니다.<br>XML 설정이나 다른 리소스가 필요할 수는 있으나 팝업, 패널 등을 사용자가 원하는대로 만들 수 있는 기능입니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/56850463-12742080-693e-11e9-84f0-296f0a1b0b78.png" alt><br><img src="https://user-images.githubusercontent.com/5077086/56850466-19029800-693e-11e9-91f5-6e4fadccdf66.png" alt></p>
+<p>설정을 할 수 있는 메뉴를 하나하나 알아보겠습니다.</p>
+<h3 id="Raw-xml-module"><a href="#Raw-xml-module" class="headerlink" title="Raw xml module"></a>Raw xml module</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/XmlModuleItem.html" target="_blank" rel="noopener">XmlModuleItem Docs</a><br>xml 코드를 입력하여 원하는 위치에 메뉴를 보여주거나, 버튼들을 보여줄 수 있습니다.<br>아래 코드로 JIRA 상단 메뉴의 Projects &gt; View all projects &gt; <code>My Projects</code>를 볼 수 있습니다.</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">web-item</span> <span class="hljs-attr">key</span>=<span class="hljs-string">'link-to-myprojects'</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'ScriptRunner generated web item - link-to-myprojects'</span> <span class="hljs-attr">section</span>=<span class="hljs-string">'browse_link/project_view_all'</span> <span class="hljs-attr">weight</span>=<span class="hljs-string">'50'</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>My Projects<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">linkId</span>=<span class="hljs-string">'link-to-myprojects'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">link</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">tooltip</span>&gt;</span>Show only my projects<span class="hljs-tag">&lt;/<span class="hljs-name">tooltip</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">icon</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"16"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"16"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span>&gt;</span>/images/icons/print.gif<span class="hljs-tag">&lt;/<span class="hljs-name">link</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">icon</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">web-item</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/common/fragments/image/xml.png" alt></p>
+<p>XML 입력창에 입력만 하면 되긴 하지만 JIRA UI 아이템들이 어떻게 배치되어있는지<br>알고 작성해야하는 것이 어렵긴합니다.</p>
+<p><code>section</code>에 <code>system.top.navigation.bar</code>이 있는지, <code>&lt;web-item&gt;</code> 태그가 있는지 알기 쉽지 않지만<br>일단 예제로 따라해보고 다른 web-item, web-section 등의 태그를 알아가야할 것 같습니다.</p>
+<h4 id="참고-외부-링크"><a href="#참고-외부-링크" class="headerlink" title="참고 외부 링크"></a>참고 외부 링크</h4><ul>
+<li>Jira Server Developer (Web Item): <a href="https://developer.atlassian.com/server/jira/platform/web-item/" target="_blank" rel="noopener">https://developer.atlassian.com/server/jira/platform/web-item/</a></li>
+<li>Jira Server Developer (Web Section): <a href="https://developer.atlassian.com/server/jira/platform/web-section/" target="_blank" rel="noopener">https://developer.atlassian.com/server/jira/platform/web-section/</a></li>
+</ul>
+<h3 id="Install-web-resource"><a href="#Install-web-resource" class="headerlink" title="Install web resource"></a>Install web resource</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebResource.html" target="_blank" rel="noopener">Web Resource Docs</a><br>이 기능은 Javascript, CSS 리소스를 사용할 수 있도록 하는 기능입니다.<br>우선 설정을 하려면 아래와 같이 환경 설정을 해야합니다. (경로는 다를 수 있습니다.)</p>
+<figure class="highlight sh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JVM_REQUIRED_ARGS=<span class="hljs-string">'-Dplugin.resource.directories=/app/home/scripts -Dother.properties...'</span></span><br></pre></td></tr></table></figure>
+
+<p>설정 후, 해당 폴더에 JS, CSS를 넣고 Resouces 입력창에 경로를 넣어줍니다.</p>
+<p><img src="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/web-resource.png" alt></p>
+<p>커스텀한 리소스를 사용할 수 있다는 점에서는 좋은 것 같지만<br>잘못하면 많이 망가질 수 있다는 생각이 들긴하는 기능입니다.</p>
+<h3 id="Create-a-custom-web-section"><a href="#Create-a-custom-web-section" class="headerlink" title="Create a custom web section"></a>Create a custom web section</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebSection.html" target="_blank" rel="noopener">Web Section Docs</a><br>웹 섹션(Web section)은 새로운 로케이션 또는 섹션, web-item을 추가할 때 사용할 수 있습니다.</p>
+<p>web-item에서 web-section을 사용하고자 한다면,<br>web-section 만들 때 사용했던 <code>key</code> 값을 사용해야합니다.</p>
+<h3 id="Constrained-create-issue-dialog"><a href="#Constrained-create-issue-dialog" class="headerlink" title="Constrained create issue dialog"></a>Constrained create issue dialog</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/CreateConstrainedIssue.html" target="_blank" rel="noopener">Create Constrained Issue</a><br>문서 설명 그대로 가져오자면, <code>Create Constrained Issue</code> -&gt; 제한된 문제 만들기!<br>제한된 설정 안에서 이슈를 만들 수 있도록 설정할 수 있습니다.</p>
+<p>문서에 나온 설명에 따르면,</p>
+<blockquote>
+<p>This can be useful to workflow designers. Imagine a workflow where at one transition the user is required to create a new linked issue. Typically this is done by having a self or any to any transition which will created the linked issue with a post-function. Then the user is required to edit the linked issue further.</p>
+</blockquote>
+<p>Workflow를 디자인, 만들때 유용한 기능입니다.<br>예를 들면 특정 트랜지션에서 이슈를 링크해야한다던지, 특정 값을 입력해야하는 옵션을 추가할 수 있습니다.</p>
+<p>문서에서는 <code>Behaviours</code>와 함께 사용해서 구성한 메뉴를 눌렀을 경우,<br>새로운 이슈를 만들때 특정 필드를 읽기전용으로 설정하고 필드 값도 미리 설정할 수 있는 것을 보여줍니다.</p>
+<h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><p>이 기능은 설정할 내용이 좀 있어서 나중에 포스트로 깊게 다루는게 좋을 것 같습니다.</p>
+<h3 id="Custom-web-item"><a href="#Custom-web-item" class="headerlink" title="Custom web item"></a>Custom web item</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebItem.html" target="_blank" rel="noopener">Web Item</a><br>A web-item is a button or link that will appear at your chosen location.<br>웹 아이템은 버튼 또는 링크로 설정한 위치에서 메뉴로 사용할 수 있습니다.</p>
+<p>간단한 예시로 JIRA 상단에 네비게이션 바에 <code>Search the Web</code> 링크를 만들어봅니다.</p>
+<p><img src="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/link-to-google.png" alt></p>
+<p>issue에서 <code>More Actions</code> 메뉴에도 링크를 만들어봅니다.<br><img src="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/page-link.png" alt></p>
+<p>결과화면은 아래와 같이 나옵니다.<br><img src="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/tools-menu-link.png" alt></p>
+<p>Condition 조건에 따라 웹 아이템이 나오기에 Condition 설정도 필요합니다.<br>프로젝트로 한정하거나 이슈의 특정 값인지 조건을 사용할 수 있습니다.</p>
+<p>차근차근 테스트 삼아 저도 웹 아이템 하나 만들어보겠습니다.</p>
+<h4 id="1-web-item을-하나-만들어봅니다"><a href="#1-web-item을-하나-만들어봅니다" class="headerlink" title="1. web-item을 하나 만들어봅니다."></a>1. web-item을 하나 만들어봅니다.</h4><p><img src="https://user-images.githubusercontent.com/5077086/57125596-fac8ec00-6dc4-11e9-8434-39e1e4ba3f3e.png" alt></p>
+<ul>
+<li>Menu text는 버튼에 들어갈 텍스트니 적당히 적어줍니다.</li>
+<li>Weight 값은 숫자가 작을수록 우선순위가 높습니다.</li>
+<li>Condition 값은 어떤 조건에 버튼이 나올지 설정할 수 있습니다.</li>
+<li>Do what에는 저는 dialog를 띄우는 테스트를 할 것이라 <code>Run code and display dialog</code>를 선택했습니다.</li>
+<li>Link는 REST Endpoint 기능에서 만든 URL을 입력해줍니다. 다음 과정에서 만드는 방법을 보겠습니다.</li>
+</ul>
+<h4 id="2-REST-Endpoint-추가"><a href="#2-REST-Endpoint-추가" class="headerlink" title="2. REST Endpoint 추가"></a>2. REST Endpoint 추가</h4><p><img src="https://user-images.githubusercontent.com/5077086/57126172-f7cefb00-6dc6-11e9-9938-43a043b98243.png" alt></p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> com.onresolve.scriptrunner.runner.rest.common.CustomEndpointDelegate</span><br><span class="line"><span class="hljs-keyword">import</span> groovy.transform.BaseScript</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> javax.ws.rs.core.MediaType</span><br><span class="line"><span class="hljs-keyword">import</span> javax.ws.rs.core.MultivaluedMap</span><br><span class="line"><span class="hljs-keyword">import</span> javax.ws.rs.core.Response</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@BaseScript</span> CustomEndpointDelegate delegate</span><br><span class="line"></span><br><span class="line">showDialog &#123; MultivaluedMap queryParams -&gt;</span><br><span class="line">    <span class="hljs-keyword">def</span> dialog =</span><br><span class="line">        <span class="hljs-string">"""&lt;section role="dialog" id="sr-dialog" class="aui-layer aui-dialog2 aui-dialog2-medium" aria-hidden="true" data-aui-remove-on-hide="true"&gt;</span></span><br><span class="line"><span class="hljs-string">            &lt;header class="aui-dialog2-header"&gt;</span></span><br><span class="line"><span class="hljs-string">                &lt;h2 class="aui-dialog2-header-main"&gt;Some dialog&lt;/h2&gt;</span></span><br><span class="line"><span class="hljs-string">                &lt;a class="aui-dialog2-header-close"&gt;</span></span><br><span class="line"><span class="hljs-string">                    &lt;span class="aui-icon aui-icon-small aui-iconfont-close-dialog"&gt;Close&lt;/span&gt;</span></span><br><span class="line"><span class="hljs-string">                &lt;/a&gt;</span></span><br><span class="line"><span class="hljs-string">            &lt;/header&gt;</span></span><br><span class="line"><span class="hljs-string">            &lt;div class="aui-dialog2-content"&gt;</span></span><br><span class="line"><span class="hljs-string">                &lt;p&gt;This is a dialog...&lt;/p&gt;</span></span><br><span class="line"><span class="hljs-string">            &lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">            &lt;footer class="aui-dialog2-footer"&gt;</span></span><br><span class="line"><span class="hljs-string">                &lt;div class="aui-dialog2-footer-actions"&gt;</span></span><br><span class="line"><span class="hljs-string">                    &lt;button id="dialog-close-button" class="aui-button aui-button-link"&gt;Close&lt;/button&gt;</span></span><br><span class="line"><span class="hljs-string">                &lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">                &lt;div class="aui-dialog2-footer-hint"&gt;Some hint here if you like&lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">            &lt;/footer&gt;</span></span><br><span class="line"><span class="hljs-string">        &lt;/section&gt;</span></span><br><span class="line"><span class="hljs-string">        """</span></span><br><span class="line"></span><br><span class="line">    Response.ok().type(MediaType.TEXT_HTML).entity(dialog.toString()).build()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>위 코드를 <code>inline script</code> 항목에 넣어줍니다.<ul>
+<li>함수 이름으로 REST endpoint가 만들어질 것인데 <code>showDialog</code>로 만들어질 예정입니다.</li>
+</ul>
+</li>
+<li>생성!</li>
+<li>다시 Web-item 만든 곳으로 돌아가서 아래 주소를 입력해줍니다.<ul>
+<li>/rest/scriptrunner/latest/custom/showDialog</li>
+<li>1번 단계에서 이미 이미지를 보고 입력하셨다면 함수 이름에 맞게 입력했는지 확인하면 끝!</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-결과"><a href="#3-결과" class="headerlink" title="3. 결과"></a>3. 결과</h4><p><img src="https://user-images.githubusercontent.com/5077086/57126503-226d8380-6dc8-11e9-9fb0-3c9d09247f40.png" alt><br><img src="https://user-images.githubusercontent.com/5077086/57126534-3a450780-6dc8-11e9-9dd8-568748f4903b.png" alt></p>
+<ul>
+<li>Web 버튼을 누르면 2번째 이미지 처럼 다이얼로그가 나옵니다!</li>
+<li>다이얼로그에 필요한 정보는 차차 넣을 수 있도록하면 되겠습니다.</li>
+<li>문서에서는 <code>web resource</code> 까지 가서 close 버튼에 뭔가 더 해보라고 하지만 여기까지 하겠습니다. :)</li>
+</ul>
+<h3 id="Custom-web-item-provider"><a href="#Custom-web-item-provider" class="headerlink" title="Custom web item provider"></a>Custom web item provider</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebItemProvider.html" target="_blank" rel="noopener">Web Item Provider Built-In Script</a><br>문서 상에 예로 사용할 수 있는 것으로 설명을 시작하는게 좋을 것 같습니다.<br>Examples of a web item provider might be:</p>
+<ul>
+<li>현재 사용자가 가지고 있는 이슈 중, 액티브 스프린트에 있는 상위 5개의 이슈를 보여줍니다.<ul>
+<li>Show the top 5 issues for the current user in active sprints in the Issues top-level menu</li>
+</ul>
+</li>
+<li>현재 이슈의 서브태스크 각각에 대한 web item을 More Actions 메뉴에서 보여줍니다.<ul>
+<li>Show a web item in the More Actions menu for each of the current issue’s subtasks</li>
+</ul>
+</li>
+</ul>
+<h4 id="예시-My-Top-Issues"><a href="#예시-My-Top-Issues" class="headerlink" title="예시: My Top Issues"></a>예시: My Top Issues</h4><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebItemProvider.html#_example_my_top_issues" target="_blank" rel="noopener">https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebItemProvider.html#_example_my_top_issues</a></p>
+<p>JIRA 상단의 네비게이션 바 메뉴에서 issues를 눌렀을 때,<br>MY TOP ISSUES 섹션에 스프린트에 있는 자신에게 할당된 이슈 상위 5개가 보입니다.<br>예시 링크에 있는대로 진행하시면 원하는 결과를 보실 수 있을 겁니다. (스프린트를 사용한다는 가정하에 말이죠)</p>
+<h3 id="Show-a-web-panel"><a href="#Show-a-web-panel" class="headerlink" title="Show a web panel"></a>Show a web panel</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebPanel.html" target="_blank" rel="noopener">Web Panel</a><br>커스텀 웹 패널을 만들고 그 영역에 정보를 담을 수 있도록 설정할 수 있습니다.</p>
+<p><img src="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/web-panel.png" alt></p>
+<ul>
+<li>Location : 설정 코멘트</li>
+<li>Key: UI상 ID가 필요하여 사용하는 것으로 보입니다.</li>
+<li>Menu text: 보이는 메뉴의 타이틀 문구로 사용됩니다.</li>
+<li>Weight: UI 우선순의 값으로, 양수로 설정할 수 있으며 입력하지 않아도 됩니다.</li>
+<li>Condition: 해당 패널이 보이는 조건을 설정할 수 있습니다.</li>
+<li>Provider class/script: 패널에 들어갈 데이터를 넣어주는 코드를 작성할 수 있습니다.</li>
+</ul>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">writer.write(<span class="hljs-string">"&lt;div style='background-color: yellow; text-align: center'&gt;"</span> +</span><br><span class="line">    <span class="hljs-string">"This project is going to be deprecrated. Please create"</span> +</span><br><span class="line">    <span class="hljs-string">" all issues in the WIDGET project&lt;/div&gt;"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>위 이미지 상에서 설정한대로 설정할 경우 이슈 오른쪽 패널에는 아래처럼 보여집니다.<br><img src="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/web-panel-banner.png" alt></p>
+<p>부모 이슈의 설명(Description) 값을 가져와서 서브태스크에 보여주는 방법도 있습니다.<br><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/WebPanel.html#_parent_issue_example" target="_blank" rel="noopener">WebPanel.html#_parent_issue_example</a></p>
+<p>잘 사용하면 필요한 정보를 적재적소에 보여줄 수 있을 것 같지만,<br>잘못 사용하면 난잡해질 수 있겠다는 생각이 드네요. 위의 예시를 살펴보고 세팅해보면 좋을 것 같습니다.<br>패널 뿐만 아니라 JIRA 이곳 저곳에 정보를 넣을 수 있으니 잘 사용하면 좋을 것 같습니다. :)</p>
+<h3 id="Hide-system-or-plugin-UI-element"><a href="#Hide-system-or-plugin-UI-element" class="headerlink" title="Hide system or plugin UI element"></a>Hide system or plugin UI element</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/HideUIElement.html" target="_blank" rel="noopener">Hide UI Element Build-In Script</a><br>JIRA에서 특정 프로젝트나 특정 이슈에서 UI 요소를 숨길 수 있는 기능입니다.<br>예시로는 아래와 같은 것을 할 수 있습니다.</p>
+<ul>
+<li>Move, Clone 기능을 특정 프로젝트에서 이슈 Operation 목록에서 보이지 않게 함</li>
+<li>source control이 필요없는 프로젝트에서 Development panel을 보이지 않게 함</li>
+</ul>
+<p>설정을 위해 입력해야하는 값은 많지 않습니다.</p>
+<ul>
+<li>Note: script note, 이 설정의 설명을 적는 곳입니다.</li>
+<li>Hide what: 어떤 요소를 숨길지 설정합니다. 설정할 수 있는 요소는 <code>web items</code> 들로 리스트는 굉장히 많습니다.<ul>
+<li><code>com.atlassian.jira.plugin.system.issueoperations:*</code> - 이슈 관련 UI 요소</li>
+<li><code>com.pyxis.greenhopper.jira:board-*</code> - board 관련 UI 요소</li>
+</ul>
+</li>
+<li>Condition: 어떤 조건에서 UI를 숨길 것인지 조건을 설정합니다.<ul>
+<li>프로젝트, 이슈 등을 조건으로 설정할 수 있습니다.</li>
+</ul>
+</li>
+</ul>
+<p>이 설정을 사용하기전에 다른 프로젝트에 영향이 있을지 주의가 필요할 것 같습니다.<br>잘못하면 다른 구성원에게 필요한 기능이 보이지 않게될 수 있을테니까요.</p>
+<h3 id="Planning-board-context-menu-item"><a href="#Planning-board-context-menu-item" class="headerlink" title="Planning board context menu item"></a>Planning board context menu item</h3><p><a href="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/BoardContextMenuItem.html" target="_blank" rel="noopener">Board Context Menu Item</a><br><code>Web Item</code> 기능 중에 하나라고 볼 수 있습니다.<br>스크럼, 칸반 보드에서 오른쪽 버튼을 눌렀을 때 나오는 드롭다운에 메뉴를 추가할 수 있는 기능입니다.</p>
+<p><img src="https://scriptrunner.adaptavist.com/5.5.3.1-jira8/jira/fragments/image/context-menu-items.png" alt></p>
+<center>`Ready for release` 메뉴를 추가한 모습</center>
+
+<p>가이드 문서에는 메뉴를 누르면 간단한 동작을 하는 것을 보여줍니다.</p>
+<ol>
+<li>스크럼 보드에서 액티브 스프린트에 있는 이슈를 <code>Ready for release</code> 메뉴를 누르면,</li>
+<li>REST endpoint로 등록한 <code>/rest/scriptrunner/latest/custom/ghAddLabel</code> 로 이슈 정보를 보낸다.</li>
+<li>REST endpoint 등록된 함수에서 이슈의 label 필드에 “red” 입력한다.</li>
+<li>flag으로 오른쪽 위에 노티를 보여준다.</li>
+</ol>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// ...</span></span><br><span class="line"><span class="hljs-keyword">def</span> flag = [</span><br><span class="line"><span class="hljs-symbol">  type:</span> <span class="hljs-string">'success'</span>,</span><br><span class="line"><span class="hljs-symbol">  title:</span> <span class="hljs-string">"Label Added"</span>,</span><br><span class="line"><span class="hljs-symbol">  close:</span> <span class="hljs-string">'auto'</span>,</span><br><span class="line">  <span class="hljs-string">body :</span> <span class="hljs-string">"This issue has been approved for release"</span></span><br><span class="line">]</span><br><span class="line">Response.ok(JsonOutput.toJson(flag)).build()</span><br></pre></td></tr></table></figure>
+
+<p><code>Condition</code>은 복수의 이슈를 받을 수 있기에 List 객체를 받을 수 있게 되어있습니다.<br>예시 코드는 아래와 같이 볼 수 있습니다.</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// All selected issues are resolved</span></span><br><span class="line">issues.every &#123; it.resolution &#125;</span><br><span class="line"><span class="hljs-comment">// Selected issues in same project</span></span><br><span class="line">issues*.projectObject.unique().size() == <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-comment">// Only a single issue is selected</span></span><br><span class="line">issues.size() == <span class="hljs-number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Do what</code>에는 사용할 수 있는 동작이 많습니다.<br>link로 데이터를 보내서 추가 동작을 설정하거나, 수정, 할당 등을 할 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/57022026-da841a80-6c68-11e9-8ba6-00015ca85e01.png" alt></p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>REST Endpoints, Script Fragment 내용이 많다보니 또 포스트 내용이 넘쳤네요.<br>다음 #4 소개 포스트에서 남은 <code>Escalation Services</code>, <code>Script JQL Functions</code> 에 대해 소개해보겠습니다.</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/blog/2019/04/21/scriptrunner2/" class="image is-7by1">
             <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72972150-3fdaf580-3e0e-11ea-998a-108879c7874c.png" alt="ScriptRunner 소개 2">
         </a>
@@ -533,7 +781,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        32
+                        33
                     </p>
                 </div>
             </div>
@@ -633,7 +881,7 @@
                 <span class="level-item">PM</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">22</span>
+                <span class="level-item tag">23</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/blog/categories/PM/System/">
@@ -641,7 +889,7 @@
                 <span class="level-item">System</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">17</span>
+                <span class="level-item tag">18</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/blog/categories/PM/Work/">
@@ -693,6 +941,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.6 ~ 8.8 release note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-04T09:06:55.000Z">2020-05-04</time></div>
+                    <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="has-link-black-ter is-size-6">Jira Software 8.6 ~ 8.8 release note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -770,25 +1037,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2020/01/23/Perforce-basics/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72974765-f17c2580-3e12-11ea-8812-98dfb5840866.png" alt="Perforce Client(P4V) basics">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-23T09:53:03.000Z">2020-01-23</time></div>
-                    <a href="/blog/2020/01/23/Perforce-basics/" class="has-link-black-ter is-size-6">Perforce Client(P4V) basics</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -800,6 +1048,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">5월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/blog/archives/2020/03/">
@@ -980,7 +1239,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag is-grey">20</span>
                     </a>
                 </div>
                 
@@ -1051,6 +1310,25 @@
         
         <article class="media">
             
+            <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.6 ~ 8.8 release note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-04T09:06:55.000Z">2020-05-04</time></div>
+                    <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="has-link-black-ter is-size-6">Jira Software 8.6 ~ 8.8 release note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2020/03/21/Jira-Software-8-5-release-note/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.5 release note">
@@ -1125,25 +1403,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2020/01/23/Perforce-basics/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72974765-f17c2580-3e12-11ea-8812-98dfb5840866.png" alt="Perforce Client(P4V) basics">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-23T09:53:03.000Z">2020-01-23</time></div>
-                    <a href="/blog/2020/01/23/Perforce-basics/" class="has-link-black-ter is-size-6">Perforce Client(P4V) basics</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1155,6 +1414,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">5월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/blog/archives/2020/03/">
@@ -1335,7 +1605,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag is-grey">20</span>
                     </a>
                 </div>
                 

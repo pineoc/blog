@@ -161,6 +161,140 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="image is-7by1">
+            <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.6 ~ 8.8 release note">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-04T09:06:55.000Z">2020-05-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12분 읽기 (나에 대하여 1731 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/">Jira Software 8.6 ~ 8.8 release note</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="Jira-Software-8-6-8-8-릴리스-노트"><a href="#Jira-Software-8-6-8-8-릴리스-노트" class="headerlink" title="Jira Software 8.6 ~ 8.8 릴리스 노트"></a>Jira Software 8.6 ~ 8.8 릴리스 노트</h2><p>Jira Software 8.6 ~ 8.8 릴리스 노트:</p>
+<ul>
+<li>8.6 Release Notes: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-6-x-release-notes-978220007.html" target="_blank" rel="noopener">https://confluence.atlassian.com/jirasoftware/jira-software-8-6-x-release-notes-978220007.html</a></li>
+<li>8.7 Release Notes: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-7-x-release-notes-990550432.html" target="_blank" rel="noopener">https://confluence.atlassian.com/jirasoftware/jira-software-8-7-x-release-notes-990550432.html</a></li>
+<li>8.8 Release Notes: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-8-x-release-notes-994314852.html" target="_blank" rel="noopener">https://confluence.atlassian.com/jirasoftware/jira-software-8-8-x-release-notes-994314852.html</a></li>
+</ul>
+<p>이번 포스트는 Jira Software 8.6 ~ 8.8 버전 릴리스들을 모아서 보겠습니다.<br>(사실 8.6 릴리스에 추가된 기능이 많고 8.7, 8.8 릴리스에는 크게 소개할만한 내용은 없습니다.)</p>
+<h2 id="Jira-8-6"><a href="#Jira-8-6" class="headerlink" title="Jira 8.6"></a>Jira 8.6</h2><p>2019년 12월에 릴리스한 버전입니다.</p>
+<h3 id="하이라이트-Highlights"><a href="#하이라이트-Highlights" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
+<li>Jira copies over changes files on upgrade</li>
+<li>New JVM code cache check</li>
+<li>Replying to JIRA notifications in Outlook made way better</li>
+<li>Users and roles made better</li>
+<li>PostgreSQL 10 comes to Jira</li>
+<li>Several older platforms get deprecated</li>
+<li>Prefix and suffix search</li>
+<li>Accessible dropdown menus</li>
+<li>Configurable scheme parameters in Jira REST API for projects creation</li>
+<li>Burnup charts in Jira Software</li>
+<li>Self-protect and sleep easy with rate limiting</li>
+<li>New information in the audit log</li>
+<li>Cluster monitoring</li>
+</ul>
+<p>8.6 릴리스는 앞선 8.5 엔터프라이즈 릴리스 후에 나온 버전이라 업데이트된 기능들이 많습니다.<br>시스템 관리자가 알아야 하는 내용보다 태스크 관리 및 프로젝트 관리 측면의 기능 내용을 중점으로 살펴보겠습니다.</p>
+<h3 id="Replying-to-JIRA-notifications-in-Outlook-made-way-better"><a href="#Replying-to-JIRA-notifications-in-Outlook-made-way-better" class="headerlink" title="Replying to JIRA notifications in Outlook made way better"></a>Replying to JIRA notifications in Outlook made way better</h3><p>많은 사용자들의 요청에 의해 추가된 기능입니다.<br>Outlook에서 Jira 이슈 알림 메일에 댓글을 남길 수 있도록 하는 기능을 세팅할 수 있게 되었네요.<br>설명 상으로는 2개의 기능을 deprecate 했다고 하네요.</p>
+<ul>
+<li>Add a comment from the non-quoted email body</li>
+<li>Create a new issue or add a comment to an existing issue</li>
+</ul>
+<p>설정과 관련한 내용은 <a href="https://confluence.atlassian.com/jirakb/how-to-set-up-replying-to-jira-notifications-via-outlook-975017386.html" target="_blank" rel="noopener">이 링크</a>에서 확인할 수 있습니다.<br>참고차 설정 링크에는 기능을 어떻게 설정할 수 있는 방법보다는 개론과 같은 내용이 있습니다.<br>(Jira 어드민이 대충 이런 느낌으로 사용하면 될 것이다의 느낌이에요.)</p>
+<h3 id="Users-and-roles-made-better"><a href="#Users-and-roles-made-better" class="headerlink" title="Users and roles made better"></a>Users and roles made better</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/978220007/980460545/2/1576573636455/usersandroles.jpg" alt="변경된 Users &amp; Roles 관리 메뉴"></p>
+<p>기존에는 하나하나 role 그룹에 유저들을 추가해줘야 했다면 이제는 체크박스를 이용해서 더 간편하게 수정할 수 있도록 변경되었습니다.<br>다만 그전에는 롤에 따라서 어떤 유저가 있는지 한분에 볼 수 있었는데 지금은 roles 메뉴를 눌러서 볼 수 있도록 변경되었습니다.<br>(지금 상태가 조금 더 잘 정리되어 보이는 것 같긴 합니다. ㅎㅎ)</p>
+<h3 id="Prefix-and-suffix-search"><a href="#Prefix-and-suffix-search" class="headerlink" title="Prefix and suffix search"></a>Prefix and suffix search</h3><p>지난 8.0 릴리스에는 Prefix 검색에 대해서 지원을 시작했는데 이번 8.6부터 suffix 검색도 추가되었다고 합니다. 👏</p>
+<table>
+<thead>
+<tr>
+<th>Prefix 검색</th>
+<th>Suffix 검색</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>text ~ “work*”</td>
+<td>text ~ “*box”</td>
+</tr>
+</tbody></table>
+<p>검색 기능이 조금씩 개선되는 것 같아 좋네요! :)</p>
+<h3 id="Accessible-dropdown-menus"><a href="#Accessible-dropdown-menus" class="headerlink" title="Accessible dropdown menus"></a>Accessible dropdown menus</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/978220007/983795015/1/1576576915707/Screen+Shot+2019-12-17+at+11.01.23.png" alt></p>
+<p>드롭다운 메뉴에 대해서 스크롤이 추가되었다는 내용입니다.<br>기존에는 메인화면을 내려야 했다면 드롭메뉴 자체에 스크롤이 생겨서 편하게 메뉴를 볼 수 있게 되었네요.</p>
+<h3 id="Burnup-charts-in-Jira-Software"><a href="#Burnup-charts-in-Jira-Software" class="headerlink" title="Burnup charts in Jira Software"></a>Burnup charts in Jira Software</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/978220007/980470562/2/1576573635567/Screen+Shot+2019-11-28+at+11.12.52.png" alt></p>
+<p>번업(Burnup) 차트 기능이 Jira Server에도 추가되었습니다.<br>앞으로 애자일 보드 -&gt; 리포트에서 새로운 번업 차트를 볼 수 있게 되었네요.</p>
+<h3 id="More-granular-sprint-permissions"><a href="#More-granular-sprint-permissions" class="headerlink" title="More granular sprint permissions"></a>More granular sprint permissions</h3><p>하이라이트에는 없는 내용이지만 언급이 필요해 보여서 넣었습니다.<br>스프린트 관리 권한에 대해 몇 가지가 분리되어 추가되었습니다. 이에 따라 스프린트 관리를 사용자 권한에 맞게 부여할 수 있게 되었습니다.<br>기존에 있던 <code>Manage Sprint</code> 권한은 있으나 <code>Start/Complete sprints</code>, <code>Edit sprints</code> 두 가지 권한이 추가되었네요.<br>앞으로는 스프린트를 시작, 완료하는 사용자와 삭제도 할 수 있는 사용자 등으로 나눠서 관리할 수 있겠습니다.</p>
+<p>그 외의 데이터 센터 내용은 스킵합니다.<br>(관리자 기능이기도 하고 크게 소개할 내용은 없어 보여서 스킵합니다.)</p>
+<h2 id="Jira-8-7"><a href="#Jira-8-7" class="headerlink" title="Jira 8.7"></a>Jira 8.7</h2><p>2020년 2월에 릴리스한 버전입니다.</p>
+<h3 id="하이라이트-Highlights-1"><a href="#하이라이트-Highlights-1" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
+<li>Anonymizing users for GDPR compliance</li>
+<li>PostgreSQL 11 support</li>
+<li>OpenID Connect comes to Jira</li>
+</ul>
+<p>GDPR 관련 내용, DB 시스템, OpenID(데이터 센터) 등에 대한 릴리스로 일반 유저를 위한 기능 업데이트는 없네요.<br>8.6 버전에 많이 업데이트하고 나서 안정화하는 버전이었는지 기능 추가는 없었네요.<br>다음 8.8 버전으로 넘어가겠습니다~</p>
+<h2 id="Jira-8-8"><a href="#Jira-8-8" class="headerlink" title="Jira 8.8"></a>Jira 8.8</h2><p>2020년 3월에 릴리스한 버전입니다.</p>
+<h3 id="하이라이트-Highlights-2"><a href="#하이라이트-Highlights-2" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
+<li>Revamped Audit log</li>
+<li>Dates for future sprints</li>
+<li>Jira loves accessibility</li>
+<li>Access Data Center features on Server infrastructure</li>
+</ul>
+<h3 id="Revamped-Audit-log"><a href="#Revamped-Audit-log" class="headerlink" title="Revamped Audit log"></a>Revamped Audit log</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/994314852/998879194/2/1587581320827/Screen+Shot+2020-03-19+at+20.53.54.png" alt></p>
+<p>데이터 센터 버전과 몇 가지 기능이 다를 수는 있겠지만 서비스 로그에 대해서 추가적으로 볼 수 있도록 기능이 개선되었습니다.</p>
+<ul>
+<li>어떤 로그를 어느 기간 동안 보관할 것 인지를 설정할 수 있습니다. (you can decide which events are logged and how long you want to keep them)</li>
+<li>로그들에 대해 더 자세히 알 수 있습니다. (you can filter the events, expand each for further details, and export the audit log if necessary)</li>
+<li>카테고리로 정리된 로그를 통해 로그 확인이 개선되었습니다. (by getting an audit log that’s clear and categorized, you don’t need to spend time browsing through piles of events.)</li>
+<li>나머지는 데이터 센터 내용이라서 스킵합니다.<ul>
+<li>인스턴스와 관련한 로그를 확인할 수 있다는 내용과 3rd 파티 툴 연동 등에 대한 내용이 포함되어있습니다.</li>
+</ul>
+</li>
+</ul>
+<p>위 개선 사항들은 <code>Administration&gt; System &gt; Audit log</code> 에서 확인하실 수 있습니다.</p>
+<h3 id="Dates-for-future-sprints"><a href="#Dates-for-future-sprints" class="headerlink" title="Dates for future sprints"></a>Dates for future sprints</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/994314852/994314857/3/1587581322091/Screenshot+2020-02-07+at+10.08.16.png" alt></p>
+<p>미래 스프린트를 위해 날짜 입력을 할 수 있도록 업데이트되었네요.<br>기존에는 스프린트에 날짜를 입력하도록 Required(필수 입력) 설정되어있었는데 미래 스프린트 계획을 위해 추가된 기능으로 보입니다.</p>
+<h3 id="Jira-loves-accessibility"><a href="#Jira-loves-accessibility" class="headerlink" title="Jira loves accessibility"></a>Jira loves accessibility</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/994314852/993924584/2/1587581321481/accessibility_relnotes.jpg" alt></p>
+<p><a href="https://confluence.atlassian.com/jirasoftwareserver/accessibility-998878998.html" target="_blank" rel="noopener">https://confluence.atlassian.com/jirasoftwareserver/accessibility-998878998.html</a><br>개인 설정을 통해서 상태(Status)의 색/무늬를 변경할 수 있도록 할 수 있게 되었네요.<br>관련한 자세한 내용은 위 링크에서 보실 수 있습니다.</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>8.6 ~ 8.8 버전을 모두 살펴보았습니다.<br>8.6 버전에는 추가/수정된 기능들이 많았네요. 8.7, 8.8 버전은 안정화 업데이트 같은 느낌을 받았습니다.<br>한 달마다 버전 업데이트를 하고 있는데 버그 내용도 하나하나 보고 싶지만 이번 포스트에서는 스킵하고 다음 버전에서는 코멘트할 내용이 있을지 보겠습니다.</p>
+<p>감사합니다. :)</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/blog/2020/03/21/Jira-Software-8-5-release-note/" class="image is-7by1">
             <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.5 release note">
         </a>
@@ -1066,91 +1200,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/blog/2019/10/09/Jira-Software-8-4-release-notes/" class="image is-7by1">
-            <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.4 릴리스 노트">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-10-09T07:10:20.000Z">2019-10-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6분 읽기 (나에 대하여 840 단어)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/blog/2019/10/09/Jira-Software-8-4-release-notes/">Jira Software 8.4 릴리스 노트</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="Jira-Software-8-4-릴리스-노트"><a href="#Jira-Software-8-4-릴리스-노트" class="headerlink" title="Jira Software 8.4 릴리스 노트"></a>Jira Software 8.4 릴리스 노트</h2><p>Jira Software 8.4.x 릴리스 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-4-x-release-notes-975017507.html" target="_blank" rel="noopener">https://confluence.atlassian.com/jirasoftware/jira-software-8-4-x-release-notes-975017507.html</a></p>
-<p>2019년 9월에 릴리스된 Jira Software 8.4 기능에 대해 살펴보는 포스트입니다.<br>위 릴리스 노트에서 자세한 내용을 보실 수 있으며, 이 포스트는 주관적인 생각을 담고 있습니다.</p>
-<h3 id="하이라이트-Highlights"><a href="#하이라이트-Highlights" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
-<li>Archived issues taken to the next level (Data Center)</li>
-<li><strong>Better email notifications, right from the start</strong></li>
-<li><strong>Filters in Multi User picker Custom field</strong></li>
-<li><strong>External links open in a new tab</strong></li>
-<li>Jira becomes more accessible</li>
-<li>A large number of versions is OK for boards</li>
-<li><strong>Time tracking in bulk edit</strong></li>
-<li>Open links in your mobile app</li>
-<li><strong>Jira Docker</strong></li>
-<li>New supported databases</li>
-</ul>
-<p>이번 8.4 릴리스는 하이라이트 리스트만 봐도 내용이 많긴하네요.<br>몇가지는 시스템 설정 관련 내용이긴 하지만 한번 보겠습니다.</p>
-<h3 id="Better-email-notifications-right-from-the-start"><a href="#Better-email-notifications-right-from-the-start" class="headerlink" title="Better email notifications, right from the start"></a>Better email notifications, right from the start</h3><p>8.0 버전에 들어갔던 Batch 이메일 알림에 대한 추가 개선 내용했고, 이 내용이 기본 설정으로 변경되었습니다.<br>기본 템플릿이 있지만 추가적으로 커스텀하게 알림 받고 싶은 것에 대해 설정할 수 있게되었기도 합니다.</p>
-<ul>
-<li><a href="https://confluence.atlassian.com/adminjiraserver/customizing-email-content-batched-notifications-976770772.html" target="_blank" rel="noopener">customizing-email-content-batched-notifications</a></li>
-<li><a href="https://confluence.atlassian.com/adminjiraserver/adding-custom-fields-to-emails-batched-notifications-968669988.html" target="_blank" rel="noopener">adding-custom-fields-to-emails-batched-notifications</a></li>
-</ul>
-<p>다만 시스템 설정 상에서 쉽게 변경할 수는 없고 Velocity template이라는 것을 수정해야한다고 합니다.<br>나중에 관련해서 세팅하는 방법을 따로 포스트해봐야겠습니다.<br>(저도 아직 사용해보지 않아서 얼마나 힘들지 모르겠네요.)</p>
-<h3 id="Filters-in-Multi-User-picker-Custom-field"><a href="#Filters-in-Multi-User-picker-Custom-field" class="headerlink" title="Filters in Multi User picker Custom field"></a>Filters in Multi User picker Custom field</h3><p>릴리스 노트에 있는 내용 그대로 들고와보았습니다. 유저 요청에 따라 추가된 기능이라고 하네요.</p>
-<blockquote>
-<p>In response to user requests, we’ve made it possible to limit the multi user picker custom field to hold only specific set of users.<br>This is to prevent sending notifications to random users as a result of mistyping user names.<br>This adds to the overall security of issues.</p>
-</blockquote>
-<p><img src="https://confluence.atlassian.com/jirasoftware/files/975017507/975017552/1/1563959636990/Screen+Shot+2019-07-24+at+11.04.16.png" alt></p>
-<p>추가된 기능은 필터에 멀티 유저 피커 커스텀 필드 내용을 추가하여 사용할 수 있는 기능입니다.<br>필터에 다른 유저를 잘못 입력하는 것을 방지할 수 있는 기능 같네요.</p>
-<h3 id="External-links-open-in-a-new-tab"><a href="#External-links-open-in-a-new-tab" class="headerlink" title="External links open in a new tab"></a>External links open in a new tab</h3><p>YourUserProfile &gt; Profile &gt; Preferences &gt; External links 메뉴에서<br>외부 링크를 항상 새로운 탭에서 볼 수 있는 옵션을 제공합니다.</p>
-<h3 id="Time-tracking-in-bulk-edit"><a href="#Time-tracking-in-bulk-edit" class="headerlink" title="Time tracking in bulk edit"></a>Time tracking in bulk edit</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/975017507/976163716/1/1566286925646/image__6___1_.png" alt><br>Time tracking 필드의 벌크(bulk) 수정이 가능한 기능이 추가되었습니다.<br>일괄적으로 추정 시간, 남은 시간을 변경하는 데에 좋을 것 같습니다.</p>
-<h3 id="Jira-Docker"><a href="#Jira-Docker" class="headerlink" title="Jira Docker"></a>Jira Docker</h3><p>Jira 서버 버전 및 데이터 센터 버전을 Docker 컨테이너로 사용할 수 있도록 공식 지원한다고 합니다.<br>자세한 내용은 링크에서 보실 수 있습니다. <a href="https://hub.docker.com/u/atlassian" target="_blank" rel="noopener">https://hub.docker.com/u/atlassian</a><br>Jira 외에 컨플루언스, 파이프라인 등 다른 이미지들도 있어서 시스템 구성시 사용해볼 수 있을 것 같습니다.</p>
-<ul>
-<li>Jira Software: <a href="https://hub.docker.com/r/atlassian/jira-software" target="_blank" rel="noopener">https://hub.docker.com/r/atlassian/jira-software</a></li>
-<li>Jira Core: <a href="https://hub.docker.com/r/atlassian/jira-core" target="_blank" rel="noopener">https://hub.docker.com/r/atlassian/jira-core</a></li>
-</ul>
-<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>8.4 릴리스는 8.5 릴리스 전에 많이 개선된 느낌이 있네요.<br>Docker 이미지가 추가된 것도 좋은 업데이트 사항이었고 향후 있을 8.5 릴리스 내용도 기대가됩니다.</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1215,7 +1264,7 @@
                         포스트
                     </p>
                     <p class="title has-text-weight-normal">
-                        32
+                        33
                     </p>
                 </div>
             </div>
@@ -1315,7 +1364,7 @@
                 <span class="level-item">PM</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">22</span>
+                <span class="level-item tag">23</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/blog/categories/PM/System/">
@@ -1323,7 +1372,7 @@
                 <span class="level-item">System</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">17</span>
+                <span class="level-item tag">18</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/blog/categories/PM/Work/">
@@ -1375,6 +1424,25 @@
         <h3 class="menu-label">
             최근 글
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.6 ~ 8.8 release note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-04T09:06:55.000Z">2020-05-04</time></div>
+                    <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="has-link-black-ter is-size-6">Jira Software 8.6 ~ 8.8 release note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1452,25 +1520,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2020/01/23/Perforce-basics/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72974765-f17c2580-3e12-11ea-8812-98dfb5840866.png" alt="Perforce Client(P4V) basics">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-23T09:53:03.000Z">2020-01-23</time></div>
-                    <a href="/blog/2020/01/23/Perforce-basics/" class="has-link-black-ter is-size-6">Perforce Client(P4V) basics</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1482,6 +1531,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">5월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/blog/archives/2020/03/">
@@ -1662,7 +1722,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag is-grey">20</span>
                     </a>
                 </div>
                 
@@ -1733,6 +1793,25 @@
         
         <article class="media">
             
+            <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.6 ~ 8.8 release note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-04T09:06:55.000Z">2020-05-04</time></div>
+                    <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="has-link-black-ter is-size-6">Jira Software 8.6 ~ 8.8 release note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2020/03/21/Jira-Software-8-5-release-note/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.5 release note">
@@ -1807,25 +1886,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/blog/2020/01/23/Perforce-basics/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72974765-f17c2580-3e12-11ea-8812-98dfb5840866.png" alt="Perforce Client(P4V) basics">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-23T09:53:03.000Z">2020-01-23</time></div>
-                    <a href="/blog/2020/01/23/Perforce-basics/" class="has-link-black-ter is-size-6">Perforce Client(P4V) basics</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/Tech/">Tech</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1837,6 +1897,17 @@
             아카이브
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">5월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/blog/archives/2020/03/">
@@ -2017,7 +2088,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Jira/">
                         <span class="tag">Jira</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag is-grey">20</span>
                     </a>
                 </div>
                 
