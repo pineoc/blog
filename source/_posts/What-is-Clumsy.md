@@ -13,7 +13,7 @@ tags:
 [https://jagt.github.io/clumsy/index.html](https://jagt.github.io/clumsy/index.html)
 
 네트워크 환경, 상태를 컨트롤할 수 있는 툴 입니다.
-Windows 환경에서만 동작하는 툴이어서 멕, 리눅스에서는 사용할 수 없는 툴입니다.
+Windows 환경에서만 동작하는 툴이어서 맥(Mac), 리눅스(Linux)에서는 사용할 수 없는 툴입니다.
 (Windows의 `WinDivert`라는 네트워크 관련 패키지를 사용해서 컨트롤하는 프로그램이기 때문입니다.)
 
 ![clumsy demo](https://jagt.github.io/clumsy/clumsy-demo.gif)
