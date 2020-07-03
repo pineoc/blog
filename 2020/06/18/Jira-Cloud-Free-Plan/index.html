@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan) - Pineoc&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="bc8e81d5bc72c158cd5f836d23b3f7b4bf24308d">
+
+
+
+    <meta name="description" content="Jira Software Cloud Free Plan!https://www.atlassian.com/ko/software/jira/free Jira 클라우드 버전에 대해서 무료(Free) 플랜이 생긴 것은 생각보다 오래되었습니다.작년인 2019년 10월부터 무료 플랜이 공개되었고 위와 같은 조합으로 사용해볼 수 있도록 공개되었죠. 저는 여기서 Jira So">
+<meta name="keywords" content="Jira">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)">
+<meta property="og:url" content="https://pineoc.github.io/blog/2020/06/18/Jira-Cloud-Free-Plan/index.html">
+<meta property="og:site_name" content="Pineoc&#39;s Blog">
+<meta property="og:description" content="Jira Software Cloud Free Plan!https://www.atlassian.com/ko/software/jira/free Jira 클라우드 버전에 대해서 무료(Free) 플랜이 생긴 것은 생각보다 오래되었습니다.작년인 2019년 10월부터 무료 플랜이 공개되었고 위와 같은 조합으로 사용해볼 수 있도록 공개되었죠. 저는 여기서 Jira So">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696">
+<meta property="og:updated_time" content="2020-06-30T14:32:54.565Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)">
+<meta name="twitter:description" content="Jira Software Cloud Free Plan!https://www.atlassian.com/ko/software/jira/free Jira 클라우드 버전에 대해서 무료(Free) 플랜이 생긴 것은 생각보다 오래되었습니다.작년인 2019년 10월부터 무료 플랜이 공개되었고 위와 같은 조합으로 사용해볼 수 있도록 공개되었죠. 저는 여기서 Jira So">
+<meta name="twitter:image" content="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696">
+
+
+
+
+
+
+
+<link rel="icon" href="/blog/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/blog/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-45439235-4"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-45439235-4');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/blog/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/blog/css/style.css">
+<script data-ad-client="ca-pub-8535740075617154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/blog/">
+            
+                <img src="/blog/images/logo.svg" alt="Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/blog/">Home</a>
+                
+                <a class="navbar-item" href="/blog/archives">Archives</a>
+                
+                <a class="navbar-item" href="/blog/categories">Categories</a>
+                
+                <a class="navbar-item" href="/blog/tags">Tags</a>
+                
+                <a class="navbar-item" href="/blog/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-18T09:51:38.000Z">2020-06-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8분 읽기 (나에 대하여 1264 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)
+            
+        </h1>
+        <div class="content">
+            <h2 id="Jira-Software-Cloud-Free-Plan"><a href="#Jira-Software-Cloud-Free-Plan" class="headerlink" title="Jira Software Cloud Free Plan!"></a>Jira Software Cloud Free Plan!</h2><p><img src="https://user-images.githubusercontent.com/5077086/85006549-37a49d80-b195-11ea-9da9-9ae952e78515.png" alt><br><a href="https://www.atlassian.com/ko/software/jira/free" target="_blank" rel="noopener">https://www.atlassian.com/ko/software/jira/free</a></p>
+<p>Jira 클라우드 버전에 대해서 무료(Free) 플랜이 생긴 것은 생각보다 오래되었습니다.<br>작년인 2019년 10월부터 무료 플랜이 공개되었고 위와 같은 조합으로 사용해볼 수 있도록 공개되었죠.</p>
+<p>저는 여기서 Jira Software만 사용하고 있습니다. 한국어 번역이 되어서 이상해보이지만<br>설명서는 Confluence, 지원 센터는 Service Desk를 의미합니다.<br>(아래에 다 나와있긴하네요. 😅)</p>
+<p>제가 진행했던 것 처럼 Jira Software의 무료 플랜 설정이 어떻게 되는지 소개하고자 합니다.</p>
+<h2 id="Jira-Software-Cloud-Start"><a href="#Jira-Software-Cloud-Start" class="headerlink" title="Jira Software Cloud Start"></a>Jira Software Cloud Start</h2><p><img src="https://user-images.githubusercontent.com/5077086/85007076-fd87cb80-b195-11ea-9ba0-800ada9fcd5a.png" alt></p>
+<p>“하나만 선택”으로 진행하면 위와 같은 화면을 보실 수 있습니다.<br>Free 플랜은 아래와 같은 조건으로 사용할 수 있어요.</p>
+<h3 id="Free-옵션"><a href="#Free-옵션" class="headerlink" title="Free 옵션"></a>Free 옵션</h3><ul>
+<li>Free 기능 사용<ul>
+<li>기본적인 기능은 다 동작한다고 보시면 됩니다. Free 기능이라고 해도 제약이 있는 것은 별로 없습니다.</li>
+</ul>
+</li>
+<li>2GB 저장 공간<ul>
+<li>첨부 파일을 많이 사용한다고 하면 제약이 있을 수 있겠지만 이미지, 동영상은 되도록 다른 곳에 올린다면 큰 문제는 없는 용량입니다.</li>
+</ul>
+</li>
+<li>최대 10명 사용자<ul>
+<li>작은 스타트업, 테스트 용도로 적합한 사용자 수 입니다.</li>
+</ul>
+</li>
+<li>커뮤니티 지원<ul>
+<li>커뮤니티는 그냥도 열려있으니 패스!</li>
+</ul>
+</li>
+</ul>
+<h3 id="설정-항목"><a href="#설정-항목" class="headerlink" title="설정 항목"></a>설정 항목</h3><ul>
+<li>이메일: 기존에 아틀라시안(Atlassian) 계정이 있다면 그것으로 사용하셔도 됩니다. 없다면 생성!<ul>
+<li>아틀라시안 계정은 Google 또는 Microsoft 계정으로 생성하여 사용할 수 있습니다.</li>
+</ul>
+</li>
+<li>이름, 성: 이름 입력해주시면 됩니다.</li>
+<li>사이트 이름: Jira software를 사용하게 될 URL을 입력합니다. 저는 저의 닉네임인 pineoc를 입력했습니다.<ul>
+<li>참고, 사이트 이름은 3자 이상이어야 합니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Create"><a href="#Create" class="headerlink" title="Create!"></a>Create!</h3><p>모든 입력을 마친 후 “동의 후 가입” 버튼을 누르면 몇가지 질문을 합니다. (스킵하셔도 괜찮습니다)<br>그 이후에 팀초대 항목을 보실 수 있습니다. (이것도 스킵 가능합니다.)</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/85008327-cd412c80-b197-11ea-9b61-adb9d44df1c8.png" alt="팀 초대"></p>
+<p>그리고 이후에 나오는 질문에 따라 프로젝트 유형을 추천받을 수 있습니다.<br><img src="https://user-images.githubusercontent.com/5077086/85008427-f2359f80-b197-11ea-9ec4-5882dfe0927f.png" alt><br><img src="https://user-images.githubusercontent.com/5077086/85008536-13968b80-b198-11ea-830d-85651707c826.png" alt></p>
+<p>저는 제가 답변한 내용을 기반으로 차세대 템플릿, 칸반으로 추천받았습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/85008687-43459380-b198-11ea-9c40-4cc7fe6ae91c.png" alt="차세대 템플릿, 칸반 추천!"></p>
+<p>추천받은 프로젝트 유형으로 해도 괜찮고 따로 원하는 유형으로 해도 괜찮습니다.<br>차세대 템플릿(Next-gen Template)은 최근 나온 템플릿인데 기존에 있던 프로젝트 템플릿보다는 기능들이 추가된 것들이 있어서 사용해보시는 것도 추천드립니다.<br>이전 프로젝트 템플릿이 필요하실 경우 밑에 <strong>“클래식 템플릿 탐색”</strong>을 눌러서 기존 프로젝트 템플릿을 사용하실 수도 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/85009166-f4e4c480-b198-11ea-97c0-5e32cb04a758.png" alt="클래식 템플릿 목록"></p>
+<p>각각의 템플릿에 대한 설명은 <strong>“여기에는 무엇이 포함됩니까?”</strong> 메뉴를 누르면 보실 수 있습니다. 😀</p>
+<h3 id="Jira-project-create"><a href="#Jira-project-create" class="headerlink" title="Jira project create"></a>Jira project create</h3><p><img src="https://user-images.githubusercontent.com/5077086/85009453-64f34a80-b199-11ea-89fe-06788ae124b7.png" alt="프로젝트 만들기"></p>
+<p>프로젝트 템플릿 중 하나를 선택하면 프로젝트 이름, 프로젝트 키를 입력하여 프로젝트를 생성할 수 있습니다.<br>여기서 프로젝트 키는 이슈가 만들어질때 앞에 붙을 프로젝트 ID prefix로 이해하시면 됩니다.<br>PINO-1, PINO-1234 이런식으로 키를 PINO로 설정할 경우 이슈 ID 앞에 PINO가 붙게됩니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/85009770-f4006280-b199-11ea-87d1-62e23f463426.png" alt></p>
+<p>여기까지 오셨다면 프로젝트 생성까지 끝났습니다. 👏<br>Jira의 세계에 오신 것을 환영합니다!</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>Jira를 기존에 서버 설치 버전을 사용하고 있었는데 Cloud 버전을 무료 플랜으로 사용해보게되었습니다.<br>그런 와중에 무료 플랜에 대한 글들이 많이 없어서 다른분들이 사용해보실 수 있도록 소개해보았습니다.<br>설정 중에 문제가 발생한다면 facebook에 <a href="https://www.facebook.com/groups/atlassiankorea" target="_blank" rel="noopener">Atlassian User Group(Seoul)</a>에 문의주시면 많은 분들이 같이 봐주실겁니다.<br>이만 마치겠습니다. 긴글 읽어주셔서 감사합니다. 👍</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/blog/tags/Jira/">Jira</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/blog/2020/06/30/Jira-Cloud-Next-Gen-project/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Jira Cloud Next Gen project (차세대 프로젝트) 둘러보기</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blog/2020/06/18/Jira-ScriptRunner-default-fields-setting/">
+                <span class="level-item">ScriptRunner를 이용하여 Jira 이슈 생성시 설명(Description) 기본 값 설정하기</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" src="https://www.gravatar.com/avatar/36b2e11dada89a7d6bbb916157ab57ea?s=128" alt="Pineoc">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Pineoc
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        PM &amp; Developer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>South Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        포스트
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        37
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        카테고리
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        8
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        태그
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        14
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/pineoc" target="_blank">
+                팔로우</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/pineoc">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com/pineoc">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/blog/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카탈로그
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Jira-Software-Cloud-Free-Plan">
+        <span class="has-mr-6">1</span>
+        <span>Jira Software Cloud Free Plan!</span>
+        </a></li><li>
+        <a class="is-flex" href="#Jira-Software-Cloud-Start">
+        <span class="has-mr-6">2</span>
+        <span>Jira Software Cloud Start</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Free-옵션">
+        <span class="has-mr-6">2.1</span>
+        <span>Free 옵션</span>
+        </a></li><li>
+        <a class="is-flex" href="#설정-항목">
+        <span class="has-mr-6">2.2</span>
+        <span>설정 항목</span>
+        </a></li><li>
+        <a class="is-flex" href="#Create">
+        <span class="has-mr-6">2.3</span>
+        <span>Create!</span>
+        </a></li><li>
+        <a class="is-flex" href="#Jira-project-create">
+        <span class="has-mr-6">2.4</span>
+        <span>Jira project create</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#마무리">
+        <span class="has-mr-6">3</span>
+        <span>마무리</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/blog/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/blog/categories/Life/">
+            <span class="level-start">
+                <span class="level-item">Life</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/blog/categories/Life/IoT/">
+            <span class="level-start">
+                <span class="level-item">IoT</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/blog/categories/PM/">
+            <span class="level-start">
+                <span class="level-item">PM</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">27</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/blog/categories/PM/System/">
+            <span class="level-start">
+                <span class="level-item">System</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">22</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/blog/categories/PM/Work/">
+            <span class="level-start">
+                <span class="level-item">Work</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/blog/categories/Tech/">
+            <span class="level-start">
+                <span class="level-item">Tech</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/blog/categories/Tech/Javascript/">
+            <span class="level-start">
+                <span class="level-item">Javascript</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/Confluence/" style="font-size: 10px;">Confluence</a> <a href="/blog/tags/Fisheye/" style="font-size: 10px;">Fisheye</a> <a href="/blog/tags/GitLab/" style="font-size: 10px;">GitLab</a> <a href="/blog/tags/IoT/" style="font-size: 10px;">IoT</a> <a href="/blog/tags/Javascript-Weekly/" style="font-size: 15px;">Javascript Weekly</a> <a href="/blog/tags/Jira/" style="font-size: 20px;">Jira</a> <a href="/blog/tags/Jira-Cloud/" style="font-size: 10px;">Jira Cloud</a> <a href="/blog/tags/OpenGL-ES/" style="font-size: 10px;">OpenGL-ES</a> <a href="/blog/tags/PM/" style="font-size: 12.5px;">PM</a> <a href="/blog/tags/Perforce/" style="font-size: 10px;">Perforce</a> <a href="/blog/tags/ScriptRunner/" style="font-size: 17.5px;">ScriptRunner</a> <a href="/blog/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/blog/tags/blog/" style="font-size: 10px;">blog</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            최근 글
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/06/30/Jira-Cloud-Next-Gen-project/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/86138645-b13f7280-bb29-11ea-9eae-8d41336ecff4.png" alt="Jira Cloud Next Gen project (차세대 프로젝트) 둘러보기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-30T13:55:41.000Z">2020-06-30</time></div>
+                    <a href="/blog/2020/06/30/Jira-Cloud-Next-Gen-project/" class="has-link-black-ter is-size-6">Jira Cloud Next Gen project (차세대 프로젝트) 둘러보기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/06/18/Jira-Cloud-Free-Plan/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-18T09:51:38.000Z">2020-06-18</time></div>
+                    <a href="/blog/2020/06/18/Jira-Cloud-Free-Plan/" class="has-link-black-ter is-size-6">Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/06/18/Jira-ScriptRunner-default-fields-setting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72972150-3fdaf580-3e0e-11ea-998a-108879c7874c.png" alt="ScriptRunner를 이용하여 Jira 이슈 생성시 설명(Description) 기본 값 설정하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-18T07:48:00.000Z">2020-06-18</time></div>
+                    <a href="/blog/2020/06/18/Jira-ScriptRunner-default-fields-setting/" class="has-link-black-ter is-size-6">ScriptRunner를 이용하여 Jira 이슈 생성시 설명(Description) 기본 값 설정하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/05/31/Jira-Software-8-9-release-note/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.9 release note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-31T07:11:52.000Z">2020-05-31</time></div>
+                    <a href="/blog/2020/05/31/Jira-Software-8-9-release-note/" class="has-link-black-ter is-size-6">Jira Software 8.9 release note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.6 ~ 8.8 release note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-04T09:06:55.000Z">2020-05-04</time></div>
+                    <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="has-link-black-ter is-size-6">Jira Software 8.6 ~ 8.8 release note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            아카이브
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">6월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">5월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">3월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">2월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">1월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">12월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">10월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">9월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">8월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">6월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">5월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">4월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                태그
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/CI/">
+                        <span class="tag">CI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Confluence/">
+                        <span class="tag">Confluence</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Fisheye/">
+                        <span class="tag">Fisheye</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/GitLab/">
+                        <span class="tag">GitLab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/IoT/">
+                        <span class="tag">IoT</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Javascript-Weekly/">
+                        <span class="tag">Javascript Weekly</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Jira/">
+                        <span class="tag">Jira</span>
+                        <span class="tag is-grey">24</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Jira-Cloud/">
+                        <span class="tag">Jira Cloud</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/OpenGL-ES/">
+                        <span class="tag">OpenGL-ES</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/PM/">
+                        <span class="tag">PM</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Perforce/">
+                        <span class="tag">Perforce</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
+                        <span class="tag">ScriptRunner</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Tool/">
+                        <span class="tag">Tool</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/blog/">
+                        <span class="tag">blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            최근 글
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/06/30/Jira-Cloud-Next-Gen-project/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/86138645-b13f7280-bb29-11ea-9eae-8d41336ecff4.png" alt="Jira Cloud Next Gen project (차세대 프로젝트) 둘러보기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-30T13:55:41.000Z">2020-06-30</time></div>
+                    <a href="/blog/2020/06/30/Jira-Cloud-Next-Gen-project/" class="has-link-black-ter is-size-6">Jira Cloud Next Gen project (차세대 프로젝트) 둘러보기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/06/18/Jira-Cloud-Free-Plan/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-18T09:51:38.000Z">2020-06-18</time></div>
+                    <a href="/blog/2020/06/18/Jira-Cloud-Free-Plan/" class="has-link-black-ter is-size-6">Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/06/18/Jira-ScriptRunner-default-fields-setting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72972150-3fdaf580-3e0e-11ea-998a-108879c7874c.png" alt="ScriptRunner를 이용하여 Jira 이슈 생성시 설명(Description) 기본 값 설정하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-18T07:48:00.000Z">2020-06-18</time></div>
+                    <a href="/blog/2020/06/18/Jira-ScriptRunner-default-fields-setting/" class="has-link-black-ter is-size-6">ScriptRunner를 이용하여 Jira 이슈 생성시 설명(Description) 기본 값 설정하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/05/31/Jira-Software-8-9-release-note/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.9 release note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-31T07:11:52.000Z">2020-05-31</time></div>
+                    <a href="/blog/2020/05/31/Jira-Software-8-9-release-note/" class="has-link-black-ter is-size-6">Jira Software 8.9 release note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.6 ~ 8.8 release note">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-04T09:06:55.000Z">2020-05-04</time></div>
+                    <a href="/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/" class="has-link-black-ter is-size-6">Jira Software 8.6 ~ 8.8 release note</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/PM/">PM</a> / <a class="has-link-grey -link" href="/blog/categories/PM/System/">System</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            아카이브
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/06/">
+                <span class="level-start">
+                    <span class="level-item">6월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">5월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">3월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">2월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2020/01/">
+                <span class="level-start">
+                    <span class="level-item">1월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/12/">
+                <span class="level-start">
+                    <span class="level-item">12월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">10월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">9월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">8월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">7월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">6월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">5월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/blog/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">4월 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                태그
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/CI/">
+                        <span class="tag">CI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Confluence/">
+                        <span class="tag">Confluence</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Fisheye/">
+                        <span class="tag">Fisheye</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/GitLab/">
+                        <span class="tag">GitLab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/IoT/">
+                        <span class="tag">IoT</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Javascript-Weekly/">
+                        <span class="tag">Javascript Weekly</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Jira/">
+                        <span class="tag">Jira</span>
+                        <span class="tag is-grey">24</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Jira-Cloud/">
+                        <span class="tag">Jira Cloud</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/OpenGL-ES/">
+                        <span class="tag">OpenGL-ES</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/PM/">
+                        <span class="tag">PM</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Perforce/">
+                        <span class="tag">Perforce</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/ScriptRunner/">
+                        <span class="tag">ScriptRunner</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Tool/">
+                        <span class="tag">Tool</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/blog/">
+                        <span class="tag">blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/blog/">
+                
+                    <img src="/blog/images/logo.svg" alt="Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Pineoc&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+    
+    
+    
+    <script src="/blog/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/blog/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/blog/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/blog/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/blog/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/blog/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/blog/js/insight.js" defer></script>
+<link rel="stylesheet" href="/blog/css/search.css">
+<link rel="stylesheet" href="/blog/css/insight.css">
+    
+</body>
+</html>
