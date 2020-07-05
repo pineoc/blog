@@ -23,7 +23,7 @@
 
 <h3 id="코드-설명"><a href="#코드-설명" class="headerlink" title="코드 설명"></a>코드 설명</h3><p>앞서 Label 값을 가져오는 것과 비교해서 달라진 것은 아래 코드와 <code>addLabel()</code> 함수 입니다.<br><code>def user = ComponentAccessor.getUserManager().getUserByKey(&quot;pubg-helper&quot;);</code><br>위 코드는 Label을 추가할 사용자를 결정하기 위해 사용자 객체를 아이디로 가져온 것입니다.</p>
 <p>ScriptRunner의 Listener 기능에서 Label 수정/추가 기능을 사용할 때,<br>위 코드를 통해 업데이트하는 사용자를 동적으로 변경할 수 있습니다.</p>
-<p>addLabel(User remoteUser, Long issueId, String label, boolean sendNotification) 함수는 이슈에 Label을 하나 추가할 수 있는 함수입니다.<br>함수 레퍼런스: <a href="https://docs.atlassian.com/DAC/javadoc/jira/reference/com/atlassian/jira/issue/label/LabelManager.html#addLabel(com.atlassian.crowd.embedded.api.User,%20java.lang.Long,%20java.lang.String,%20boolean)" target="_blank" rel="noopener">docs.atlassian.com/…/LabelManager/addLabel</a></p>
+<p>addLabel(User remoteUser, Long issueId, String label, boolean sendNotification) 함수는 이슈에 Label을 하나 추가할 수 있는 함수입니다.<br>함수 레퍼런스: <a href="https://docs.atlassian.com/DAC/javadoc/jira/reference/com/atlassian/jira/issue/label/LabelManager.html#addLabel(com.atlassian.crowd.embedded.api.User,%20java.lang.Long,%20java.lang.String,%20boolean)">docs.atlassian.com/…/LabelManager/addLabel</a></p>
 <p><strong>Result</strong></p>
 <blockquote>
 <p>[Promotion, art, test]</p>
@@ -34,7 +34,7 @@
 <h3 id="labelManager-setLabels"><a href="#labelManager-setLabels" class="headerlink" title="labelManager.setLabels()"></a>labelManager.setLabels()</h3><p>labelManager.setLabels() 함수는 Label 값을 추가, 삭제한다기보다는<br>새로운 값으로 <code>재설정</code>한다는 것으로 이해하시면 될 것 같습니다.</p>
 <p><code>public Set&lt;Label&gt; setLabels (User remoteUser, Long issueId, Set&lt;String&gt; labels, boolean sendNotification, boolean causeChangeNotification)</code></p>
 <p>여기서 중간에 labels 값에 Set으로 되어있는데 그냥 [] 배열로 넣을 경우 List 객체로 인식하는 문제가 생깁니다.<br>그래서 <code>as Set</code>으로 변경해준 것으로 이해해주시면 됩니다. (혹은 변수를 따로 Set으로 두고 입력하면 됩니다)</p>
-<p>labelManager.setLabels() 함수 레퍼런스: <a href="https://docs.atlassian.com/DAC/javadoc/jira/reference/com/atlassian/jira/issue/label/LabelManager.html#setLabels(com.atlassian.crowd.embedded.api.User,%20java.lang.Long,%20java.util.Set%3Cjava.lang.String%3E,%20boolean,%20boolean)" target="_blank" rel="noopener">docs.atlassian.com/…/LabelManager/setLabels</a></p>
+<p>labelManager.setLabels() 함수 레퍼런스: <a href="https://docs.atlassian.com/DAC/javadoc/jira/reference/com/atlassian/jira/issue/label/LabelManager.html#setLabels(com.atlassian.crowd.embedded.api.User,%20java.lang.Long,%20java.util.Set%3Cjava.lang.String%3E,%20boolean,%20boolean)">docs.atlassian.com/…/LabelManager/setLabels</a></p>
 <p><strong>Result</strong></p>
 <blockquote>
 <p>[test]</p>
@@ -62,7 +62,7 @@
                     fold: 'unfolded'
                 }
             }
-        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="Zurück nach oben" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
             if (typeof $.fn.lightGallery === 'function') {
                 $('.article').lightGallery({ selector: '.gallery-item' });
             }
