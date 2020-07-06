@@ -7,6 +7,7 @@ categories:
 tags:
 - Retrospective
 - blog
+thumbnail: https://user-images.githubusercontent.com/5077086/86617114-c157c600-bff1-11ea-94ff-8e16b9dfc347.png
 ---
 
 ## 2019 Event Graph
