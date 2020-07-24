@@ -7,6 +7,7 @@ categories:
 - Program&Service
 tags:
 - Tool
+- CI/CD
 thumbnail: https://buildbot.net/img/full_logo.svg
 ---
 
@@ -30,7 +31,7 @@ Jenkins, Circle CI와 같은 CI 프레임워크로 지속적인 통합을 위한
 > 다른 자료들을 보면서 어떤 장, 단점이 있는지 참고하면서 공부하려고 했는데 자료가 거의 없네요. 😂
 > 빌드봇 공식 문서를 보면서 정리해보고자 합니다. :)
 
-## 빌드봇 Docs 살펴보기
+## 빌드봇 가이드 문서 살펴보기
 
 ### Introductions
 
@@ -55,6 +56,8 @@ Jenkins, Circle CI와 같은 CI 프레임워크로 지속적인 통합을 위한
 > - 빌드 프로세스 설정과 관련하여 유연하게 설정 가능
 
 현재 빌드봇을 사용하는 이유가 빌드 프로세스 설정을 커스텀하게 할 수 있어서이긴 합니다.
+> 사실 젠킨스도 커스텀하게 설정할 수는 있겠지만 현재 사용하는 시스템을 대체하려면 여러가지 커스텀하게 변경해야하는게 많아서 어렵다고는 생각합니다. 😂
+
 <https://stackshare.io/buildbot>
 Stackshare 서비스에서 투표된 내용을 기반으로 보면, 장점으로 "Highly configurable builds"가 1순위네요.
 추가로는 "Beautiful waterfall(이쁜 워터폴)", "Hosted internally(내부 설치)"가 있었습니다.
@@ -122,6 +125,16 @@ configuration(구성, 설정) 파일은 활성화된 상태 플러그인을 제�
 
 - 개발자는 일부 소스 코드 변경 사항을 저장소에 커밋합니다. 일종의 훅(hook) 스크립트 또는 커밋 트리거는 구성된 변경 소스 중 하나를 통해 이 변경에 대한 정보를 빌드 마스터에게 보냅니다. 이 알림은 이메일 또는 네트워크 연결을 통해 도착할 수 있습니다 (빌드마스터가 변경 사항을 구독 할 때 시작되거나 커밋 트리거가 `변경 사항`을 빌드마스터에게 푸시 할 때 시작됨). `변경 사항`에는 변경한 사람, 수정된 파일, 변경 사항이 포함된 리비전 및 체크인 코멘트(주석)에 대한 정보가 포함됩니다.
 - 빌드마스터는 이 변경 사항을 구성된 모든 스케줄러에 분배합니다. **중요한** 변경 사항으로 인해 "tree-stable-timer"가 시작되고 `변경 사항`이 새 `빌드`로 들어갈 목록에 추가됩니다. 타이머가 만료되면 구성된 각 빌더 세트에서 `빌드`가 시작되어 모두 동일한 소스 코드를 컴파일 / 테스트합니다. 달리 구성하지 않는 한, 모든 `빌드`는 여러 워커에서 병렬로 실행됩니다.
-- The Build consists of a series of Steps. Each Step causes some number of commands to be invoked on the remote worker associated with that Builder. The first step is almost always to perform a checkout of the appropriate revision from the same VC system that produced the Change. The rest generally perform a compile and run unit tests. As each Step runs, the worker reports back command output and return status to the buildmaster.
-- As the Build runs, status messages like “Build Started”, “Step Started”, “Build Finished”, etc, are published to a collection of Status Targets. One of these targets is usually the HTML Waterfall display, which shows a chronological list of events, and summarizes the results of the most recent build at the top of each column. Developers can periodically check this page to see how their changes have fared. If they see red, they know that they’ve made a mistake and need to fix it. If they see green, they know that they’ve done their duty and don’t need to worry about their change breaking anything.
-- If a MailNotifier status target is active, the completion of a build will cause email to be sent to any developers whose Changes were incorporated into this Build. The MailNotifier can be configured to only send mail upon failing builds, or for builds which have just transitioned from passing to failing. Other status targets can provide similar real-time notification via different communication channels, like IRC.
+- 빌드는 일련의 단계로 구성됩니다. 각 단계는 해당 빌더와 연관된 원격 워커에서 몇 개의 명령을 호출하게합니다. 첫 번째 단계는 거의 항상 변경사항을 생성한 같은 VC 시스템에서 적절한 리비전을 체크아웃하는 것입니다. 나머지는 일반적인 컴파일 및 실행 단위 테스트를 수행합니다. 각 단계가 실행될 때 워커는 명령 결과 값을 보고(리포트)하고 상태를 빌드마스터에게 반환합니다.
+- `빌드`가 실행되면 "빌드 시작", "단계 시작", "빌드 완료"등과 같은 상태 메시지가 상태 대상 모음에 게시됩니다. 이러한 대상 중 하나는 일반적으로 이벤트 목록을 표시하는 HTML `Waterfall` 표시이며 각 열의 맨 위에 있는 최신 빌드 결과를 요약합니다. 개발자는 이 페이지를 주기적으로 확인하여 변경사항이 어떻게 되었는지 확인할 수 있습니다. 빨간색으로 표시되면 실수를 한 것이므로 문제를 해결해야합니다.  녹색으로 표시되면, 그들은 자신의 의무를 다했다는 것을 알 수 있고 그들의 변경사항이 무엇을 깨뜨린 것은 아닌지에 대해 걱정할 필요가 없습니다.
+- `MailNotifier` 상태 대상이 활성화된 경우, 빌드가 완료되면 `빌드`에 `변경사항`을 기여(참여)한 모든 개발자에게 이메일이 발송됩니다. `MailNotifier`는 실패한 빌드 또는 전달에서 실패로 전환된 빌드에 대해서만 메일을 보내도록 구성할 수 있습니다. 다른 상태 대상은 IRC와 같은 다른 통신 채널을 통해 유사한 실시간 알림을 제공할 수 있습니다.
+
+## 빌드봇 살펴보기 마무리
+
+사실 다른 CI 서비스를 많이 아는 상태에서 빌드봇을 둘러보아서 차이점이나 장점을 자세히 소개하지는 못했던 것 같습니다.
+다음 포스트에서는 빌드봇 설치, CI 환경 구축까지 해서 테스트가 잘되는지 한번 해봐야겠습니다. 😀
+그 후에 젠킨스나 다른 설치형 CI 서비스도 한번 둘러보고 포스트 남겨보겠습니다.
+
+> 이번 글이 가이드 문서의 번역글로 작성된 것 같기는 합니다.
+> 나중에 빌드봇을 설치하고 설정해보면서 알게되는 내용도 같이 정리해보겠습니다.
+> 그때는 이 글에 #1, #2 이렇게 붙을 수도 있겠네요. 😀
