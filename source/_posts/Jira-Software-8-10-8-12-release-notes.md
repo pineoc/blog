@@ -14,89 +14,77 @@ thumbnail: https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfe
 
 Jira Software 8.10 ~ 8.12 릴리스 노트:
 
-- 8.10 Release Notes: <https://confluence.atlassian.com/jirasoftware/jira-software-8-6-x-release-notes-978220007.html>
-- 8.11 Release Notes: <https://confluence.atlassian.com/jirasoftware/jira-software-8-7-x-release-notes-990550432.html>
-- 8.12 Release Notes: <https://confluence.atlassian.com/jirasoftware/jira-software-8-8-x-release-notes-994314852.html>
+- [8.10 Release Notes](https://confluence.atlassian.com/jirasoftware/jira-software-8-10-x-release-notes-1004948108.html)
+- [8.11 Release Notes](https://confluence.atlassian.com/jirasoftware/jira-software-8-11-x-release-notes-1013852753.html)
+- [8.12 Release Notes](https://confluence.atlassian.com/jirasoftware/jira-software-8-12-x-release-notes-1019380834.html)
 
 Jira Software 8.10 ~ 8.12 버전 릴리스들을 모아서 보겠습니다.
+3개의 버전을 모아서 보아도 큰 업데이트는 없네요. 다만 QoL(Quality of Life) 개선 내용이 있어서 좋네요. 👍
 
 ## Jira 8.10
 
-2019년 12월에 릴리스한 버전입니다.
+2020년 6월(June)에 릴리스한 버전입니다.
 
 ### 하이라이트 (Highlights)
 
-- Jira copies over changes files on upgrade
-- New JVM code cache check
-- Replying to JIRA notifications in Outlook made way better
-- Users and roles made better
-- PostgreSQL 10 comes to Jira
-- Several older platforms get deprecated
-- Prefix and suffix search
-- Accessible dropdown menus
-- Configurable scheme parameters in Jira REST API for projects creation
-- Burnup charts in Jira Software
-- Self-protect and sleep easy with rate limiting
-- New information in the audit log
-- Cluster monitoring
+- OAuth 2.0 for your incoming mail
+- User anonymization (GDPR) improvements
+- More insight into your custom fields
+- Stale nodes automatically removed
+- Optimized custom fields
 
-8.6 릴리스는 앞선 8.5 엔터프라이즈 릴리스 후에 나온 버전이라 업데이트된 기능들이 많습니다.
-시스템 관리자가 알아야 하는 내용보다 태스크 관리 및 프로젝트 관리 측면의 기능 내용을 중점으로 살펴보겠습니다.
+> 8.10 릴리스는 커스텀 필드 관리 측면에서의 개선과 OAuth 2.0 추가된 것이 주 포인트입니다.
+> 다만 커스텀 필드 관리 측면의 내용은 모두 데이터 센터 한정한 내용이긴 합니다. 자세한 내용은 아래에서 더 자세하게 보시죠.
 
-### Replying to JIRA notifications in Outlook made way better
+### OAuth 2.0 for your incoming mail
 
-많은 사용자들의 요청에 의해 추가된 기능입니다.
-Outlook에서 Jira 이슈 알림 메일에 댓글을 남길 수 있도록 하는 기능을 세팅할 수 있게 되었네요.
-설명 상으로는 2개의 기능을 deprecate 했다고 하네요.
+구글과 마이크로소프트에서 Basic Authnication을 사용하지 않을 것에 대한 대응 업데이트입니다.
+기존에 메일에서 사용할 수 있는 기능을 계속 사용할 수 있도록 OAuth 2.0을 추가했네요.
+gmail, Microsoft Exchange에서 비밀번호를 사용하지 않고 기능을 사용할 수 있게 되었습니다.
+(물론 OAuth 2.0과 관련한 설정을 해줘야겠죠 😀)
 
-- Add a comment from the non-quoted email body
-- Create a new issue or add a comment to an existing issue
+![Add OAuth 2.0 Integration](https://confluence.atlassian.com/jirasoftware/files/1004948108/1004948141/1/1590047864061/localhost_8443_jira_plugins_servlet_oauth2+%282%29.png)
 
-설정과 관련한 내용은 [이 링크](https://confluence.atlassian.com/jirakb/how-to-set-up-replying-to-jira-notifications-via-outlook-975017386.html)에서 확인할 수 있습니다.
-참고차 설정 링크에는 기능을 어떻게 설정할 수 있는 방법보다는 개론과 같은 내용이 있습니다.
-(Jira 어드민이 대충 이런 느낌으로 사용하면 될 것이다의 느낌이에요.)
+자세한 내용은 [Integration with OAuth 2.0](https://confluence.atlassian.com/adminjiraserver0810/integrating-with-oauth-2-0-1014674403.html) 문서를 참고해주세요.
 
-### Users and roles made better
+> 저도 봇 개발을 하고있는 입장에서 OAuth 2.0 추가는 좋네요.
+> 다만 Https 설정이 기본이고 URL도 잘 설정해둬야 잘 동작한다네요.
+> 문서를 꼼꼼히 읽어보고 나중에 설정하는 방법도 포스팅해보겠습니다.
 
-![변경된 Users & Roles 관리 메뉴](https://confluence.atlassian.com/jirasoftware/files/978220007/980460545/2/1576573636455/usersandroles.jpg)
+### User anonymization (GDPR) improvements
 
-기존에는 하나하나 role 그룹에 유저들을 추가해줘야 했다면 이제는 체크박스를 이용해서 더 간편하게 수정할 수 있도록 변경되었습니다.
-다만 그전에는 롤에 따라서 어떤 유저가 있는지 한분에 볼 수 있었는데 지금은 roles 메뉴를 눌러서 볼 수 있도록 변경되었습니다.
-(지금 상태가 조금 더 잘 정리되어 보이는 것 같긴 합니다. ㅎㅎ)
+GDPR과 관련하여 유저의 익명화 기능에 대한 개선 내용입니다. 익명화 기능의 범위를 늘렸다고 하네요.
 
-### Prefix and suffix search
+- 이슈 검색에서 Reporter, Creator 익명화
+- 이슈 히스토리에 있는 이름 익명화 (Assignee, Reporter, Single- and Multi-user picker fields)
+- 이미 삭제된 유저에 대해 익명화할 수 있는 기능 추가
 
-지난 8.0 릴리스에는 Prefix 검색에 대해서 지원을 시작했는데 이번 8.6부터 suffix 검색도 추가되었다고 합니다. 👏
+더 자세한 내용은 [Anonymizing users](https://confluence.atlassian.com/adminjiraserver/anonymizing-users-992677655.html)에서 더 볼 수 있습니다.
 
-| Prefix 검색 | Suffix 검색 |
-|-------------|-------------|
-|text ~ "work*"| text ~ "*box"|
+> GDPR과 관련한 내용은 많이 와닿지 않는 내용이긴하지만 사용자의 정보를 지키고 관리하는 것은 필요하니 알아둘 필요는 있는 것 같습니다.
 
-검색 기능이 조금씩 개선되는 것 같아 좋네요! :)
+### More insight into your custom fields
 
-### Accessible dropdown menus
+(데이터 센터)
 
-![](https://confluence.atlassian.com/jirasoftware/files/978220007/983795015/1/1576576915707/Screen+Shot+2019-12-17+at+11.01.23.png)
+![Custom field indexing](https://confluence.atlassian.com/jirasoftware/files/1004948108/1004948140/1/1590047714056/Field+indexers+one+table+-+ideal+formatting+%282%29.png)
 
-드롭다운 메뉴에 대해서 스크롤이 추가되었다는 내용입니다.
-기존에는 메인화면을 내려야 했다면 드롭메뉴 자체에 스크롤이 생겨서 편하게 메뉴를 볼 수 있게 되었네요.
+"Jira Administration > System > Clustering > Actions > Custom field indexing" 경로에서 커스텀 필드가 어떻게 인덱싱되고 있는지 볼 수 있도록 기능이 추가되었네요.
 
-### Burnup charts in Jira Software
+> 데이터 센터와 관련해서 관리자 역할을 하고 있지는 않아서 모르긴하지만 커스텀 필드의 값의 인덱싱 관리가 어려운 경우에는 좋을 것 같긴하네요. 😀
 
-![](https://confluence.atlassian.com/jirasoftware/files/978220007/980470562/2/1576573635567/Screen+Shot+2019-11-28+at+11.12.52.png)
+### Stale nodes automatically removed
 
-번업(Burnup) 차트 기능이 Jira Server에도 추가되었습니다.
-앞으로 애자일 보드 -> 리포트에서 새로운 번업 차트를 볼 수 있게 되었네요.
+(데이터 센터)
+지난번에 클러스터 관리와 관련한 자동화를 소개했었는데 자동으로 오래된 노드를 지워주는 기능이 추가되었네요.
+자세한 내용은 [Jira cluster monitoring](https://confluence.atlassian.com/adminjiraserver/jira-cluster-monitoring-983794905.html)에서 볼 수 있습니다.
 
-### More granular sprint permissions
+### Optimized custom fields
 
-하이라이트에는 없는 내용이지만 언급이 필요해 보여서 넣었습니다.
-스프린트 관리 권한에 대해 몇 가지가 분리되어 추가되었습니다. 이에 따라 스프린트 관리를 사용자 권한에 맞게 부여할 수 있게 되었습니다.
-기존에 있던 `Manage Sprint` 권한은 있으나 `Start/Complete sprints`, `Edit sprints` 두 가지 권한이 추가되었네요.
-앞으로는 스프린트를 시작, 완료하는 사용자와 삭제도 할 수 있는 사용자 등으로 나눠서 관리할 수 있겠습니다.
-
-그 외의 데이터 센터 내용은 스킵합니다.
-(관리자 기능이기도 하고 크게 소개할 내용은 없어 보여서 스킵합니다.)
+(데이터 센터)
+많은 양의 커스텀 필드는 성능에 영향도 주고 인덱싱할 때에도 시간이 오래 걸리는 요인이기도 합니다.
+이런 상황을 개선하기 위해 필요한 상황에서만 커스텀 필드를 보여주거나 관리하도록 변경했네요.
+자세한 내용은 [Optimizing custom fields](https://confluence.atlassian.com/enterprise/optimizing-custom-fields-1005343684.html)에서 볼 수 있습니다.
 
 ## Jira 8.11
 
@@ -104,13 +92,31 @@ Outlook에서 Jira 이슈 알림 메일에 댓글을 남길 수 있도록 하는
 
 ### 하이라이트 (Highlights)
 
-- Anonymizing users for GDPR compliance
-- PostgreSQL 11 support
-- OpenID Connect comes to Jira
+- Managing private filters and dashboards
+- Issue detail view is now optional
+- Improved email notifications about mentions
+- Embedded Crowd upgrade
+- More stability in the Favorite Filters gadget
+- Restricting sprint selection
+- Configure how fast stale nodes are moved offline
 
-GDPR 관련 내용, DB 시스템, OpenID(데이터 센터) 등에 대한 릴리스로 일반 유저를 위한 기능 업데이트는 없네요.
-8.6 버전에 많이 업데이트하고 나서 안정화하는 버전이었는지 기능 추가는 없었네요.
-다음 8.8 버전으로 넘어가겠습니다~
+하이라이트만 봤을 때는 몇 가지 마음에 드는 기능들이 보이네요.
+프라이빗 필터, 대시보드 관리 가능해지는 점과 Jira에서 멘션시 메일 오는 것에 대한 개선이 눈에 띕니다.
+한번 각각 자세히 볼까요?
+
+### Managing private filters and dashboards
+
+### Issue detail view is now optional
+
+### Improved email notifications about mentions
+
+### Embedded Crowd upgrade
+
+### More stability in the Favorite Filters gadget
+
+### Restricting sprint selection
+
+### Configure how fast stale nodes are moved offline
 
 ## Jira 8.12
 
