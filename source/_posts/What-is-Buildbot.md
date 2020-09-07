@@ -35,7 +35,7 @@ Jenkins, Circle CI와 같은 CI 프레임워크로 지속적인 통합을 위한
 
 ### Introductions
 
-<http://docs.buildbot.net/current/manual/introduction.html>
+<https://docs.buildbot.net/current/manual/introduction.html>
 
 빌드봇 소개는 기능 소개로 시작되네요.
 
@@ -62,7 +62,7 @@ Jenkins, Circle CI와 같은 CI 프레임워크로 지속적인 통합을 위한
 Stackshare 서비스에서 투표된 내용을 기반으로 보면, 장점으로 "Highly configurable builds"가 1순위네요.
 추가로는 "Beautiful waterfall(이쁜 워터폴)", "Hosted internally(내부 설치)"가 있었습니다.
 
-![시스템 구조 오버뷰](http://docs.buildbot.net/current/_images/overview.svg)
+![시스템 구조 오버뷰](https://docs.buildbot.net/current/_images/overview.svg)
 
 앞서 첨부했던 이미지에 있는 내용과 동일한 이미지를 시작으로 시스템 아키텍쳐(구조)에 대한 이야기가 나옵니다.
 소스코드 저장소에서 변경사항이 있을 경우 빌드마스터가 이벤트를 받아 워커에 빌드를 요청하고 빌드 상황을 이메일, 웹, 등에서 볼 수 있다는 기본적인 구조를 설명합니다.
@@ -71,7 +71,7 @@ Stackshare 서비스에서 투표된 내용을 기반으로 보면, 장점으로
 
 ### Buildmaster Architecture
 
-![buildmaster architecture](http://docs.buildbot.net/current/_images/master.svg)
+![buildmaster architecture](https://docs.buildbot.net/current/_images/master.svg)
 
 빌드마스터 구조라고 소개해두었지만, 빌드마스터가 어떻게 워커에게 일을 주는 지에 대해 알 수 있는 그림이네요.
 문서 상에 설명되어있는 내용을 기준으로 정리해보겠습니다.
@@ -98,7 +98,7 @@ HTTP, 메일 및 IRC와 같은 프로토콜을 통해 빌드 결과에 대한 �
 
 ### Status Delivery Architecture(상태 전달 아키텍쳐)
 
-![Status](http://docs.buildbot.net/current/_images/status.svg)
+![Status](https://docs.buildbot.net/current/_images/status.svg)
 
 가이드 문서상에 있는 내용을 그대로 번역하면서 정리해보겠습니다.
 
