@@ -171,42 +171,71 @@ jira.not.alive.active.nodes.retention.period.in.hours 설정 값으로 오프라
 
 ### 하이라이트 (Highlights)
 
-- Revamped Audit log
-- Dates for future sprints
-- Jira loves accessibility
-- Access Data Center features on Server infrastructure
+- Improved user picker
+- More control over your Advanced Audit log
+- Support for MySQL 8.0
+- Less app impact on indexing
+- Users created automatically with Just-in-time user provisioning
+- Small improvements to make your day
 
-### Revamped Audit log
+### Improved user picker
 
-![](https://confluence.atlassian.com/jirasoftware/files/994314852/998879194/2/1587581320827/Screen+Shot+2020-03-19+at+20.53.54.png)
+![유저 피커 개선!](https://confluence.atlassian.com/jirasoftware/files/1019380834/1019380843/1/1595492968913/Screen+Shot+2020-07-14+at+11.14.13.png)
 
-데이터 센터 버전과 몇 가지 기능이 다를 수는 있겠지만 서비스 로그에 대해서 추가적으로 볼 수 있도록 기능이 개선되었습니다.
+커스텀 필드에서 유저 피커 필드의 경우 리포터, 담당자와 같은 시스템 필드처럼 사용자 이미지 및 이름을 볼 수 있도록 개선되었습니다.
 
-- 어떤 로그를 어느 기간 동안 보관할 것 인지를 설정할 수 있습니다. (you can decide which events are logged and how long you want to keep them)
-- 로그들에 대해 더 자세히 알 수 있습니다. (you can filter the events, expand each for further details, and export the audit log if necessary)
-- 카테고리로 정리된 로그를 통해 로그 확인이 개선되었습니다. (by getting an audit log that’s clear and categorized, you don’t need to spend time browsing through piles of events.)
-- 나머지는 데이터 센터 내용이라서 스킵합니다.
-  - 인스턴스와 관련한 로그를 확인할 수 있다는 내용과 3rd 파티 툴 연동 등에 대한 내용이 포함되어있습니다.
+> 싱글 유저 피커만 개선된 것 같고 멀티 유저 피커는 나중에 개선될지 봐야할 것 같네요.
 
-위 개선 사항들은 `Administration> System > Audit log` 에서 확인하실 수 있습니다.
+### More control over your Advanced Audit log
 
-### Dates for future sprints
+(데이터 센터)
 
-![](https://confluence.atlassian.com/jirasoftware/files/994314852/994314857/3/1587581322091/Screenshot+2020-02-07+at+10.08.16.png)
+![데이터 센터-Audit log 컨트롤 개선](https://confluence.atlassian.com/jirasoftware/files/1019380834/1018761801/1/1595576728949/Screenshot+2020-07-24+at+09.43.41.png)
 
-미래 스프린트를 위해 날짜 입력을 할 수 있도록 업데이트되었네요.
-기존에는 스프린트에 날짜를 입력하도록 Required(필수 입력) 설정되어있었는데 미래 스프린트 계획을 위해 추가된 기능으로 보입니다.
+데이터 센터를 위한 기능들이 지속적으로 개선되고 있네요. 이번에도 Audit log 개선사항입니다.
+카테고리, 제목을 필터해서 볼 수 있게되었네요. 추가로 로그 파일을 어떻게 저장할 것인지도 옵션화되었습니다.
+그 외에 우선순위 수정, 시큐어 어드민 로그인, 이슈 익스포트, OAuth 2.0 설정에 대한 이벤트도 Audit log에서 볼 수 있도록 이벤트가 추가되었습니다.
 
-### Jira loves accessibility
+### Support for MySQL 8.0
 
-![](https://confluence.atlassian.com/jirasoftware/files/994314852/993924584/2/1587581321481/accessibility_relnotes.jpg)
+말 그대로 MySQL 8.0 지원으로 추가된 내용입니다.
 
-<https://confluence.atlassian.com/jirasoftwareserver/accessibility-998878998.html>
-개인 설정을 통해서 상태(Status)의 색/무늬를 변경할 수 있도록 할 수 있게 되었네요.
-관련한 자세한 내용은 위 링크에서 보실 수 있습니다.
+### Less app impact on Jira indexing
+
+(데이터 센터)
+
+인덱싱 진행시 시간이 오래걸리는 이슈를 개선하고자 하는 기능입니다.
+`Document-Based Replication` 기능을 기반으로 인덱싱시 앱에 영향이 크지 않도록 한다고 하네요.
+[Document-based replication in Jira Data Center](https://confluence.atlassian.com/enterprise/document-based-replication-in-jira-data-center-1021214730.html)와 관련한 내용은 여기서 자세히 보실 수 있습니다.
+
+> **Document-based replication**을 DBR이라고 부르고 소개하고 있네요.
+> 링크의 문서에 보면 bad state를 완전히 없앤 기술이라고 하는데요. 정보를 리플리케이션하는 방식에 대한 개선 같습니다.
+> 자세한 것은 링크를 참고해보셔요!
+
+### Users created automatically with Just-in-time user provisioning
+
+(데이터 센터)
+
+
+### Small improvements to make your day
+
+작은 개선이라고 소개했지만 너무나 큰 선물! 이번에도 좋은 개선 사항이 추가되었네요.
+
+#### Order of statuses on boards
+
+board > Configure에서 보드에서 보이는 이슈를 상태 순서대로 볼 수 있도록 설정할 수 있게 되었습니다.
+
+> todo를 맨 밑에서 보고 싶다면 순서를 상태 컬럼에서 todo 상태를 맨 밑으로 보내면 됩니다.
+
+#### Accessibility: Background in subtle buttons
+
+이 기능은 단순히 마우스 오버시에 표시되는 회색을 기본 상태가 회색으로 보일 수 있도록 설정하는 기능입니다.
+기존에 버튼이 잘 안보였다면 이 개인 설정을 켜보는 것이 좋겠군요. 😄
 
 ## 마무리
 
-8.6 ~ 8.8 버전을 모두 살펴보았습니다.
-8.6 버전에는 추가/수정된 기능들이 많았네요. 8.7, 8.8 버전은 안정화 업데이트 같은 느낌을 받았습니다.
-한 달마다 버전 업데이트를 하고 있는데 버그 내용도 하나하나 보고 싶지만 이번 포스트에서는 스킵하고 다음 버전에서는 코멘트할 내용이 있을지 보겠습니다.
+8.10 ~ 8.12 Jira 기능을 살펴보았습니다.
+생각보다 많은 업데이트가 있었네요. (작성하면서 절반이 데이터 센터 전용 기능이었던 것 같은데 기분탓이겠죠 😂)
+다음 업데이트인 8.13도 준비되고 있는 것 같지만 아마 LTS 릴리스라서 큰 변경사항은 없을 것 같네요.
+8.13 업데이트 이후에 8.14를 기대하면서 다음 포스트를 준비해보겠습니다.
+다음에 만나요! 감사합니다! 👋
