@@ -11,7 +11,7 @@
 <blockquote>
 <p>다른 자료들을 보면서 어떤 장, 단점이 있는지 참고하면서 공부하려고 했는데 자료가 거의 없네요. 😂<br>빌드봇 공식 문서를 보면서 정리해보고자 합니다. :)</p>
 </blockquote>
-<h2 id="빌드봇-가이드-문서-살펴보기"><a href="#빌드봇-가이드-문서-살펴보기" class="headerlink" title="빌드봇 가이드 문서 살펴보기"></a>빌드봇 가이드 문서 살펴보기</h2><h3 id="Introductions"><a href="#Introductions" class="headerlink" title="Introductions"></a>Introductions</h3><p><a href="http://docs.buildbot.net/current/manual/introduction.html">http://docs.buildbot.net/current/manual/introduction.html</a></p>
+<h2 id="빌드봇-가이드-문서-살펴보기"><a href="#빌드봇-가이드-문서-살펴보기" class="headerlink" title="빌드봇 가이드 문서 살펴보기"></a>빌드봇 가이드 문서 살펴보기</h2><h3 id="Introductions"><a href="#Introductions" class="headerlink" title="Introductions"></a>Introductions</h3><p><a href="https://docs.buildbot.net/current/manual/introduction.html">https://docs.buildbot.net/current/manual/introduction.html</a></p>
 <p>빌드봇 소개는 기능 소개로 시작되네요.</p>
 <ul>
 <li>run builds on a variety of worker platforms</li>
@@ -38,10 +38,10 @@
 <p>사실 젠킨스도 커스텀하게 설정할 수는 있겠지만 현재 사용하는 시스템을 대체하려면 여러가지 커스텀하게 변경해야하는게 많아서 어렵다고는 생각합니다. 😂</p>
 </blockquote>
 <p><a href="https://stackshare.io/buildbot">https://stackshare.io/buildbot</a><br>Stackshare 서비스에서 투표된 내용을 기반으로 보면, 장점으로 “Highly configurable builds”가 1순위네요.<br>추가로는 “Beautiful waterfall(이쁜 워터폴)”, “Hosted internally(내부 설치)”가 있었습니다.</p>
-<p><img src="http://docs.buildbot.net/current/_images/overview.svg" alt="시스템 구조 오버뷰"></p>
+<p><img src="https://docs.buildbot.net/current/_images/overview.svg" alt="시스템 구조 오버뷰"></p>
 <p>앞서 첨부했던 이미지에 있는 내용과 동일한 이미지를 시작으로 시스템 아키텍쳐(구조)에 대한 이야기가 나옵니다.<br>소스코드 저장소에서 변경사항이 있을 경우 빌드마스터가 이벤트를 받아 워커에 빌드를 요청하고 빌드 상황을 이메일, 웹, 등에서 볼 수 있다는 기본적인 구조를 설명합니다.</p>
 <p>워커는 빌드마스터에게 명령을 받고 빌드를 진행하며, 빌드마스터가 코드를 제공하지는 않고 저장소에서 코드를 받아 빌드를 진행합니다.</p>
-<h3 id="Buildmaster-Architecture"><a href="#Buildmaster-Architecture" class="headerlink" title="Buildmaster Architecture"></a>Buildmaster Architecture</h3><p><img src="http://docs.buildbot.net/current/_images/master.svg" alt="buildmaster architecture"></p>
+<h3 id="Buildmaster-Architecture"><a href="#Buildmaster-Architecture" class="headerlink" title="Buildmaster Architecture"></a>Buildmaster Architecture</h3><p><img src="https://docs.buildbot.net/current/_images/master.svg" alt="buildmaster architecture"></p>
 <p>빌드마스터 구조라고 소개해두었지만, 빌드마스터가 어떻게 워커에게 일을 주는 지에 대해 알 수 있는 그림이네요.<br>문서 상에 설명되어있는 내용을 기준으로 정리해보겠습니다.</p>
 <p><strong>Change Sources(변경사항들)</strong><br>VCS 저장소 내에서 무엇인가 수정될 때마다 변경사항 오브젝트를 생성합니다.<br>대부분의 <code>ChangeSource</code>는 어떤 종류의 후크 스크립트에서 메시지를 받습니다.<br>일부 소스들은 정기적으로 저장소를 적극적으로 폴링합니다. 모든 <code>변경사항</code>은 스케줄러에게 제공됩니다.</p>
 <p><strong>Schedulers(스케쥴러)</strong><br>빌드 수행 시기를 결정합니다.<br>스케쥴러는 <code>BuildRequest</code>에 대한 <code>변경사항</code>을 수집하고, 이 변경사항은 워커를 사용할 수 있을 때까지 <code>빌더들</code>에 전달하기 위해 대기열에 있습니다.</p>
@@ -51,7 +51,7 @@
 <p>Each Builder is configured with a list of Workers that it will use for its builds. These workers are expected to behave identically: the only reason to use multiple Workers for a single Builder is to provide a measure of load-balancing.</p>
 </blockquote>
 <p>각 <code>빌더</code>는 빌드에 사용할 <code>워커</code>들의 목록으로 구성됩니다.<br>이 워커들은 동일하게 작동해야합니다: 단일 <code>빌더</code>에 여러 <code>워커</code>들을 사용하는 유일한 이유는 로드 밸런싱을 제공하는 것 때문입니다.</p>
-<h3 id="Status-Delivery-Architecture-상태-전달-아키텍쳐"><a href="#Status-Delivery-Architecture-상태-전달-아키텍쳐" class="headerlink" title="Status Delivery Architecture(상태 전달 아키텍쳐)"></a>Status Delivery Architecture(상태 전달 아키텍쳐)</h3><p><img src="http://docs.buildbot.net/current/_images/status.svg" alt="Status"></p>
+<h3 id="Status-Delivery-Architecture-상태-전달-아키텍쳐"><a href="#Status-Delivery-Architecture-상태-전달-아키텍쳐" class="headerlink" title="Status Delivery Architecture(상태 전달 아키텍쳐)"></a>Status Delivery Architecture(상태 전달 아키텍쳐)</h3><p><img src="https://docs.buildbot.net/current/_images/status.svg" alt="Status"></p>
 <p>가이드 문서상에 있는 내용을 그대로 번역하면서 정리해보겠습니다.</p>
 <blockquote>
 <p>The buildmaster maintains a central <code>Status</code> object, to which various status plugins are connected. Through this <code>Status</code> object, a full hierarchy of build status objects can be obtained.</p>
@@ -85,7 +85,7 @@
                     fold: 'unfolded'
                 }
             }
-        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="Zurück nach oben" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
             if (typeof $.fn.lightGallery === 'function') {
                 $('.article').lightGallery({ selector: '.gallery-item' });
             }
