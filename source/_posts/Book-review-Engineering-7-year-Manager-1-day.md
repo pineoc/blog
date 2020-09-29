@@ -12,10 +12,10 @@ tags:
 
 ## 개발 7년차, 매니저 1일차 책소개
 
-- [yes24-개발 7년차, 매니저 1일차](http://www.yes24.com/Product/Goods/87336637)
+- [yes24-개발 7년차, 매니저 1일차](https://www.yes24.com/Product/Goods/87336637)
 - [Oreilly-The Manager's Path](https://www.oreilly.com/library/view/the-managers-path/9781491973882/)
 
-![개발 7년차, 매니저 1일차](http://image.yes24.com/goods/87336637/800x0)
+![개발 7년차, 매니저 1일차](https://image.yes24.com/goods/87336637/800x0)
 
 ## 추천
 
