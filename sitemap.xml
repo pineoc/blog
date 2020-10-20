@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pineoc.github.io/blog/2020/09/29/Book-review-Engineering-7-year-Manager-1-day/</loc>
+    
+    <lastmod>2020-10-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2020/05/31/Jira-Software-8-9-release-note/</loc>
+    
+    <lastmod>2020-10-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/</loc>
+    
+    <lastmod>2020-10-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2020/03/21/Jira-Software-8-5-release-note/</loc>
+    
+    <lastmod>2020-10-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2019/10/09/Jira-Software-8-4-release-notes/</loc>
+    
+    <lastmod>2020-10-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2019/10/06/Jira-Software-8-3-release-notes/</loc>
+    
+    <lastmod>2020-10-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2019/10/06/Jira-Software-8-2-release-notes/</loc>
+    
+    <lastmod>2020-10-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2019/10/15/Confluence-6-12-6-15/</loc>
+    
+    <lastmod>2020-10-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pineoc.github.io/blog/2020/09/06/Jira-Software-8-10-8-12-release-notes/</loc>
     
     <lastmod>2020-10-20</lastmod>
@@ -12,13 +68,6 @@
     <loc>https://pineoc.github.io/blog/2020/10/18/Confluence-7-0-7-8-Release-notes/</loc>
     
     <lastmod>2020-10-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2020/09/29/Book-review-Engineering-7-year-Manager-1-day/</loc>
-    
-    <lastmod>2020-09-29</lastmod>
     
   </url>
   
@@ -61,27 +110,6 @@
     <loc>https://pineoc.github.io/blog/2020/06/18/Jira-ScriptRunner-default-fields-setting/</loc>
     
     <lastmod>2020-06-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2020/05/31/Jira-Software-8-9-release-note/</loc>
-    
-    <lastmod>2020-05-31</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2020/05/04/Jira-Software-8-6-8-8-release-note/</loc>
-    
-    <lastmod>2020-05-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2020/03/21/Jira-Software-8-5-release-note/</loc>
-    
-    <lastmod>2020-03-21</lastmod>
     
   </url>
   
@@ -184,27 +212,6 @@
   </url>
   
   <url>
-    <loc>https://pineoc.github.io/blog/2019/10/06/Jira-Software-8-2-release-notes/</loc>
-    
-    <lastmod>2019-12-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2019/10/06/Jira-Software-8-3-release-notes/</loc>
-    
-    <lastmod>2019-12-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2019/10/09/Jira-Software-8-4-release-notes/</loc>
-    
-    <lastmod>2019-12-01</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pineoc.github.io/blog/2019/09/02/Jira-8-1-Upgrade-Contents/</loc>
     
     <lastmod>2019-12-01</lastmod>
@@ -213,13 +220,6 @@
   
   <url>
     <loc>https://pineoc.github.io/blog/2019/07/13/Jira-7-11-to-8-0-Upgrade/</loc>
-    
-    <lastmod>2019-12-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2019/10/15/Confluence-6-12-6-15/</loc>
     
     <lastmod>2019-12-01</lastmod>
     
@@ -333,6 +333,13 @@
   </url>
   
   <url>
+    <loc>https://pineoc.github.io/blog/tags/ReleaseNotes/</loc>
+    <lastmod>2020-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://pineoc.github.io/blog/tags/Jira/</loc>
     <lastmod>2020-10-20</lastmod>
     <changefreq>daily</changefreq>
@@ -341,13 +348,6 @@
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/ScriptRunner/</loc>
-    <lastmod>2020-10-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/tags/ReleaseNotes/</loc>
     <lastmod>2020-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -368,14 +368,14 @@
   </url>
   
   <url>
-    <loc>https://pineoc.github.io/blog/tags/Perforce/</loc>
+    <loc>https://pineoc.github.io/blog/tags/OpenGL-ES/</loc>
     <lastmod>2020-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://pineoc.github.io/blog/tags/OpenGL-ES/</loc>
+    <loc>https://pineoc.github.io/blog/tags/Perforce/</loc>
     <lastmod>2020-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
