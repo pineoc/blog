@@ -1,5 +1,10 @@
 name: Build and deploy
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths: 
+      - 'source/**.md'
 jobs:
   build:
     runs-on: ubuntu-latest
