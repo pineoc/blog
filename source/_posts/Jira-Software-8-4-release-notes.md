@@ -7,6 +7,7 @@ categories:
 - System
 tags:
 - Jira
+- ReleaseNotes
 thumbnail: https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696
 ---
 

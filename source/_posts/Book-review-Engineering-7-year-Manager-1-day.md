@@ -8,6 +8,7 @@ categories:
 tags:
 - PM
 - Book
+thumbnail: https://image.yes24.com/goods/87336637/800x0
 ---
 
 ## 개발 7년차, 매니저 1일차 책소개

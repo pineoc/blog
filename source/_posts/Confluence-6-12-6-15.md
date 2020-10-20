@@ -7,6 +7,7 @@ categories:
 - System
 tags:
 - Confluence
+- ReleaseNotes
 thumbnail: https://wac-cdn.atlassian.com/dam/jcr:f0fe60cd-469f-4e78-9779-ea4cacfa07e6/Confluence-icon-blue.svg?cdnVersion=696
 ---
 
