@@ -7,6 +7,7 @@ categories:
 - System
 tags:
 - Confluence
+- ReleaseNotes
 thumbnail: https://user-images.githubusercontent.com/5077086/96360171-853a1280-1155-11eb-9895-cd15add31f09.png
 ---
 
