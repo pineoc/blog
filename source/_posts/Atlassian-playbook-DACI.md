@@ -17,7 +17,7 @@ thumbnail: https://wac-cdn.atlassian.com/dam/jcr:e7903b3d-0efb-41b5-8ae7-d668b6c
 이번 글에서는 Atlassian Playbook에 있는 [DACI](https://www.atlassian.com/team-playbook/plays/daci) 프레임워크를 소개해보고자 합니다.
 되도록 글의 번역에 초점을 맞춰보고 추가할 내용은 조금씩 수정, 보완해볼 예정입니다.
 
-원글: https://www.atlassian.com/team-playbook/plays/daci
+원글: <https://www.atlassian.com/team-playbook/plays/daci>
 
 ## DACI (Driver, Approver, Contributors, Informed) framework
 
@@ -42,13 +42,16 @@ And if we don't agree on whose call it is, we end up revisiting decisions over a
 
 <!-- By clarifying who-plays-what-role in each decision up front, we have a better shot at making the right decisions, and making them at the right time – like choosing the Reuben, which is the right call every time. -->
 각 의사 결정에서 누가 어떤 역할을 하는지 명확히 함으로써, 올바른 결정을 내리고 적절한 시기에 결정을 내릴 수 있는 더 나은 기회를 얻을 수 있습니다.
-(매번 옳은 결정인 루벤을 선택하는 것과 같이 - 이건 작성자 개인의 취향인듯 합니다. 😂)
+(항상 루벤을 선택하는 것이 옳은 것 처럼요.)
+
+> 이건 작성자 개인의 취향인듯 합니다. 😂
+> 루벤 샌드위치를 비유할만한 한국 음식은 떠오르지 않는군요. 😄
 
 ### 누가 참여해야하나요?
 
 결정 및 진행을 위해 그룹 전체 인원이 참여합니다.
 
-## playbook 활동 진행
+## 플레이북 활동 진행
 
 DACI는 그룹 의사결정에 구조를 가져오는 것에 관한 것입니다.
 그러니 먼저 이 활동을 자세히 복습하여 그 구조를 확실히 이해하시길 바랍니다.
@@ -69,7 +72,7 @@ DACI는 그룹 의사결정에 구조를 가져오는 것에 관한 것입니다
 
 |용어|설명|
 |:-:|:-:|
-|`D`river<br>(운전자)|이해 관계자를 모으고 필요한 모든 정보를 수집하고 합의된 날짜까지 결정을 내릴 책임이 있는 한 사람입니다. 결정에 따라 프로젝트의 풀타임(상근) 소유자 일 수도 있고 아닐 수도 있습니다.|
+|`D`river<br>(운전자)|이해 관계자를 모으고 필요한 모든 정보를 수집하고 합의된 날짜까지 결정을 내릴 책임이 있는 한 사람입니다. 결정에 따라 프로젝트의 풀타임 작업자일 수도 있고 아닐 수도 있습니다.|
 |`A`pprover<br>(승인자)|결정을 내리는 한 사람입니다.|
 |`C`ontributors<br>(기여자)|그들은 결정에 영향을 줄 수 있는 지식이나 전문 지식을 가지고 있습니다. 즉, 목소리는 있지만 투표권은 없습니다.|
 |`I`nformed<br>(정보 수신자)|최종 결정에 대한 정보를 받습니다.|
@@ -79,7 +82,7 @@ Without a willingness to share concerns and trust they'll be considered, your te
 Team members may even pursue their preferred option on the sly, in the hopes the official decision is a failure.
 Make sure everyone is prepared to fully committed to whatever is decided so you can skip the bullshit politics.  -->
 DACI는 비록 그들이 동의하지 않더라도, 그룹의 모든 사람들이 일단 결정이 내려지면 결정 뒤에 집회를 열 때만 작동합니다.
-우려와 신뢰를 기꺼이 공유하지 않으면, 여러분의 팀은 순환 토론과 무반응의 늪에 빠질 것입니다.
+우려와 신뢰를 기꺼이 공유하지 않으면, 여러분의 팀은 끝없는 토론과 무반응의 늪에 빠질 것입니다.
 팀원들은 심지어 공식적인 결정이 실패하기를 바라면서 몰래 선호하는 선택지를 추구할 수도 있습니다.
 여러분이 헛소리 정치는 건너뛸 수 있도록 모든 사람들이 결정된 모든 일에 완전히 전념할 준비가 되어 있는지 확인하세요.
 
@@ -89,7 +92,7 @@ DACI는 비록 그들이 동의하지 않더라도, 그룹의 모든 사람들�
 그것은 우리가 자주 하는 질문입니다.
 
 <!-- As you consider whether a  group decision needs the full-on DACI treatment, take the timeliness and impact into account. Decisions that affect the work of multiple people on the project (e.g. "Where should we hold our user conference next year?") probably need a DACI. Smaller, isolated decisions (e.g., "What will the conference's social media hashtag be?") do not. -->
-그룹 의사결정에 전체 DACI 치료가 필요한지 여부를 고려할 때 적시성과 영향을 고려해야 합니다.
+그룹 의사결정에 전체 DACI 치료가 필요한지 여부를 고려할 때 `적절한 시기`와 `영향`을 고려해야 합니다.
 프로젝트에서 여러 사람의 작업에 영향을 미치는 의사 결정(예: "내년에는 어디에서 사용자 회의를 개최해야 합니까?")에는 DACI가 필요할 수 있습니다.
 소규모의 고립된 결정(예: "회의의 소셜 미디어 해시태그는 어떻게 될 것인가?")은 그렇지 않습니다.
 
@@ -106,11 +109,12 @@ You'll add more to this page in the coming days/weeks as you work through the de
 컨플루언스(또는 문서화 도구 선택)에서 새 페이지를 열고 맨 위에 2x4 그리드를 삽입하거나 [DACI Blueprint for Confluence](http://marketplace.atlassian.com/plugins/atlassian-playbook-daci-decision/cloud/overview)를 사용하여 페이지를 만듭니다.
 왼쪽 열의 행에 드라이버, 승인자, 기여자, 알림으로 레이블을 지정합니다. 결정을 진행하는 동안 며칠/주 내에 이 페이지에 더 많은 정보를 추가할 수 있습니다.
 
-컨플루언스 사용자가 아닌가요? 걱정하지 마세요. 대신 [DACI 템플릿을 PDF](https://www.atlassian.com/ko/dam/jcr:f6b56375-3d78-496a-857e-ca47e89816ce/DACI-Decision-template.pdf) 형식으로 다운로드합니다.
+컨플루언스 사용자가 아닌가요? 걱정하지 마세요.
+대신 [DACI 템플릿 PDF](https://www.atlassian.com/ko/dam/jcr:f6b56375-3d78-496a-857e-ca47e89816ce/DACI-Decision-template.pdf)을 다운로드하여 사용할 수 있습니다.
 
 ### Step 2, 그룹 결정을 위한 역할을 정의합니다. (10분)
 
-**운전자(driver)는 누구입니까?**
+**운전자(Driver)는 누구입니까?**
 <!-- Agree on one person per decision. They don't necessarily drive the entire project – just that decision. -->
 각 결정마다 한 사람씩 있는 것이 좋습니다. 이 사람들은 반드시 전체 프로젝트를 주도하지는 않습니다. 그 결정에만 있으면 됩니다.
 
@@ -126,8 +130,7 @@ You'll add more to this page in the coming days/weeks as you work through the de
 <!-- This is anyone directly affected by the decision. Note that this may include people outside the core team. -->
 이 사람들은 그 결정의 직접적인 영향을 받는 모든 사람들입니다. 여기에는 핵심 팀 외부의 사람들이 포함될 수 있습니다.
 <!-- Ask questions like "If the driver is away, who would they delegate to?" and "Do we have too many people who need to be consulted?". Adjust your DACI accordingly. -->
-"운전자가 부재중이라면 누구에게 위임하겠습니까?", "상담을 받아야 할 사람이 너무 많습니까?"와 같은 질문을 던집니다.
-이에 따라 DACI를 조정합니다.
+"운전자가 부재중이라면 누구에게 위임하겠습니까?", "상담을 받아야 할 사람이 너무 많습니까?"와 같은 질문을 던집니다. 이에 따라 DACI를 조정합니다.
 
 ### Step 3, 공격 계획을 세우세요. (15 min)
 
@@ -147,16 +150,18 @@ Confluence에 DACI Blueprint를 사용하지 않는 경우 페이지에서 다�
 - Action items: a list of tasks or follow-ups related to the decision.
 - Outcome: a place to state which option you ultimately go with. -->
 
-- 마감일(Due date): 결정 기한.
-- 결정 배경(Background): 결정이 필요한 이유.
-- 현재 상태(Current state): 지금 결정 단계상 있는 곳.
-- 정보 지원(Supporting data): 당신의 결정을 알리기 위해 당신이 조사한 것
-- 고려된 옵션들(Options considered): 장단점, 리스크, 트레이드오프, 예상 비용 또는 노력 등을 요약할 수 있는 각 옵션에 대한 열이 있는 표.
-- 추천 사항(Recommendations): 기여자들의 의견.
-- FAQs: 자주 묻는 질문(또는 예상 질문)에 답변할 수 있는 곳.
-- 참조(References): 참조 자료로 연결되는 링크 목록과 관련 이유를 간략히 설명.
-- 조치 목록(Action items): 결정과 관련된 작업 또는 후속 조치 목록.
-- 결정 결과(Outcome): 최종적으로 어떤 옵션을 선택하는지 설명하는 곳.
+|항목|설명|
+|:-:|:-:|
+|마감일|결정 기한|
+|결정 배경|결정이 필요한 이유|
+|현재 상태|지금 결정 단계상 있는 곳|
+|정보 지원|당신의 결정을 알리기 위해 당신이 조사한 것|
+|고려된 옵션들|장단점, 리스크, 트레이드오프, 예상 비용 또는 노력 등을 요약할 수 있는 각 옵션에 대한 열이 있는 표|
+|추천 사항/제안|기여자들의 의견|
+|FAQs|자주 묻는 질문(또는 예상 질문)에 답변할 수 있는 곳|
+|참조|참조 자료로 연결되는 링크 목록과 관련 이유를 간략히 설명|
+|조치 목록|결정과 관련된 작업 또는 후속 조치 목록|
+|결정 결과|최종적으로 어떤 옵션을 선택하는지 설명하는 곳|
 
 ### Step 4, 팀을 참여시키기
 
@@ -181,7 +186,7 @@ Confluence에 DACI Blueprint를 사용하지 않는 경우 페이지에서 다�
 <!-- A service team's DACI matrix is relatively static, but it's not carved in stone. Review and revise your DACI annually for services that are established and stable. For new service teams, we like to review the DACI quarterly or twice-yearly during the first year. -->
 서비스 팀의 DACI 매트릭스는 비교적 정적인 편이지만, 돌에 새겨진 것은 아닙니다. 확립되어있고 안정적인 서비스에 대해 DACI를 매년 검토하고 수정하세요. 신규 서비스 팀의 경우 DACI를 분기별 또는 1년 동안 2회 검토하기를 권장합니다.
 
-## 후속 조치(Follow-ups) - 의사결정 기록
+## 다음 조치(Follow-ups) - 의사결정 기록
 
 <!-- Optional. Larger initiatives that affect multiple groups or departments (lookin' at you, leadership teams!) often benefit from a decision register page. It serves as a portal that makes it easy for team members and stakeholders to access detailed information about each decision. -->
 선택 사항입니다. 여러 그룹 또는 부서에 영향을 미치는 대규모 이니셔티브(리더십 팀, 리더십 팀)는 종종 의사결정 기록 페이지에서 이점을 얻습니다. 의사결정 기록 페이지는 팀 구성원과 이해관계자가 각 결정에 대한 세부 정보에 쉽게 액세스할 수 있는 포털 역할을 합니다.
@@ -200,8 +205,13 @@ Confluence에 DACI Blueprint를 사용하지 않는 경우 페이지에서 다�
 맨 처음에 DACI라는 내용을 들었을 때, 무슨 프로세스지? 방법론인가? 하고 막연히 생각했습니다.
 (프레임워크라고 해서 SWOT(강점, 약점, 기회, 위협) 같은 것으로 생각했었죠.)
 다른 PM 분들이 소개해주시는 내용이나 요즘 PM과 관련한 글들을 많이 보면서 어렴풋이 알게되었고 Atlassian에 관련 자료가 있어서 마침 공부하는 겸 번역하게되었습니다.
-사실 번역하면서 충분히 이해해서 실제 업무에 써먹을 수 있을지 고민은 들지만 이런 프레임워크가 있으니 한번 써볼까하는 생각은 들겠죠. (언젠가 🙈)
-이 글이 많은 분들에게 조금이나마 도움이 되었기를 바라며 마칩니다. 고맙습니다.
+
+> 제가 일하고 있는 곳에서 일어나는 일을 DACI에 대입해보면.. 프로젝트(작은 피쳐 또는 스펙)를 진행할 때에 PM이 보통 운전자(드라이버)로 진행을 하고
+> PD, 리더분들이 승인자 역할 그리고 사업 부서와 운영 부서는 기여자와 정보 수신자가 될 수 있겠네요.
+
+사실 번역하면서 어느정도 이해는 했고 실제 업무에 알맞게 써먹을 수 있을지가 관건이겠죠.
+나중에 이런 프레임워크가 있으니 한번 써볼까하는 생각은 들 수 있겠습니다. (언젠가 🙈)
+이 글을 읽으신 분들에게 조금이나마 도움이 되었기를 바라며 마칩니다. 고맙습니다.
 
 ## 참고하면 좋을만한 글
 
