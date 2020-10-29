@@ -18,6 +18,7 @@ thumbnail: https://wac-cdn.atlassian.com/dam/jcr:e7903b3d-0efb-41b5-8ae7-d668b6c
 되도록 글의 번역에 초점을 맞춰보고 추가할 내용은 조금씩 수정, 보완해볼 예정입니다.
 
 원글: <https://www.atlassian.com/team-playbook/plays/daci>
+30초 설명: <https://youtu.be/68iWkZQ2Zdg>
 
 ## DACI (Driver, Approver, Contributors, Informed) framework
 
@@ -25,7 +26,18 @@ thumbnail: https://wac-cdn.atlassian.com/dam/jcr:e7903b3d-0efb-41b5-8ae7-d668b6c
 
 ### 이 플레이북 활동을 사용하면?
 
+<!-- Define roles for making high-impact or high-risk group decisions. -->
 이 DACI 프레임워크 활동을 사용하여, 영향력이 높거나 위험이 높은 그룹 결정을 내리기 위한 역할을 정의합니다.
+
+<!-- If you're struggling with decision making, balanced team or shared understanding on your Health Monitor, running this play might help. -->
+`의사 결정`, `균형 잡힌 팀` 또는 [건강 모니터(Health Monitor)](https://www.atlassian.com/team-playbook/health-monitor)에 대한 `공유 이해`에 어려움을 겪고 있는 경우 이 플레이를 실행하는 것이 도움이 될 수 있습니다.
+
+<!-- Decisions are made at the right level with an appropriate degree of urgency and discussion in considering both short and long term implications, with trade-offs actively considered. Decisions are timely and effectively communicated.  -->
+<!-- Roles and responsibilities are clear and agreed upon. The project has people with the right blend of skill set. Acknowledge that team members can change by stage. -->
+<!-- It's clear what success means from a business and user's perspective, and there is a unique value proposition in place for the target users and to the business. Success is defined, with a goal, and how it will be measured. -->
+- **의사 결정**: 단기적 및 장기적 영향 모두를 고려할 때 적절한 수준의 긴급성과 논의를 통해 적절한 수준에서 `의사결정`이 이루어지며, 이에 대한 절충이 적극적으로 고려됩니다. 의사결정은 시기적절하고 효과적으로 전달됩니다.
+- **균형 잡힌 팀**: `역할과 책임`은 명확하고 합의된 것입니다. 이 프로젝트에는 적절한 기술 조합의 사람들이 있습니다. 팀 구성원은 단계(stage)별로 변경할 수 있습니다.
+- **공유된 이해**: 비즈니스와 사용자의 관점에서 `성공이 무엇을 의미`하는지 분명하고, 타겟 사용자와 비즈니스에 대한 고유한 가치 제안이 있습니다. 성공은 목표와 함께 정의되며, 성공이 어떻게 측정될 것인지에 따라 결정됩니다.
 
 ### DACI가 왜 필요한가요? (상황 예시)
 
