@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pineoc.github.io/blog/2020/01/23/Perforce-basics/</loc>
+    
+    <lastmod>2020-11-01</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pineoc.github.io/blog/2020/11/01/Atlassian-Jira-Clound/</loc>
     
     <lastmod>2020-11-01</lastmod>
@@ -138,13 +145,6 @@
     <loc>https://pineoc.github.io/blog/2020/02/23/Bulk-remove-change-Jira-issue-links/</loc>
     
     <lastmod>2020-02-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2020/01/23/Perforce-basics/</loc>
-    
-    <lastmod>2020-01-26</lastmod>
     
   </url>
   
@@ -326,6 +326,20 @@
 
   
   <url>
+    <loc>https://pineoc.github.io/blog/tags/Framework/</loc>
+    <lastmod>2020-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/tags/Playbook/</loc>
+    <lastmod>2020-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://pineoc.github.io/blog/tags/Jira/</loc>
     <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
@@ -340,14 +354,7 @@
   </url>
   
   <url>
-    <loc>https://pineoc.github.io/blog/tags/Framework/</loc>
-    <lastmod>2020-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/tags/Playbook/</loc>
+    <loc>https://pineoc.github.io/blog/tags/ScriptRunner/</loc>
     <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -376,13 +383,6 @@
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/ReleaseNotes/</loc>
-    <lastmod>2020-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/tags/ScriptRunner/</loc>
     <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -489,14 +489,14 @@
   </url>
   
   <url>
-    <loc>https://pineoc.github.io/blog/categories/PM/System/</loc>
+    <loc>https://pineoc.github.io/blog/categories/PM/Framework/</loc>
     <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://pineoc.github.io/blog/categories/PM/Framework/</loc>
+    <loc>https://pineoc.github.io/blog/categories/PM/System/</loc>
     <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -524,14 +524,14 @@
   </url>
   
   <url>
-    <loc>https://pineoc.github.io/blog/categories/Life/IoT/</loc>
+    <loc>https://pineoc.github.io/blog/categories/Tech/Program-Service/</loc>
     <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://pineoc.github.io/blog/categories/Tech/Program-Service/</loc>
+    <loc>https://pineoc.github.io/blog/categories/Life/IoT/</loc>
     <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
