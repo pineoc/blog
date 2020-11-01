@@ -3,176 +3,184 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
-        gtag('config', 'UA-45439235-4');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="ca-pub-8535740075617154" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="/blog/img/logo.svg" alt="Pineoc&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/categories">Categories</a><a class="navbar-item" href="/blog/tags">Tags</a><a class="navbar-item" href="/blog/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/pineoc"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/blog/categories">카테고리</a></li><li><a href="/blog/categories/PM/">PM</a></li><li class="is-active"><a href="#" aria-current="page">System</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/blog/2020/06/30/Jira-Cloud-Next-Gen-project/"><img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/86138645-b13f7280-bb29-11ea-9eae-8d41336ecff4.png" alt="Jira Cloud Next Gen project (차세대 프로젝트) 둘러보기"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-30T13:55:41.000Z" title="2020-06-30T13:55:41.000Z">2020-06-30</time><span class="level-item"><a class="link-muted" href="/blog/categories/PM/">PM</a><span> / </span><a class="link-muted" href="/blog/categories/PM/System/">System</a></span><span class="level-item">24분 읽기 (대략 3661 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/2020/06/30/Jira-Cloud-Next-Gen-project/">Jira Cloud Next Gen project (차세대 프로젝트) 둘러보기</a></h1><div class="content"><h2 id="Jira-클라우드-Cloud"><a href="#Jira-클라우드-Cloud" class="headerlink" title="Jira 클라우드(Cloud)"></a>Jira 클라우드(Cloud)</h2><p>지난 포스트에서는 Jira 클라우드를 무료로 사용해볼 수 있는 방법을 소개해드렸었습니다.<br>참고: <strong><a href="/blog/2020/06/18/Jira-Cloud-Free-Plan/" title="Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)">Jira 클라우드 무료 플랜 사용하기 (Jira Software Cloud Free Plan)</a></strong><br>이어서 제가 개인 공부 겸, 사용해보고 있는 “차세대 프로젝트(Next Gen)”를 한번 둘러보고 소개드리고자 합니다.</p>
-<h2 id="Jira-Next-Gen"><a href="#Jira-Next-Gen" class="headerlink" title="Jira Next Gen?"></a>Jira Next Gen?</h2><p>현재 Jira에서 개발 진행중인 프로젝트 유형으로 기존 템플릿보다 심플한 유형입니다.<br>이름도 차세대 프로젝트로 기존의 프로젝트 형태와는 다른 모습인데 자세한 내용은 둘러보면서 설명하겠습니다.<br>(기본적인 기능들은 동일하지만, 다른 느낌정도로 이해해주시면 될 것 같습니다.)</p>
-<h2 id="차세대-프로젝트-둘러보기"><a href="#차세대-프로젝트-둘러보기" class="headerlink" title="차세대 프로젝트 둘러보기"></a>차세대 프로젝트 둘러보기</h2><p><img src="https://user-images.githubusercontent.com/5077086/86138660-b43a6300-bb29-11ea-8d0f-c132d62423ed.png" alt="프로젝트 생성 - 클래식 vs 차세대"></p>
-<p>Jira 프로젝트를 생성할 때 어떤 프로젝트 유형을 사용할지 고를 수 있습니다.<br>클래식 프로젝트는 기존에 사용하던 유형이구요. <strong>차세대 프로젝트</strong>가 우리가 살펴볼 프로젝트 유형입니다.</p>
-<h3 id="클래식-프로젝트-차세대-프로젝트-차이"><a href="#클래식-프로젝트-차세대-프로젝트-차이" class="headerlink" title="클래식 프로젝트 / 차세대 프로젝트 차이"></a>클래식 프로젝트 / 차세대 프로젝트 차이</h3><p>프로젝트 생성할 때 설명되어 있는 것을 정리해보았습니다.<br>Classic, Next Gen 기능 상 차이점이 각 프로젝트 별 성격을 잘 보여주는 것 같네요.</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Classic</th>
-<th>Next Gen</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Team</td>
-<td>여러 팀 간의 일관성 제어</td>
-<td>민첩하고 독립적인 팀에 가장 적합함</td>
-</tr>
-<tr>
-<td>Customize</td>
-<td>전체 기능 집합, 고급 구성</td>
-<td>제한된 기능 집합, 더 쉬운 설정</td>
-</tr>
-<tr>
-<td>Admin</td>
-<td>관리자가 설정 및 유지관리</td>
-<td>누구든지 설정 및 유지 관리 가능</td>
-</tr>
-<tr>
-<td>로드맵</td>
-<td>x</td>
-<td>o</td>
-</tr>
-<tr>
-<td>advanced 로드맵</td>
-<td>o</td>
-<td>x</td>
-</tr>
-<tr>
-<td>카드 레이아웃 사용자 지정</br>(카드 레이아웃 커스텀)</td>
-<td>o</td>
-<td>x</td>
-</tr>
-<tr>
-<td>보고서(report)</td>
-<td>20개 이상의 종류</td>
-<td>4개 종류</td>
-</tr>
-<tr>
-<td>예상치</td>
-<td>o</td>
-<td>o (스토리 포인트만)</td>
-</tr>
-<tr>
-<td>워크플로우 편집기</td>
-<td>o</td>
-<td>x</td>
-</tr>
-<tr>
-<td>병렬 스프린트</td>
-<td>o</td>
-<td>x</td>
-</tr>
-<tr>
-<td>세부 권한</td>
-<td>o</td>
-<td>x</td>
-</tr>
-<tr>
-<td>교차 프로젝트 설정</td>
-<td>o</td>
-<td>x</td>
-</tr>
-<tr>
-<td>빠른 필터(Quick Filter)</td>
-<td>o</td>
-<td>x</td>
-</tr>
-</tbody></table>
-<p>위 테이블 내용 중 차세대 프로젝트 기능은 현재 기준으로 기능이 정리되어있으며 아직 개발중인 것들이 많습니다.<br>자세한 내용은 아래 링크에서 보실 수 있습니다.<br><a href="https://www.atlassian.com/ko/software/jira/whats-new/next-gen#overview">https://www.atlassian.com/ko/software/jira/whats-new/next-gen#overview</a></p>
-<blockquote>
-<p>한 가지 다행인 것은, 워크플로우(Workflow) 편집기가 사라진 것은 아니며 아직 개발중인 상태로 2020년에 제공될 예정이라고 하네요.</p>
-</blockquote>
-<p>프로젝트 유형 별로 기능에 대한 기본적인 소개 내용은 Jira 가이드 문서에도 잘 정리가 되어있었습니다.<br><a href="https://www.atlassian.com/ko/software/jira/guides/getting-started/basics">Jira Software 시작하기 가이드 문서</a></p>
-<p>기본적인 기능, 차이점들을 보았으니 실제 모습을 한번 둘러보겠습니다.</p>
-<h3 id="프로젝트-보드"><a href="#프로젝트-보드" class="headerlink" title="프로젝트 보드"></a>프로젝트 보드</h3><p><img src="https://user-images.githubusercontent.com/5077086/86142896-b3f09680-bb2e-11ea-98bf-3ac3ca04cf54.png" alt="차세대 프로젝트 - 칸반 보드"></p>
-<p>저는 우선 개인 작업을 관리하기 위해서 만든 것이어서 스크럼(Scrum)까지는 필요하지 않아 칸반(Kanban) 타입으로 보드를 만들었습니다.<br>기본적인 컬럼 레이아웃, 기능은 클래식 유형과 거의 동일합니다. 다만 차이점에서 살펴보았듯이 몇가지 기능들이 없거나 간소화되었습니다.<br><strong>차세대 프로젝트</strong>에서의 기능을 기준으로 살펴보면 다음과 같습니다.</p>
+        gtag('config', 'UA-45439235-4');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><script data-ad-client="ca-pub-8535740075617154" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="/blog/img/logo.svg" alt="Pineoc&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/categories">Categories</a><a class="navbar-item" href="/blog/tags">Tags</a><a class="navbar-item" href="/blog/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/pineoc"><i class="fab fa-github"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/blog/categories">카테고리</a></li><li><a href="/blog/categories/PM/">PM</a></li><li class="is-active"><a href="#" aria-current="page">System</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/blog/2019/10/12/ScriptRunner-Custom-Field/"><img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/72972150-3fdaf580-3e0e-11ea-998a-108879c7874c.png" alt="ScriptRunner: Custom Field 다루기"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-10-12T07:08:45.000Z" title="2019-10-12T07:08:45.000Z">2019-10-12</time><span class="level-item"><a class="link-muted" href="/blog/categories/PM/">PM</a><span> / </span><a class="link-muted" href="/blog/categories/PM/System/">System</a></span><span class="level-item">9분 읽기 (대략 1287 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/2019/10/12/ScriptRunner-Custom-Field/">ScriptRunner: Custom Field 다루기</a></h1><div class="content"><p>스크립트러너에서 Jira 이슈의 커스텀 필드를 다루는 경우가 많습니다.<br>저는 어떻게 스크립트러너에서 커스텀 필드의 값을 가져오고, 수정하고 있는지 다뤄보겠습니다.</p>
+<h2 id="ScriptRunner란-복습"><a href="#ScriptRunner란-복습" class="headerlink" title="ScriptRunner란? (복습)"></a>ScriptRunner란? (복습)</h2><p>기존에 있는 포스트를 보시면 좋을 것 같습니다.<br>그중에 2번째 포스트에서 설명했던 <code>Script Console</code>에서 실습해보겠습니다.</p>
 <ul>
-<li>이슈의 그룹화 기준, 곧 <strong>스윔레인(swimlane)</strong>은 담당자, 에픽, 하위작업 정도로 나눌 수 있습니다.<ul>
-<li>Classic에 있던 jql에 따라 스윔레인을 나누는 기능은 없습니다. 😂</li>
-</ul>
-</li>
-<li>보드 상단에 있던 빠른 필터(퀵 필터)가 없어서 보드 안에서 특정 조건의 이슈들을 골라서 보기 어렵습니다.<ul>
-<li>보드에서 제목으로 이슈를 검색할 수 있습니다. jql은 안되는 것 같네요.</li>
-</ul>
-</li>
-<li>보드 컬럼을 바로바로 만들 수 있습니다.<ul>
-<li>각 컬럼의 이름이 곧 상태 이름이 됩니다. workflow가 아직 없어서 이슈의 상태 변환이 굉장히 자유롭습니다.</li>
-<li>맨 오른쪽에 있는 컬럼이 완료 컬럼입니다. 이슈가 맨 오른쪽 컬럼으로 움직였다면 그 이슈는 완료된 상태가 되며 보고서에서도 완료된 이슈로 계산될 것 입니다.</li>
-</ul>
-</li>
-<li>보드에 있는 이슈 카드 레이아웃을 설정할 수 없습니다.<ul>
-<li>제목, 우선순위(priority), 스토리 포인트 정도를 볼 수 있네요.</li>
-</ul>
+<li><a href="/blog/2019/04/21/scriptrunner1/" title="ScriptRunner 소개 1">ScriptRunner 소개 1</a></li>
+<li><strong><a href="/blog/2019/04/21/scriptrunner2/" title="ScriptRunner 소개 2">ScriptRunner 소개 2</a></strong></li>
+<li><a href="/blog/2019/04/27/scriptrunner3/" title="ScriptRunner 소개 3">ScriptRunner 소개 3</a></li>
+<li><a href="/blog/2019/05/11/scriptrunner4/" title="ScriptRunner 소개 4">ScriptRunner 소개 4</a>
+
 </li>
 </ul>
-<p>차세대 프로젝트 보드는 기존보다 기능이 간소화되었다는 느낌을 받았습니다. 이렇게 보니 민첩하고 독립적인 팀에 적합하다고 한 것 같네요. 😀</p>
-<h3 id="프로젝트-기능-설정"><a href="#프로젝트-기능-설정" class="headerlink" title="프로젝트 기능 설정"></a>프로젝트 기능 설정</h3><p><img src="https://user-images.githubusercontent.com/5077086/86144957-50b43380-bb31-11ea-834e-bfcda52cb349.png" alt="프로젝트 기능 설정"></p>
-<p>프로젝트에서 사용할 수 있는 기능들을 On/Off 할 수 있도록 되어있는데 처음에는 대부분 꺼져있는 상태입니다.<br>프로젝트 기능 설정은 <strong>프로젝트 설정 &gt; 기능</strong>에서 살펴볼 수 있으며 On/Off 할 수 있습니다.</p>
-<p>저는 로드맵, 백로그, 보고서, 예측, 페이지, 릴리스 및 버전 관리, 이슈 이렇게 기능을 켜서 사용하고 있는데요.<br>간단히 각각 기능들을 짚어보겠습니다.</p>
-<h3 id="로드맵-Roadmap"><a href="#로드맵-Roadmap" class="headerlink" title="로드맵(Roadmap)"></a>로드맵(Roadmap)</h3><p><img src="https://wac-cdn.atlassian.com/dam/jcr:f60a6df0-c521-45e6-ae03-16a868744d63/NG-roadmap-issues-big-picture.png?cdnVersion=1100" alt="이슈들을 한눈에 볼 수 있는 로드맵 from Atlassian"></p>
-<p><img src="https://user-images.githubusercontent.com/5077086/86257440-7eae7c00-bbf4-11ea-9fa6-3523ea0b0376.png" alt="pineoc 개인 로드맵"></p>
-<p>로드맵은 에픽을 기준으로 하위에 있는 이슈들을 계층 구조로 볼 수 있는 기능입니다.<br>모든 작업이 에픽을 기준으로 묶이는 것으로 단순화하여 로드맵이 단순화 되었습니다.</p>
-<blockquote>
-<p>피쳐 작업 또는 단위 기능 기준으로 에픽을 만들고 하위에 태스크 구성하면 한눈에 보기 좋을 것 같습니다.<br>(물론 하위 태스크가 30개 이상이 되어버리면 보기 어려운 것은 기존과 마찬가지겠지만요. 😂)</p>
-</blockquote>
-<p><img src="https://wac-cdn.atlassian.com/dam/jcr:88ea37d3-b61b-469e-a867-095d39dd7df8/NG-roadmap-filters.png?cdnVersion=1100" alt="작업자 또는 상태 기준으로 필터링"></p>
-<p><img src="https://user-images.githubusercontent.com/5077086/86258430-c97cc380-bbf5-11ea-8a05-244b387eb029.png" alt="로드맵 내보내기 - 이미지 내보내기"></p>
-<p>필터링, 내보내기 기능 등 로드맵 쪽에 기능이 몇 가지 있네요.</p>
-<blockquote>
-<p>이미지 내보내기 기능이 쓸모가 크게 있을 것 같지는 않지만, 이미지 공유로 가능하다는 점에서 좋은 것 같네요.</p>
-</blockquote>
-<h3 id="백로그-Backlog"><a href="#백로그-Backlog" class="headerlink" title="백로그(Backlog)"></a>백로그(Backlog)</h3><p><img src="https://user-images.githubusercontent.com/5077086/86259465-02696800-bbf7-11ea-8a3a-4296199a1dbb.png" alt="pineoc 프로젝트 백로그"></p>
-<p>저는 개인 공부/작업의 백로그를 두고 관리하기 위해 사용하고 있습니다.<br>차세대 프로젝트 백로그는 에픽, 버전 별로 필터를 적용하여 볼 수 있습니다.<br>패널도 옆에 켜서 볼 수 있어서 에픽, 버전 별로 하위 작업의 프로그레션을 볼 수 있습니다.</p>
-<p>백로그 중간에 있는 드래그 가능한 바(bar)는 보드 / 백로그 티켓을 바 기준으로 옮길 수 있도록 하는 기능을 합니다.</p>
-<blockquote>
-<p>백로그는 사실 보드 보다는 많이 보지 않지만 필터 기능이 있어서 편하긴 한 것 같습니다. 👍</p>
-</blockquote>
-<h3 id="보고서-Report"><a href="#보고서-Report" class="headerlink" title="보고서(Report)"></a>보고서(Report)</h3><p><img src="https://user-images.githubusercontent.com/5077086/86260394-2da08700-bbf8-11ea-99fa-56f93bd6c070.png" alt="보고서 종류"></p>
-<p>기존 클래식 타입의 프로젝트에는 많은 보고서 타입이 있는데 차세대 프로젝트에는 4개 정도 밖에 없습니다.<br>그와중에 저는 칸반을 사용하고 스프린트를 사용하지 않아서 3개의 보고서는 보지 못하네요. 😂</p>
-<p><img src="https://wac-cdn.atlassian.com/dam/jcr:d45d24e3-35da-4671-950b-901d11493b4e/NG-burndown-report-2.png?cdnVersion=1100" alt="스프린트 번다운 차트 from Atlassian"><br>기능 소개 참고 커뮤니티 포스트: <a href="https://community.atlassian.com/t5/Next-gen-articles/We-are-reinventing-the-Sprint-burndown-for-next-gen-projects/ba-p/1192403">We are reinventing the Sprint burndown for next-gen projects!</a><br>스프린트 번다운 차트는 소개 문서에 있는 내용을 가져왔습니다.</p>
+<h2 id="시스템-테스트-환경"><a href="#시스템-테스트-환경" class="headerlink" title="시스템 테스트 환경"></a>시스템 테스트 환경</h2><p>스크립트러너는 jira 버전에 영향을 좀 받아서 환경도 미리 알고 계셔야합니다.<br>(버전에 따라 내부 함수들이 변경됨에 따라 실제 코드도 조금씩 변경됩니다)</p>
 <ul>
-<li>스프린트 보고서와 번다운 차트를 차세대 제품에서는 단일 보고서로 통합했습니다.</li>
-<li>스프린트 번다운 차트에는 스프린트에서 완료된 작업량과 남은 총 작업량이 표시됩니다.</li>
-<li>또한 과도한 범위 증가를 파악하고 스프린트 회고 시 요약을 제공하는 데에도 유용합니다.</li>
+<li>Jira: Jira Software 8.3.2</li>
+<li>ScriptRunner: 5.6.1.1-jira8</li>
 </ul>
-<blockquote>
-<p>기존보다 세련되었다 정도 밖에 의견을 못남기겠네요.<br>프로젝트 리포트를 현업에서 잘 사용해보지 못해서 그런 것도 있습니다. 😅<br>현업에서도 잘 사용해보고 싶다는 생각을 하며 보고서 기능 소개를 마무리 합니다.<br>(번다운 차트 외, 다른 리포트은 설명 링크 달아두겠습니다.)</p>
-</blockquote>
+<h2 id="커스텀-필드-Custom-Field-값-가져오기"><a href="#커스텀-필드-Custom-Field-값-가져오기" class="headerlink" title="커스텀 필드(Custom Field) 값 가져오기"></a>커스텀 필드(Custom Field) 값 가져오기</h2><p>간단하게 <code>커스텀 필드</code> 값을 가져오는 코드를 보면서 설명하겠습니다.<br>코드는 groovy로 작성하며 Script Console에서 테스트해보았습니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import</span></span><br><span class="line"><span class="keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line"></span><br><span class="line"><span class="comment">// functions</span></span><br><span class="line">String getCustomFieldValue(MutableIssue issue, String cfName) &#123;</span><br><span class="line">  <span class="keyword">def</span> customFieldManager = ComponentAccessor.getCustomFieldManager();</span><br><span class="line">  <span class="keyword">def</span> cfObj = customFieldManager.getCustomFieldObjectsByName(cfName)[<span class="number">0</span>];</span><br><span class="line">  String cfValue = issue.getCustomFieldValue(cfObj);</span><br><span class="line">  <span class="keyword">return</span> cfValue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="string">"PUBGTEST-169"</span>);</span><br><span class="line">getCustomFieldValue(issue, <span class="string">"Translation"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>복사 &amp; 붙여넣기 하시고 <code>이슈 키</code>, <code>커스텀 필드 이름</code>만 바꿔서 입력해주시면<br>해당 이슈의 커스텀 필드 값을 가져올 수 있는 코드입니다.<br>코드에서 중요한 부분만 간단하게 보고 커스텀 필드 값 수정으로 넘어가겠습니다.</p>
+<h3 id="getCustomFieldValue-issue-cfName-함수"><a href="#getCustomFieldValue-issue-cfName-함수" class="headerlink" title="getCustomFieldValue(issue, cfName) 함수"></a>getCustomFieldValue(issue, cfName) 함수</h3><p><code>이슈 오브젝트</code>와 <code>커스텀 필드 이름</code>을 받아 커스텀 필드 값을 반환하는 함수입니다.</p>
+<ol>
+<li>CustomFieldManager를 사용하여 커스텀 필드 오브젝트를 가져옵니다.<ul>
+<li>배열로 가져오는 함수(<code>getCustomFieldObjectsByName()</code>)를 사용하였습니다.</li>
+<li><code>getCustomFieldObjectByName()</code>도 있지만 배열로 가져오는 함수를 권장하고 있습니다.</li>
+<li>같은 이름의 커스텀 필드가 있을 수 있기에 배열로 가져오는 함수를 권장하는 것 같네요.</li>
+</ul>
+</li>
+<li>issue에 있는 함수 <code>getCustomFieldValue()</code>로 커스텀 필드 오브젝트를 이용해 커스텀 필드 값을 가져옵니다.</li>
+<li>커스텀 필드 값을 리턴합니다.</li>
+</ol>
+<h3 id="코드-실행-결과"><a href="#코드-실행-결과" class="headerlink" title="코드 실행 결과"></a>코드 실행 결과</h3><p>Script Console 실행 결과도 보여드리겠습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/66697493-18559680-ed11-11e9-944b-86f4686b1e63.png" alt=""></p>
+<p>콘솔에서는 코드 실행 후 마지막에 있는 오브젝트의 값을 보여줍니다.<br>log에서 출력한 내용은 logs 탭에서 볼 수 있습니다.</p>
+<h2 id="커스텀-필드-Custom-Field-값-수정하기"><a href="#커스텀-필드-Custom-Field-값-수정하기" class="headerlink" title="커스텀 필드(Custom Field) 값 수정하기"></a>커스텀 필드(Custom Field) 값 수정하기</h2><p>커스텀 필드의 값을 확인했으니 수정도 해볼 수 있어야겠죠?!<br>값을 가져오는 것보다 코드가 조금 더 추가됩니다.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import</span></span><br><span class="line"><span class="keyword">import</span> com.atlassian.jira.event.type.EventDispatchOption</span><br><span class="line"><span class="keyword">import</span> com.atlassian.jira.component.ComponentAccessor;</span><br><span class="line"><span class="keyword">import</span> com.atlassian.jira.issue.MutableIssue;</span><br><span class="line"></span><br><span class="line"><span class="comment">// functions</span></span><br><span class="line">String getCustomFieldValue(MutableIssue issue, String cfName) &#123;</span><br><span class="line">  <span class="keyword">def</span> customFieldManager = ComponentAccessor.getCustomFieldManager();</span><br><span class="line">  <span class="keyword">def</span> cfObj = customFieldManager.getCustomFieldObjectsByName(cfName)[<span class="number">0</span>];</span><br><span class="line">  String cfValue = issue.getCustomFieldValue(cfObj);</span><br><span class="line">  <span class="keyword">return</span> cfValue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">def</span> setCustomFieldValue(MutableIssue issue, String cfName, String str) &#123;</span><br><span class="line">  <span class="keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">  <span class="keyword">def</span> customFieldManager = ComponentAccessor.getCustomFieldManager();</span><br><span class="line">  <span class="keyword">def</span> user = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();</span><br><span class="line">  <span class="keyword">def</span> cfObj = customFieldManager.getCustomFieldObjectsByName(cfName)[<span class="number">0</span>];</span><br><span class="line">  issue.setCustomFieldValue(cfObj, str);</span><br><span class="line">  issueMgr.updateIssue(user, issue, EventDispatchOption.DO_NOT_DISPATCH, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> issueMgr = ComponentAccessor.getIssueManager();</span><br><span class="line">MutableIssue issue = issueMgr.getIssueObject(<span class="string">"PUBGTEST-169"</span>);</span><br><span class="line">setCustomFieldValue(issue, <span class="string">"Translation"</span>, <span class="string">"TEST"</span>);</span><br><span class="line">getCustomFieldValue(issue, <span class="string">"Translation"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>앞서 값을 가져오는 코드와 마찬가지로 “TEST”에 있는 값을 바꾸면 적용해보실 수 있습니다.<br>다만 주의하실 점은 커스텀 필드의 타입이 텍스트 타입이어야합니다.<br>Label, Checkbox 등 다른 타입일 경우에는 <strong>동작하지 않는</strong> 코드입니다.</p>
+<h3 id="setCustomFieldValue-issue-cfName-str"><a href="#setCustomFieldValue-issue-cfName-str" class="headerlink" title="setCustomFieldValue(issue, cfName, str)"></a>setCustomFieldValue(issue, cfName, str)</h3><p>값을 가져오는 코드와 다른 부분만 설명드리겠습니다.</p>
 <ul>
-<li>번업 차트(Burnup Chart): <a href="https://support.atlassian.com/jira-software-cloud/docs/view-and-understand-the-burnup-chart/">View and understand the burnup chart</a></li>
-<li>속도 차트(Velocity Chart): <a href="https://support.atlassian.com/jira-software-cloud/docs/view-and-understand-the-velocity-chart/">View and understand the velocity chart</a></li>
+<li>issueMgr: 이슈 매니저로 이슈 업데이트를 위해 함수 내에 선언합니다.</li>
+<li>usr: 이슈 업데이트를 하려면 업데이트하는 사용자 오브젝트가 필요하여 선언합니다.</li>
+<li>issue.setCustomFieldValue(cfObj, str);<ul>
+<li>이 함수를 통해 커스텀 필드 값이 변경됩니다.</li>
+<li>이 코드만 실행할 경우, 실제 반영은 되지 않습니다. (함수 동작시에만 변경됨)</li>
 </ul>
+</li>
+<li>issueMgr.updateIssue()<ul>
+<li>이 함수를 통해 앞에서 setCustomFieldValue()에서 변경된 내용이 반영됩니다.</li>
+</ul>
+</li>
+</ul>
+<p>커스텀 필드 수정과 관련한 질문은 Google에 검색만 하더라도 많이 나옵니다.<br>(첫번째 글을 보시는 것을 추천합니다.)</p>
+<ul>
+<li><a href="https://community.atlassian.com/t5/Jira-questions/Set-custom-field-value-Script-Runner/qaq-p/1042485">community.atlassian.com/Set-custom-field-value-Script-Runner</a></li>
+<li><a href="https://community.atlassian.com/t5/Marketplace-Apps-Integrations/Basic-method-to-update-a-custom-field-with-Scriptrunner/qaq-p/362875">community.atlassian.com/Basic-method-to-update-a-custom-field-with-Scriptrunner</a></li>
+</ul>
+<h3 id="코드-실행-결과-1"><a href="#코드-실행-결과-1" class="headerlink" title="코드 실행 결과"></a>코드 실행 결과</h3><p><img src="https://user-images.githubusercontent.com/5077086/66698085-edba0c80-ed15-11e9-9199-5ea5e16afde5.png" alt=""></p>
+<p>실제로 TEST로 변경된 것을 볼 수 있습니다.</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>이렇게 스크립트러너로 Jira 이슈의 커스텀 필드를 다뤄보았습니다.<br>처음에는 어려울 수 있지만 조금씩 다뤄보면 그렇게 어렵지 않습니다.<br>쉽게 따라하고 적용해보실 수 있는 내용으로 추가 포스트해보겠습니다.</p>
+<p>감사합니다. :)</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/blog/2019/10/09/Jira-Software-8-4-release-notes/"><img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.4 릴리스 노트"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-10-09T07:10:20.000Z" title="2019-10-09T07:10:20.000Z">2019-10-09</time><span class="level-item"><a class="link-muted" href="/blog/categories/PM/">PM</a><span> / </span><a class="link-muted" href="/blog/categories/PM/System/">System</a></span><span class="level-item">6분 읽기 (대략 840 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/2019/10/09/Jira-Software-8-4-release-notes/">Jira Software 8.4 릴리스 노트</a></h1><div class="content"><h2 id="Jira-Software-8-4-릴리스-노트"><a href="#Jira-Software-8-4-릴리스-노트" class="headerlink" title="Jira Software 8.4 릴리스 노트"></a>Jira Software 8.4 릴리스 노트</h2><p>Jira Software 8.4.x 릴리스 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-4-x-release-notes-975017507.html">https://confluence.atlassian.com/jirasoftware/jira-software-8-4-x-release-notes-975017507.html</a></p>
+<p>2019년 9월에 릴리스된 Jira Software 8.4 기능에 대해 살펴보는 포스트입니다.<br>위 릴리스 노트에서 자세한 내용을 보실 수 있으며, 이 포스트는 주관적인 생각을 담고 있습니다.</p>
+<h3 id="하이라이트-Highlights"><a href="#하이라이트-Highlights" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
+<li>Archived issues taken to the next level (Data Center)</li>
+<li><strong>Better email notifications, right from the start</strong></li>
+<li><strong>Filters in Multi User picker Custom field</strong></li>
+<li><strong>External links open in a new tab</strong></li>
+<li>Jira becomes more accessible</li>
+<li>A large number of versions is OK for boards</li>
+<li><strong>Time tracking in bulk edit</strong></li>
+<li>Open links in your mobile app</li>
+<li><strong>Jira Docker</strong></li>
+<li>New supported databases</li>
+</ul>
+<p>이번 8.4 릴리스는 하이라이트 리스트만 봐도 내용이 많긴하네요.<br>몇가지는 시스템 설정 관련 내용이긴 하지만 한번 보겠습니다.</p>
+<h3 id="Better-email-notifications-right-from-the-start"><a href="#Better-email-notifications-right-from-the-start" class="headerlink" title="Better email notifications, right from the start"></a>Better email notifications, right from the start</h3><p>8.0 버전에 들어갔던 Batch 이메일 알림에 대한 추가 개선 내용했고, 이 내용이 기본 설정으로 변경되었습니다.<br>기본 템플릿이 있지만 추가적으로 커스텀하게 알림 받고 싶은 것에 대해 설정할 수 있게되었기도 합니다.</p>
+<ul>
+<li><a href="https://confluence.atlassian.com/adminjiraserver/customizing-email-content-batched-notifications-976770772.html">customizing-email-content-batched-notifications</a></li>
+<li><a href="https://confluence.atlassian.com/adminjiraserver/adding-custom-fields-to-emails-batched-notifications-968669988.html">adding-custom-fields-to-emails-batched-notifications</a></li>
+</ul>
+<p>다만 시스템 설정 상에서 쉽게 변경할 수는 없고 Velocity template이라는 것을 수정해야한다고 합니다.<br>나중에 관련해서 세팅하는 방법을 따로 포스트해봐야겠습니다.<br>(저도 아직 사용해보지 않아서 얼마나 힘들지 모르겠네요.)</p>
+<h3 id="Filters-in-Multi-User-picker-Custom-field"><a href="#Filters-in-Multi-User-picker-Custom-field" class="headerlink" title="Filters in Multi User picker Custom field"></a>Filters in Multi User picker Custom field</h3><p>릴리스 노트에 있는 내용 그대로 들고와보았습니다. 유저 요청에 따라 추가된 기능이라고 하네요.</p>
 <blockquote>
-<p>위 2개 보고서는 따로 클래식, 차세대 나눠서 볼 필요는 없어서 클래식에 있는 내용을 공유드립니다.</p>
+<p>In response to user requests, we’ve made it possible to limit the multi user picker custom field to hold only specific set of users.<br>This is to prevent sending notifications to random users as a result of mistyping user names.<br>This adds to the overall security of issues.</p>
 </blockquote>
-<h3 id="예측-Estimation"><a href="#예측-Estimation" class="headerlink" title="예측(Estimation)"></a>예측(Estimation)</h3><p>예측이라고 적어두니까 특별한 기능이 있는 것 처럼 보이지만 사실은 <strong>스토리 포인트</strong> 기능을 의미합니다.<br>클래식과 차세대에서 예측(estimation) 기능의 큰 차이는 없습니다.<br>클래식에서는 스토리 포인트 외에 다른 필드 값을 사용할 수 있다는 점 정도가 다릅니다.<br>(스토리 포인트, Original time estimate, 이슈 수, 커스텀 필드를 사용할 수 있습니다)</p>
-<blockquote>
-<p>예측 설정으로 스토리 포인트를 통해 번다운 차트나 속도 차트를 볼 수 있습니다.</p>
-</blockquote>
-<h3 id="페이지-Page"><a href="#페이지-Page" class="headerlink" title="페이지(Page)"></a>페이지(Page)</h3><p><img src="https://user-images.githubusercontent.com/5077086/86265863-524c2d00-bbff-11ea-929c-e42b09aacb3e.png" alt=""></p>
-<p>이 기능은 사실 컨플루언스와 연동해서 사용할 수 있는 기능입니다.<br>Jira 프로젝트와 연결되어 관련 문서를 바로 볼 수 있다는 점은 좋은 것 같습니다.<br>(사실 그냥 컨플루언스 기능을 연결한 정도여서 따로 살펴볼 내용은 없네요.)</p>
-<blockquote>
-<p>저는 Jira 무료 사용자인데 페이지 기능을 사용하려면 Confluence는 Jira와 다른 제품이라서 사용하려면 추가 구매해야합니다.<br>저는 테스트를 위해 30일 무료 테스트(free trial)를 해보고 있습니다.<br>UI가 세련되서 좋긴한데 개인적으로는 차세대 프로젝트에 꼭 필요한 기능으로는 생각되지 않네요.<br>접근성을 높혔다는 점이 좋은 것 같습니다.</p>
-</blockquote>
-<h3 id="릴리스-및-버전-관리-Release-and-Version"><a href="#릴리스-및-버전-관리-Release-and-Version" class="headerlink" title="릴리스 및 버전 관리(Release and Version)"></a>릴리스 및 버전 관리(Release and Version)</h3><p><img src="https://wac-cdn.atlassian.com/dam/jcr:ea56a241-8746-44cd-89ce-20c39a7570f1/NG-versions.png?cdnVersion=1102" alt=""></p>
-<p>작업한 버그나 태스크들을 버전에 맞게 플래닝, 정리할 수 있는 버전 관리입니다.<br>버전별로 출시할 내용들을 릴리스 버전을 통해 관리하는 것이죠.<br>기존 클래식 버전과 다른 점은 각 릴리스 버전을 누르면 버전이 입력된 이슈들을 보여주는 릴리스 페이지가 보이는 것이 아닌 이슈 검색 화면으로 이동한다는 점입니다.</p>
-<p><img src="https://user-images.githubusercontent.com/5077086/86487455-1baa1a00-bd99-11ea-9c2d-69c9841d4f30.png" alt="클래식 프로젝트 - 릴리스"></p>
-<p><img src="https://user-images.githubusercontent.com/5077086/86487613-8e1afa00-bd99-11ea-8bdd-91cee0029a59.png" alt="차세대 프로젝트 - 릴리스/이슈 검색 화면으로 이동한 모습"></p>
-<blockquote>
-<p>기존 사용방법과 달라서 잠시 혼란이 있었지만 굳이 버전 페이지가 따로 있어야하는지는 한번 더 생각해보게 되었네요.<br>사실 저는 클래식 버전의 릴리스 버전 화면이 마음에 듭니다. 😀</p>
-</blockquote>
-<h3 id="이슈-Issue"><a href="#이슈-Issue" class="headerlink" title="이슈(Issue)"></a>이슈(Issue)</h3><p><img src="https://wac-cdn.atlassian.com/dam/jcr:3e0dcd34-6686-46fd-be7b-3ed6a5a0465d/All%20issues%20in%20project-april.png?cdnVersion=1109" alt="차세대 프로젝트 - 이슈 탐색기"></p>
-<p><a href="https://community.atlassian.com/t5/Next-gen-articles/Introducing-issue-navigator-in-next-gen-projects/ba-p/1339049">https://community.atlassian.com/t5/Next-gen-articles/Introducing-issue-navigator-in-next-gen-projects/ba-p/1339049</a><br>“프로젝트 이슈 탐색기로 차세대 탐색 및 검색이 훨씬 더 간편해집니다. 텍스트 검색을 사용하거나 담당자, 보고자, 상태별로 필터링하여 프로젝트에서 이슈를 검색하세요. 다양한 기준으로 목록을 정렬하여 해당 목록에서 이슈를 바로 수정할 수 있습니다.”</p>
-<p>기존 클래식 프로젝트의 경우 “이슈” 메뉴를 누르면 바로 필터 메뉴로 넘어가서 검색할 수 있도록 되는데요.<br>차세대 프로젝트에서는 담당자, 보고자, 상태, 유형 별로 정렬해볼 수 있어서 좋은 것 같습니다.<br>하나하나 검색하는 것 보다 접근성이 좋아졌네요.</p>
-<blockquote>
-<p>이슈 기능은 바로 필터링해서 볼 수 있는 기능이 생겨서 사용성은 좋아진 것 같습니다.<br>이슈의 수가 많아지면 빠르게 동작할 수 있을지 모르겠지만요. 올해 프로젝트 사용해보면서 더 정리해봐야겠네요.</p>
-</blockquote>
-<h2 id="차세대-프로젝트-정리"><a href="#차세대-프로젝트-정리" class="headerlink" title="차세대 프로젝트 정리"></a>차세대 프로젝트 정리</h2><p>지금까지 차세대 프로젝트에 어떤 기능들이 있는지, 어떻게 달라졌는지 살펴보았는데요.<br>충분한 설명이 되었는지 모르겠습니다.<br>저도 프로젝트를 생성해서 테스트한지 한달 정도 되어서 더 사용해봐야 유용한 정보들을 소개드릴 수 있을 것 같네요.<br>향후 추가될 기능들도 기대가 되서 업데이트될 때마다 공유드리면 좋을 것 같네요.<br>긴 글 읽어주셔서 감사합니다. 🙇‍♂️</p>
-</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/blog/categories/PM/System/page/3/">이전</a></div><div class="pagination-next"><a href="/blog/categories/PM/System/page/5/">다음</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/blog/categories/PM/System/">1</a></li><li><a class="pagination-link" href="/blog/categories/PM/System/page/2/">2</a></li><li><a class="pagination-link" href="/blog/categories/PM/System/page/3/">3</a></li><li><a class="pagination-link is-current" href="/blog/categories/PM/System/page/4/">4</a></li><li><a class="pagination-link" href="/blog/categories/PM/System/page/5/">5</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/blog/categories/PM/System/page/25/">25</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/36b2e11dada89a7d6bbb916157ab57ea?s=128" alt="Pineoc"></figure><p class="title is-size-4 is-block line-height-inherit">Pineoc</p><p class="is-size-6 is-block">PM &amp; Developer</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/blog/archives"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/blog/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/blog/tags"><p class="title">21</p></a></div></div></nav></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/blog/categories/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/Life/"><span class="level-start"><span class="level-item">Life</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/blog/categories/Life/Book/"><span class="level-start"><span class="level-item">Book</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/Life/IoT/"><span class="level-start"><span class="level-item">IoT</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/blog/categories/PM/"><span class="level-start"><span class="level-item">PM</span></span><span class="level-end"><span class="level-item tag">31</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/blog/categories/PM/Framework/"><span class="level-start"><span class="level-item">Framework</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/PM/System/"><span class="level-start"><span class="level-item">System</span></span><span class="level-end"><span class="level-item tag">25</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/PM/Work/"><span class="level-start"><span class="level-item">Work</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/blog/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">9</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/blog/categories/Tech/Javascript/"><span class="level-start"><span class="level-item">Javascript</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/Tech/Program-Service/"><span class="level-start"><span class="level-item">Program&amp;Service</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><a class="media-left" href="/blog/2020/11/01/Atlassian-Jira-Clound/"><p class="image is-64x64"><img class="thumbnail" src="https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/upcoming-changes-to-server-products@2x-300x197.png" alt="Atlassian 서비스 Clound 전환 선언!"></p></a><div class="media-content size-small"><p><time dateTime="2020-11-01T07:31:15.000Z">2020-11-01</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/11/01/Atlassian-Jira-Clound/">Atlassian 서비스 Clound 전환 선언!</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/PM/">PM</a> / <a class="link-muted" href="/blog/categories/PM/System/">System</a></p></div></article><article class="media"><a class="media-left" href="/blog/2020/10/25/Atlassian-playbook-DACI/"><p class="image is-64x64"><img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:e7903b3d-0efb-41b5-8ae7-d668b6c6281d/DACI.png?cdnVersion=1316" alt="Atlassian playbook - DACI 프레임워크"></p></a><div class="media-content size-small"><p><time dateTime="2020-10-25T06:43:13.000Z">2020-10-25</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/10/25/Atlassian-playbook-DACI/">Atlassian playbook - DACI 프레임워크</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/PM/">PM</a> / <a class="link-muted" href="/blog/categories/PM/Framework/">Framework</a></p></div></article><article class="media"><a class="media-left" href="/blog/2020/10/18/Confluence-7-0-7-8-Release-notes/"><p class="image is-64x64"><img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/96360171-853a1280-1155-11eb-9895-cd15add31f09.png" alt="Confluence 7.0~7.8 Release notes"></p></a><div class="media-content size-small"><p><time dateTime="2020-10-18T06:09:59.000Z">2020-10-18</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/10/18/Confluence-7-0-7-8-Release-notes/">Confluence 7.0~7.8 Release notes</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/PM/">PM</a> / <a class="link-muted" href="/blog/categories/PM/System/">System</a></p></div></article><article class="media"><a class="media-left" href="/blog/2020/09/29/Book-review-Engineering-7-year-Manager-1-day/"><p class="image is-64x64"><img class="thumbnail" src="https://image.yes24.com/goods/87336637/800x0" alt="Book review: 개발 7년차, 매니저 1일차"></p></a><div class="media-content size-small"><p><time dateTime="2020-09-29T08:14:19.000Z">2020-09-29</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/09/29/Book-review-Engineering-7-year-Manager-1-day/">Book review: 개발 7년차, 매니저 1일차</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/Life/">Life</a> / <a class="link-muted" href="/blog/categories/Life/Book/">Book</a></p></div></article><article class="media"><a class="media-left" href="/blog/2020/09/06/Jira-Software-8-10-8-12-release-notes/"><p class="image is-64x64"><img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.10~8.12 release notes"></p></a><div class="media-content size-small"><p><time dateTime="2020-09-06T11:53:57.000Z">2020-09-06</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/09/06/Jira-Software-8-10-8-12-release-notes/">Jira Software 8.10~8.12 release notes</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/PM/">PM</a> / <a class="link-muted" href="/blog/categories/PM/System/">System</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Advertisement</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8535740075617154" data-ad-slot="8690513316" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="card"><div class="card-content"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({ id:330412 });</script></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="/blog/img/logo.svg" alt="Pineoc&#039;s Blog" height="28"></a><p class="size-small"><span>&copy; 2020 Pineoc</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+<p><img src="https://confluence.atlassian.com/jirasoftware/files/975017507/975017552/1/1563959636990/Screen+Shot+2019-07-24+at+11.04.16.png" alt=""></p>
+<p>추가된 기능은 필터에 멀티 유저 피커 커스텀 필드 내용을 추가하여 사용할 수 있는 기능입니다.<br>필터에 다른 유저를 잘못 입력하는 것을 방지할 수 있는 기능 같네요.</p>
+<h3 id="External-links-open-in-a-new-tab"><a href="#External-links-open-in-a-new-tab" class="headerlink" title="External links open in a new tab"></a>External links open in a new tab</h3><p>YourUserProfile &gt; Profile &gt; Preferences &gt; External links 메뉴에서<br>외부 링크를 항상 새로운 탭에서 볼 수 있는 옵션을 제공합니다.</p>
+<h3 id="Time-tracking-in-bulk-edit"><a href="#Time-tracking-in-bulk-edit" class="headerlink" title="Time tracking in bulk edit"></a>Time tracking in bulk edit</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/975017507/976163716/1/1566286925646/image__6___1_.png" alt=""><br>Time tracking 필드의 벌크(bulk) 수정이 가능한 기능이 추가되었습니다.<br>일괄적으로 추정 시간, 남은 시간을 변경하는 데에 좋을 것 같습니다.</p>
+<h3 id="Jira-Docker"><a href="#Jira-Docker" class="headerlink" title="Jira Docker"></a>Jira Docker</h3><p>Jira 서버 버전 및 데이터 센터 버전을 Docker 컨테이너로 사용할 수 있도록 공식 지원한다고 합니다.<br>자세한 내용은 링크에서 보실 수 있습니다. <a href="https://hub.docker.com/u/atlassian">https://hub.docker.com/u/atlassian</a><br>Jira 외에 컨플루언스, 파이프라인 등 다른 이미지들도 있어서 시스템 구성시 사용해볼 수 있을 것 같습니다.</p>
+<ul>
+<li>Jira Software: <a href="https://hub.docker.com/r/atlassian/jira-software">https://hub.docker.com/r/atlassian/jira-software</a></li>
+<li>Jira Core: <a href="https://hub.docker.com/r/atlassian/jira-core">https://hub.docker.com/r/atlassian/jira-core</a></li>
+</ul>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>8.4 릴리스는 8.5 릴리스 전에 많이 개선된 느낌이 있네요.<br>Docker 이미지가 추가된 것도 좋은 업데이트 사항이었고 향후 있을 8.5 릴리스 내용도 기대가됩니다.</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/blog/2019/10/06/Jira-Software-8-3-release-notes/"><img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.3 릴리스 노트"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-10-06T09:15:03.000Z" title="2019-10-06T09:15:03.000Z">2019-10-06</time><span class="level-item"><a class="link-muted" href="/blog/categories/PM/">PM</a><span> / </span><a class="link-muted" href="/blog/categories/PM/System/">System</a></span><span class="level-item">4분 읽기 (대략 639 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/2019/10/06/Jira-Software-8-3-release-notes/">Jira Software 8.3 릴리스 노트</a></h1><div class="content"><h2 id="Jira-Software-8-3-릴리스-노트"><a href="#Jira-Software-8-3-릴리스-노트" class="headerlink" title="Jira Software 8.3 릴리스 노트"></a>Jira Software 8.3 릴리스 노트</h2><p>Jira Software 8.3.x 릴리스 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-3-x-release-notes-972326971.html">https://confluence.atlassian.com/jirasoftware/jira-software-8-3-x-release-notes-972326971.html</a></p>
+<p>2019년 7월에 릴리스된 Jira Software 8.3 기능에 대해 살펴보는 포스트입니다.<br>위 릴리스 노트에서 자세한 내용을 보실 수 있으며, 이 포스트는 주관적인 생각을 담고 있습니다.</p>
+<h3 id="하이라이트-Highlights"><a href="#하이라이트-Highlights" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
+<li><strong>Jira Server mobile app</strong></li>
+<li>Content Delivery Network (CDN) for Jira Data Center</li>
+<li>AdoptOpenJDK JRE bundled with JIRA</li>
+<li>List of custom changes after upgrade</li>
+<li><strong>New filters to search for custom fields</strong></li>
+<li>Browsing projects is faster now</li>
+<li><strong>Improvements to batching emails</strong></li>
+<li>Cluster lock mechanism improved in Data Center</li>
+<li><strong>Re-indexing made better</strong></li>
+</ul>
+<h3 id="Jira-Server-mobile-app"><a href="#Jira-Server-mobile-app" class="headerlink" title="Jira Server mobile app"></a>Jira Server mobile app</h3><p>8.0 버전에서 베타로 있었던 Jira 모바일 앱이 8.3 버전에서 부터 정식 버전으로 오픈되었습니다!<br>자세한 사항은 따로 페이지가 만들어져 있네요. (<a href="https://confluence.atlassian.com/jirasoftwareserver/jira-server-mobile-app-966063511.html">링크</a>)</p>
+<ul>
+<li>Android: <a href="https://play.google.com/store/apps/details?id=com.atlassian.jira.server">https://play.google.com/store/apps/details?id=com.atlassian.jira.server</a></li>
+<li>iOS: <a href="https://apps.apple.com/us/app/id1405353949">https://apps.apple.com/us/app/id1405353949</a></li>
+</ul>
+<p>모바일 웹뷰보다는 잘 보이는 것들이 많습니다.<br>저는 모바일 폰 보다 패드에서는 시원하게 보이는 것들이 많아서 편하게 사용하고 있습니다.<br>실제로 컴퓨터로 보는게 더 편한 것들이 많은 것은 넘어가겠습니다. :)</p>
+<h3 id="New-filters-to-search-for-custom-fields"><a href="#New-filters-to-search-for-custom-fields" class="headerlink" title="New filters to search for custom fields"></a>New filters to search for custom fields</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/972326971/972352770/2/1567587244325/Screenshot+2019-06-04+at+10.26.15.png" alt=""></p>
+<p>시스템 설정 &gt; 이슈의 커스텀 필드를 검색하는데에 편의를 위해 필터가 생겼습니다.<br>이 기능으로 커스텀 필드를 골라서 보는 데에 조금 더 빠르고 편리하게 수정할 수 있게되었습니다.</p>
+<ul>
+<li>특정 프로젝트가 사용하는 커스텀 필드</li>
+<li>커스텀 필드 타입</li>
+<li>특정 스크린이 사용하는 커스텀 필드</li>
+</ul>
+<h3 id="Re-indexing-made-better"><a href="#Re-indexing-made-better" class="headerlink" title="Re-indexing made better"></a>Re-indexing made better</h3><p>커스텀 필드 추가나 이슈 필드 수정이 있으면 항상 따라오는 리인덱싱!<br>이 내용은 데이터 센터 버전에 해당하는 내용이라고 하네요.<br>리인덱싱을 진행할 때, 데이터 센터 노드 별로 진행하는 사항 등에 대한 경고로 실수를 막을 수 있도록 했다고 합니다.</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>이번 8.3 릴리스는 데이터 센터 업데이트 스펙이 많은 것 같습니다.<br>서버 버전 사용자 측면에서는 큰 변화는 없으나 시스템 관리자가 편해진 내용도 있었습니다.<br>큰 스펙으로는 서버 버전의 모바일 앱을 정식으로 지원하게 되었다는 것!</p>
+<p>다음 버전에는 어떤 기능들이 추가될지 기대하며 포스트 마치겠습니다.</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/blog/2019/10/06/Jira-Software-8-2-release-notes/"><img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.2 릴리스 노트"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-10-06T05:54:49.000Z" title="2019-10-06T05:54:49.000Z">2019-10-06</time><span class="level-item"><a class="link-muted" href="/blog/categories/PM/">PM</a><span> / </span><a class="link-muted" href="/blog/categories/PM/System/">System</a></span><span class="level-item">4분 읽기 (대략 555 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/2019/10/06/Jira-Software-8-2-release-notes/">Jira Software 8.2 릴리스 노트</a></h1><div class="content"><h2 id="Jira-Software-8-2-릴리스-노트"><a href="#Jira-Software-8-2-릴리스-노트" class="headerlink" title="Jira Software 8.2 릴리스 노트"></a>Jira Software 8.2 릴리스 노트</h2><p>Jira Software 8.2.x 릴리스 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-2-x-release-notes-968676271.html">https://confluence.atlassian.com/jirasoftware/jira-software-8-2-x-release-notes-968676271.html</a></p>
+<p>2019년 5월에 릴리스된 Jira Software 8.2 기능에 대해 살펴보는 포스트입니다.<br>위 릴리스 노트에서 자세한 내용을 보실 수 있으며, 이 포스트는 주관적인 생각을 담고 있습니다.</p>
+<h3 id="하이라이트-Highlights"><a href="#하이라이트-Highlights" class="headerlink" title="하이라이트 (Highlights)"></a>하이라이트 (Highlights)</h3><ul>
+<li><strong>Filters on the Export archived issues page</strong></li>
+<li><strong>Color updates for issue statuses</strong></li>
+<li>Support for Java 11</li>
+<li>Support for Microsoft SQL Server 2017</li>
+<li>Updating apps has never been easier</li>
+<li><strong>Exporting all the issues you need</strong></li>
+</ul>
+<p>하이라이트 내용에서는 Jira 서비스를 사용하는 사람 입장에서 주요한 기능들만 강조해보았습니다.<br>(그 외의 내용은 시스템 관리자가 봐야할 내용이라서 건너뛰겠습니다. :))</p>
+<h3 id="Filters-to-limit-the-number-of-archived-issues-you-export"><a href="#Filters-to-limit-the-number-of-archived-issues-you-export" class="headerlink" title="Filters to limit the number of archived issues you export"></a>Filters to limit the number of archived issues you export</h3><p>데이터 센터 버전에서 사용할 수 있는 기능입니다.<br>익스포트하려는 아카이브된 이슈의 수를 제한할 수 있는 기능입니다.<br>(저는 서버 설치 버전을 사용하고 있어 해당 기능이 정확히 어떤 기능을 하는지 모르겠습니다.)<br>자세한 내용은 <a href="https://confluence.atlassian.com/adminjiraserver/archiving-an-issue-968669980.html">아카이빙 이슈</a>에서 참고해주세요.</p>
+<h3 id="Color-updates-for-issue-statuses"><a href="#Color-updates-for-issue-statuses" class="headerlink" title="Color updates for issue statuses"></a>Color updates for issue statuses</h3><p>간단하게 설명하면 이슈들의 상태 카테고리 색깔이 변경되었습니다.<br>서버 버전과 클라우드 버전의 일관성을 맞추기 위해서 바꾸었다고 하네요.<br><img src="https://confluence.atlassian.com/jirasoftware/files/968676271/974366138/1/1562355537865/new+statuses+for+documentation.png" alt="전, 후"></p>
+<p>노란색은 사라지고 파란색이 더 강조된 느낌입니다.</p>
+<h3 id="Exporting-all-the-issues-you-need"><a href="#Exporting-all-the-issues-you-need" class="headerlink" title="Exporting all the issues you need"></a>Exporting all the issues you need</h3><p>기존에는 1000개까지 밖에 안되었던 이슈 익스포트가 최적화를 통해 더 많은 양을 익스포트할 수 있게되었습니다.<br>다만 이 제한 설정은 시스템 관리자가 설정할 수 있습니다.<br>System &gt; Advanced Settings &gt; <code>jira.search.views.max.limit</code></p>
+<p><img src="https://user-images.githubusercontent.com/5077086/66265123-d9749c00-e84b-11e9-8083-24cfe7475e12.png" alt=""></p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>8.2 릴리스는 변경사항이 그렇게 많지 않네요.<br>그 외에 버그 수정사항도 약간 있으니 자세한 내용인 실제 릴리스 노트 링크를 참고해보세요!</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/blog/2019/09/02/Jira-8-1-Upgrade-Contents/"><img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.1 릴리스 노트"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2019-09-01T15:05:55.000Z" title="2019-09-01T15:05:55.000Z">2019-09-02</time><span class="level-item"><a class="link-muted" href="/blog/categories/PM/">PM</a><span> / </span><a class="link-muted" href="/blog/categories/PM/System/">System</a></span><span class="level-item">9분 읽기 (대략 1414 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/2019/09/02/Jira-8-1-Upgrade-Contents/">Jira Software 8.1 릴리스 노트</a></h1><div class="content"><h2 id="Jira-Software-8-1-릴리스-노트"><a href="#Jira-Software-8-1-릴리스-노트" class="headerlink" title="Jira Software 8.1 릴리스 노트"></a>Jira Software 8.1 릴리스 노트</h2><p>Jira Software 8.1.x 릴리스 노트: <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-1-x-release-notes-966669112.html">https://confluence.atlassian.com/jirasoftware/jira-software-8-1-x-release-notes-966669112.html</a></p>
+<p>지난 4월에 릴리스된 Jira Software 8.1 기능에 대해 살펴보는 포스트입니다.<br>위 릴리스 노트에서 자세한 내용을 보실 수 있으며, 이 포스트는 주관적인 생각을 담고 있습니다.</p>
+<h3 id="하이라이트"><a href="#하이라이트" class="headerlink" title="하이라이트"></a>하이라이트</h3><p>하이라이트 기능으로는 아래 리스트와 같습니다. 하나하나 살펴보겠습니다!</p>
+<ul>
+<li>Issue archiving (Jira Data Center)</li>
+<li>Managing old components</li>
+<li>Development info on issue cards</li>
+<li>Flexible boards</li>
+<li>More performance improvements</li>
+<li>Jira Data Center on Microsoft Azure</li>
+<li>New JMX metrics</li>
+<li>Small improvements to make your day</li>
+<li>Resolved issues</li>
+</ul>
+<h3 id="Issue-archiving-Jira-Data-Center"><a href="#Issue-archiving-Jira-Data-Center" class="headerlink" title="Issue archiving (Jira Data Center)"></a>Issue archiving (Jira Data Center)</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/966669112/968658741/1/1553854467925/issuearchiving.png" alt="Issue archiving"></p>
+<p>위 이미지 처럼 이슈를 아카이브 할 수 있는 기능입니다. 다만 Data center만 가능한 기능입니다.<br>자세한 내용은 아래 링크를 참고하세요.<br><a href="https://confluence.atlassian.com/adminjiraserver/archiving-an-issue-968669980.html">https://confluence.atlassian.com/adminjiraserver/archiving-an-issue-968669980.html</a></p>
+<h3 id="Managing-old-components"><a href="#Managing-old-components" class="headerlink" title="Managing old components"></a>Managing old components</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/966669112/967343327/1/1552057157649/image-20190213-122213.png" alt="Managing old components"></p>
+<p>기존에는 컴포넌트를 삭제하는 방식으로 컴포넌트를 관리할 수 있었는데 한가지 추가 옵션이 생겼습니다.<br>아카이브하여 해당 컴포넌트는 아카이브되었다는 것을 보여줄 수 있게 되었네요.<br>입력된 컴포넌트가 아카이브될 경우, 선택 옵션에서는 선택할 수 없으나 이미 입력된 것은 유지됩니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/64077887-a81a2500-cd0f-11e9-9f2f-45e920523a4a.png" alt=""></p>
+<h3 id="Development-info-on-issue-cards"><a href="#Development-info-on-issue-cards" class="headerlink" title="Development info on issue cards"></a>Development info on issue cards</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/966669112/966669129/2/1553854539622/devinfo.png" alt=""></p>
+<p>이제 칸반, 스프린트 보드에서 이슈 카드에서 커밋되었거나 브랜치가 생성된 내역을 볼 수 있습니다.<br>이 기능은 커밋 내역을 트래킹하여 보여주는 서비스가 연결되어 있을 경우 볼 수 있겠군요.<br>(예: Fisheye, Crucible, Bitbucket)</p>
+<p>이미지 상으로는 커밋 내역과 브랜치, 리뷰가 완료되었는지 진행 중인지 알 수 있겠네요.<br>배포 관련 내용은 bitbucket과 관련 내용인지 봐야할 것 같기는 합니다.<br>(정확한 것은 모르겠지만 아틀라시안 제품과 연동이 잘 되어 있을 것으로 예상합니다)</p>
+<h3 id="Flexible-boards"><a href="#Flexible-boards" class="headerlink" title="Flexible boards"></a>Flexible boards</h3><p><img src="https://confluence.atlassian.com/jirasoftware/files/966669112/967894226/1/1553509436159/issue_resize.gif" alt=""></p>
+<p>보드에서 오른쪽에 이슈 카드의 디테일 내용을 볼 때 가로의 크기가 정해져 있어 보기 힘들었던 것을<br>옆으로 늘려서 볼 수 있도록 개선한 내용입니다. (QoL 내용 같네요. ㅎㅎ)</p>
+<h3 id="More-performance-improvements"><a href="#More-performance-improvements" class="headerlink" title="More performance improvements"></a>More performance improvements</h3><p>항상 열심히 성능 개선에 힘쓰고 있는 아틀라시안!<br>이번에도 성능 개선 소식이 있네요.</p>
+<h4 id="보드-피커-개선"><a href="#보드-피커-개선" class="headerlink" title="보드 피커 개선"></a>보드 피커 개선</h4><p>보드 페이지를 열 때 마다 모든 보드 리스트를 가져왔는데 그렇게 하지 않도록 개선했다고 합니다.<br>보드를 고를 때는 차이가 나지 않지만, 다른 페이지에서는 성능 상 효과가 있을 것이라고 하네요. :)</p>
+<h4 id="이슈-카드-색깔-설정-속도-개선"><a href="#이슈-카드-색깔-설정-속도-개선" class="headerlink" title="이슈 카드 색깔 설정 속도 개선"></a>이슈 카드 색깔 설정 속도 개선</h4><p>보드에서 JQL에 따라 카드에 색깔을 넣을 수 있는 기능을 개선했다는 내용입니다.<br>내부 로직을 개선한 내용으로 색깔을 입히는데에 더 효율적으로 계산한다고 하네요.</p>
+<h3 id="Jira-Data-Center-on-Microsoft-Azure"><a href="#Jira-Data-Center-on-Microsoft-Azure" class="headerlink" title="Jira Data Center on Microsoft Azure"></a>Jira Data Center on Microsoft Azure</h3><p>Jira Data Center 버전-MS Azure 배포 템플릿을 개선했다고 합니다.<br>(사실 데이터 센터 버전을 사용하지 않아서 잘 모르겠지만 8.1 버전 외에 다 적용되는 사항이라고 합니다.)</p>
+<h3 id="New-JMX-metrics"><a href="#New-JMX-metrics" class="headerlink" title="New JMX metrics"></a>New JMX metrics</h3><p>Jira 성능을 보기 위해서 JMX라는 매트릭스를 도입했다고 합니다.<br>자세한 것은 이 링크(<a href="https://confluence.atlassian.com/adminjiraserver/live-monitoring-using-the-jmx-interface-939707304.html">Live monitoring using the JMX interface</a>)에 있네요.<br>다만 이 기능은 모니티링도 성능에 영향을 줄 수 있으니 1초에 한번정도만 새로고침하라고 경고하네요. :)<br>기능을 켜면 Administration &gt; System &gt; System info 밑에 <code>Instrumentation</code>이라는 메뉴가 나타납니다.</p>
+<p><img src="https://user-images.githubusercontent.com/5077086/64078257-40fe6f80-cd13-11e9-9bb3-b5bc36e45439.png" alt="Instrumentation: 많은 성능 관련 내용을 볼 수 있습니다."></p>
+<h3 id="Small-improvements-to-make-your-day"><a href="#Small-improvements-to-make-your-day" class="headerlink" title="Small improvements to make your day"></a>Small improvements to make your day</h3><p>작은 개선 사항이지만 우리에게는 꿀맛같은 개선사항입니다.<br>(이번에는 그렇게 많지는 않군요.)</p>
+<h4 id="Sorting-projects-by-columns"><a href="#Sorting-projects-by-columns" class="headerlink" title="Sorting projects by columns"></a>Sorting projects by columns</h4><p><img src="https://confluence.atlassian.com/jirasoftware/files/966669112/968661924/1/1554109939974/sortprojects.png" alt=""></p>
+<p>이미지 처럼 각 컬럼 별로 여러 프로젝트를 소팅해서 볼 수 있습니다.<br>프로젝트가 많지 않으면 와닿지 않겠지만 프로젝트가 많을 경우에는 좋을 것 같네요!</p>
+<h4 id="Additional-custom-fields-in-batched-email-notifications"><a href="#Additional-custom-fields-in-batched-email-notifications" class="headerlink" title="Additional custom fields in batched email notifications"></a>Additional custom fields in batched email notifications</h4><p>특정 커스텀 필드를 이메일 알림에 포함하는 것을 조정할 수 있는 기능이 추가되었다고 합니다.<br>기능은 심플한데 설정하기에는 까다로운 것 같네요. <a href="https://confluence.atlassian.com/adminjiraserver/adding-custom-fields-to-emails-batched-notifications-968669988.html">참고 링크</a><br>나중에 한번 해보고 정리해서 따로 포스트 작성해보겠습니다.</p>
+<p>그 외에는 계정 로그인, 로그아웃 시간을 볼 수 있는 기능과 아바타 이미지가 추가된 것이 있네요.<br>버그 수정 사항은 따로 다루지 않겠습니다.</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>8.0에도 변경사항이 많았는데 8.1도 변경 사항이 많았네요.<br>글을 작성하면서 QoL이 되었으면 하는 것 중 <code>프로젝트 별 이슈 필드 리스트 개선</code>이 언젠가는 생기겠지하는 생각을 했네요.<br>잡생각을 마무리하며, 포스트 마치겠습니다.</p>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/blog/categories/PM/System/page/3/">이전</a></div><div class="pagination-next"><a href="/blog/categories/PM/System/page/5/">다음</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/blog/categories/PM/System/">1</a></li><li><a class="pagination-link" href="/blog/categories/PM/System/page/2/">2</a></li><li><a class="pagination-link" href="/blog/categories/PM/System/page/3/">3</a></li><li><a class="pagination-link is-current" href="/blog/categories/PM/System/page/4/">4</a></li><li><a class="pagination-link" href="/blog/categories/PM/System/page/5/">5</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/36b2e11dada89a7d6bbb916157ab57ea?s=128" alt="Pineoc"></figure><p class="title is-size-4 is-block line-height-inherit">Pineoc</p><p class="is-size-6 is-block">PM &amp; Developer</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/blog/archives"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/blog/categories"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/blog/tags"><p class="title">21</p></a></div></div></nav></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/blog/categories/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/Life/"><span class="level-start"><span class="level-item">Life</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/blog/categories/Life/Book/"><span class="level-start"><span class="level-item">Book</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/Life/IoT/"><span class="level-start"><span class="level-item">IoT</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/blog/categories/PM/"><span class="level-start"><span class="level-item">PM</span></span><span class="level-end"><span class="level-item tag">31</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/blog/categories/PM/Framework/"><span class="level-start"><span class="level-item">Framework</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/PM/System/"><span class="level-start"><span class="level-item">System</span></span><span class="level-end"><span class="level-item tag">25</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/PM/Work/"><span class="level-start"><span class="level-item">Work</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/blog/categories/Tech/"><span class="level-start"><span class="level-item">Tech</span></span><span class="level-end"><span class="level-item tag">9</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/blog/categories/Tech/Javascript/"><span class="level-start"><span class="level-item">Javascript</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/blog/categories/Tech/Program-Service/"><span class="level-start"><span class="level-item">Program&amp;Service</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><a class="media-left" href="/blog/2020/11/01/Atlassian-Jira-Clound/"><p class="image is-64x64"><img class="thumbnail" src="https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/upcoming-changes-to-server-products@2x-300x197.png" alt="Atlassian 서비스 Clound 전환 선언!"></p></a><div class="media-content size-small"><p><time dateTime="2020-11-01T07:31:15.000Z">2020-11-01</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/11/01/Atlassian-Jira-Clound/">Atlassian 서비스 Clound 전환 선언!</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/PM/">PM</a> / <a class="link-muted" href="/blog/categories/PM/System/">System</a></p></div></article><article class="media"><a class="media-left" href="/blog/2020/10/25/Atlassian-playbook-DACI/"><p class="image is-64x64"><img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:e7903b3d-0efb-41b5-8ae7-d668b6c6281d/DACI.png?cdnVersion=1316" alt="Atlassian playbook - DACI 프레임워크"></p></a><div class="media-content size-small"><p><time dateTime="2020-10-25T06:43:13.000Z">2020-10-25</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/10/25/Atlassian-playbook-DACI/">Atlassian playbook - DACI 프레임워크</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/PM/">PM</a> / <a class="link-muted" href="/blog/categories/PM/Framework/">Framework</a></p></div></article><article class="media"><a class="media-left" href="/blog/2020/10/18/Confluence-7-0-7-8-Release-notes/"><p class="image is-64x64"><img class="thumbnail" src="https://user-images.githubusercontent.com/5077086/96360171-853a1280-1155-11eb-9895-cd15add31f09.png" alt="Confluence 7.0~7.8 Release notes"></p></a><div class="media-content size-small"><p><time dateTime="2020-10-18T06:09:59.000Z">2020-10-18</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/10/18/Confluence-7-0-7-8-Release-notes/">Confluence 7.0~7.8 Release notes</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/PM/">PM</a> / <a class="link-muted" href="/blog/categories/PM/System/">System</a></p></div></article><article class="media"><a class="media-left" href="/blog/2020/09/29/Book-review-Engineering-7-year-Manager-1-day/"><p class="image is-64x64"><img class="thumbnail" src="https://image.yes24.com/goods/87336637/800x0" alt="Book review: 개발 7년차, 매니저 1일차"></p></a><div class="media-content size-small"><p><time dateTime="2020-09-29T08:14:19.000Z">2020-09-29</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/09/29/Book-review-Engineering-7-year-Manager-1-day/">Book review: 개발 7년차, 매니저 1일차</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/Life/">Life</a> / <a class="link-muted" href="/blog/categories/Life/Book/">Book</a></p></div></article><article class="media"><a class="media-left" href="/blog/2020/09/06/Jira-Software-8-10-8-12-release-notes/"><p class="image is-64x64"><img class="thumbnail" src="https://wac-cdn.atlassian.com/dam/jcr:fa01756d-6dcc-45d1-83ab-696fbfeb074f/Jira-icon-blue.svg?cdnVersion=696" alt="Jira Software 8.10~8.12 release notes"></p></a><div class="media-content size-small"><p><time dateTime="2020-09-06T11:53:57.000Z">2020-09-06</time></p><p class="title is-6"><a class="link-muted" href="/blog/2020/09/06/Jira-Software-8-10-8-12-release-notes/">Jira Software 8.10~8.12 release notes</a></p><p class="is-uppercase"><a class="link-muted" href="/blog/categories/PM/">PM</a> / <a class="link-muted" href="/blog/categories/PM/System/">System</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Advertisement</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8535740075617154" data-ad-slot="8690513316" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="card"><div class="card-content"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({ id:330412 });</script></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="/blog/img/logo.svg" alt="Pineoc&#039;s Blog" height="28"></a><p class="size-small"><span>&copy; 2020 Pineoc</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
             site: {
                 url: 'https://pineoc.github.io/blog',
                 external_link: {"enable":true,"exclude":[]}
@@ -183,7 +191,7 @@
                     fold: 'unfolded'
                 }
             }
-        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="Zurück nach oben" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
             if (typeof $.fn.lightGallery === 'function') {
                 $('.article').lightGallery({ selector: '.gallery-item' });
             }
