@@ -1,5 +1,5 @@
 ---
-title: Atlassian 서비스 Clound 전환 선언!
+title: Atlassian 서비스 Cloud 전환 선언!
 toc: true
 date: 2020-11-01 16:31:15
 categories:
