@@ -6,7 +6,7 @@ categories:
 - Tech
 tags:
 - General Engineering
-thumbnail: https://user-images.githubusercontent.com/5077086/100539406-9bb9aa80-3279-11eb-8ee0-88e94e38085b.jpg
+thumbnail: https://dl4ih61pxf6wa.cloudfront.net/wp-content/uploads/2016/04/03150729/Frame-rates-300x235.jpg
 ---
 
 ## Intro

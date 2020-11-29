@@ -7,7 +7,7 @@ categories:
 - System
 tags:
 - Jira
-thumbnail: https://manifesto.co.uk/wp-content/uploads/2014/08/estimating-in-agile-and-scrum.png
+thumbnail: https://user-images.githubusercontent.com/5077086/100539406-9bb9aa80-3279-11eb-8ee0-88e94e38085b.jpg
 ---
 
 ## Jira 이슈 스토리 포인트 설정
