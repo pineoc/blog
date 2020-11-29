@@ -6,7 +6,7 @@ categories:
 - Tech
 tags:
 - General Engineering
-thumbnail: https://cgvr.cs.ut.ee/wp-content/uploads/2019/03/Teapot-Smooth.gif
+thumbnail: https://dl4ih61pxf6wa.cloudfront.net/wp-content/uploads/2016/04/03150729/Frame-rates-300x235.jpg
 ---
 
 ## Intro

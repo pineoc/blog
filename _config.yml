@@ -88,3 +88,5 @@ deploy:
   type: git
   repo: https://github.com/pineoc/blog.git
   branch: gh-pages
+
+all_minifier: true
