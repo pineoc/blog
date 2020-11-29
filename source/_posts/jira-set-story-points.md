@@ -19,7 +19,7 @@ thumbnail: https://manifesto.co.uk/wp-content/uploads/2014/08/estimating-in-agil
 
 단계별로 빠르게 설정해봅시다! (단, Admin 계정만 가능합니다)
 
-1. Jira settings > issues 이동 - {JIRA URL}/secure/admin/ViewIssueTypes.jspa
+1. Jira settings > issues 이동
 2. Fields > Custom Fields 이동
 3. Story Points를 찾아 Configure > Edit Configuration
 4. Choose applicable issue type에서 story points를 사용하고자 하는 이슈 타입을 선택 후 설정
