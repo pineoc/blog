@@ -1,5 +1,5 @@
 ---
-title: Perforce(P4) Workspace(작업공간)
+title: Perforce(P4) Workspace(작업공간) 관리
 toc: true
 date: 2021-02-10 00:37:45
 categories:
@@ -24,9 +24,6 @@ Perforce 가이드 문서에는 workspace를 아래와 같이 설명하고 있�
 
 위의 화면은 서버에 등록된 workspace를 선택하여 사용할 수 있는 화면입니다.
 `Show only workspace available for use on this computer` 옵션을 통해서 현재 컴퓨터에서 만든 workspace를 필터링해서 보고 선택하여 사용할 수 있습니다.
-
-Git과 또 다른 점은 작업하는 폴더(p4에서는 workspace)를 이동(switch)한다고 해서 같은 폴더에서 파일 변경이 이뤄지는 것이 아닌 다른 폴더에 구성된 workspace로 이동하는 것이어서 약간 개념이 다릅니다.
-자세한 것은 workspace switch에서 다뤄볼게요.
 
 ## Workspace 만들기
 
@@ -83,12 +80,28 @@ workspace를 만들었으니 작업을 위해 소스들을 가져와야겠죠?
 
 ![Switch to Workspace 메뉴를 통해 이동](https://user-images.githubusercontent.com/5077086/107881442-b837bb80-6f27-11eb-80b3-6af3e682bffc.png)
 
-위 예시 스크린샷은 같은 스트림을 보고있는 workspace이지만, 다른 스트림을 바라보는 workspace도 이동할 수 있습니다.
+위 예시 스크린샷은 같은 스트림을 보고있는 workspace이지만, 다른 스트림을 바라보는 workspace로도 이동할 수 있습니다.
 
-### Git과 P4 작업 공간 이동 차이점
-
-TODO: Git 브랜치 변경, P4 workspace 변경의 차이를 잘 나타낼 수 있는 그림을 그려서 올리자
-
-## Workspace 삭제(delete) / 언로드(unload)
+## Workspace 삭제(delete)
 
 [P4 Guide: Workspace Delete & Unload](https://www.perforce.com/manuals/p4v/Content/P4V/using.workspaces.html#Delete_and_unload_workspaces)
+
+workspace를 삭제하는 방법은 간단합니다.
+
+![](https://user-images.githubusercontent.com/5077086/107891686-93613980-6f63-11eb-895a-e0056196bdc3.png)
+
+1. 삭제하고자 하는 workspace에 작업중인 내용이 있다면 리버트합니다. (pending changelist, shelve가 있다면 revert해줍니다.)
+2. View > Workspaces 메뉴에서 Workspaces 탭을 열어줍니다. (이미 열려있다면 해당 탭으로 갑니다)
+3. 마우스 오른쪽 클릭을 누른 뒤 삭제합니다.
+
+삭제하고자하는 workspace에 작업중인 내용이 있다면 아래와 같은 오류가 발생할 수 있으니 작업중인 내용이 있는지 확인해보세요.
+
+`Client 'pineoc-feature1' has files opened. To delete the client, revert any opened files and delete any pending changes first. An administrator may specify -f to force the delete of another user's client.`
+예시로 삭제해보려했는데 파일 하나가 checkout 되어있어 위와 같은 오류를 볼 수 있었습니다.
+
+> 가이드 문서에 있는 언로드는 제가 테스트하는 workspace에서는 나오지 않아 넘어가겠습니다.
+
+## Workspace 관리 마무리
+
+이렇게 Perforce에서 workspace를 생성하고 이동, 삭제하는 것까지 살펴보았습니다.
+사실 더 자세하게 정리하면 이야기할 내용이 많지만 use case 별로 정리를 하고 포스팅을 해봐야겠네요. 😎
