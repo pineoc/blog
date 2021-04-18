@@ -1,5 +1,5 @@
 ---
-title: Perforce(P4) Workspace(작업공간) 관리
+title: Perforce(P4V) Workspace(작업공간) 관리
 toc: true
 date: 2021-02-10 00:37:45
 categories:

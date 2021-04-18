@@ -1,5 +1,5 @@
 ---
-title: Perforce(P4) Search(검색) 기능
+title: Perforce(P4V) Search(검색) 기능
 toc: true
 date: 2021-03-31 07:19:37
 categories:
