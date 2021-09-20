@@ -73,8 +73,8 @@ Texture baking, Light baking 등이 있으며 텍스쳐나 빛을 렌더링할 �
 
 - [https://ko.m.wikipedia.org/wiki/텍스처_매핑](https://ko.m.wikipedia.org/wiki/%ED%85%8D%EC%8A%A4%EC%B2%98_%EB%A7%A4%ED%95%91)
 - [https://en.m.wikipedia.org/wiki/Bump_mapping](https://en.m.wikipedia.org/wiki/Bump_mapping)
-    - [https://en.m.wikipedia.org/wiki/Normal_mapping](https://en.m.wikipedia.org/wiki/Normal_mapping)
-    - [https://en.m.wikipedia.org/wiki/Parallax_mapping](https://en.m.wikipedia.org/wiki/Parallax_mapping)
+  - [https://en.m.wikipedia.org/wiki/Normal_mapping](https://en.m.wikipedia.org/wiki/Normal_mapping)
+  - [https://en.m.wikipedia.org/wiki/Parallax_mapping](https://en.m.wikipedia.org/wiki/Parallax_mapping)
 - [https://en.m.wikipedia.org/wiki/Displacement_mapping](https://en.m.wikipedia.org/wiki/Displacement_mapping)
 - [https://en.m.wikipedia.org/wiki/Lightmap](https://en.m.wikipedia.org/wiki/Lightmap)
 
@@ -170,7 +170,7 @@ LOD는 밉맵(MipMap)을 이용하여 적용할 수도 있고 언리얼 엔진�
 베이킹 결과물인 라이트 맵, 노말 맵, LOD로 오브젝트들을 렌더링할 때에 사용합니다.
 매시의 상세(디테일)를 줄이고 여러 매핑 기술을 적용해서 렌더링 비용을 줄이고 빠르게 표현할 수 있죠.
 
-## 마무리: 이제 Baking이 뭔지 이해하셨나요?
+## 마무리: 이제 Baking이 뭔지 대략 이해했나요?
 
 저는 처음에는 Bake, Baking이 그냥 빵을 굽는 정도의 뭔가 미리 컴파일 같은 것을 해두고 사용한 것인가 싶었는데요.
 이번에 정리하면서 베이킹을 하고 반영하기 위해 많은 기술들이 들어간 것을 공부할 수 있었습니다.
