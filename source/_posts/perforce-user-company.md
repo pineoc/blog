@@ -27,7 +27,7 @@ tags:
 퍼포스를 사용하고 있는 회사는 여기서 확인할 수 있었습니다.
 <https://www.perforce.com/customers>
 
-![Perforce customers](이미지1)
+![Perforce customers](https://user-images.githubusercontent.com/5077086/147757884-e936aaa4-782e-4562-befb-fc557f9cd7cd.png)
 
 Industry를 보니 당연히 게임 개발이 있고 다른 카테고리로는 이커머스, 자동차 회사, 우주항공 쪽도 있습니다.
 (NASA, 포르쉐도 있네요. 😈)
@@ -102,10 +102,22 @@ Perforce, SVN, Git으로 확인해보니..
 
 <script type="text/javascript"> trends.embed.renderExploreWidget("RELATED_QUERIES_0", {"comparisonItem":[{"keyword":"perforce","geo":"","time":"today 12-m"},{"keyword":"SVN","geo":"","time":"today 12-m"},{"keyword":"git","geo":"","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"q=perforce,SVN,git&date=today 12-m,today 12-m,today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
 
+
 Git이 압도적이어서 Perforce가 아예 바닥에 있어서 보이지를 않네요. Perforce만 두고 기간을 늘려서 보겠습니다.
+
 
 <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"perforce","geo":"","time":"2004-01-01 2021-12-28"}],"category":0,"property":""}, {"exploreQuery":"date=all&q=perforce","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
 
 2000년 초반까지만해도 꽤 많은 검색량이 있었는데 2010년들어서는 많이 떨어졌네요.
 나라별로는 세인트헬레나, 대한민국, 이스라엘, 중국, 캐나다, 미국 순으로 많이 검색했네요.
 
+검색량만 봤을때, 지금은 대부분의 회사에서는 소스관리 프로그램 Git을 주로 쓰는 것 같고
+Perforce는 게임 개발 회사에서는 몇몇 큰 회사에서 쓰고 있는 것 같습니다.
+
+## 생각 마무리
+
+어디 퍼포스 쓰는 회사 얼마나 되는지 살짝 맛을 보았습니다. 아무래도 게임 개발에 있어서 큰 애셋 파일들의 동기화가 시간이 걸리는데 그것에 대한 강점이 있고 작업물의 통합에도 편리함이 있으니 사용하는 것 같습니다.
+슬쩍 확인해보니 국내 게임 회사들도 꽤나 쓰고 있는 것 같네요. (N사, S사, P사 등)
+<https://www.perforce.com/support/self-service-resources/documentation> 퍼포스 가이드 문서도 이것저것 있는데 아무래도 영어이기도하고 활용하기 어렵게 작성되어있기도해서 조금씩 공부하면서 포스트 해볼 것 같습니다.
+가이드 문서가 부족해도 회사에서 쓰고 있는 시스템이니 생산성을 올릴 수 있는 방법도 고민해야하고 가이드 문서들도 좀 챙겨보고 그래야겠죠. ㅎㅎ
+이만 생각 포스트 마치겠습니다.
