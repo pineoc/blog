@@ -1,12 +1,18 @@
-# Perforce Trigger 설정
-
-Created: January 25, 2022 12:41 PM
-Last Edited: January 31, 2022 11:48 PM
-Tags: blog
+---
+title: Perforce Trigger 설정
+toc: true
+date: 2022-01-31 00:31:40
+categories:
+- Tech
+- Program&Service
+tags:
+- Perforce
+---
 
 ## Perforce Trigger?
 
-퍼포스 시스템에서 변경사항을 서밋하거나 changelist가 생성될 때 등 이벤트에 따라 스크립트를 실행시켜 여러가지 커스터마이즈할 수 있는 기능입니다.
+퍼포스 시스템에서 변경사항을 서밋하거나 changelist가 생성될 때 등
+이벤트에 따라 스크립트를 실행시켜 여러가지 커스터마이즈할 수 있는 기능입니다.
 
 [https://www.perforce.com/manuals/p4sag/Content/P4SAG/chapter.scripting.triggers.html](https://www.perforce.com/manuals/p4sag/Content/P4SAG/chapter.scripting.triggers.html)
 
@@ -36,89 +42,33 @@ p4 triggers를 실행하면 컴퓨터에 설정한 텍스트 수정 프로그램
 # Perforce Submit and Form Validating Trigger Specifications.
 #
 #  Triggers:	a list of triggers; one per line. Each trigger line must be
-#		indented with spaces or tabs in the form. Each line has four
-#		elements:
+#	indented with spaces or tabs in the form. Each line has four
+#	elements:
 #
-#  		Name:   The name of the trigger.
+#  	Name:   The name of the trigger.
 #
-#  		Type:   'archive'	  external archive access triggers
-#			'bgtask    '      server-side user processes
-#			'auth-check'      check authentication trigger
-#			'auth-check-sso'  sso check authentication trigger
-#			'auth-set'        set authentication trigger
-#			'change-submit'   pre-submit triggers
-#			'change-content'  modify content submit triggers
-#			'change-commit'   post-submit triggers
-#			'change-failed'   submit failure fires these triggers
-#			'command'         pre/post user command triggers
-#			'edge-submit'     Edge Server pre-submit
-#			'edge-content'    Edge Server content submit
-#			'fix-add'         pre-add fix triggers
-#			'fix-delete'      pre-delete fix triggers
-#			'form-in'         modify form in triggers
-#			'form-out'        modify form out triggers
-#			'form-save'       pre-save form triggers
-#			'form-commit'     post-save form triggers
-#			'form-delete'     pre-delete form triggers
-#			'graph-push-start'      pre git push triggers
-#			'graph-push-reference'  pre git reference update
-#			'graph-push-reference-complete'
-#			                        post git reference update
-#			'graph-lfs-push'        pre lfs file triggers
-#			'graph-push-complete'   post git push triggers
-#			'journal-rotate'  post-journal rotation triggers
-#			'journal-rotate-lock' blocking journal rotate triggers
-#			'push-submit'     pre-push triggers
-#			'push-content'    modify content push triggers
-#			'push-commit'     post-push triggers
-#			'service-check'   check auth trigger (service users)
-#			'shelve-submit'   pre-shelve triggers
-#			'shelve-commit'   post-shelve triggers
-#			'shelve-delete'   pre-delete shelve triggers
-#
-#  		Path:   For change-*, edge-*, or shelve-* triggers, a pattern
-#			to match files in the changelist.
-#
-#			For form-* triggers, the type of form: e.g. 'branch'
-#			'client', etc.
-#
-#			For fix-* triggers use 'fix'.
-#
-#			For auth-* triggers use 'auth'.
-#
-#			For graph-* triggers use a pattern to match repo names.
-#
-#			For archive triggers, a file pattern to match the
-#			file name being accessed.
-#
-#			For command triggers, the client command to match.
-#			Must be in the form "(pre|post)-user-$command",
-#			e.g. "pre-user-tag".  The command name is a regular
-#			expression.  See "p4 help grep" for details on
-#			syntax.
-#
-#			For journal-rotate* triggers, use 'any' or either the
-#			server.id or cluster.id of the server(s) that
-#			should run the triggers.
-#
-#  		Command: The OS command to run for validation.  If the
-#			 command contains spaces, the whole command must
-#			 be quoted.  See 'p4 help triggers' for a list of
-#			 variables that can be expanded in the command
-#			 string.
+# Type:   'archive'	  external archive access triggers
+#   'bgtask    '      server-side user processes
+#   'auth-check'      check authentication trigger
+#   'auth-check-sso'  sso check authentication trigger
+#   'auth-set'        set authentication trigger
+#   'change-submit'   pre-submit triggers
+#   'change-content'  modify content submit triggers
+#   'change-commit'   post-submit triggers
+# ...
 #
 #  For example,
 #
-#	Triggers:
-#		cscheck change-submit //depot/... "cmd %changelist%"
-#		no-oblits command pre-user-obliterate fail
-#		mkspec form-out client "%quote%//trig/scr.pl%quote%"
-#		daily_verify bgtask unset "verify.pl"
+#   Triggers:
+#       cscheck change-submit //depot/... "cmd %changelist%"
+#       no-oblits command pre-user-obliterate fail
+#       mkspec form-out client "%quote%//trig/scr.pl%quote%"
+#       daily_verify bgtask unset "verify.pl"
 #
 # See 'p4 help triggers' for more information about triggers.
 
 Triggers:
-	submit_data_hook_Test change-commit //Test/... "C:\Program Files (x86)\Python38-32\python %//Test/mainline/Tool/P4Triggers/submit_data_hooks.py% %change%"
+    submit_data_hook_Test change-commit //Test/... "C:\Program Files (x86)\Python38-32\python %//Test/mainline/Tool/P4Triggers/submit_data_hooks.py% %change%"
 ```
 
 파일에는 트리거에 대한 설명 주석과 이벤트 타입, 트리거 예시가 있습니다.
@@ -136,18 +86,16 @@ Triggers:
 제가 설정한 트리거를 설명드리면, 주로 `change-commit` 이벤트를 트리거에 사용하고 있습니다.
 **change-commit은 changelist가 서버에 커밋되어 저장될 경우 트리거되는 이벤트입니다.**
 
-> 상세 설명: change-commit trigger guide [https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.submits.commit.html](https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.submits.commit.html)
-> 
+> 상세 설명: change-commit trigger guide [Perforce guide docs](https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.submits.commit.html)
 
 `change-commit` 이벤트 외에도 changelist 만들때 description 템플릿 폼 적용을 위해 `form-out` 이벤트를 사용해서 만들 수도 있습니다.
 
-> form-out trigger guide: [https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.forms.out.html](https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.forms.out.html)
+> form-out trigger guide: [Perforce guide docs](https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.forms.out.html)
 가이드 문서에서는 기본 클라이언트 워크스페이스 뷰를 설정하는 스크립트를 다뤘네요.
-> 
 
 ### 스크립트 작성
 
-[https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.submits.commit.html](https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.submits.commit.html) 가이드 문서 예시로는 쉘스크립트로 “체인지리스트가 서밋될 경우 파일을 수정했던 사용자들에게 이메일로 수정 사항을 공유”하는 스크립트를 보여주고 있네요.
+[Submit event trigger 문서](https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.submits.commit.html) 가이드 문서 예시로는 쉘스크립트로 “체인지리스트가 서밋될 경우 파일을 수정했던 사용자들에게 이메일로 수정 사항을 공유”하는 스크립트를 보여주고 있네요.
 
 python, node, perl 등 그 외의 스크립트를 사용하고자할 경우, 프로그램 경로를 잘 맞춰서 설정할 수 있습니다.
 제가 사용하고 있는 스크립트는 요렇게 생겼습니다.
@@ -155,7 +103,7 @@ python, node, perl 등 그 외의 스크립트를 사용하고자할 경우, 프
 
 <script src="[https://gist.github.com/pineoc/588537cef8dba9902205e5c1cc334c51.js](https://gist.github.com/pineoc/588537cef8dba9902205e5c1cc334c51.js)"></script>
 
-자세한 내용은 위 스크립트를 참고해보세요 😁 
+자세한 내용은 위 스크립트를 참고해보세요 😁
 
 ### 이벤트에 맞는 스크립트 설정
 
@@ -165,7 +113,7 @@ change-commit(서밋 완료) 이벤트에 맞춰 스크립트가 실행되도록
 1. 프로그램 경로는 P4D 실행되고 있는 경로에서 프로그램이 설치된 경로를 입력
 2. 스크립트 경로는 보통 Perforce에서 스크립트를 관리하니 경로에 맞춰 입력
 3. 필요한 파라미터를 입력해줍니다.
-    1. 필요한 파라미터는 [https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.variables.html](https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.variables.html) 에서 각 이벤트별 사용할 수 있는 파라미터를 확인할 수 있습니다.
+    1. 필요한 파라미터는 [trigger variable](https://www.perforce.com/manuals/p4sag/Content/P4SAG/scripting.triggers.variables.html) 에서 각 이벤트별 사용할 수 있는 파라미터를 확인할 수 있습니다.
 
 ```makefile
 # p4 triggers comments ...
