@@ -1,0 +1,110 @@
+version: 5.0.0
+variant: default
+logo: /img/logo.svg
+head:
+    favicon: /img/favicon.svg
+    open_graph:
+        title: 
+        type: blog
+        url: 
+        image: 
+        site_name: 
+        author: 
+        description: 
+        twitter_card: 
+        twitter_id: 
+        twitter_site: 
+        google_plus: 
+        fb_admins: 
+        fb_app_id: 
+    structured_data:
+        title: 
+        description: 
+        url: 
+        author: 
+        image: 
+    meta:
+        - ''
+    rss: 
+navbar:
+    menu:
+        Home: /
+        Archives: /archives
+        Categories: /categories
+        Tags: /tags
+        About: /about
+    links:
+        Download on GitHub:
+            icon: fab fa-github
+            url: https://github.com/pineoc
+footer:
+    links:
+        Creative Commons:
+            icon: fab fa-creative-commons
+            url: https://creativecommons.org/
+        Attribution 4.0 International:
+            icon: fab fa-creative-commons-by
+            url: https://creativecommons.org/licenses/by/4.0/
+        Download on GitHub:
+            icon: fab fa-github
+            url: https://github.com/ppoffice/hexo-theme-icarus
+article:
+    highlight:
+        theme: atom-one-light
+        clipboard: true
+        fold: unfolded
+    thumbnail: true
+    readtime: true
+search:
+    type: google_cse
+    cx: 4c5e31efb3c79fae6
+comment:
+    type: disqus
+    shortname: pineoc
+sidebar:
+    left:
+        sticky: false
+    right:
+        sticky: true
+widgets:
+    -
+        position: left
+        type: profile
+        author: Pineoc
+        author_title: PM & Developer
+        location: 
+        avatar: 
+        avatar_rounded: true
+        gravatar: kingsuk92@gmail.com
+    -
+        position: left
+        type: toc
+    -
+        position: left
+        type: categories
+    -
+        position: left
+        type: recent_posts
+    -
+        position: left
+        type: adsense
+        client_id: ca-pub-8535740075617154
+        slot_id: '8690513316'
+    -
+        position: left
+        type: coupang
+plugins:
+    animejs: true
+    back_to_top: true
+    gallery: true
+    google_analytics:
+        tracking_id: UA-45439235-4
+    katex: false
+    mathjax: false
+    outdated_browser: false
+    progressbar: true
+providers:
+    cdn: jsdelivr
+    fontcdn: google
+    iconcdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
+colorscheme: white
