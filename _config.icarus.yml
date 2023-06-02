@@ -8,7 +8,7 @@ head:
         type: blog
         url: 
         image: 
-        site_name: 
+        site_name: pineoc's blog
         author: 
         description: 
         twitter_card: 
@@ -90,9 +90,6 @@ widgets:
         type: adsense
         client_id: ca-pub-8535740075617154
         slot_id: '8690513316'
-    -
-        position: left
-        type: coupang
 plugins:
     animejs: true
     back_to_top: true
