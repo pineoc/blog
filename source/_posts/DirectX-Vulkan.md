@@ -3,6 +3,7 @@ title: "(Game Dev Study) DirectX, Vulkan 정리"
 date: 2021-07-31 16:15:35
 categories:
   - Tech
+  - Game
 tags:
   - Graphics
   - DirectX

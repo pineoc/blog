@@ -4,6 +4,7 @@ toc: true
 date: 2020-11-03 00:31:15
 categories:
 - Tech
+- Game
 tags:
 - General Engineering
 thumbnail: https://dl4ih61pxf6wa.cloudfront.net/wp-content/uploads/2016/04/03150729/Frame-rates-300x235.jpg
