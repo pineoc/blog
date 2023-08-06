@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pineoc.github.io/blog/2023/08/06/perforce-checkout-/</loc>
+    
+    <lastmod>2023-08-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2021/12/19/perforce-submit/</loc>
+    
+    <lastmod>2023-08-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/2022/02/28/Perforce-swarm/</loc>
+    
+    <lastmod>2023-08-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pineoc.github.io/blog/2023/07/23/think-ndc19-review/</loc>
     
     <lastmod>2023-07-23</lastmod>
@@ -61,13 +82,6 @@
     <loc>https://pineoc.github.io/blog/2020/11/03/what-is-meaning-1ms/</loc>
     
     <lastmod>2023-06-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2021/12/19/perforce-submit/</loc>
-    
-    <lastmod>2023-06-02</lastmod>
     
   </url>
   
@@ -152,13 +166,6 @@
     <loc>https://pineoc.github.io/blog/2022/05/21/think-issuetracker/</loc>
     
     <lastmod>2022-05-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pineoc.github.io/blog/2022/02/28/Perforce-swarm/</loc>
-    
-    <lastmod>2022-02-28</lastmod>
     
   </url>
   
@@ -634,7 +641,7 @@
 
   <url>
     <loc>https://pineoc.github.io/blog</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -642,308 +649,322 @@
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Retrospective/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Jira/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Atlassian/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Framework/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Playbook/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/PM/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Book/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/ScriptRunner/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Confluence/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/ReleaseNotes/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Graphics/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/DirectX/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Javascript-Weekly/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Jira-Cloud/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Study/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/OpenGL-ES/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Perforce/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/IoT/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Article/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Unreal-Engine/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Sentry/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Computer-Graphics/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Tool/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/CI-CD/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/article/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Game/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Blender/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/BugSplat/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Fisheye/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Flutter/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/GitLab/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/CI/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/blog/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Project-management/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Life-log/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/NDC/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/ngrok/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Think/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Issue-Tracker/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/UnrealEngine/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Updates/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/General-Engineering/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Crash-reporter/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/tags/Crash/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/tags/Helix-Swarm/</loc>
+    <lastmod>2023-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pineoc.github.io/blog/tags/Tips/</loc>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -952,98 +973,98 @@
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Life/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/PM/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Life/Book/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/PM/System/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/PM/Framework/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Tech/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Tech/Game/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Tech/Program-Service/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Tech/Javascript/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Life/IoT/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/PM/Work/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Blog/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Life/Think/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://pineoc.github.io/blog/categories/Life/Study/</loc>
-    <lastmod>2023-07-23</lastmod>
+    <lastmod>2023-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
