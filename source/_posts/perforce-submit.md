@@ -11,7 +11,7 @@ tags:
 
 ## 들어가며
 
-[https://pineoc.github.io/blog/2020/01/23/Perforce-basics/](https://pineoc.github.io/blog/2020/01/23/Perforce-basics/)
+{% post_link Perforce-basics %}
 
 앞선 Perforce 베이직 포스트에서는 P4V 클라이언트에서 기본적인 뷰의 구성이나 기능들을 확인해보았습니다.
 이번 포스트에서는 워크스페이스를 구성하고 파일을 Submit하고 Depot에 잘 반영되었는지 확인하는 과정을 살펴보려해요.
